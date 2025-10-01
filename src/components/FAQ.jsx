@@ -40,6 +40,10 @@ const FAQ = () => {
 
   const competitionFaqs = [
     {
+      question: "Is joining the competition required? What if I only want to attend the lecture series?",
+      answer: "No, joining the competition is optional. It is not required since it is included only as a free add-on activity to make JournCamp more exciting. In the registration form, participants can simply select whether or not they want to join.\n\nHowever, we highly recommend participating in the competition for the added experience and learning opportunity."
+    },
+    {
       question: "Who can join the National Campus Press Summit?",
       answer: "The summit is open to registered JournCamp+ participants from elementary, high school, and college."
     },
