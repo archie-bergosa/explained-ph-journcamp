@@ -44,7 +44,7 @@ const Header = () => {
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <img src="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7 md:h-8" />
+              <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7 md:h-8" />
             </div>
 
             <div className="hidden md:flex items-center space-x-6">
