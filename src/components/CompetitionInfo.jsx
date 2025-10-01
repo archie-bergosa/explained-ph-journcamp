@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const CompetitionInfo = () => {
   return (
-    <section className="py-16 md:py-24 px-4 bg-brand-light-teal">
+    <section className="py-16 md:py-24 px-4 bg-gray-100">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
