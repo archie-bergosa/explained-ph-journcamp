@@ -8,8 +8,7 @@ import About from '@/components/About';
 import History from '@/components/History';
 import WhatsNew from '@/components/WhatsNew';
 import Competition from '@/components/Competition';
-import CompetitionInfo from '@/components/CompetitionInfo';
-import Schedules from '@/components/Schedules';
+import InfoAndSchedules from '@/components/InfoAndSchedules';
 import Topics from '@/components/Topics';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
@@ -29,8 +28,7 @@ function App() {
           <About />
           <WhatsNew />
           <Competition />
-          <CompetitionInfo />
-          <Schedules />
+          <InfoAndSchedules />
           <Topics />
           <FAQ />
           <History />
