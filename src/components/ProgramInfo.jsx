@@ -66,24 +66,24 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
         transition={{ duration: 0.6, delay }}
         viewport={{ once: true }}
         whileHover={{ scale: 1.05, y: -5 }}
-        className="bg-gray-50/50 rounded-xl p-6 border border-gray-200/80 hover:shadow-lg transition-all duration-300 text-center h-full"
+        className="bg-brand-secondary rounded-xl p-6 border border-brand-light-gray hover:shadow-urban-shadow transition-all duration-300 text-center h-full"
     >
         <div className="flex justify-center mb-4">
-            <div className="p-3 bg-brand-light-teal/10 rounded-full">
-                <Icon className="w-7 h-7 text-brand-teal" />
+            <div className="p-3 bg-brand-primary/5 rounded-full">
+                <Icon className="w-7 h-7 text-brand-blue" />
             </div>
         </div>
-        <h3 className="text-base sm:text-lg font-semibold text-brand-dark mb-3">{title}</h3>
+        <h3 className="text-base sm:text-lg font-semibold text-brand-primary mb-3">{title}</h3>
         <p className="text-xs sm:text-sm text-gray-600">{description}</p>
     </motion.div>
 );
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-16 px-4 bg-gray-100">
+    <section id="program-info" className="py-16 px-4 bg-brand-secondary/50">
         <div className="container mx-auto">
             {/* About Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
+            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-urban-shadow mb-12 border border-brand-light-gray">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -91,15 +91,15 @@ const ProgramInfo = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                        What is Explained PH <span className="text-brand-orange">JournCamp+</span>?
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary">
+                        What is Explained PH <span className="text-brand-accent">JournCamp+</span>?
                     </h2>
                     <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
                         The Virtual Journalism Camp is an annual initiative of Explained PH, designed to strengthen campus publications through capacity-building sessions that equip young journalists with the skills and knowledge they need to thrive in today’s fast-changing media landscape.
                     </p>
                     <div className="flex justify-center">
-                        <p className="max-w-3xl text-sm md:text-base text-gray-700 font-medium leading-relaxed bg-brand-light-teal/20 p-4 rounded-lg border-l-4 border-brand-teal">
-                            This year, we proudly launch <span className="font-bold text-brand-dark">JournCamp+: National Campus Press Summit</span> — combining seasoned practitioners with award-winning storytellers to give participants the chance to learn and engage with the best of Explained PH.
+                        <p className="max-w-3xl text-sm md:text-base text-gray-700 font-medium leading-relaxed bg-brand-primary/5 p-4 rounded-lg border-l-4 border-brand-blue">
+                            This year, we proudly launch <span className="font-bold text-brand-primary">JournCamp+: National Campus Press Summit</span> — combining seasoned practitioners with award-winning storytellers to give participants the chance to learn and engage with the best of Explained PH.
                         </p>
                     </div>
                 </motion.div>
@@ -111,7 +111,7 @@ const ProgramInfo = () => {
             </div>
 
             {/* What's New Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200/80">
+            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-urban-shadow border border-brand-light-gray">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -119,8 +119,8 @@ const ProgramInfo = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                        What's New in <span className="text-brand-orange">JournCamp+</span>?
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary">
+                        What's New in <span className="text-brand-accent">JournCamp+</span>?
                     </h2>
                     <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
                         We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
@@ -138,10 +138,10 @@ const ProgramInfo = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="bg-brand-dark-teal rounded-2xl p-6 md:p-8 text-white max-w-4xl mx-auto"
+                    className="bg-brand-primary rounded-2xl p-6 md:p-8 text-white max-w-4xl mx-auto"
                 >
                     <div className="flex items-center mb-6 justify-center">
-                        <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-yellow mr-3" />
+                        <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-accent mr-3" />
                         <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Five New Lectures Added!</h3>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -155,7 +155,7 @@ const ProgramInfo = () => {
                                 className="bg-white/10 rounded-lg p-4"
                             >
                                 <div className="flex items-center">
-                                    <div className="w-2 h-2 bg-brand-yellow rounded-full mr-3"></div>
+                                    <div className="w-2 h-2 bg-brand-accent rounded-full mr-3"></div>
                                     <span className="font-medium text-sm md:text-base">{lecture}</span>
                                 </div>
                             </motion.div>
