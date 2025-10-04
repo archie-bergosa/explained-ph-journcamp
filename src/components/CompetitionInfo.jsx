@@ -4,7 +4,7 @@ import { Gift, Award, XCircle, HelpCircle } from 'lucide-react';
 
 const CompetitionInfo = () => {
   return (
-    <section className="relative py-16 md:py-24 px-4 bg-gray-50 overflow-hidden">
+    <section className="relative py-12 px-4 bg-gray-50 overflow-hidden">
       {/* Background Silhouettes */}
       <Gift className="absolute -left-20 top-1/4 w-72 h-72 text-gray-200/70 opacity-20 rotate-12" />
       <Award className="absolute -right-24 -bottom-24 w-96 h-96 text-gray-200/70 opacity-20 -rotate-12" />

@@ -63,7 +63,7 @@ const Topics = () => {
   ];
 
   return (
-    <section id="topics" className="py-16 md:py-24 px-4 bg-slate-50">
+    <section id="topics" className="py-12 px-4 bg-slate-50">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -85,7 +85,7 @@ const Topics = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200 mb-16"
+          className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200 mb-12"
         >
           <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-8 text-center">Core Lecture Series</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-4">

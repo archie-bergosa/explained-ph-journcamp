@@ -4,7 +4,7 @@ import { Trophy } from 'lucide-react';
 
 const Competition = () => {
   return (
-    <section id="competition" className="py-16 md:py-24 px-4 bg-slate-100">
+    <section id="competition" className="py-12 px-4 bg-slate-100">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
