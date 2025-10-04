@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const { fontFamily } = require("tailwindcss/defaultTheme")
-
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -52,19 +50,17 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'brand-primary': '#1A1A1A',
-        'brand-secondary': '#F5F5F7',
-        'brand-accent': '#FF3B30',
-        'brand-light-gray': '#E5E5EA',
-        'brand-blue': '#007AFF',
+        'brand-dark-teal': '#004A5A',
+        'brand-teal': '#00808C',
+        'brand-light-teal': '#28B4B4',
+        'brand-orange': '#F08C00',
+        'brand-yellow': '#FFC000',
+        'brand-dark': '#212529',
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
@@ -80,10 +76,6 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      boxShadow: {
-        'urban-shadow': '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'urban-shadow-lg': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],
