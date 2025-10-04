@@ -60,13 +60,13 @@ const newLectures = [
 
 const FeatureCard = ({ icon: Icon, title, description, delay }) => (
     <motion.div
-        key={title} // Added key for list rendering
+        key={title}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay }}
         viewport={{ once: true }}
         whileHover={{ scale: 1.05, y: -5 }}
-        className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 text-center"
+        className="bg-gray-50/50 rounded-xl p-6 border border-gray-200/80 hover:shadow-lg transition-all duration-300 text-center h-full"
     >
         <div className="flex justify-center mb-4">
             <div className="p-3 bg-brand-light-teal/10 rounded-full">
@@ -80,10 +80,10 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-12 px-4 bg-gray-50 overflow-hidden">
+    <section id="program-info" className="py-16 px-4 bg-gray-100">
         <div className="container mx-auto">
-            {/* About Section */}
-            <div className="mb-20">
+            {/* About Section Box */}
+            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -110,8 +110,8 @@ const ProgramInfo = () => {
                 </div>
             </div>
 
-            {/* What's New Section */}
-            <div>
+            {/* What's New Section Box */}
+            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
