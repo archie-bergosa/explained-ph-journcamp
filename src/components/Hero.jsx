@@ -1,11 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Calendar } from 'lucide-react';
 
 const Hero = () => {
   const handleRegister = () => {
     window.open('https://go.explained.ph/JourncampPlus2025', '_blank');
   };
+
+  const keyDates = [
+    { title: 'Registration', dates: 'Oct 1 - Nov 6' },
+    { title: 'Lectures', dates: 'Nov 8, 9, 15, 16' },
+    { title: 'Competition', dates: 'Nov 22, 23, 29, 30' },
+  ];
 
   return (
     <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-white">
@@ -40,6 +47,30 @@ const Hero = () => {
                 Register Now
               </Button>
             </motion.div>
+          </motion.div>
+
+          {/* Dates to Remember Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-12 max-w-4xl mx-auto"
+          >
+            <div className="bg-white rounded-lg shadow-lg border border-gray-200/80 p-4">
+              <div className="flex flex-col sm:flex-row items-center justify-between">
+                <div className="flex items-center mb-4 sm:mb-0">
+                  <Calendar className="w-6 h-6 text-brand-teal mr-3" />
+                  <h3 className="text-base font-bold text-brand-dark">Dates to Remember:</h3>
+                </div>
+                <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                  {keyDates.map((item, index) => (
+                    <div key={index} className="text-sm text-gray-600">
+                      <span className="font-semibold">{item.title}:</span> {item.dates}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
