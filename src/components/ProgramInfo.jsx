@@ -123,25 +123,28 @@ const ProgramInfo = () => {
                     What's New in <span className="text-brand-orange">JournCamp+</span>?
                 </h2>
                 <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
-                    We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
+                    We're taking everything to the next level with exciting new features and expanded content to make this year\'s summit the best one yet.
                 </p>
-                <div className="bg-brand-dark-teal rounded-2xl p-6 text-white">
-                    <div className="flex items-center mb-4">
-                        <Sparkles className="w-7 h-7 text-brand-yellow mr-3" />
-                        <h3 className="text-lg sm:text-xl font-bold">Five New Lectures Added!</h3>
+                <div className="bg-brand-dark-teal rounded-2xl p-6 md:p-8 text-white">
+                    <div className="flex items-center mb-6">
+                        <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-yellow mr-3" />
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Five New Lectures Added!</h3>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {newLectures.map((lecture, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="flex items-center"
+                                className="bg-white/10 rounded-lg p-4"
                             >
-                                <div className="w-2 h-2 bg-brand-yellow rounded-full mr-3 flex-shrink-0"></div>
-                                <span className="font-medium text-sm">{lecture}</span>
+                                <div className="flex items-center">
+                                    <div className="w-2 h-2 bg-brand-yellow rounded-full mr-3"></div>
+                                    <span className="font-medium text-sm md:text-base">{lecture}</span>
+                                </div>
                             </motion.div>
                         ))}
                     </div>

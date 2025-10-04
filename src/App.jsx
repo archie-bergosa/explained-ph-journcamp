@@ -5,10 +5,10 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ProgramInfo from '@/components/ProgramInfo';
-import History from '@/components/History';
+import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
-import Topics from '@/components/Topics';
+import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import StickyRegisterButton from '@/components/StickyRegisterButton';
@@ -25,11 +25,11 @@ function App() {
         <main>
           <Hero />
           <ProgramInfo />
+          <Topics />
           <Competition />
           <InfoAndSchedules />
-          <Topics />
-          <FAQ />
           <History />
+          <FAQ />
         </main>
         <Footer />
         <Toaster />
