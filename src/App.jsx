@@ -4,9 +4,8 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
+import ProgramInfo from '@/components/ProgramInfo';
 import History from '@/components/History';
-import WhatsNew from '@/components/WhatsNew';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
 import Topics from '@/components/Topics';
@@ -25,8 +24,7 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <About />
-          <WhatsNew />
+          <ProgramInfo />
           <Competition />
           <InfoAndSchedules />
           <Topics />
