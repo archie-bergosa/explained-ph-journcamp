@@ -60,14 +60,18 @@ const newLectures = [
 
 const FeatureCard = ({ icon: Icon, title, description, delay }) => (
     <motion.div
+        key={title} // Added key for list rendering
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay }}
         viewport={{ once: true }}
-        className="bg-white rounded-xl p-6 border border-gray-200/80 text-center h-full flex flex-col items-center justify-center"
+        whileHover={{ scale: 1.05, y: -5 }}
+        className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 text-center"
     >
-        <div className="p-3 bg-brand-light-teal/10 rounded-full mb-4">
-            <Icon className="w-7 h-7 text-brand-teal" />
+        <div className="flex justify-center mb-4">
+            <div className="p-3 bg-brand-light-teal/10 rounded-full">
+                <Icon className="w-7 h-7 text-brand-teal" />
+            </div>
         </div>
         <h3 className="text-base sm:text-lg font-semibold text-brand-dark mb-3">{title}</h3>
         <p className="text-xs sm:text-sm text-gray-600">{description}</p>
@@ -77,60 +81,69 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 const ProgramInfo = () => {
   return (
     <section id="program-info" className="py-12 px-4 bg-gray-50 overflow-hidden">
-      <div className="container mx-auto">
-
-        {/* About Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="pr-4"
-            >
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                    What is Explained PH <span className="text-brand-orange">JournCamp+</span>?
-                </h2>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
-                    The Virtual Journalism Camp is an annual initiative of Explained PH, designed to strengthen campus publications through capacity-building sessions that equip young journalists with the skills and knowledge they need to thrive in today’s fast-changing media landscape.
-                </p>
-                <p className="text-sm md:text-base text-gray-700 font-medium leading-relaxed bg-brand-light-teal/20 p-4 rounded-lg border-l-4 border-brand-teal">
-                    This year, we proudly launch <span className="font-bold text-brand-dark">JournCamp+: National Campus Press Summit</span> — combining seasoned practitioners with award-winning storytellers to give participants the chance to learn and engage with the best of Explained PH.
-                </p>
-            </motion.div>
-            <div className="grid grid-cols-2 gap-4">
-                {aboutFeatures.map((feature, index) => (
-                    <FeatureCard key={index} {...feature} delay={index * 0.1} />
-                ))}
+        <div className="container mx-auto">
+            {/* About Section */}
+            <div className="mb-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                >
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+                        What is Explained PH <span className="text-brand-orange">JournCamp+</span>?
+                    </h2>
+                    <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
+                        The Virtual Journalism Camp is an annual initiative of Explained PH, designed to strengthen campus publications through capacity-building sessions that equip young journalists with the skills and knowledge they need to thrive in today’s fast-changing media landscape.
+                    </p>
+                    <div className="flex justify-center">
+                        <p className="max-w-3xl text-sm md:text-base text-gray-700 font-medium leading-relaxed bg-brand-light-teal/20 p-4 rounded-lg border-l-4 border-brand-teal">
+                            This year, we proudly launch <span className="font-bold text-brand-dark">JournCamp+: National Campus Press Summit</span> — combining seasoned practitioners with award-winning storytellers to give participants the chance to learn and engage with the best of Explained PH.
+                        </p>
+                    </div>
+                </motion.div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {aboutFeatures.map((feature, index) => (
+                        <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
+                    ))}
+                </div>
             </div>
-        </div>
 
-        {/* What's New Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4 order-2 lg:order-1">
-                {newFeatures.map((feature, index) => (
-                    <FeatureCard key={index} {...feature} delay={index * 0.1} />
-                ))}
-            </div>
-            <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="pl-4 order-1 lg:order-2"
-            >
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                    What's New in <span className="text-brand-orange">JournCamp+</span>?
-                </h2>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
-                    We're taking everything to the next level with exciting new features and expanded content to make this year\'s summit the best one yet.
-                </p>
-                <div className="bg-brand-dark-teal rounded-2xl p-6 md:p-8 text-white">
-                    <div className="flex items-center mb-6">
+            {/* What's New Section */}
+            <div>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-12"
+                >
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+                        What's New in <span className="text-brand-orange">JournCamp+</span>?
+                    </h2>
+                    <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
+                        We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    {newFeatures.map((feature, index) => (
+                        <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
+                    ))}
+                </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    className="bg-brand-dark-teal rounded-2xl p-6 md:p-8 text-white max-w-4xl mx-auto"
+                >
+                    <div className="flex items-center mb-6 justify-center">
                         <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-yellow mr-3" />
                         <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Five New Lectures Added!</h3>
                     </div>
-                    
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {newLectures.map((lecture, index) => (
                             <motion.div
@@ -148,10 +161,9 @@ const ProgramInfo = () => {
                             </motion.div>
                         ))}
                     </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            </div>
         </div>
-      </div>
     </section>
   );
 };
