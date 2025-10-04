@@ -4,11 +4,12 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import ProgramInfo from '@/components/ProgramInfo';
-import Topics from '@/components/Topics';
+import About from '@/components/About';
+import WhatsNew from '@/components/WhatsNew';
+import History from '@/components/History';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
-import History from '@/components/History';
+import Topics from '@/components/Topics';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import StickyRegisterButton from '@/components/StickyRegisterButton';
@@ -24,12 +25,13 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <ProgramInfo />
-          <Topics />
+          <About />
+          <WhatsNew />
           <Competition />
           <InfoAndSchedules />
-          <History />
+          <Topics />
           <FAQ />
+          <History />
         </main>
         <Footer />
         <Toaster />
