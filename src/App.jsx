@@ -27,11 +27,11 @@ function App() {
           <Hero />
           <About />
           <WhatsNew />
+          <Topics />
           <Competition />
           <InfoAndSchedules />
-          <Topics />
-          <FAQ />
           <History />
+          <FAQ />
         </main>
         <Footer />
         <Toaster />
