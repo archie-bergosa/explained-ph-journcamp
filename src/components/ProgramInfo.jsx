@@ -58,112 +58,110 @@ const newLectures = [
     'Peace Journalism'
 ];
 
-const FeatureCard = ({ icon: Icon, title, description, delay }) => (
+const FeatureCard = ({ icon: Icon, title, description, delay, isNew }) => (
     <motion.div
         key={title}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay }}
         viewport={{ once: true }}
-        whileHover={{ scale: 1.05, y: -5 }}
-        className="bg-brand-secondary rounded-xl p-6 border border-brand-light-gray hover:shadow-urban-shadow transition-all duration-300 text-center h-full"
+        className={`bg-white/90 backdrop-blur-sm rounded-xl p-6 border ${isNew ? 'border-brand-accent/30' : 'border-brand-light-gray'} shadow-urban-shadow hover:shadow-urban-shadow-lg transition-all duration-300 text-center h-full`}
     >
         <div className="flex justify-center mb-4">
-            <div className="p-3 bg-brand-primary/5 rounded-full">
-                <Icon className="w-7 h-7 text-brand-blue" />
+            <div className={`p-3 rounded-full ${isNew ? 'bg-brand-accent/10' : 'bg-brand-blue/10'}`}>
+                <Icon className={`w-7 h-7 ${isNew ? 'text-brand-accent' : 'text-brand-blue'}`} />
             </div>
         </div>
-        <h3 className="text-base sm:text-lg font-semibold text-brand-primary mb-3">{title}</h3>
+        <h3 className="text-base sm:text-lg font-bold text-brand-primary mb-3">{title}</h3>
         <p className="text-xs sm:text-sm text-gray-600">{description}</p>
     </motion.div>
 );
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-16 px-4 bg-brand-secondary/50">
-        <div className="container mx-auto">
-            {/* About Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-urban-shadow mb-12 border border-brand-light-gray">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-12"
-                >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary">
-                        What is Explained PH <span className="text-brand-accent">JournCamp+</span>?
-                    </h2>
-                    <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
-                        The Virtual Journalism Camp is an annual initiative of Explained PH, designed to strengthen campus publications through capacity-building sessions that equip young journalists with the skills and knowledge they need to thrive in today’s fast-changing media landscape.
-                    </p>
-                    <div className="flex justify-center">
-                        <p className="max-w-3xl text-sm md:text-base text-gray-700 font-medium leading-relaxed bg-brand-primary/5 p-4 rounded-lg border-l-4 border-brand-blue">
-                            This year, we proudly launch <span className="font-bold text-brand-primary">JournCamp+: National Campus Press Summit</span> — combining seasoned practitioners with award-winning storytellers to give participants the chance to learn and engage with the best of Explained PH.
-                        </p>
-                    </div>
-                </motion.div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {aboutFeatures.map((feature, index) => (
-                        <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
-                    ))}
-                </div>
-            </div>
+    <section id="program-info" className="relative py-20 px-4 bg-brand-secondary/30 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-primary via-transparent to-brand-accent/20 opacity-30"></div>
+      </div>
+      
+      <div className="container mx-auto relative z-10">
+          {/* Hero Section */}
+          <motion.div 
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+          >
+              <h1 className="text-4xl md:text-6xl font-extrabold text-brand-primary mb-6">
+                  What is <span className="text-brand-accent">JournCamp+</span>?
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                  The Virtual Journalism Camp is an annual initiative by Explained PH, designed to empower the next generation of journalists. We provide the tools, knowledge, and network to thrive in today's dynamic media landscape.
+              </p>
+          </motion.div>
 
-            {/* What's New Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-urban-shadow border border-brand-light-gray">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-12"
-                >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary">
-                        What's New in <span className="text-brand-accent">JournCamp+</span>?
-                    </h2>
-                    <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
-                        We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
-                    </p>
-                </motion.div>
+          {/* About Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+              {aboutFeatures.map((feature, index) => (
+                  <FeatureCard key={feature.title} {...feature} delay={index * 0.15} isNew={false} />
+              ))}
+          </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    {newFeatures.map((feature, index) => (
-                        <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
-                    ))}
-                </div>
+          {/* What's New Section */}
+          <div className="relative">
+              <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="bg-white/70 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-urban-shadow-lg border border-brand-light-gray"
+              >
+                  <div className="text-center mb-12">
+                      <h2 className="text-3xl md:text-5xl font-bold text-brand-primary mb-4">
+                          What's New in <span className="text-brand-accent">JournCamp+</span>?
+                      </h2>
+                      <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
+                          This year, we're introducing a suite of new features and content to make the summit more impactful than ever.
+                      </p>
+                  </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="bg-brand-primary rounded-2xl p-6 md:p-8 text-white max-w-4xl mx-auto"
-                >
-                    <div className="flex items-center mb-6 justify-center">
-                        <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-accent mr-3" />
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Five New Lectures Added!</h3>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {newLectures.map((lecture, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-white/10 rounded-lg p-4"
-                            >
-                                <div className="flex items-center">
-                                    <div className="w-2 h-2 bg-brand-accent rounded-full mr-3"></div>
-                                    <span className="font-medium text-sm md:text-base">{lecture}</span>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-            </div>
-        </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                      {newFeatures.map((feature, index) => (
+                          <FeatureCard key={feature.title} {...feature} delay={index * 0.15} isNew={true} />
+                      ))}
+                  </div>
+
+                  <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      viewport={{ once: true }}
+                      className="bg-brand-primary rounded-2xl p-6 md:p-10 text-white max-w-5xl mx-auto"
+                  >
+                      <div className="flex items-center mb-6 justify-center">
+                          <Sparkles className="w-8 h-8 text-brand-accent mr-4" />
+                          <h3 className="text-2xl md:text-3xl font-bold">Five New Lectures!</h3>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 text-center">
+                          {newLectures.map((lecture, index) => (
+                              <motion.div
+                                  key={index}
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                                  viewport={{ once: true }}
+                                  className="bg-white/10 rounded-lg p-4"
+                              >
+                                  <span className="font-semibold text-md">{lecture}</span>
+                              </motion.div>
+                          ))}
+                      </div>
+                  </motion.div>
+              </motion.div>
+          </div>
+      </div>
     </section>
   );
 };
