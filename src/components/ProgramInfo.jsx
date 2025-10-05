@@ -110,7 +110,7 @@ const ProgramInfo = () => {
                 </div>
             </div>
 
-            {/* What's New Section Box */}
+            {/* What\'s New Section Box */}
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -120,10 +120,10 @@ const ProgramInfo = () => {
                     className="text-center mb-12"
                 >
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                        What's New in <span className="text-brand-orange">JournCamp+</span>?
+                        What\'s New in <span className="text-brand-orange">JournCamp+</span>?
                     </h2>
                     <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
-                        We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
+                        We\'re taking everything to the next level with exciting new features and expanded content to make this year\'s summit the best one yet.
                     </p>
                 </motion.div>
 
@@ -142,7 +142,7 @@ const ProgramInfo = () => {
                 >
                     <div className="flex items-center mb-6 justify-center">
                         <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-yellow mr-3" />
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Five New Lectures Added!</h3>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold">Six New Lectures Added!</h3>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {newLectures.map((lecture, index) => (
@@ -159,7 +159,7 @@ const ProgramInfo = () => {
                                     <span className="font-medium text-sm md:text-base">{lecture}</span>
                                 </div>
                             </motion.div>
-                        ))}
+                        ))affes}
                     </div>
                 </motion.div>
             </div>
