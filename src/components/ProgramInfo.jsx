@@ -22,7 +22,7 @@ const aboutFeatures = [
   {
     icon: Sparkles,
     title: 'Modern Approach',
-    description: 'Explore impactful storytelling methods for today\'s media landscape'
+    description: "Explore impactful storytelling methods for today's media landscape"
   }
 ];
 
@@ -110,7 +110,7 @@ const ProgramInfo = () => {
                 </div>
             </div>
 
-            {/* What\'s New Section Box */}
+            {/* What's New Section Box */}
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -120,10 +120,10 @@ const ProgramInfo = () => {
                     className="text-center mb-12"
                 >
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
-                        What\'s New in <span className="text-brand-orange">JournCamp+</span>?
+                        What's New in <span className="text-brand-orange">JournCamp+</span>?
                     </h2>
                     <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
-                        We\'re taking everything to the next level with exciting new features and expanded content to make this year\'s summit the best one yet.
+                        We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
                     </p>
                 </motion.div>
 
@@ -159,7 +159,7 @@ const ProgramInfo = () => {
                                     <span className="font-medium text-sm md:text-base">{lecture}</span>
                                 </div>
                             </motion.div>
-                        ))affes}
+                        ))}
                     </div>
                 </motion.div>
             </div>
