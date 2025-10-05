@@ -41,7 +41,7 @@ const Header = () => {
           isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-md' : 'bg-transparent'
         }`}
       >
-        <nav className="container mx-auto px-4">
+        <nav className="container mx-auto px-6 sm:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7 md:h-8" />
@@ -70,10 +70,10 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-brand-dark z-50"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-brand-dark"
+              onClick={() => setIsMenuOpen(true)}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={24} />
             </Button>
           </div>
         </nav>
@@ -86,8 +86,18 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed inset-0 bg-white z-40 md:hidden flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center"
           >
+            <div className="absolute top-0 right-0 pt-4 pr-4">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-brand-dark"
+                >
+                    <X size={24} />
+                </Button>
+            </div>
             <div className="flex flex-col items-center space-y-8">
               {navItems.map((item, index) => (
                 <motion.button

@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-10 md:py-12 px-4 bg-brand-dark text-white">
+    <footer className="py-12 px-6 sm:px-8 bg-brand-dark text-white">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div className="md:col-span-2">

@@ -11,7 +11,6 @@ import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import StickyRegisterButton from '@/components/StickyRegisterButton';
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
         </main>
         <Footer />
         <Toaster />
-        <StickyRegisterButton />
       </div>
     </>
   );
