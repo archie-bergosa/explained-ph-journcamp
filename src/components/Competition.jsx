@@ -11,7 +11,7 @@ const Competition = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200"
+          className="bg-white rounded-2xl p-6 sm:p-10 shadow-xl border border-slate-200"
         >
           <div className="flex flex-col md:flex-row md:items-center text-center md:text-left">
             <motion.div

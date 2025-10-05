@@ -85,7 +85,7 @@ const Topics = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200 mb-12"
+          className="bg-white rounded-2xl p-6 sm:p-12 shadow-xl border border-slate-200 mb-12"
         >
           <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-8 text-center">Core Lecture Series</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-4">
@@ -100,7 +100,7 @@ const Topics = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200"
+          className="bg-white rounded-2xl p-6 sm:p-12 shadow-xl border border-slate-200"
         >
           <div className="text-center mb-8">
             <span className="inline-block bg-brand-yellow text-brand-dark font-bold px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm mb-4">

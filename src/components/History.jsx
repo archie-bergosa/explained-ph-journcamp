@@ -43,7 +43,7 @@ const History = () => {
   ];
 
   return (
-    <section id="history" className="py-16 md:py-24 px-4 bg-white">
+    <section id="history" className="py-12 px-4 bg-white">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -31,7 +31,7 @@ const InfoAndSchedules = () => {
             viewport={{ once: true }}
             className="bg-white rounded-2xl shadow-xl border border-gray-200/80 overflow-hidden flex flex-col"
           >
-            <div className="bg-brand-dark-teal text-white p-8 sm:p-10 text-center">
+            <div className="bg-brand-dark-teal text-white p-6 sm:p-10 text-center">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -39,13 +39,13 @@ const InfoAndSchedules = () => {
                 viewport={{ once: true }}
               >
                 <HelpCircle className="w-12 h-12 mx-auto mb-4 text-brand-teal" />
-                <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
+                <h2 className="text-xl sm:text-3xl font-bold leading-tight">
                   Is joining the competition required?
                 </h2>
               </motion.div>
             </div>
-            <div className="p-8 sm:p-12 flex-grow">
-              <div className="max-w-2xl mx-auto space-y-10">
+            <div className="p-6 sm:p-12 flex-grow">
+              <div className="max-w-2xl mx-auto space-y-6 sm:space-y-10">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <div className="bg-brand-orange/10 p-3 rounded-full">
@@ -88,7 +88,7 @@ const InfoAndSchedules = () => {
             viewport={{ once: true }}
             className="bg-white rounded-2xl shadow-xl border border-gray-200/80 overflow-hidden flex flex-col"
           >
-            <div className="bg-brand-dark-teal text-white p-8 sm:p-10 text-center">
+            <div className="bg-brand-dark-teal text-white p-6 sm:p-10 text-center">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -96,13 +96,13 @@ const InfoAndSchedules = () => {
                 viewport={{ once: true }}
               >
                 <Calendar className="w-12 h-12 mx-auto mb-4 text-brand-teal" />
-                <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
+                <h2 className="text-xl sm:text-3xl font-bold leading-tight">
                   Dates to Remember
                 </h2>
               </motion.div>
             </div>
-            <div className="p-8 sm:p-12 flex-grow">
-              <div className="max-w-2xl mx-auto space-y-10">
+            <div className="p-6 sm:p-12 flex-grow">
+              <div className="max-w-2xl mx-auto space-y-6 sm:space-y-10">
                 {scheduleData.map((item, index) => (
                   <div key={index} className="flex items-start">
                     <div className="flex-shrink-0">

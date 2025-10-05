@@ -80,10 +80,10 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-16 px-4 bg-gray-100">
+    <section id="program-info" className="py-12 px-4 bg-gray-100">
         <div className="container mx-auto">
             {/* About Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
+            <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ const ProgramInfo = () => {
             </div>
 
             {/* What's New Section Box */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200/80">
+            <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl border border-gray-200/80">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ const ProgramInfo = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="bg-brand-dark-teal rounded-2xl p-6 md:p-8 text-white max-w-4xl mx-auto"
+                    className="bg-brand-dark-teal rounded-2xl p-6 sm:p-8 text-white max-w-4xl mx-auto"
                 >
                     <div className="flex items-center mb-6 justify-center">
                         <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-yellow mr-3" />
@@ -159,7 +159,7 @@ const ProgramInfo = () => {
                                     <span className="font-medium text-sm md:text-base">{lecture}</span>
                                 </div>
                             </motion.div>
-                        ))ைய
+                        ))}
                     </div>
                 </motion.div>
             </div>
