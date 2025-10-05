@@ -103,7 +103,7 @@ const ProgramInfo = () => {
                         </p>
                     </div>
                 </motion.div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {aboutFeatures.map((feature, index) => (
                         <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
                     ))}
@@ -127,7 +127,7 @@ const ProgramInfo = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {newFeatures.map((feature, index) => (
                         <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
                     ))}
@@ -159,7 +159,7 @@ const ProgramInfo = () => {
                                     <span className="font-medium text-sm md:text-base">{lecture}</span>
                                 </div>
                             </motion.div>
-                        ))}
+                        ))ைய
                     </div>
                 </motion.div>
             </div>
