@@ -63,7 +63,7 @@ const Topics = () => {
   ];
 
   return (
-    <section id="topics" className="py-12 px-4 bg-slate-50">
+    <section id="topics" className="py-12 px-4 bg-slate-50" itemScope itemType="https://schema.org/WPHeader">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -72,10 +72,10 @@ const Topics = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
             Lecture Topics
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto" itemProp="description">
             Comprehensive coverage of all campus journalism events with expert-led sessions.
           </p>
         </motion.div>
