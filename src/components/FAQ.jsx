@@ -78,7 +78,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-12 px-4 bg-gray-100">
+    <section id="faq" className="py-12 px-4 bg-gray-100" itemScope itemType="https://schema.org/FAQPage">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -105,10 +105,10 @@ const FAQ = () => {
             <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-6">📖 Lecture Series (JournCamp+)</h3>
             <Accordion type="single" collapsible className="w-full bg-white p-4 sm:p-6 rounded-lg shadow-sm">
               {lectureFaqs.map((faq, index) => (
-                <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="text-left text-sm md:text-base font-semibold">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line">
-                    {faq.answer}
+                <AccordionItem value={`item-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p itemProp="text">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -124,10 +124,10 @@ const FAQ = () => {
             <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-6">🏆 National Campus Press Summit (Competition / Online Press Conference)</h3>
             <Accordion type="single" collapsible className="w-full bg-white p-4 sm:p-6 rounded-lg shadow-sm">
               {competitionFaqs.map((faq, index) => (
-                <AccordionItem value={`item-comp-${index}`} key={index}>
-                  <AccordionTrigger className="text-left text-sm md:text-base font-semibold">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line">
-                    {faq.answer}
+                <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p itemProp="text">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               ))}
