@@ -6,7 +6,7 @@ const FAQ = () => {
   const lectureFaqs = [
     {
       question: "How do I register?",
-      answer: "Simply fill out the official registration form and follow all the instructions provided. Once you submit, your slot will be recorded automatically."
+      answer: 'Simply fill out the official <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">registration form</a> and follow all the instructions provided. Once you submit, your slot will be recorded automatically.'
     },
     {
       question: "How much is the registration fee and what does it cover?",
@@ -73,7 +73,7 @@ const FAQ = () => {
     },
     {
       question: "Our school requires an invitation letter to allow participation. Who should we contact?",
-      answer: "For official letters and invitations, kindly email poalbis@explained.ph"
+      answer: 'You can indicate in the <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">registration form</a> if you need an invitation letter. We will process your request upon submission.'
     }
   ];
 
@@ -107,8 +107,8 @@ const FAQ = () => {
               {lectureFaqs.map((faq, index) => (
                 <AccordionItem value={`item-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                   <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p itemProp="text">{faq.answer}</p>
+                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p itemProp="text" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }}></p>
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -126,8 +126,8 @@ const FAQ = () => {
               {competitionFaqs.map((faq, index) => (
                 <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                   <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base whitespace-pre-line" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p itemProp="text">{faq.answer}</p>
+                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p itemProp="text" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }}></p>
                   </AccordionContent>
                 </AccordionItem>
               ))}

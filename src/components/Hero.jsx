@@ -66,16 +66,16 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 p-8">
+            <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 p-6 md:p-8">
               <div className="flex items-center justify-center mb-6">
-                <Calendar className="w-8 h-8 text-brand-dark-teal mr-3" />
-                <h3 className="text-2xl font-bold text-brand-dark">Dates to Remember</h3>
+                <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-brand-dark-teal mr-3" />
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-dark">Dates to Remember</h3>
               </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-center">
                 {keyDates.map((item, index) => (
                   <li key={index} className="bg-white/50 rounded-lg p-4 shadow-sm border border-slate-200/80">
-                    <p className="text-sm font-semibold text-brand-dark-teal tracking-wider uppercase">{item.title}</p>
-                    <p className="text-xl font-bold text-brand-dark mt-1">{item.dates}</p>
+                    <p className="text-xs sm:text-sm font-semibold text-brand-dark-teal tracking-wider uppercase">{item.title}</p>
+                    <p className="text-base sm:text-lg font-bold text-brand-dark mt-1">{item.dates}</p>
                   </li>
                 ))}
               </ul>
