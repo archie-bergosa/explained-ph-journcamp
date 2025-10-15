@@ -48,30 +48,32 @@ const Header = () => {
         <nav className="container mx-auto px-6 sm:px-8" itemScope itemType="https://schema.org/SiteNavigationElement">
           <div className="flex items-center justify-between h-20">
             <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-8 sm:h-9 md:h-10" />
+              <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7" />
             </div>
 
-            <div className="hidden md:flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-inner">
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleNavClick(item.id)}
-                  className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal"
-                  itemProp="name"
-                >
-                  <a href={`#${item.id}`} itemProp="url">{item.name}</a>
-                </motion.button>
-              ))}
-            </div>
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-inner">
+                {navItems.map((item) => (
+                  <motion.button
+                    key={item.id}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleNavClick(item.id)}
+                    className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal"
+                    itemProp="name"
+                  >
+                    <a href={`#${item.id}`} itemProp="url">{item.name}</a>
+                  </motion.button>
+                ))}
+              </div>
 
-            <Button
-              onClick={() => handleNavClick('register')}
-              className="hidden md:flex bg-gradient-to-r from-brand-orange to-brand-yellow text-white font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform"
-            >
-              REGISTER NOW
-            </Button>
+              <Button
+                onClick={() => handleNavClick('register')}
+                className="bg-gradient-to-r from-brand-orange to-brand-yellow text-white font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform"
+              >
+                REGISTER NOW
+              </Button>
+            </div>
 
             <Button
               variant="ghost"

@@ -28,7 +28,7 @@ const Hero = () => {
           >
             <div className="inline-block bg-white/50 border border-slate-200 rounded-full px-4 py-1 mb-6 shadow-sm">
                 <p className="text-sm sm:text-base md:text-lg text-brand-teal font-semibold">
-                    EXPLAINED PH PRESENTS
+                    EXPLAINED PH
                 </p>
             </div>
             
