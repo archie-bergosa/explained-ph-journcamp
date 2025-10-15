@@ -6,7 +6,7 @@ const FAQ = () => {
   const lectureFaqs = [
     {
       question: "How do I register?",
-      answer: 'Simply fill out the official <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">registration form</a> and follow all the instructions provided. Once you submit, your slot will be recorded automatically.'
+      answer: "Simply fill out the official registration form and follow all the instructions provided. Once you submit, your slot will be recorded automatically."
     },
     {
       question: "How much is the registration fee and what does it cover?",
@@ -73,7 +73,7 @@ const FAQ = () => {
     },
     {
       question: "Our school requires an invitation letter to allow participation. Who should we contact?",
-      answer: 'You can indicate in the <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">registration form</a> if you need an invitation letter. We will process your request upon submission.'
+      answer: 'If you need an invitation letter for your school, you can request one by filling out this <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">form</a>.'
     }
   ];
 
