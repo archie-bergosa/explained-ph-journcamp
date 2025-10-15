@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
             
             <div className="flex justify-center mb-6 items-center space-x-4">
-                <img src="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" alt="Journcamp+ Logo" className="h-12 sm:h-14 md:h-20" />
+                <img src="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" alt="Journcamp+ Logo" className="w-48 sm:w-64 md:w-80" />
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-dark-teal tracking-tight mb-4">
@@ -66,21 +66,19 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <div className="bg-white/40 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 p-6">
-              <div className="flex flex-col sm:flex-row items-center justify-between">
-                <div className="flex items-center mb-4 sm:mb-0">
-                  <Calendar className="w-7 h-7 text-brand-dark-teal mr-4" />
-                  <h3 className="text-lg font-bold text-brand-dark">Dates to Remember</h3>
-                </div>
-                <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-                  {keyDates.map((item, index) => (
-                    <div key={index} className="text-sm text-gray-800 text-center sm:text-left">
-                      <span className="font-bold text-brand-dark">{item.title}:</span>
-                      <p className="text-xs">{item.dates}</p>
-                    </div>
-                  ))}
-                </div>
+            <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 p-8">
+              <div className="flex items-center justify-center mb-6">
+                <Calendar className="w-8 h-8 text-brand-dark-teal mr-3" />
+                <h3 className="text-2xl font-bold text-brand-dark">Dates to Remember</h3>
               </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                {keyDates.map((item, index) => (
+                  <li key={index} className="bg-white/50 rounded-lg p-4 shadow-sm border border-slate-200/80">
+                    <p className="text-sm font-semibold text-brand-dark-teal tracking-wider uppercase">{item.title}</p>
+                    <p className="text-xl font-bold text-brand-dark mt-1">{item.dates}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </div>
