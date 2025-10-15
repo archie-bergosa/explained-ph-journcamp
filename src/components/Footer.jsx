@@ -1,8 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
+import { Facebook } from 'lucide-react';
 
 const Footer = () => {
   const handleNavClick = (sectionId) => {
@@ -15,8 +12,8 @@ const Footer = () => {
   return (
     <footer className="py-12 px-6 sm:px-8 bg-brand-dark text-white" itemScope itemType="https://schema.org/WPFooter">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+          <div className="md:col-span-2">
             <div className="flex justify-center md:justify-start mb-4">
               <img src="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" alt="Journcamp+ Logo" className="h-7 sm:h-8" />
             </div>
@@ -42,16 +39,18 @@ const Footer = () => {
 
           <div>
             <h4 className="font-semibold mb-4 text-base sm:text-lg">Stay Updated</h4>
-            <div className="space-y-2">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61579261650636"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mx-auto md:mx-0 text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base"
-                >
-                  Explained PH Community
-                </a>
-            </div>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-3">
+              Follow the Explained PH Community for all JournCamp-related announcements.
+            </p>
+            <a
+              href="https://www.facebook.com/profile.php?id=61579261650636"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base group"
+            >
+              <Facebook className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400 group-hover:text-white transition-colors" />
+              <span>Explained PH Community</span>
+            </a>
           </div>
         </div>
 
