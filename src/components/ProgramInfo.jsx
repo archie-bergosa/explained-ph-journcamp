@@ -80,7 +80,7 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-12 px-4 bg-gray-100">
+    <section id="program-info" className="py-12 px-4 bg-gray-100" itemScope itemType="https://schema.org/WPHeader">
         <div className="container mx-auto">
             {/* About Section Box */}
             <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
@@ -91,10 +91,10 @@ const ProgramInfo = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
                         What is Explained PH <span className="text-brand-orange">JournCamp+</span>?
                     </h2>
-                    <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
+                    <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6" itemProp="description">
                         The Virtual Journalism Camp is an annual initiative of Explained PH, designed to strengthen campus publications through capacity-building sessions that equip young journalists with the skills and knowledge they need to thrive in today’s fast-changing media landscape.
                     </p>
                     <div className="flex justify-center">
@@ -119,10 +119,10 @@ const ProgramInfo = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
                         What's New in <span className="text-brand-orange">JournCamp+</span>?
                     </h2>
-                    <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto" itemProp="description">
                         We're taking everything to the next level with exciting new features and expanded content to make this year's summit the best one yet.
                     </p>
                 </motion.div>
