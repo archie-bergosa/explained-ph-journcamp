@@ -5,13 +5,6 @@ import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
 const Footer = () => {
-  const handleSocialClick = (platform) => {
-    toast({
-      title: `🚧 ${platform} link coming soon!`,
-      description: "This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
-    });
-  };
-
   const handleNavClick = (sectionId) => {
     const section = document.getElementById(sectionId.toLowerCase());
     if (section) {
@@ -22,8 +15,8 @@ const Footer = () => {
   return (
     <footer className="py-12 px-6 sm:px-8 bg-brand-dark text-white" itemScope itemType="https://schema.org/WPFooter">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="md:col-span-1">
             <div className="flex justify-center md:justify-start mb-4">
               <img src="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" alt="Journcamp+ Logo" className="h-7 sm:h-8" />
             </div>
@@ -48,24 +41,16 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-base sm:text-lg">Follow Us</h4>
-            <div className="flex justify-center md:justify-start space-x-4">
-              {[
-                { icon: Facebook, name: 'Facebook' },
-                { icon: Twitter, name: 'Twitter' },
-                { icon: Instagram, name: 'Instagram' },
-                { icon: Mail, name: 'Email' }
-              ].map((social) => (
-                <Button
-                  key={social.name}
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleSocialClick(social.name)}
-                  className="text-gray-400 hover:text-white hover:bg-white/10 w-8 h-8 sm:w-9 sm:h-9"
+            <h4 className="font-semibold mb-4 text-base sm:text-lg">Stay Updated</h4>
+            <div className="space-y-2">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61579261650636"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mx-auto md:mx-0 text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base"
                 >
-                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                </Button>
-              ))}
+                  Explained PH Community
+                </a>
             </div>
           </div>
         </div>
