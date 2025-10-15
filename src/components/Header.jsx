@@ -29,7 +29,11 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const navItems = ['about', 'topics', 'FAQ'];
+  const navItems = [
+    { id: 'about', name: 'About' },
+    { id: 'topics', name: 'Topics' },
+    { id: 'faq', name: 'FAQ' },
+  ];
 
   return (
     <>
@@ -41,7 +45,7 @@ const Header = () => {
           isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-md' : 'bg-transparent'
         }`}
       >
-        <nav className="container mx-auto px-6 sm:px-8">
+        <nav className="container mx-auto px-6 sm:px-8" itemScope itemType="https://schema.org/SiteNavigationElement">
           <div className="flex items-center justify-between h-16">
             <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7 md:h-8" />
@@ -50,13 +54,14 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => (
                 <motion.button
-                  key={item}
+                  key={item.id}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => handleNavClick(item)}
+                  onClick={() => handleNavClick(item.id)}
                   className="capitalize font-medium text-brand-dark hover:text-brand-teal transition-colors text-sm md:text-base"
+                  itemProp="name"
                 >
-                  {item}
+                  <a href={`#${item.id}`} itemProp="url">{item.name}</a>
                 </motion.button>
               ))}
               <Button
@@ -101,14 +106,15 @@ const Header = () => {
             <div className="flex flex-col items-center space-y-8">
               {navItems.map((item, index) => (
                 <motion.button
-                  key={item}
+                  key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
-                  onClick={() => handleNavClick(item)}
+                  onClick={() => handleNavClick(item.id)}
                   className="text-2xl sm:text-3xl capitalize font-semibold text-brand-dark hover:text-brand-teal transition-colors"
+                  itemProp="name"
                 >
-                  {item}
+                  <a href={`#${item.id}`} itemProp="url">{item.name}</a>
                 </motion.button>
               ))}
               <motion.div
