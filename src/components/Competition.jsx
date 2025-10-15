@@ -4,7 +4,7 @@ import { Trophy } from 'lucide-react';
 
 const Competition = () => {
   return (
-    <section id="competition" className="py-12 px-4 bg-slate-100">
+    <section id="competition" className="py-12 px-4 bg-slate-100" itemScope itemType="https://schema.org/WPHeader">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -26,10 +26,10 @@ const Competition = () => {
               </div>
             </motion.div>
             <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
                 The National Campus Press Summit
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 leading-relaxed" itemProp="description">
                 The competition side of JournCamp+ — is a virtual press conference that brings together campus journalists from elementary, high school, and college to compete in a wide range of categories. Participants will be tasked to submit outputs online, simulating the real press conference experience in a nationwide setup.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
