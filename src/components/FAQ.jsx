@@ -35,6 +35,18 @@ const FAQ = () => {
     {
       question: "Who are the speakers?",
       answer: "The official list of speakers will be included in the event primer — COMING SOON. Expect a lineup of NSPC champions, seasoned practitioners, and industry professionals."
+    },
+    {
+      question: "Will participants be issued an official receipt upon payment?",
+      answer: "We can provide an invoice as proof of payment upon request."
+    },
+    {
+      question: "Is registration strictly individual, or are group/school-based registrations also accepted?",
+      answer: "Group or school-based registrations are accepted. Instructions for multiple entries are provided in the registration form: https://go.explained.ph/JourncampPlus2025"
+    },
+    {
+      question: "Are the lectures and competitions both in the Filipino and English categories?",
+      answer: "Yes. All lectures and competitions are designed to cover both Filipino and English categories."
     }
   ];
 
@@ -46,6 +58,10 @@ const FAQ = () => {
     {
       question: "Who can join the National Campus Press Summit?",
       answer: "The summit is open to registered JournCamp+ participants from elementary, high school, and college."
+    },
+    {
+      question: "Can a participant register for as many categories as they want?",
+      answer: "Yes, they can register for as many categories as they want. Everything is already included in one registration."
     },
     {
       question: "Do elementary, high school, and college compete in the same categories?",
@@ -124,9 +140,9 @@ const FAQ = () => {
             <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-6">🏆 National Campus Press Summit (Competition / Online Press Conference)</h3>
             <Accordion type="single" collapsible className="w-full bg-white p-4 sm:p-6 rounded-lg shadow-sm">
               {competitionFaqs.map((faq, index) => (
-                <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https.schema.org/Question">
                   <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https.schema.org/Answer">
                     <p itemProp="text" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }}></p>
                   </AccordionContent>
                 </AccordionItem>
