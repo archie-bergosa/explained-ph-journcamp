@@ -10,7 +10,7 @@ const Invitation = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 1.0 }}
     >
-      <p className="text-lg text-white mb-4">
+      <p className="text-lg text-brand-dark-teal mb-4">
         Need an invitation letter for your school?
       </p>
       <a
