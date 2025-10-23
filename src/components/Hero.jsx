@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Calendar, PartyPopper } from 'lucide-react';
+import Invitation from '@/components/Invitation';
 
 const Hero = () => {
   const handleRegister = () => {
@@ -81,6 +82,7 @@ const Hero = () => {
               </ul>
             </div>
           </motion.div>
+          <Invitation />
         </div>
       </div>
     </section>
