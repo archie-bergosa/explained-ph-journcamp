@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Facebook } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const handleNavClick = (sectionId) => {
@@ -40,17 +41,28 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-base sm:text-lg">Stay Updated</h4>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-3">
-              Follow the Explained PH Community for all JournCamp-related announcements.
+              Follow our official social media pages for all JournCamp-related announcements.
             </p>
-            <a
-              href="https://www.facebook.com/profile.php?id=61579261650636"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base group"
-            >
-              <Facebook className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400 group-hover:text-white transition-colors" />
-              <span>Explained PH Community</span>
-            </a>
+            <div className="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://www.facebook.com/journcamp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base group"
+              >
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400 group-hover:text-white transition-colors" />
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://instagram.com/journcamp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-300 hover:text-white transition-colors text-xs sm:text-sm md:text-base group"
+              >
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400 group-hover:text-white transition-colors" />
+                <span>Instagram</span>
+              </a>
+            </div>
           </div>
         </div>
 
