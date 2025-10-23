@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Instagram } from 'lucide-react';
 
@@ -41,7 +40,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-base sm:text-lg">Stay Updated</h4>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-3">
-              Follow our official social media pages for all JournCamp-related announcements.
+              Follow the official social media platforms of JournCamp+
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
