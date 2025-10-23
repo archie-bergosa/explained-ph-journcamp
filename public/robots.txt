@@ -1,0 +1,14 @@
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific bots (if needed)
+# User-agent: Googlebot
+# Allow: /
+
+# Sitemap location (if you have one)
+# Sitemap: https://www.yourwebsite.com/sitemap.xml
