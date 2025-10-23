@@ -11,4 +11,4 @@ Allow: /
 # Allow: /
 
 # Sitemap location
-Sitemap: https://journcamp.com/sitemap.xml
+Sitemap: https://journcamp.explained.ph/sitemap.xml
