@@ -80,9 +80,8 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="relative py-12 px-4 bg-gray-100 overflow-hidden" itemScope itemType="https://schema.org/WPHeader">
-      <div className="absolute top-1/4 left-0 w-full h-64 bg-brand-orange/10 transform -skew-y-6"></div>
-        <div className="container mx-auto relative z-10">
+    <section id="program-info" className="py-12 px-4 bg-gray-100" itemScope itemType="https://schema.org/WPHeader">
+        <div className="container mx-auto">
             {/* About Section Box */}
             <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
                 <motion.div
