@@ -13,15 +13,10 @@ const Advisory = () => {
           className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto p-8 md:p-12 text-center"
         >
           {/* Logos */}
-          <div className="flex justify-center items-center space-x-8 mb-8">
+          <div className="flex justify-center items-center mb-8">
             <img
               src="https://i.postimg.cc/ryBJVrwt/Deped-logo.png"
               alt="Department of Education Logo"
-              className="h-24 object-contain"
-            />
-            <img
-              src="https://i.postimg.cc/Hk249v4L/NSPC-logo.png"
-              alt="NSPC Logo"
               className="h-24 object-contain"
             />
           </div>
