@@ -4,7 +4,7 @@ import { PenTool, Edit3, FileText, Star, Microscope, Trophy, Scissors, Camera, P
 
 const logos = {
   Rappler: 'https://i.postimg.cc/xdXJN6sD/Rappler-logo.png',
-  'Explained PH': 'https://i.postimg.cc/6qrG5TMf/Explained-PH-logo.png',
+  'Explained PH': 'https://i.postimg.cc/WbMgnY6f/Explained-PH-1-1.jpg',
   NSPC: 'https://i.postimg.cc/Hk249v4L/NSPC-logo.png',
   UP: 'https://i.postimg.cc/8zDmWgv9/UP-seal.png',
   'PITIK BULAG': 'https://i.postimg.cc/15DKf387/PB-logo.png',
@@ -20,36 +20,51 @@ const TopicItem = ({ topic, index, isNew = false }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       viewport={{ once: true }}
-      className="bg-white rounded-xl p-6 shadow-lg border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+      className="bg-white rounded-xl p-6 shadow-lg border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
     >
-      <div className="flex flex-col h-full">
+      {/* Top Section */}
+      <div>
         <div className="flex items-center mb-4">
           <div className={`p-2 rounded-full bg-opacity-10 ${isNew ? 'bg-brand-orange' : 'bg-brand-teal'}`}>
             <topic.icon className={`w-6 h-6 ${iconColor}`} />
           </div>
         </div>
-        <h4 className="text-brand-dark font-bold text-lg leading-tight mb-3 flex-grow">{topic.name}</h4>
-        <div className="space-y-3 text-sm opacity-90">
-          <div className="flex items-start text-gray-700">
-            <User className="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-brand-dark-teal" />
-            {topic.speaker ? (
+        <h4 className="text-brand-dark font-bold text-lg leading-tight mb-3 h-14 line-clamp-2">{topic.name}</h4>
+      </div>
+
+      {/* Spacer */}
+      <div className="flex-grow" />
+
+      {/* Bottom Section */}
+      <div className="space-y-4 text-sm">
+        <div className="min-h-[80px]">
+          {topic.speaker ? (
+            <div className="flex items-start text-gray-700">
+              <User className="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-brand-dark-teal" />
               <div>
                 <span className="font-semibold text-brand-dark-teal">{topic.speaker}</span>
-                {topic.affiliations && topic.affiliations.map((affiliation, i) => (
-                  <div key={i} className="flex items-center mt-1">
-                    {affiliation.logo && <img src={logos[affiliation.logo]} alt={affiliation.name} className="w-4 h-4 mr-2" />}
-                    <span className="text-gray-500 text-xs">{affiliation.name}</span>
+                {topic.affiliations && (
+                  <div className="mt-2 space-y-1.5">
+                    {topic.affiliations.map((affiliation, i) => (
+                      <div key={i} className="flex items-center">
+                        {affiliation.logo && <img src={logos[affiliation.logo]} alt={affiliation.name} className="w-4 h-4 mr-2 object-contain" />}
+                        <span className="text-gray-500 text-xs">{affiliation.name}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            ) : (
-              <span className="text-gray-500">Coming Soon</span>
-            )}
-          </div>
-          <div className="flex items-center text-gray-500">
-            <Calendar className="w-4 h-4 mr-3 flex-shrink-0" />
-            <span>Coming Soon</span>
-          </div>
+            </div>
+          ) : (
+            <div className="flex items-start text-gray-400">
+                <User className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
+                <span>Coming Soon</span>
+            </div>
+          )}
+        </div>
+        <div className="flex items-center text-gray-400">
+          <Calendar className="w-4 h-4 mr-3 flex-shrink-0" />
+          <span>Coming Soon</span>
         </div>
       </div>
     </motion.div>
