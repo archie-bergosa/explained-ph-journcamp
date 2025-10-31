@@ -28,28 +28,18 @@ const Advisory = () => {
           className="bg-white rounded-lg shadow-lg overflow-hidden max-w-6xl mx-auto"
         >
           <div className="grid md:grid-cols-2">
-            <div className="p-8 md:p-12">
+            <div className="p-8 md:p-12 flex flex-col justify-center">
               <h3 className="text-2xl font-bold text-brand-dark-teal mb-3">
                 Explained PH & Department of Education
               </h3>
               <p className="text-gray-600 mb-6">
                 We are grateful for the issuance of an official advisory from the Department of Education for JournCamp+. This helps us bring quality journalism training to students nationwide.
               </p>
-              
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  JournCamp+ is more than just a series of lectures. It's a month-long immersion into the world of campus journalism, with extended Q&A sessions and exclusive access to materials.
-                </p>
-                <p>
-                  The National Campus Press Summit, a virtual press conference, allows students to showcase their work and compete for national recognition.
-                </p>
-              </div>
-
               <a
                 href="https://www.deped.gov.ph/2025/10/23/october-22-2025-advisory-207-s-2025-journcamp-2025-and-national-campus-press-summit/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-block bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-dark-teal transition-transform duration-300 hover:scale-105"
+                className="mt-4 inline-block self-start bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-dark-teal transition-transform duration-300 hover:scale-105"
               >
                 View Official Advisory
               </a>
