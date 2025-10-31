@@ -13,6 +13,22 @@ const Advisory = () => {
           className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto"
         >
           <div className="grid md:grid-cols-2">
+            {/* Image Section */}
+            <div className="relative min-h-[300px] md:min-h-0">
+              <a 
+                href="https://i.postimg.cc/Hn46MYSp/Screenshot-2025-11-01-at-12-57-08-AM.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0"
+              >
+                <img
+                  src="https://i.postimg.cc/Hn46MYSp/Screenshot-2025-11-01-at-12-57-08-AM.png"
+                  alt="DepEd Advisory for JournCamp+"
+                  className="w-full h-full object-cover"
+                />
+              </a>
+            </div>
+
             {/* Text Content Section */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <h2 className="text-3xl font-extrabold text-brand-dark mb-4">
@@ -28,22 +44,6 @@ const Advisory = () => {
                 className="mt-4 inline-block self-start bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-dark-teal transition-transform duration-300 hover:scale-105"
               >
                 View Advisory
-              </a>
-            </div>
-
-            {/* Image Section */}
-            <div className="relative min-h-[300px] md:min-h-0">
-              <a 
-                href="https://i.postimg.cc/Hn46MYSp/Screenshot-2025-11-01-at-12-57-08-AM.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0"
-              >
-                <img
-                  src="https://i.postimg.cc/Hn46MYSp/Screenshot-2025-11-01-at-12-57-08-AM.png"
-                  alt="DepEd Advisory for JournCamp+"
-                  className="w-full h-full object-cover"
-                />
               </a>
             </div>
           </div>
