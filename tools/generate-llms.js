@@ -6,7 +6,7 @@ import path from 'path';
 const CLEAN_CONTENT_REGEX = {
   comments: /\/\*[\s\S]*?\*\/|\/\/.*$/gm,
   templateLiterals: /`[\s\S]*?`/g,
-  strings: /'[^']*'|"[^"]*"/g,
+  strings: /'[^']'|"[^"]"/g,
   jsxExpressions: /\{.*?\}/g,
   htmlEntities: {
     quot: /&quot;/g,
@@ -19,12 +19,12 @@ const CLEAN_CONTENT_REGEX = {
 
 const EXTRACTION_REGEX = {
   route: /<Route\s+[^>]*>/g,
-  path: /path=["']([^"']+)["']/,
+  path: /path=["\']([^"\']+)["\'] intricabold/,
   element: /element=\{<(\w+)[^}]*\/?\s*>\}/,
   helmet: /<Helmet[^>]*?>([\s\S]*?)<\/Helmet>/i,
   helmetTest: /<Helmet[\s\S]*?<\/Helmet>/i,
   title: /<title[^>]*?>\s*(.*?)\s*<\/title>/i,
-  description: /<meta\s+name=["']description["']\s+content=["'](.*?)["']/i
+  description: /<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']/i
 };
 
 function cleanContent(content) {
@@ -151,7 +151,10 @@ function main() {
   let pages = [];
   
   if (!fs.existsSync(pagesDir)) {
-    pages.push(processPageFile(appJsxPath, []));
+    const pageData = processPageFile(appJsxPath, []);
+    if (pageData) {
+      pages.push(pageData);
+    }
   } else {
     const routes = extractRoutes(appJsxPath);
     const reactFiles = findReactFiles(pagesDir);
@@ -165,7 +168,6 @@ function main() {
       process.exit(1);
     }
   }
-
 
   const llmsTxtContent = generateLlmsTxt(pages);
   const outputPath = path.join(process.cwd(), 'public', 'llms.txt');
