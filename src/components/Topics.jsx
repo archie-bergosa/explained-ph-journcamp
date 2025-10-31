@@ -25,8 +25,13 @@ const TopicItem = ({ topic, index, isNew = false }) => {
               {topic.speaker ? (
                 <div>
                   <span className="font-semibold text-brand-dark-teal">{topic.speaker}</span>
-                  <br />
-                  <span className="text-gray-500">{topic.speakerTitle}</span>
+                  {Array.isArray(topic.speakerTitle) ? (
+                    topic.speakerTitle.map((line, i) => (
+                      <span key={i} className="text-gray-500 block">{line}</span>
+                    ))
+                  ) : (
+                    <span className="text-gray-500">{topic.speakerTitle}</span>
+                  )}
                 </div>
               ) : (
                 <span>Speaker: Coming Soon</span>
@@ -45,28 +50,28 @@ const TopicItem = ({ topic, index, isNew = false }) => {
 
 const Topics = () => {
   const coreTopics = [
-    { name: 'News Writing', icon: PenTool, speaker: 'Bonz Magsambol', speakerTitle: 'Multimedia Reporter, Rappler' },
-    { name: 'Editorial Writing', icon: Edit3, speaker: 'Danilo Arao', speakerTitle: 'Professor, UP Diliman College of Media and Communication' },
-    { name: 'Column Writing', icon: FileText, speaker: 'Prences Jhewen Albis', speakerTitle: 'Associate Editor, Explained PH, NSPC Winner' },
-    { name: 'Feature Writing', icon: Star, speaker: 'Gianela Zapata', speakerTitle: 'NSPC Winner, NSPC 2023 Most Outstanding Campus Journalist' },
-    { name: 'Science and Technology Writing', icon: Microscope, speaker: 'Gabriel Ibis', speakerTitle: 'Managing Editor, Explained PH, NSPC Winner' },
-    { name: 'Sports Writing', icon: Trophy, speaker: 'Christan Salvaña', speakerTitle: '4x NSPC Winner, DSPC/RSPC Judge' },
-    { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Isaiah Matthew Hilario', speakerTitle: 'NSPC Champion' },
-    { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', speakerTitle: 'NSPC Champion' },
-    { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', speakerTitle: 'Chief Cartoonist, Explained PH, NSPC Champion, NSPC 2025 Most Outstanding Campus Journalist' },
+    { name: 'News Writing', icon: PenTool, speaker: 'Bonz Magsambol', speakerTitle: ['Multimedia Reporter, Rappler'] },
+    { name: 'Editorial Writing', icon: Edit3, speaker: 'Danilo Arao', speakerTitle: ['Professor, UP Diliman College of Media and Communication'] },
+    { name: 'Column Writing', icon: FileText, speaker: 'Prences Jhewen Albis', speakerTitle: ['Associate Editor, Explained PH', 'NSPC Winner'] },
+    { name: 'Feature Writing', icon: Star, speaker: 'Gianela Zapata', speakerTitle: ['NSPC Winner', 'NSPC 2023 Most Outstanding Campus Journalist'] },
+    { name: 'Science and Technology Writing', icon: Microscope, speaker: 'Gabriel Ibis', speakerTitle: ['Managing Editor, Explained PH', 'NSPC Winner'] },
+    { name: 'Sports Writing', icon: Trophy, speaker: 'Christan Salvaña', speakerTitle: ['4x NSPC Winner', 'DSPC/RSPC Judge'] },
+    { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Isaiah Matthew Hilario', speakerTitle: ['NSPC Champion'] },
+    { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', speakerTitle: ['NSPC Champion'] },
+    { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', speakerTitle: ['Chief Cartoonist, Explained PH', 'NSPC Champion', 'NSPC 2025 Most Outstanding Campus Journalist'] },
     { name: 'Radio Broadcasting', icon: Radio },
-    { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', speakerTitle: 'Freelance Journalist' },
-    { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', speakerTitle: 'NSPC Winner, DSPC/RSPC Judge' },
-    { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', speakerTitle: 'Editor-in-Chief, Explained PH, DSPC/RSPC Judge' },
+    { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', speakerTitle: ['Freelance Journalist'] },
+    { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', speakerTitle: ['NSPC Winner', 'DSPC/RSPC Judge'] },
+    { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', speakerTitle: ['Editor-in-Chief, Explained PH', 'DSPC/RSPC Judge'] },
     { name: 'Mobile Journalism', icon: Smartphone }
   ];
 
   const newTopics = [
-    { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', speakerTitle: 'NSPC 2025 Most Outstanding School Paper Adviser' },
-    { name: 'Political Cartoons', icon: Target, speaker: 'Kartunista Zach', speakerTitle: 'Satirist/Cartoonist, PITIK BULAG' },
-    { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', speakerTitle: 'Staffer, Explained PH, NSPC 2025 Most Outstanding Campus Journalist' },
-    { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', speakerTitle: 'Head of Civic Engagement, Rappler' },
-    { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', speakerTitle: 'Community Head, Explained PH' },
+    { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', speakerTitle: ['NSPC 2025 Most Outstanding School Paper Adviser'] },
+    { name: 'Political Cartoons', icon: Target, speaker: 'Kartunista Zach', speakerTitle: ['Satirist/Cartoonist, PITIK BULAG'] },
+    { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', speakerTitle: ['Staffer, Explained PH', 'NSPC 2025 Most Outstanding Campus Journalist'] },
+    { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', speakerTitle: ['Head of Civic Engagement, Rappler'] },
+    { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', speakerTitle: ['Community Head, Explained PH'] },
     { name: 'How to Become an Effective Editor of Your Publication', icon: Users },
   ];
 
