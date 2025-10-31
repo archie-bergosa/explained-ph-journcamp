@@ -16,7 +16,7 @@ const Advisory = () => {
             Official DepEd Advisory
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            JournCamp+ is officially recognized by the Department of Education, a milestone for accessible campus journalism.
+            We are grateful to the Department of Education for issuing an official advisory for JournCamp+.
           </p>
         </motion.div>
 
@@ -33,7 +33,7 @@ const Advisory = () => {
                 Explained PH & Department of Education
               </h3>
               <p className="text-gray-600 mb-6">
-                We're proud to be recognized by the Department of Education. This advisory for JournCamp+ helps us bring quality journalism training to students nationwide.
+                We are grateful for the issuance of an official advisory from the Department of Education for JournCamp+. This helps us bring quality journalism training to students nationwide.
               </p>
               
               <div className="space-y-4 text-gray-700">
