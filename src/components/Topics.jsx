@@ -23,7 +23,6 @@ const TopicItem = ({ topic, index, isNew = false }) => {
       viewport={{ once: true }}
       className="bg-white rounded-xl p-6 shadow-lg border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
     >
-      {/* Top Section */}
       <div>
         <div className="flex items-center mb-4">
           <div className={`p-2 rounded-full bg-opacity-10 ${isNew ? 'bg-brand-orange' : 'bg-brand-teal'}`}>
@@ -33,10 +32,8 @@ const TopicItem = ({ topic, index, isNew = false }) => {
         <h4 className="text-brand-dark font-bold text-lg leading-tight mb-3 h-14 line-clamp-2">{topic.name}</h4>
       </div>
 
-      {/* Spacer */}
       <div className="flex-grow" />
 
-      {/* Bottom Section */}
       <div className="space-y-4 text-sm">
         <div className="min-h-[80px]">
           {topic.speaker ? (
@@ -96,61 +93,68 @@ const Topics = () => {
     { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', affiliations: [{ name: 'Staffer, Explained PH', logo: 'Explained PH' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
     { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', affiliations: [{ name: 'Head of Civic Engagement, Rappler', logo: 'Rappler' }] },
     { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', affiliations: [{ name: 'Community Head, Explained PH', logo: 'Explained PH' }] },
-    { name: 'How to Become an Effective Editor of Your Publication', icon: Users },
+    { name: 'Becoming an Effective Student Editor', icon: Users },
   ];
 
   return (
-    <section id="topics" className="py-16 px-4 bg-slate-50" itemScope itemType="https://schema.org/WPHeader">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
-            Lecture Topics
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto" itemProp="description">
-            Comprehensive coverage of all campus journalism events with expert-led sessions.
-          </p>
-        </motion.div>
+    <section id="topics" className="bg-slate-50" itemScope itemType="https://schema.org/WPHeader">
+      <div className="py-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
+              Lecture Topics
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto" itemProp="description">
+              Comprehensive coverage of all campus journalism events with expert-led sessions.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl font-bold text-brand-dark mb-8 text-center">Core Lecture Series</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {coreTopics.map((topic, index) => (
-              <TopicItem key={index} topic={topic} index={index} />
-            ))}
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h3 className="text-2xl font-bold text-brand-dark mb-8 text-center">Core Lecture Series</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {coreTopics.map((topic, index) => (
+                <TopicItem key={index} topic={topic} index={index} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-10">
-            <span className="inline-block bg-brand-yellow text-brand-dark font-bold px-4 py-2 rounded-full text-sm mb-4">
-              NEW LECTURES!
-            </span>
-            <h3 className="text-2xl font-bold text-brand-dark">Fresh Content for 2025</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {newTopics.map((topic, index) => (
-              <TopicItem key={index} topic={topic} index={index} isNew={true} />
-            ))}
-          </div>
-        </motion.div>
+      <div className="bg-brand-orange/10 py-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-10">
+              <span className="inline-block bg-brand-orange text-white font-bold px-4 py-2 rounded-full text-sm mb-4">
+                NEW FOR 2025
+              </span>
+              <h3 className="text-3xl font-bold text-brand-dark">Bonus Sessions</h3>
+              <p className="text-gray-600 mt-2">Explore specialized topics to sharpen your skills.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {newTopics.map((topic, index) => (
+                <TopicItem key={index} topic={topic} index={index} isNew={true} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
