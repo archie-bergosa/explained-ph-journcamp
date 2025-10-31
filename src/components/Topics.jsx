@@ -95,7 +95,7 @@ const Topics = () => {
     { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', affiliations: [{ name: 'Staffer, Explained PH', logo: 'Explained PH' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
     { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', affiliations: [{ name: 'Head of Civic Engagement, Rappler', logo: 'Rappler' }] },
     { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', affiliations: [{ name: 'Community Head, Explained PH', logo: 'Explained PH' }] },
-    { name: 'How to Become an Effective Editor of Your Publication', icon: Users },
+    { name: 'Becoming an Effective Editor of Your Publication', icon: Users },
   ];
 
   return (
