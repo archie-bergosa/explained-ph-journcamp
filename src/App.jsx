@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Advisory from '@/components/Advisory';
 import ProgramInfo from '@/components/ProgramInfo';
 import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
@@ -37,6 +38,7 @@ function App() {
         <Header />
         <main>
           <Hero />
+          <Advisory />
           <ProgramInfo />
           <Topics />
           <Competition />
