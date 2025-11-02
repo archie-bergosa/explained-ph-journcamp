@@ -23,9 +23,17 @@ const Advisory = () => {
           <p className="text-gray-500 font-semibold mb-4 text-md max-w-3xl mx-auto">
             October 22, 2025 ADVISORY 207, s. 2025 – JournCamp+ 2025 and National Campus Press Summit
           </p>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
             We are grateful for the issuance of an official advisory from the Department of Education for JournCamp+. This helps us bring quality journalism training to students nationwide.
           </p>
+          <a
+            href="https://www.deped.gov.ph/2025/10/23/october-22-2025-advisory-207-s-2025-journcamp-2025-and-national-campus-press-summit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-dark-teal transition-transform duration-300 hover:scale-105"
+          >
+            View Advisory
+          </a>
         </motion.div>
       </div>
     </section>

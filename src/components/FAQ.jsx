@@ -34,7 +34,7 @@ const FAQ = () => {
     },
     {
       question: "Who are the speakers?",
-      answer: "The official list of speakers will be included in the event primer — COMING SOON. Expect a lineup of NSPC champions, seasoned practitioners, and industry professionals."
+      answer: "The official list of speakers will be included in the event primer — COMING SOON. Expect a lineup of NSPC champions, seasoned practitioners, and industry professionals.\n\nFor Radio Broadcasting, we have:\n- Bam Alegre\n  - NSPC Judge\n  - Senior News Correspondent and News Anchor, GMA Integrated News"
     },
     {
       question: "Will participants be issued an official receipt upon payment?",
