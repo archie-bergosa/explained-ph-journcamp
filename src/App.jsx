@@ -40,8 +40,8 @@ function App() {
         <main>
           <Hero />
           <ProgramInfo />
-          <RegistrantsMap />
           <Advisory />
+          <RegistrantsMap />
           <Topics />
           <Competition />
           <InfoAndSchedules />
