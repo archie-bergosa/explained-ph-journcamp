@@ -31,8 +31,11 @@ const FAQ = () => {
     {
       question: "What materials will I get as a participant?",
       answer: "Every registered participant will receive:\n\n- Certificate of Participation\n- Lecture recordings\n- Slide decks with lecture notes from the speakers"
-    }
-    
+    },
+    {
+      question: "Who are the speakers?",
+      answer: "The official list of speakers will be included in the event primer — COMING SOON. Expect a lineup of NSPC champions, seasoned practitioners, and industry professionals.\n\nFor Radio Broadcasting, we have:\n- Bam Alegre\n  - NSPC Judge\n  - Senior News Correspondent and News Anchor, GMA Integrated News"
+    },
     {
       question: "Will participants be issued an official receipt upon payment?",
       answer: "We can provide an invoice as proof of payment upon request."
@@ -135,7 +138,7 @@ const FAQ = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-6">🏆 National Campus Press Summit (Competition / Online Press Conference)</h3>
-            <Accordion type="single" collapsible className="w-full bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+            <Accordion type="single" collapsible className="w-fl bg-white p-4 sm:p-6 rounded-lg shadow-sm">
               {competitionFaqs.map((faq, index) => (
                 <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https.schema.org/Question">
                   <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
