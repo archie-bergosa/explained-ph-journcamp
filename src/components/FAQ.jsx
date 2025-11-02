@@ -31,7 +31,7 @@ const FAQ = () => {
     {
       question: "What materials will I get as a participant?",
       answer: "Every registered participant will receive:\n\n- Certificate of Participation\n- Lecture recordings\n- Slide decks with lecture notes from the speakers"
-    },
+    }
     
     {
       question: "Will participants be issued an official receipt upon payment?",
