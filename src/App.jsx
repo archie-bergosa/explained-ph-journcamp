@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Advisory from '@/components/Advisory';
 import ProgramInfo from '@/components/ProgramInfo';
+import RegistrantsMap from '@/components/RegistrantsMap';
 import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
@@ -39,6 +40,7 @@ function App() {
         <main>
           <Hero />
           <ProgramInfo />
+          <RegistrantsMap />
           <Advisory />
           <Topics />
           <Competition />
