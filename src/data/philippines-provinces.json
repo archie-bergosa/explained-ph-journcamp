@@ -103,7 +103,7 @@
       "geometry": { "type": "Point", "coordinates": [121.0, 17.08] }
     },
     { "type": "Feature", "properties": { "name": "Negros Occidental", "region": "Western Visayas (Region VI)" }, "geometry": { "type": "Point", "coordinates": [123.0, 10.33] } },
-    { "type": "Feature", "properties": { "name": "Negros Oriental", "region": "Central Visayas (Region VII)" }, "geometry": { "type": "Point",.coordinates": [123.0, 9.5] } },
+    { "type": "Feature", "properties": { "name": "Negros Oriental", "region": "Central Visayas (Region VII)" }, "geometry": { "type": "Point", "coordinates": [123.0, 9.5] } },
     { "type": "Feature", "properties": { "name": "Northern Samar", "region": "Eastern Visayas (Region VIII)" }, "geometry": { "type": "Point", "coordinates": [124.83, 12.33] } },
     { "type": "Feature", "properties": { "name": "Nueva Ecija", "region": "Central Luzon (Region III)" }, "geometry": { "type": "Point", "coordinates": [121.0, 15.5] } },
     { "type": "Feature", "properties": { "name": "Nueva Vizcaya", "region": "Cagayan Valley (Region II)" }, "geometry": { "type": "Point", "coordinates": [121.17, 16.33] } },
