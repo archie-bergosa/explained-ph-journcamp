@@ -32,10 +32,7 @@ const FAQ = () => {
       question: "What materials will I get as a participant?",
       answer: "Every registered participant will receive:\n\n- Certificate of Participation\n- Lecture recordings\n- Slide decks with lecture notes from the speakers"
     },
-    {
-      question: "Who are the speakers?",
-      answer: "The official list of speakers will be included in the event primer — COMING SOON. Expect a lineup of NSPC champions, seasoned practitioners, and industry professionals.\n\nFor Radio Broadcasting, we have:\n- Bam Alegre\n  - NSPC Judge\n  - Senior News Correspondent and News Anchor, GMA Integrated News"
-    },
+    
     {
       question: "Will participants be issued an official receipt upon payment?",
       answer: "We can provide an invoice as proof of payment upon request."
