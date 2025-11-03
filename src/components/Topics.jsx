@@ -81,7 +81,7 @@ const Topics = () => {
     { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Isaiah Matthew Hilario', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }] },
     { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }] },
     { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
-    { name: 'Radio Broadcasting', icon: Radio, speaker: 'Bam Alegre', affiliations: [{ name: 'NSPC Judge', logo: 'NSPC' }, { name: 'Senior News Correspondent and News Anchor, GMA Integrated News', logo: 'GMA' }] },
+    { name: 'Radio Broadcasting', icon: Radio },
     { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', affiliations: [{ name: 'Freelance Journalist' }] },
     { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
     { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', affiliations: [{ name: 'Editor-in-Chief, Explained PH', logo: 'Explained PH' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
