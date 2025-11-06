@@ -92,7 +92,7 @@ const Topics = () => {
     { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', affiliations: [{ name: 'Most Outstanding School Paper Adviser', logo: 'NSPC' }] },
     { name: 'Political Cartoons', icon: Target, speaker: 'Cartoonist Zach', affiliations: [{ name: 'Cartoonist, PITIK BULAG', logo: 'PITIK BULAG' }, { name: 'Member, Cartooning for Peace', logo: 'Cartooning for Peace' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
     { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', affiliations: [{ name: 'Staffer, Explained PH', logo: 'Explained PH' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
-    { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', affiliations: [{ name: 'Head of Civic Engagement, Rappler', logo: 'Rappler' }] },
+    { name: 'Community Journalism', icon: Users },
     { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', affiliations: [{ name: 'Community Head, Explained PH', logo: 'Explained PH' }] },
     { name: 'Becoming an Effective Student Editor', icon: Users },
   ];
