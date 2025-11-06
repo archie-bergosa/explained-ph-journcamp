@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
@@ -11,8 +12,9 @@ import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
+import Schedule from '@/components/Schedule';
 
-function App() {
+function Home() {
   return (
     <>
       <Helmet>
@@ -34,22 +36,31 @@ function App() {
         <meta name="twitter:description" content="Join the Virtual Journalism Camp by Explained PH to strengthen campus publications nationwide." />
         <meta name="twitter:image" content="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" />
       </Helmet>
-      <div className="min-h-screen bg-slate-50 text-brand-dark">
-        <Header />
-        <main>
-          <Hero />
-          <ProgramInfo />
-          <Advisory />
-          <Topics />
-          <Competition />
-          <InfoAndSchedules />
-          <History />
-          <FAQ />
-        </main>
-        <Footer />
-        <Toaster />
-      </div>
+      <main>
+        <Hero />
+        <ProgramInfo />
+        <Advisory />
+        <Topics />
+        <Competition />
+        <InfoAndSchedules />
+        <History />
+        <FAQ />
+      </main>
     </>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-brand-dark">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/schedule" element={<Schedule />} />
+      </Routes>
+      <Footer />
+      <Toaster />
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,9 +31,10 @@ const Header = () => {
   };
 
   const navItems = [
-    { id: 'program-info', name: 'About' },
-    { id: 'topics', name: 'Topics' },
-    { id: 'faq', name: 'FAQs' },
+    { id: 'program-info', name: 'About', path: '/' },
+    { id: 'topics', name: 'Topics', path: '/' },
+    { id: 'faq', name: 'FAQs', path: '/' },
+    { id: 'schedule', name: 'Schedule', path: '/schedule' },
   ];
 
   return (
@@ -47,9 +49,9 @@ const Header = () => {
       >
         <nav className="container mx-auto px-6 sm:px-8" itemScope itemType="https://schema.org/SiteNavigationElement">
           <div className="flex items-center justify-between h-20">
-            <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Link to="/" className="cursor-pointer">
               <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7" />
-            </div>
+            </Link>
 
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-inner">
@@ -58,11 +60,10 @@ const Header = () => {
                     key={item.id}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => handleNavClick(item.id)}
                     className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal"
                     itemProp="name"
                   >
-                    <a href={`#${item.id}`} itemProp="url">{item.name}</a>
+                    <Link to={item.path} onClick={() => item.path === '/' && handleNavClick(item.id)} itemProp="url">{item.name}</Link>
                   </motion.button>
                 ))}
               </div>
@@ -113,11 +114,10 @@ const Header = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
-                  onClick={() => handleNavClick(item.id)}
                   className="text-3xl sm:text-4xl capitalize font-bold text-brand-dark hover:text-brand-teal transition-colors"
                   itemProp="name"
                 >
-                  <a href={`#${item.id}`} itemProp="url">{item.name}</a>
+                  <Link to={item.path} onClick={() => item.path === '/' && handleNavClick(item.id)} itemProp="url">{item.name}</Link>
                 </motion.button>
               ))}
               <motion.div
