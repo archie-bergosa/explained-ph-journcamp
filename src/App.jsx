@@ -12,7 +12,7 @@ import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import Schedule from '@/components/Schedule';
+import LectureSeries from '@/components/LectureSeries';
 
 function Home() {
   return (
@@ -56,7 +56,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/lecture-series" element={<LectureSeries />} />
       </Routes>
       <Footer />
       <Toaster />
