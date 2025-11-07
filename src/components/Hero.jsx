@@ -2,13 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Calendar, PartyPopper } from 'lucide-react';
-import Invitation from '@/components/Invitation';
 
 const Hero = () => {
-  const handleRegister = () => {
-    window.open('https://go.explained.ph/JourncampPlus2025', '_blank');
-  };
-
   const keyDates = [
     { title: 'Registration', dates: 'Oct 1 - Nov 6' },
     { title: 'Lectures', dates: 'Nov 8, 9, 15, 16' },
@@ -51,21 +46,6 @@ const Hero = () => {
             <p className="text-base md:text-lg text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
               A month-long virtual journalism camp combining seasoned practitioners with award-winning storytellers to strengthen campus publications nationwide.
             </p>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <Button
-                onClick={handleRegister}
-                size="lg"
-                className="bg-gradient-to-r from-brand-orange to-brand-yellow text-white font-bold px-8 py-4 rounded-full shadow-xl text-base md:text-lg transition-transform"
-              >
-                <PartyPopper className="w-6 h-6 mr-3" />
-                Register Now
-              </Button>
-            </motion.div>
           </motion.div>
 
           <motion.div
@@ -89,7 +69,6 @@ const Hero = () => {
               </ul>
             </div>
           </motion.div>
-          <Invitation />
         </div>
       </div>
     </section>

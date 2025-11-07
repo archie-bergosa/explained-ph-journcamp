@@ -82,10 +82,6 @@ const FAQ = () => {
     {
       question: "What do winners of the competition receive?",
       answer: "Winners of the National Campus Press Summit will receive a Certificate of Recognition, in addition to the Certificate of Participation and lecture materials."
-    },
-    {
-      question: "Our school requires an invitation letter to allow participation. Who should we contact?",
-      answer: 'If you need an invitation letter for your school, you can request one by filling out this <a href="https://bit.ly/JournCampPlusInvite" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">form</a>.'
     }
   ];
 
@@ -136,7 +132,7 @@ const FAQ = () => {
             <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-6">🏆 National Campus Press Summit (Competition / Online Press Conference)</h3>
             <Accordion type="single" collapsible className="w-full bg-white p-4 sm:p-6 rounded-lg shadow-sm">
               {competitionFaqs.map((faq, index) => (
-                <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https.schema.org/Question">
+                <AccordionItem value={`item-comp-${index}`} key={index} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                   <AccordionTrigger className="text-left text-sm md:text-base font-semibold" itemProp="name">{faq.question}</AccordionTrigger>
                   <AccordionContent className="text-gray-600 text-xs sm:text-sm md:text-base" itemScope itemProp="acceptedAnswer" itemType="https.schema.org/Answer">
                     <p itemProp="text" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }}></p>

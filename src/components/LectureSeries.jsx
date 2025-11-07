@@ -23,10 +23,10 @@ const nov8Schedule = [
     affiliations: [{ name: 'Professor, UP Diliman', logo: 'UP' }]
   },
   {
-    speaker: 'Ms. Prences Jhewen Albis',
-    event: 'Copyreading and Headline Writing',
-    time: '10:40 AM – 11:40 AM',
-    icon: Scissors,
+    speaker: 'Ms. Jhewen Albis',
+    event: 'Column Writing',
+    time: '10:40AM – 11:40AM',
+    icon: PenTool,
     affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
   },
   {
@@ -37,27 +37,27 @@ const nov8Schedule = [
     affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }]
   },
   {
-    speaker: 'Mr. Marco Romas',
-    event: 'TV Broadcasting',
+    speaker: 'Mr. Gabriel Ibis',
+    event: 'Science and Technology Writing',
     time: '2:55PM – 3:55PM',
-    icon: Tv,
-    affiliations: [{ name: 'Freelance Journalist' }]
+    icon: Microscope,
+    affiliations: [{ name: 'Managing Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
   },
 ];
 
 const nov9Schedule = [
   {
-    speaker: 'Mr. Gabriel Ibis',
-    event: 'Science and Technology Writing',
+    speaker: 'Mr. Marco Romas',
+    event: 'TV Broadcasting',
     time: '9:00AM – 10:00AM',
-    icon: Microscope,
-    affiliations: [{ name: 'Managing Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
+    icon: Tv,
+    affiliations: [{ name: 'Freelance Journalist' }]
   },
   {
-    speaker: 'Mr. Isaiah Matthew Hilario',
-    event: 'Column Writing',
+    speaker: 'Mr. Isaiah Matthew Hillario',
+    event: 'Copyreading and Headline Writing',
     time: '10:40AM – 11:40AM',
-    icon: FileText,
+    icon: Scissors,
     affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }]
   },
   {
