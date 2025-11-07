@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, User, Mic, PenTool, Edit3, Star, Tv, Microscope, FileText, Target, Palette } from 'lucide-react';
+import { Calendar, Clock, User, Mic, PenTool, Edit3, Star, Tv, Microscope, FileText, Target, Palette, Scissors } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const logos = {
@@ -23,11 +23,11 @@ const nov8Schedule = [
     affiliations: [{ name: 'Professor, UP Diliman', logo: 'UP' }]
   },
   {
-    speaker: 'Mr. Isaiah Matthew Hilario',
+    speaker: 'Ms. Prences Jhewen Albis',
     event: 'Copyreading and Headline Writing',
     time: '10:40 AM – 11:40 AM',
-    icon: PenTool,
-    affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }]
+    icon: Scissors,
+    affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
   },
   {
     speaker: 'Ms. Gianela Zapata',
@@ -54,11 +54,11 @@ const nov9Schedule = [
     affiliations: [{ name: 'Managing Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
   },
   {
-    speaker: 'Ms. Jhewen Albis',
+    speaker: 'Mr. Isaiah Matthew Hilario',
     event: 'Column Writing',
     time: '10:40AM – 11:40AM',
     icon: FileText,
-    affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }]
+    affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }]
   },
   {
     speaker: 'Cartoonist Zach',
@@ -100,22 +100,29 @@ const ScheduleCard = ({ item }) => (
       
       <div className="border-t border-gray-100 my-4"></div>
 
-      <div className="flex items-start text-gray-700">
-          <User className="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-brand-dark-teal" />
-          <div>
-              <span className="font-semibold text-brand-dark-teal">{item.speaker}</span>
-              {item.affiliations && (
-                  <div className="mt-2 space-y-1.5">
-                  {item.affiliations.map((affiliation, i) => (
-                      <div key={i} className="flex items-center">
-                      {affiliation.logo && <img src={logos[affiliation.logo]} alt={affiliation.name} className="w-4 h-4 mr-2 object-contain" />}
-                      <span className="text-gray-500 text-xs">{affiliation.name}</span>
-                      </div>
-                  ))}
-                  </div>
-              )}
-          </div>
-      </div>
+      {item.speaker ? (
+        <div className="flex items-start text-gray-700">
+            <User className="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-brand-dark-teal" />
+            <div>
+                <span className="font-semibold text-brand-dark-teal">{item.speaker}</span>
+                {item.affiliations && (
+                    <div className="mt-2 space-y-1.5">
+                    {item.affiliations.map((affiliation, i) => (
+                        <div key={i} className="flex items-center">
+                        {affiliation.logo && <img src={logos[affiliation.logo]} alt={affiliation.name} className="w-4 h-4 mr-2 object-contain" />}
+                        <span className="text-gray-500 text-xs">{affiliation.name}</span>
+                        </div>
+                    ))}
+                    </div>
+                )}
+            </div>
+        </div>
+      ) : (
+        <div className="flex items-start text-gray-400">
+          <User className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
+          <span>Coming Soon</span>
+        </div>
+      )}
     </div>
   </motion.div>
 );
@@ -137,7 +144,7 @@ const LectureSeries = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-brand-dark tracking-tight">Lecture Series</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">The full schedule of our lecture series.</p>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">The full schedule of our multi-day event.</p>
         </div>
 
         <div className="flex justify-center mb-8">

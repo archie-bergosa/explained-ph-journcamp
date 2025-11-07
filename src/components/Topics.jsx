@@ -11,7 +11,7 @@ const logos = {
   DepEd: 'https://i.postimg.cc/ryBJVrwt/Deped-logo.png',
   'Cartooning for Peace': 'https://i.postimg.cc/Wp0wW4s9/a-utiliser-LOGO-CARTOONING-MACARON-de-toure-BD.png',
   'GMA': 'https://i.postimg.cc/Bn3Bj1S3/2560px-GMA-Network-Logo-Vector-svg.png',
-  'Journcamp': 'https://i.postimg.cc/CzhQQfNp/journcamp.png'
+  'Journcamp': 'https://i.postimg.cc/zHkXz0tv/Copy-of-journcamp.png'
 };
 
 const TopicItem = ({ topic, index, isNew = false }) => {
@@ -75,11 +75,11 @@ const Topics = () => {
   const coreTopics = [
     { name: 'News Writing', icon: PenTool, speaker: 'Bonz Magsambol', affiliations: [{ name: 'Multimedia Reporter, Rappler', logo: 'Rappler' }] },
     { name: 'Editorial Writing', icon: Edit3, speaker: 'Danilo Arao', affiliations: [{ name: 'Professor, UP Diliman', logo: 'UP' }], schedule: 'November 8' },
-    { name: 'Column Writing', icon: FileText, speaker: 'Prences Jhewen Albis', affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 9' },
+    { name: 'Column Writing', icon: FileText, speaker: 'Isaiah Matthew Hilario', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }], schedule: 'November 9' },
     { name: 'Feature Writing', icon: Star, speaker: 'Gianela Zapata', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 8' },
     { name: 'Science and Technology Writing', icon: Microscope, speaker: 'Gabriel Ibis', affiliations: [{ name: 'Managing Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 9' },
     { name: 'Sports Writing', icon: Trophy, speaker: 'Christan Salvaña', affiliations: [{ name: '4x NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
-    { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Isaiah Matthew Hilario', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }], schedule: 'November 8' },
+    { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Prences Jhewen Albis', affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 8' },
     { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }] },
     { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 9' },
     { name: 'Radio Broadcasting', icon: Radio },
