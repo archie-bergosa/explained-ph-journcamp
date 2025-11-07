@@ -17,12 +17,6 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (sectionId) => {
-    if (sectionId === 'register') {
-      window.open('https://go.explained.ph/JourncampPlus2025', '_blank');
-      setIsMenuOpen(false);
-      return;
-    }
-    
     const section = document.getElementById(sectionId.toLowerCase());
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -67,13 +61,6 @@ const Header = () => {
                   </motion.button>
                 ))}
               </div>
-
-              <Button
-                onClick={() => handleNavClick('register')}
-                className="bg-gradient-to-r from-brand-orange to-brand-yellow text-white font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform"
-              >
-                REGISTER NOW
-              </Button>
             </div>
 
             <Button
@@ -120,19 +107,6 @@ const Header = () => {
                   <Link to={item.path} onClick={() => item.path === '/' && handleNavClick(item.id)} itemProp="url">{item.name}</Link>
                 </motion.button>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Button
-                  onClick={() => handleNavClick('register')}
-                  size="lg"
-                  className="w-full mt-6 bg-gradient-to-r from-brand-orange to-brand-yellow text-white font-bold text-xl sm:text-2xl px-10 py-6 rounded-full shadow-lg hover:scale-105 transition-transform"
-                >
-                  REGISTER NOW
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
         )}
