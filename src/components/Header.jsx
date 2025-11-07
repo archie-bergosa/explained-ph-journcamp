@@ -34,7 +34,7 @@ const Header = () => {
     { id: 'program-info', name: 'About', path: '/' },
     { id: 'topics', name: 'Topics', path: '/' },
     { id: 'faq', name: 'FAQs', path: '/' },
-    { id: 'schedule', name: 'Schedule', path: '/schedule' },
+    { id: 'lecture-series', name: 'Lecture Series', path: '/lecture-series' },
   ];
 
   return (
