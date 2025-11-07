@@ -11,7 +11,7 @@ const logos = {
   DepEd: 'https://i.postimg.cc/ryBJVrwt/Deped-logo.png',
   'Cartooning for Peace': 'https://i.postimg.cc/Wp0wW4s9/a-utiliser-LOGO-CARTOONING-MACARON-de-toure-BD.png',
   'GMA': 'https://i.postimg.cc/Bn3Bj1S3/2560px-GMA-Network-Logo-Vector-svg.png',
-  'Journcamp': 'https://i.postimg.cc/CzhQQfNp/journcamp.png'
+  'Journcamp': 'https://i.postimg.cc/zHkXz0tv/Copy-of-journcamp.png'
 };
 
 const nov8Schedule = [
