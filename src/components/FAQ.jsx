@@ -22,7 +22,7 @@ const FAQ = () => {
     },
     {
       question: "What is the schedule of the lectures?",
-      answer: "The detailed schedule and lecture lineup will be released in the official event primer — COMING SOON."
+      answer: "The detailed schedule and lecture lineup has been released. You can view it on the Lecture Series page."
     },
     {
       question: "When will I receive my certificate and lecture materials?",
