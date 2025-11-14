@@ -73,27 +73,27 @@ const TopicItem = ({ topic, index, isNew = false }) => {
 
 const Topics = () => {
   const coreTopics = [
-    { name: 'News Writing', icon: PenTool, speaker: 'Bonz Magsambol', affiliations: [{ name: 'Multimedia Reporter, Rappler', logo: 'Rappler' }] },
+    { name: 'News Writing', icon: PenTool, speaker: 'Bonz Magsambol', affiliations: [{ name: 'Multimedia Reporter, Rappler', logo: 'Rappler' }], schedule: 'November 16' },
     { name: 'Editorial Writing', icon: Edit3, speaker: 'Danilo Arao', affiliations: [{ name: 'Professor, UP Diliman', logo: 'UP' }], schedule: 'November 8' },
     { name: 'Column Writing', icon: FileText, speaker: 'Isaiah Matthew Hilario', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }], schedule: 'November 9' },
     { name: 'Feature Writing', icon: Star, speaker: 'Gianela Zapata', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 8' },
     { name: 'Science and Technology Writing', icon: Microscope, speaker: 'Gabriel Ibis', affiliations: [{ name: 'Managing Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 9' },
-    { name: 'Sports Writing', icon: Trophy, speaker: 'Christan Salvaña', affiliations: [{ name: '4x NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
+    { name: 'Sports Writing', icon: Trophy, speaker: 'Christan Salvaña', affiliations: [{ name: '4x NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }], schedule: 'November 15' },
     { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Prences Jhewen Albis', affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 8' },
-    { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }] },
-    { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 9' },
-    { name: 'Radio Broadcasting', icon: Radio, speaker: 'Joseph Azil Buena', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }] },
-    { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', affiliations: [{ name: 'Freelance Journalist' }], schedule: 'November 8' },
-    { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
-    { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', affiliations: [{ name: 'Editor-in-Chief, Explained PH', logo: 'Explained PH' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
-    { name: 'Mobile Journalism', icon: Smartphone, speaker: 'Patricia Loraine Sevilla', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }] }
+    { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }], schedule: 'November 15' },
+    { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 16' },
+    { name: 'Radio Broadcasting', icon: Radio, speaker: 'Joseph Azil Buena', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 15' },
+    { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', affiliations: [{ name: 'Freelance Journalist' }], schedule: 'November 9' },
+    { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }], schedule: 'November 15' },
+    { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', affiliations: [{ name: 'Editor-in-Chief, Explained PH', logo: 'Explained PH' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }], schedule: 'November 16' },
+    { name: 'Mobile Journalism', icon: Smartphone, speaker: 'Patricia Loraine Sevilla', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 16' }
   ];
 
   const newTopics = [
-    { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', affiliations: [{ name: 'Most Outstanding School Paper Adviser', logo: 'NSPC' }] },
+    { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', affiliations: [{ name: 'Most Outstanding School Paper Adviser', logo: 'NSPC' }], schedule: 'November 15' },
     { name: 'Political Cartoons', icon: Target, speaker: 'Cartoonist Zach', affiliations: [{ name: 'Cartoonist, PITIK BULAG', logo: 'PITIK BULAG' }, { name: 'Member, Cartooning for Peace', logo: 'Cartooning for Peace' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }], schedule: 'November 9' },
     { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', affiliations: [{ name: 'Staffer, Explained PH', logo: 'Explained PH' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
-    { name: 'Community Journalism', icon: Users, speaker: 'Samantha' },
+    { name: 'Community Journalism', icon: Users, speaker: 'Samantha Bagayas', affiliations: [{ name: 'Head of Civic Engagement, Rappler', logo: 'Rappler' }] },
     { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', affiliations: [{ name: 'Community Head, Explained PH', logo: 'Explained PH' }] },
     { name: 'Becoming an Effective Student Editor', icon: Users, speaker: 'Marjuice Destinado', affiliations: [{ name: 'Aries Rufo Fellow, Rappler', logo: 'Rappler' }, { name: 'Researcher, Explained PH', logo: 'Explained PH' }] },
   ];
@@ -155,7 +155,7 @@ const Topics = () => {
                 <TopicItem key={index} topic={topic} index={index} isNew={true} />
               ))}
             </div>
-          </motion.div>
+          </motion.div
         </div>
       </div>
     </section>
