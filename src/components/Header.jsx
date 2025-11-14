@@ -44,7 +44,7 @@ const Header = () => {
         <nav className="container mx-auto px-6 sm:px-8" itemScope itemType="https://schema.org/SiteNavigationElement">
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="cursor-pointer">
-              <img src="https://i.postimg.cc/jd4PZbHv/journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7" />
+              <img src="https://i.postimg.cc/zHkXz0tv/Copy-of-journcamp.png" alt="Journcamp+ Logo" className="h-6 sm:h-7" />
             </Link>
 
             <div className="hidden md:flex items-center space-x-4">
