@@ -82,20 +82,20 @@ const Topics = () => {
     { name: 'Copyreading and Headline Writing', icon: Scissors, speaker: 'Prences Jhewen Albis', affiliations: [{ name: 'Associate Editor, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Winner', logo: 'NSPC' }], schedule: 'November 8' },
     { name: 'Photojournalism', icon: Camera, speaker: 'Jhason James Rosel', affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }] },
     { name: 'Editorial Cartooning', icon: Palette, speaker: 'Jascyl Jee Sayson', affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }], schedule: 'November 9' },
-    { name: 'Radio Broadcasting', icon: Radio },
+    { name: 'Radio Broadcasting', icon: Radio, speaker: 'Joseph Azil Buena', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }] },
     { name: 'TV Broadcasting', icon: Tv, speaker: 'Marco Romas', affiliations: [{ name: 'Freelance Journalist' }], schedule: 'November 8' },
     { name: 'Collaborative Desktop Publishing', icon: Monitor, speaker: 'James Punsalan', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
     { name: 'Online Publishing', icon: Globe, speaker: 'Archie R. Bergosa', affiliations: [{ name: 'Editor-in-Chief, Explained PH', logo: 'Explained PH' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }] },
-    { name: 'Mobile Journalism', icon: Smartphone }
+    { name: 'Mobile Journalism', icon: Smartphone, speaker: 'Patricia Loraine Sevilla', affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }] }
   ];
 
   const newTopics = [
     { name: 'School Paper Management', icon: Settings, speaker: 'Owen Castillo', affiliations: [{ name: 'Most Outstanding School Paper Adviser', logo: 'NSPC' }] },
     { name: 'Political Cartoons', icon: Target, speaker: 'Cartoonist Zach', affiliations: [{ name: 'Cartoonist, PITIK BULAG', logo: 'PITIK BULAG' }, { name: 'Member, Cartooning for Peace', logo: 'Cartooning for Peace' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }], schedule: 'November 9' },
     { name: 'MOCJ Tips', icon: Lightbulb, speaker: 'Yesha Camile', affiliations: [{ name: 'Staffer, Explained PH', logo: 'Explained PH' }, { name: 'Most Outstanding Campus Journalist', logo: 'NSPC' }] },
-    { name: 'Community Journalism', icon: Users },
+    { name: 'Community Journalism', icon: Users, speaker: 'Samantha' },
     { name: 'Peace Journalism', icon: Peace, speaker: 'Marion Manalo', affiliations: [{ name: 'Community Head, Explained PH', logo: 'Explained PH' }] },
-    { name: 'Becoming an Effective Student Editor', icon: Users },
+    { name: 'Becoming an Effective Student Editor', icon: Users, speaker: 'Marjuice Destinado', affiliations: [{ name: 'Aries Rufo Fellow, Rappler', logo: 'Rappler' }, { name: 'Researcher, Explained PH', logo: 'Explained PH' }] },
   ];
 
   return (

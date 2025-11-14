@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, User, Mic, PenTool, Edit3, Star, Tv, Microscope, FileText, Target, Palette, Scissors } from 'lucide-react';
+import { Calendar, Clock, User, Mic, PenTool, Edit3, Star, Tv, Microscope, FileText, Target, Palette, Scissors, Smartphone, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const logos = {
@@ -114,6 +114,44 @@ const nov15Schedule = [
     }
 ];
 
+const nov16Schedule = [
+    {
+        speaker: 'Raine Sevilla',
+        event: 'Mobile Journalism',
+        time: '9:00AM-10:00AM',
+        icon: Smartphone,
+        affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }]
+    },
+    {
+        speaker: 'Bam Alegre',
+        event: 'Special Broadcasting Session',
+        time: '10:40AM-11:40AM',
+        icon: Tv,
+        affiliations: [{ name: 'Senior News Producer, GMA', logo: 'GMA' }]
+    },
+    {
+        speaker: 'Bonz Magsambol',
+        event: 'News Writing',
+        time: '1:15PM-2:15PM',
+        icon: PenTool,
+        affiliations: [{ name: 'Multimedia Reporter, Rappler', logo: 'Rappler' }]
+    },
+    {
+        speaker: 'Jascyl Jee Sayson',
+        event: 'Editorial Cartooning',
+        time: '2:55PM-3:55PM',
+        icon: Palette,
+        affiliations: [{ name: 'Chief Cartoonist, Explained PH', logo: 'Explained PH' }, { name: 'NSPC Champion', logo: 'NSPC' }]
+    },
+    {
+        speaker: 'Archie Bergosa',
+        event: 'Online Publishing',
+        time: '4:35PM-5:35PM',
+        icon: Globe,
+        affiliations: [{ name: 'Editor-in-Chief, Explained PH', logo: 'Explained PH' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' }]
+    }
+];
+
 const ScheduleCard = ({ item }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -172,7 +210,7 @@ const LectureSeries = () => {
     { id: 'nov8', label: 'November 8', schedule: nov8Schedule },
     { id: 'nov9', label: 'November 9', schedule: nov9Schedule },
     { id: 'nov15', label: 'November 15', schedule: nov15Schedule },
-    { id: 'nov16', label: 'November 16', schedule: [] },
+    { id: 'nov16', label: 'November 16', schedule: nov16Schedule },
   ];
 
   const activeSchedule = tabs.find(tab => tab.id === activeTab)?.schedule || [];
