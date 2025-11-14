@@ -89,28 +89,28 @@ const nov15Schedule = [
         event: 'Photojournalism',
         time: '10:40AM-11:40AM',
         icon: PenTool,
-        affiliations: []
+        affiliations: [{ name: 'NSPC Champion', logo: 'NSPC' }]
     },
     {
         speaker: 'Christan Salvaña',
         event: 'Sports Writing',
         time: '1:15PM-2:15PM',
         icon: Star,
-        affiliations: []
+        affiliations: [ { name: '4x NSPC Winner', logo: 'NSPC' }, { name: 'DSPC/RSPC Judge', logo: 'DepEd' } ]
     },
     {
         speaker: 'James Punsalan',
         event: 'Collaborative Desktop Publishing',
         time: '2:55PM-3:55PM',
         icon: Edit3,
-        affiliations: []
+        affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }]
     },
     {
         speaker: 'Joseph Azil Buena',
         event: 'Radio Broadcasting',
         time: '4:35PM-5:35PM',
         icon: Mic,
-        affiliations: []
+        affiliations: [{ name: 'NSPC Winner', logo: 'NSPC' }]
     }
 ];
 
