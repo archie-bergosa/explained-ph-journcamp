@@ -76,6 +76,44 @@ const nov9Schedule = [
   },
 ];
 
+const nov15Schedule = [
+    {
+        speaker: 'Owen Castillo',
+        event: 'School Paper Management',
+        time: '9:00AM-10:00AM',
+        icon: FileText,
+        affiliations: []
+    },
+    {
+        speaker: 'Jhason James Rosel',
+        event: 'Photojournalism',
+        time: '10:40AM-11:40AM',
+        icon: PenTool,
+        affiliations: []
+    },
+    {
+        speaker: 'Christan Salvaña',
+        event: 'Sports Writing',
+        time: '1:15PM-2:15PM',
+        icon: Star,
+        affiliations: []
+    },
+    {
+        speaker: 'James Punsalan',
+        event: 'Collaborative Desktop Publishing',
+        time: '2:55PM-3:55PM',
+        icon: Edit3,
+        affiliations: []
+    },
+    {
+        speaker: 'Joseph Azil Buena',
+        event: 'Radio Broadcasting',
+        time: '4:35PM-5:35PM',
+        icon: Mic,
+        affiliations: []
+    }
+];
+
 const ScheduleCard = ({ item }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -133,7 +171,7 @@ const LectureSeries = () => {
   const tabs = [
     { id: 'nov8', label: 'November 8', schedule: nov8Schedule },
     { id: 'nov9', label: 'November 9', schedule: nov9Schedule },
-    { id: 'nov15', label: 'November 15', schedule: [] },
+    { id: 'nov15', label: 'November 15', schedule: nov15Schedule },
     { id: 'nov16', label: 'November 16', schedule: [] },
   ];
 
