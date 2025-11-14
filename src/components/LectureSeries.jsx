@@ -82,7 +82,7 @@ const nov15Schedule = [
         event: 'School Paper Management',
         time: '9:00AM-10:00AM',
         icon: FileText,
-        affiliations: []
+        affiliations: [{ name: 'Most Outstanding School Paper Adviser', logo: 'NSPC' }]
     },
     {
         speaker: 'Jhason James Rosel',
