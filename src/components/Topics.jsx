@@ -155,7 +155,7 @@ const Topics = () => {
                 <TopicItem key={index} topic={topic} index={index} isNew={true} />
               ))}
             </div>
-          </motion.div
+          </motion.div>
         </div>
       </div>
     </section>
