@@ -13,6 +13,7 @@ import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import LectureSeries from '@/components/LectureSeries';
+import Guidelines from '@/pages/Guidelines'; // Import the new Guidelines component
 
 function Home() {
   return (
@@ -57,6 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lecture-series" element={<LectureSeries />} />
+        <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}
       </Routes>
       <Footer />
       <Toaster />
