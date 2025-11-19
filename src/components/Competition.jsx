@@ -1,48 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Award, ArrowRight } from 'lucide-react';
+import { fadeIn, staggerContainer } from '@/lib/variants';
 
 const Competition = () => {
   return (
-    <section id="competition" className="py-12 px-4 bg-slate-100" itemScope itemType="https://schema.org/WPHeader">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl p-6 sm:p-10 shadow-xl border border-slate-200"
-        >
-          <div className="flex flex-col md:flex-row md:items-center text-center md:text-left">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="mb-6 md:mb-0 md:mr-8"
-            >
-              <div className="bg-gradient-to-br from-brand-teal to-brand-dark-teal p-5 rounded-full inline-block shadow-lg">
-                <Trophy className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-              </div>
-            </motion.div>
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-brand-dark-teal" itemProp="headline">
-                The National Campus Press Summit
-              </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 leading-relaxed" itemProp="description">
-                The competition side of JournCamp+ — is a virtual press conference that brings together campus journalists from elementary, high school, and college to compete in a wide range of categories. Participants will be tasked to submit outputs online, simulating the real press conference experience in a nationwide setup.
-              </p>
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
-                With your registration, you get access to all lectures and the full competition — no extra fees. Winners will be awarded medals (shipping included), certificates of recognition, and national exposure.
-              </p>
-              <p className="font-semibold text-brand-orange text-sm sm:text-base">
-                Detailed mechanics, categories, and submission guidelines will be released soon.
-              </p>
-            </div>
-          </div>
+    <motion.section 
+      id="competition"
+      variants={staggerContainer(0.3, 1)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      className="bg-brand-dark-teal text-white py-20 px-4"
+    >
+      <div className="container mx-auto text-center">
+        <motion.div variants={fadeIn('up', 0.2)}>
+            <Award className="w-16 h-16 mx-auto mb-6 text-brand-orange" />
         </motion.div>
+        
+        <motion.h2 
+            variants={fadeIn('up', 0.4)}
+            className="text-3xl sm:text-4xl font-extrabold mb-4"
+        >
+            Join the National Campus Press Summit
+        </motion.h2>
+        
+        <motion.p 
+            variants={fadeIn('up', 0.6)}
+            className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8"
+        >
+            A national competition designed to recognize and celebrate the best in campus journalism. Compete in various categories and showcase your skills.
+        </motion.p>
+        
+        <motion.div variants={fadeIn('up', 0.8)}>
+            <a href="https://docs.google.com/document/d/1vC3z-gB8vA3eL5C4aT5c6oJ3nFtD2sWqN8zI9xR0tY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white font-bold">
+                    View Mechanics &amp; Guidelines
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+            </a>
+        </motion.div>
+
       </div>
-    </section>
+    </motion.section>
   );
 };
 
