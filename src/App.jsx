@@ -4,12 +4,15 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Modules from '@/components/Modules';
 import Advisory from '@/components/Advisory';
+import ProgramInfo from '@/components/ProgramInfo';
+import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
+import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
+import LectureSeries from '@/components/LectureSeries';
 
 function Home() {
   return (
@@ -35,9 +38,11 @@ function Home() {
       </Helmet>
       <main>
         <Hero />
-        <Modules />
+        <ProgramInfo />
         <Advisory />
+        <Topics />
         <Competition />
+        <InfoAndSchedules />
         <History />
         <FAQ />
       </main>
@@ -51,6 +56,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/lecture-series" element={<LectureSeries />} />
       </Routes>
       <Footer />
       <Toaster />
