@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/variants';
+import { fadeIn } from '@/lib/variants';
 import { FileText, Award, Calendar, Users, Mic, Camera, PenTool, Tv, Film } from 'lucide-react';
 
 const Guidelines = () => {
   return (
     <motion.div
-      variants={staggerContainer}
       initial="initial"
       animate="animate"
       className="bg-slate-50 py-16 px-4"
@@ -82,4 +81,3 @@ const Guidelines = () => {
 };
 
 export default Guidelines;
- 
