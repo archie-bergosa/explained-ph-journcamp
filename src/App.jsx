@@ -3,9 +3,10 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Modules from '@/components/Modules';
 import Advisory from '@/components/Advisory';
 import Competition from '@/components/Competition';
-import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
@@ -33,9 +34,10 @@ function Home() {
         <meta name="twitter:image" content="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" />
       </Helmet>
       <main>
+        <Hero />
+        <Modules />
         <Advisory />
         <Competition />
-        <InfoAndSchedules />
         <History />
         <FAQ />
       </main>
