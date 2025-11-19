@@ -3,16 +3,12 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
 import Advisory from '@/components/Advisory';
-import ProgramInfo from '@/components/ProgramInfo';
-import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import LectureSeries from '@/components/LectureSeries';
 
 function Home() {
   return (
@@ -37,10 +33,7 @@ function Home() {
         <meta name="twitter:image" content="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" />
       </Helmet>
       <main>
-        <Hero />
-        <ProgramInfo />
         <Advisory />
-        <Topics />
         <Competition />
         <InfoAndSchedules />
         <History />
@@ -56,7 +49,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/lecture-series" element={<LectureSeries />} />
       </Routes>
       <Footer />
       <Toaster />
