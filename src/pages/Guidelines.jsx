@@ -585,19 +585,6 @@ const Guidelines = () => {
               <h3 className="text-2xl font-bold text-brand-dark-teal mb-6 text-center">General Mechanics</h3>
               
               <div className="space-y-8">
-                <div className="border-l-4 border-brand-teal pl-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <Users className="w-6 h-6 text-brand-teal flex-shrink-0 mt-1" />
-                    <h4 className="text-xl font-bold text-gray-800">Orientation and Proctoring</h4>
-                  </div>
-                  <p className="text-base text-gray-700 leading-relaxed mb-3">
-                    All participants must attend a <span className="font-bold text-brand-teal">mandatory live broadcast orientation</span> (via Zoom) for their category, with the date to be announced at a later time. Organizers and stakeholders will provide an explanation of the guidelines and instructions.
-                  </p>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    During the contest proper, questions will only be directed to proctors.
-                  </p>
-                </div>
-
                 <div className="border-l-4 border-brand-orange pl-6">
                   <div className="flex items-start gap-3 mb-3">
                     <AlertCircle className="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" />
