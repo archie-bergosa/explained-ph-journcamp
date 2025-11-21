@@ -62,9 +62,9 @@ const Leaderboard = () => {
           </div>
 
           {/* Podium Display */}
-          <div className="max-w-4xl mx-auto mt-8 md:mt-16">
+          <div className="max-w-4xl mx-auto mt-16 md:mt-24 lg:mt-28">
             {/* Podium Style - All Screens */}
-            <div className="relative pb-14 sm:pb-16 md:pb-20 lg:pb-22">
+            <div className="relative pb-20 sm:pb-24 md:pb-28 lg:pb-32 pt-12 sm:pt-14 md:pt-20 lg:pt-24">
               {/* Podium Platforms with Trophies on Top */}
               <div className="flex items-end justify-center gap-2 md:gap-8">
                 {/* 2nd Place Platform */}
@@ -75,22 +75,28 @@ const Leaderboard = () => {
                   className="relative w-1/3"
                   style={{ transformOrigin: 'bottom' }}
                 >
+                  {/* Logo Above Pedestal */}
+                  <div className="absolute -top-8 sm:-top-10 md:-top-14 lg:-top-16 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white overflow-hidden shadow-2xl border-4 border-gray-400 flex items-center justify-center p-1">
+                      {sortedData[1]?.image ? (
+                        <img 
+                          src={`/regions/${sortedData[1].image}`}
+                          alt={`${sortedData[1]?.region} logo`}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            console.error('Image failed to load:', sortedData[1]?.image);
+                            e.target.style.display = 'none';
+                            e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-xs font-bold text-gray-500">LOGO</span>';
+                          }}
+                        />
+                      ) : (
+                        <span className="flex items-center justify-center w-full h-full text-xs font-bold text-gray-500">LOGO</span>
+                      )}
+                    </div>
+                  </div>
                   <div className="bg-gradient-to-t from-gray-400 to-gray-300 rounded-t-xl md:rounded-t-2xl shadow-xl h-32 sm:h-36 md:h-48 lg:h-56 flex flex-col items-center justify-between p-2 sm:p-3 md:p-5 lg:p-6 border-2 md:border-4 border-gray-500">
-                    {/* Region Logo and Name at top */}
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full bg-white overflow-hidden shadow-md">
-                          <img 
-                            src={`/regions/${sortedData[1]?.image}`}
-                            alt={`${sortedData[1]?.region} logo`}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-[8px] font-bold text-gray-500">LOGO</span>';
-                            }}
-                          />
-                        </div>
-                      </div>
+                    {/* Region Name at top */}
+                    <div className="text-center mt-2 sm:mt-3 md:mt-4">
                       <h3 className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs font-bold text-gray-800 leading-tight px-1">
                         {sortedData[1]?.total === 0 ? 'N/A' : sortedData[1]?.region}
                       </h3>
@@ -124,22 +130,28 @@ const Leaderboard = () => {
                   className="relative w-1/3"
                   style={{ transformOrigin: 'bottom' }}
                 >
+                  {/* Logo Above Pedestal */}
+                  <div className="absolute -top-10 sm:-top-12 md:-top-16 lg:-top-20 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white overflow-hidden shadow-2xl border-4 md:border-6 border-yellow-500 flex items-center justify-center p-1.5">
+                      {sortedData[0]?.image ? (
+                        <img 
+                          src={`/regions/${sortedData[0].image}`}
+                          alt={`${sortedData[0]?.region} logo`}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            console.error('Image failed to load:', sortedData[0]?.image);
+                            e.target.style.display = 'none';
+                            e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-sm font-bold text-gray-500">LOGO</span>';
+                          }}
+                        />
+                      ) : (
+                        <span className="flex items-center justify-center w-full h-full text-sm font-bold text-gray-500">LOGO</span>
+                      )}
+                    </div>
+                  </div>
                   <div className="bg-gradient-to-t from-yellow-600 to-yellow-400 rounded-t-xl md:rounded-t-2xl shadow-2xl h-40 sm:h-44 md:h-56 lg:h-64 flex flex-col items-center justify-between p-3 sm:p-4 md:p-5 lg:p-7 border-2 md:border-4 border-yellow-500">
-                    {/* Region Logo and Name at top */}
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-white overflow-hidden shadow-md">
-                          <img 
-                            src={`/regions/${sortedData[0]?.image}`}
-                            alt={`${sortedData[0]?.region} logo`}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-[8px] font-bold text-gray-500">LOGO</span>';
-                            }}
-                          />
-                        </div>
-                      </div>
+                    {/* Region Name at top */}
+                    <div className="text-center mt-3 sm:mt-4 md:mt-5">
                       <h3 className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-xs font-bold text-yellow-900 leading-tight px-1">
                         {sortedData[0]?.total === 0 ? 'N/A' : sortedData[0]?.region}
                       </h3>
@@ -175,22 +187,28 @@ const Leaderboard = () => {
                   className="relative w-1/3"
                   style={{ transformOrigin: 'bottom' }}
                 >
+                  {/* Logo Above Pedestal */}
+                  <div className="absolute -top-7 sm:-top-9 md:-top-12 lg:-top-14 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full bg-white overflow-hidden shadow-2xl border-4 border-amber-700 flex items-center justify-center p-1">
+                      {sortedData[2]?.image ? (
+                        <img 
+                          src={`/regions/${sortedData[2].image}`}
+                          alt={`${sortedData[2]?.region} logo`}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            console.error('Image failed to load:', sortedData[2]?.image);
+                            e.target.style.display = 'none';
+                            e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-xs font-bold text-gray-500">LOGO</span>';
+                          }}
+                        />
+                      ) : (
+                        <span className="flex items-center justify-center w-full h-full text-xs font-bold text-gray-500">LOGO</span>
+                      )}
+                    </div>
+                  </div>
                   <div className="bg-gradient-to-t from-amber-800 to-amber-600 rounded-t-xl md:rounded-t-2xl shadow-xl h-28 sm:h-32 md:h-40 lg:h-44 flex flex-col items-center justify-between p-2 sm:p-2.5 md:p-4 lg:p-5 border-2 md:border-4 border-amber-700">
-                    {/* Region Logo and Name at top */}
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full bg-white overflow-hidden shadow-md">
-                          <img 
-                            src={`/regions/${sortedData[2]?.image}`}
-                            alt={`${sortedData[2]?.region} logo`}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.parentElement.innerHTML = '<span class="flex items-center justify-center w-full h-full text-[8px] font-bold text-gray-500">LOGO</span>';
-                            }}
-                          />
-                        </div>
-                      </div>
+                    {/* Region Name at top */}
+                    <div className="text-center mt-1 sm:mt-2 md:mt-3">
                       <h3 className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs font-bold text-amber-100 leading-tight px-1">
                         {sortedData[2]?.total === 0 ? 'N/A' : sortedData[2]?.region}
                       </h3>
