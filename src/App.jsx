@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import { LeaderboardProvider } from '@/contexts/LeaderboardContext';
 import Header from '@/components/Header';
+import CountdownBanner from '@/components/CountdownBanner';
 import Hero from '@/components/Hero';
 import Advisory from '@/components/Advisory';
 import ProgramInfo from '@/components/ProgramInfo';
@@ -64,6 +65,7 @@ function Home() {
         <meta name="twitter:description" content="Join the Virtual Journalism Camp by Explained PH to strengthen campus publications nationwide." />
         <meta name="twitter:image" content="https://i.postimg.cc/7Y0rb3Jh/journcamp.png" />
       </Helmet>
+      <CountdownBanner />
       <main>
         <Hero />
         <ProgramInfo />
