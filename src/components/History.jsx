@@ -43,8 +43,8 @@ const History = () => {
   ];
 
   return (
-    <section id="history" className="py-12 px-4 bg-white">
-      <div className="container mx-auto">
+    <section id="history" className="min-h-screen flex items-center justify-center px-4 bg-white">
+      <div className="container mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

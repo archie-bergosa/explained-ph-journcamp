@@ -83,6 +83,18 @@ const NewsWriting = () => {
             <p className="text-lg mt-2 opacity-90">
               JournCamp+: National Campus Press Summit
             </p>
+            <div className="mt-6 pt-6 border-t border-white/20">
+              <div className="space-y-2">
+                <div className="flex items-center justify-center gap-2 text-base md:text-lg">
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-semibold">Contest Date: December 1, 2025</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-base md:text-lg">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold">Submission Deadline: December 1, 2025 - 11:59 PM</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.section>
@@ -335,6 +347,16 @@ const NewsWriting = () => {
           </div>
 
           <div className="max-w-3xl mx-auto space-y-4">
+            <div className="border-l-4 border-blue-600 pl-6 py-3 bg-blue-50">
+              <p className="text-base text-gray-700">
+                <span className="font-bold text-blue-900">Contest Date:</span> December 1, 2025
+              </p>
+            </div>
+            <div className="border-l-4 border-purple-600 pl-6 py-3 bg-purple-50">
+              <p className="text-base text-gray-700">
+                <span className="font-bold text-purple-900">Final Submission Deadline:</span> December 1, 2025 at 11:59 PM
+              </p>
+            </div>
             <div className="border-l-4 border-brand-teal pl-6 py-3">
               <p className="text-base text-gray-700">Each category has a designated writing/production period.</p>
             </div>

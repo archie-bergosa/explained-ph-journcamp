@@ -80,8 +80,8 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => (
 
 const ProgramInfo = () => {
   return (
-    <section id="program-info" className="py-12 px-4 bg-gray-100" itemScope itemType="https://schema.org/WPHeader">
-        <div className="container mx-auto">
+    <section id="program-info" className="min-h-screen flex items-center justify-center px-4 bg-gray-100" itemScope itemType="https://schema.org/WPHeader">
+        <div className="container mx-auto py-20">
             {/* About Section Box */}
             <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl mb-12 border border-gray-200/80">
                 <motion.div
@@ -103,7 +103,7 @@ const ProgramInfo = () => {
                         </p>
                     </div>
                 </motion.div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     {aboutFeatures.map((feature, index) => (
                         <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
                     ))}
@@ -127,7 +127,7 @@ const ProgramInfo = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
                     {newFeatures.map((feature, index) => (
                         <FeatureCard key={feature.title} {...feature} delay={index * 0.1} />
                     ))}

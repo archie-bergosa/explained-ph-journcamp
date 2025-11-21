@@ -16,10 +16,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId) => {
-    const section = document.getElementById(sectionId.toLowerCase());
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (e, item) => {
+    if (item.path === '/') {
+      e.preventDefault();
+      const section = document.getElementById(item.id.toLowerCase());
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMenuOpen(false);
   };
@@ -52,15 +55,15 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-inner">
                 {navItems.map((item) => (
-                  <motion.button
+                  <Link
                     key={item.id}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal"
-                    itemProp="name"
+                    to={item.path}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal block"
+                    itemProp="url"
                   >
-                    <Link to={item.path} onClick={() => item.path === '/' && handleNavClick(item.id)} itemProp="url">{item.name}</Link>
-                  </motion.button>
+                    <span itemProp="name">{item.name}</span>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -98,16 +101,21 @@ const Header = () => {
             </div>
             <div className="flex flex-col items-center space-y-10">
               {navItems.map((item, index) => (
-                <motion.button
+                <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
-                  className="text-3xl sm:text-4xl capitalize font-bold text-brand-dark hover:text-brand-teal transition-colors"
-                  itemProp="name"
                 >
-                  <Link to={item.path} onClick={() => item.path === '/' && handleNavClick(item.id)} itemProp="url">{item.name}</Link>
-                </motion.button>
+                  <Link
+                    to={item.path}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="text-3xl sm:text-4xl capitalize font-bold text-brand-dark hover:text-brand-teal transition-colors block"
+                    itemProp="url"
+                  >
+                    <span itemProp="name">{item.name}</span>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>

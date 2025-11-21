@@ -78,8 +78,8 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-24 px-4 bg-gray-100">
-      <div className="container mx-auto">
+    <section id="faq" className="min-h-screen flex items-center justify-center px-4 bg-gray-100">
+      <div className="container mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

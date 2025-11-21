@@ -17,7 +17,7 @@ const CountdownBanner = () => {
     // Show modal on component mount (home page visit)
     setShowModal(true);
 
-    const targetDate = new Date('November 24, 2025 06:00:00 GMT+0800');
+    const targetDate = new Date('November 23, 2025 18:00:00 GMT+0800');
 
     const updateCountdown = () => {
       const now = new Date();
@@ -127,7 +127,7 @@ const CountdownBanner = () => {
                           <Calendar className="w-4 h-4 text-brand-teal" />
                           <div className="text-left">
                             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Date</p>
-                            <p className="font-bold text-xs">Nov 24, 2025</p>
+                            <p className="font-bold text-xs">Nov 23, 2025</p>
                           </div>
                         </div>
                         <div className="w-px h-8 bg-slate-300"></div>
@@ -135,7 +135,7 @@ const CountdownBanner = () => {
                           <Clock className="w-4 h-4 text-brand-teal" />
                           <div className="text-left">
                             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Time</p>
-                            <p className="font-bold text-xs">6:00 AM PHT</p>
+                            <p className="font-bold text-xs">6:00 PM PHT</p>
                           </div>
                         </div>
                       </div>

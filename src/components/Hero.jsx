@@ -1,17 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Calendar, PartyPopper } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const Hero = () => {
-  const keyDates = [
-    { title: 'Registration', dates: 'Oct 1 - Nov 6' },
-    { title: 'Lectures', dates: 'Nov 8, 9, 15, 16' },
-    { title: 'Competition', dates: 'Nov 22, 23, 29, 30' },
-  ];
-
   return (
-    <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-50 to-gray-100">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-gray-100">
       <div
         className="absolute top-0 left-0 w-full h-full"
         style={{
@@ -22,7 +17,7 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(20,184,166,0.05),_transparent_30%)]"></div>
       <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.05),_transparent_30%)]"></div>
       
-      <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 z-10 relative py-20">
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -46,28 +41,19 @@ const Hero = () => {
             <p className="text-base md:text-lg text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
               A month-long virtual journalism camp combining seasoned practitioners with award-winning storytellers to strengthen campus publications nationwide.
             </p>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-16 max-w-4xl mx-auto"
-          >
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 p-6 md:p-8">
-              <div className="flex items-center justify-center mb-6">
-                <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-brand-dark-teal mr-3" />
-                <h3 className="text-xl sm:text-2xl font-bold text-brand-dark">Dates to Remember</h3>
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-center">
-                {keyDates.map((item, index) => (
-                  <li key={index} className="bg-white/50 rounded-lg p-4 shadow-sm border border-slate-200/80">
-                    <p className="text-xs sm:text-sm font-semibold text-brand-dark-teal tracking-wider uppercase">{item.title}</p>
-                    <p className="text-base sm:text-lg font-bold text-brand-dark mt-1">{item.dates}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Link to="/guidelines">
+                <Button className="bg-gradient-to-r from-brand-teal to-brand-dark-teal hover:from-brand-dark-teal hover:to-brand-teal text-white font-semibold px-8 py-6 text-base md:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <FileText className="w-5 h-5 mr-2" />
+                  View NCPS Guidelines
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>

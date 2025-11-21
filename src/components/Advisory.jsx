@@ -3,8 +3,8 @@ import { fadeIn } from "../lib/variants";
 
 const Advisory = () => {
   return (
-    <section id="advisory" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="advisory" className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="container mx-auto px-4 py-20">
         <motion.div
           variants={fadeIn("up", 0.2)}
           initial="hidden"

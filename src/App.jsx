@@ -71,8 +71,6 @@ function Home() {
         <ProgramInfo />
         <Advisory />
         <Topics />
-        <Competition />
-        <InfoAndSchedules />
         <History />
         <FAQ />
       </main>

@@ -37,87 +37,111 @@ const Guidelines = () => {
   const categoryGuidelinePages = [
     {
       title: "News Writing",
+      titleFl: "Pagsulat ng Balita",
       path: "/guidelines/news",
       icon: FileText,
       color: "brand-teal",
-      description: "Straight news reporting with inverted pyramid structure"
+      description: "Straight news reporting with inverted pyramid structure",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Editorial Writing",
+      titleFl: "Pagsulat ng Pangulong Tudling",
       path: "/guidelines/editorial",
       icon: MessageSquare,
       color: "brand-orange",
-      description: "Opinion pieces with clear stance and persuasive arguments"
+      description: "Opinion pieces with clear stance and persuasive arguments",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Column Writing",
+      titleFl: "Pagsulat ng Kolumn",
       path: "/guidelines/column",
       icon: FileText,
       color: "blue-600",
-      description: "Personal commentary with distinctive voice and style"
+      description: "Personal commentary with distinctive voice and style",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Feature Writing",
+      titleFl: "Pagsulat ng Lathalain",
       path: "/guidelines/feature",
       icon: BookOpen,
       color: "purple-600",
-      description: "Human-interest stories with narrative depth"
+      description: "Human-interest stories with narrative depth",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Copyreading & Headline Writing",
+      titleFl: "Pagwawasto ng Sipi at Pag-uulo ng Balita",
       path: "/guidelines/crhw",
       icon: Edit3,
       color: "green-600",
-      description: "Paragraph rearrangement and headline crafting"
+      description: "Paragraph rearrangement and headline crafting",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Science & Technology Writing",
+      titleFl: "Pagsulat ng Balitang Agham at Teknolohiya",
       path: "/guidelines/scitech",
       icon: Microscope,
       color: "indigo-600",
-      description: "Complex topics explained in accessible language"
+      description: "Complex topics explained in accessible language",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Sports Writing",
+      titleFl: "Pagsulat ng Balitang Pampalakasan",
       path: "/guidelines/sports",
       icon: Trophy,
       color: "amber-600",
-      description: "Game coverage with statistical analysis and angles"
+      description: "Game coverage with statistical analysis and angles",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Photojournalism",
+      titleFl: "Pagkuha ng Larawang Pampahayagan",
       path: "/guidelines/photojournalism",
       icon: Camera,
       color: "pink-600",
-      description: "Visual storytelling through photographs and captions"
+      description: "Visual storytelling through photographs and captions",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Editorial Cartooning",
+      titleFl: "Paglalarawang Tudling",
       path: "/guidelines/editorial-cartooning",
       icon: PenTool,
       color: "red-600",
-      description: "Hand-drawn political commentary and satire"
+      description: "Hand-drawn political commentary and satire",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Mobile Journalism",
+      titleFl: "Mobile Journalism",
       path: "/guidelines/mobile-journalism",
       icon: Video,
       color: "cyan-600",
-      description: "Smartphone-only video journalism and reporting"
+      description: "Smartphone-only video journalism and reporting",
+      eligibility: ["Secondary", "Tertiary"]
     },
     {
       title: "Collaborative Desktop Publishing",
+      titleFl: "Collaborative Desktop Publishing",
       path: "/guidelines/cdp",
       icon: Users,
       color: "teal-600",
-      description: "Team-based four-page publication production"
+      description: "Team-based four-page publication production",
+      eligibility: ["Elementary", "Secondary", "Tertiary"]
     },
     {
       title: "Online Publishing",
+      titleFl: "Online Publishing",
       path: "/guidelines/online-publishing",
       icon: Globe,
       color: "orange-600",
-      description: "Multi-format digital publication with WordPress"
+      description: "Multi-format digital publication with WordPress",
+      eligibility: ["Secondary", "Tertiary"]
     }
   ];
 
@@ -155,9 +179,15 @@ const Guidelines = () => {
               Online Press Conference Mechanics and Guidelines
             </p>
             <div className="mt-6 pt-6 border-t border-white/20">
-              <div className="flex items-center justify-center gap-2 text-lg md:text-xl">
-                <Calendar className="w-5 h-5" />
-                <span className="font-semibold">November 24 - December 6, 2025</span>
+              <div className="space-y-3">
+                <div className="flex items-center justify-center gap-2 text-base md:text-lg">
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-semibold">Nov 21-23 - Registration for OPC & Late Registration</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-base md:text-lg">
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-semibold">Nov 23 - OPC Registration and OPC Opening (6:00PM)</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -183,7 +213,7 @@ const Guidelines = () => {
             The National Campus Press Summit is a virtual press conference bringing together campus journalists from <span className="font-bold text-brand-teal">elementary, high school, and college</span> to compete in a wide range of categories. Participants will submit their outputs online, simulating the real press conference experience in a nationwide setup.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-brand-teal/10 flex items-center justify-center">
                 <Zap className="w-7 h-7 text-brand-teal" />
@@ -291,8 +321,30 @@ const Guidelines = () => {
                         <h3 className="text-lg font-bold text-gray-800 group-hover:text-brand-teal transition-colors duration-300 leading-tight">
                           {category.title}
                         </h3>
+                        <p className="text-xs text-gray-500 mt-1 italic">
+                          {category.titleFl}
+                        </p>
                       </div>
                     </div>
+                    
+                    {/* Eligibility Badges */}
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {category.eligibility.map((level, idx) => (
+                        <span
+                          key={idx}
+                          className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                            level === "Elementary"
+                              ? "bg-blue-100 text-blue-700 border border-blue-200"
+                              : level === "Secondary"
+                              ? "bg-green-100 text-green-700 border border-green-200"
+                              : "bg-purple-100 text-purple-700 border border-purple-200"
+                          }`}
+                        >
+                          {level}
+                        </span>
+                      ))}
+                    </div>
+                    
                     <p className="text-sm text-gray-600 mb-4 flex-1">
                       {category.description}
                     </p>
