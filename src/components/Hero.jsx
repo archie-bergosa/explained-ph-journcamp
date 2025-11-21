@@ -36,7 +36,7 @@ const Hero = () => {
             </div>
             
             <div className="flex justify-center mb-6 items-center space-x-4">
-                <img src="https://i.postimg.cc/PxX81hLt/Untitled-2.png" alt="Journcamp+ Logo" className="w-56 sm:w-80 md:w-96" />
+                <img src="/journcamp.png" alt="Journcamp+ Logo" className="w-56 sm:w-80 md:w-96" />
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-dark-teal tracking-tight mb-4">

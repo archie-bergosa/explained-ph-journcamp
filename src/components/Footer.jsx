@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div className="md:col-span-2">
             <div className="flex justify-center md:justify-start mb-4">
-              <img src="https://i.postimg.cc/PxX81hLt/Untitled-2.png" alt="Journcamp+ Logo" className="h-7 sm:h-8" />
+              <img src="/journcamp.png" alt="Journcamp+ Logo" className="h-7 sm:h-8" />
             </div>
             <p className="text-gray-400 max-w-md mx-auto md:mx-0 text-xs sm:text-sm md:text-base">
               Building communities where facts prevail through comprehensive journalism education and training.
