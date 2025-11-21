@@ -1,7 +1,8 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
+import { LeaderboardProvider } from '@/contexts/LeaderboardContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Advisory from '@/components/Advisory';
@@ -13,7 +14,33 @@ import History from '@/components/History';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import LectureSeries from '@/components/LectureSeries';
+import GuidelinesNav from '@/components/GuidelinesNav';
 import Guidelines from '@/pages/Guidelines'; // Import the new Guidelines component
+import NewsWriting from '@/pages/guidelines/NewsWriting';
+import EditorialWriting from '@/pages/guidelines/EditorialWriting';
+import ColumnWriting from '@/pages/guidelines/ColumnWriting';
+import FeatureWriting from '@/pages/guidelines/FeatureWriting';
+import CopyreadingHeadline from '@/pages/guidelines/CopyreadingHeadline';
+import ScienceTechnologyWriting from '@/pages/guidelines/ScienceTechnologyWriting';
+import SportsWriting from '@/pages/guidelines/SportsWriting';
+import Photojournalism from '@/pages/guidelines/Photojournalism';
+import EditorialCartooning from '@/pages/guidelines/EditorialCartooning';
+import MobileJournalism from '@/pages/guidelines/MobileJournalism';
+import CollaborativeDesktopPublishing from '@/pages/guidelines/CollaborativeDesktopPublishing';
+import OnlinePublishing from '@/pages/guidelines/OnlinePublishing';
+import Leaderboard from '@/pages/Leaderboard';
+import AdminUpdate from '@/pages/AdminUpdate';
+
+// Scroll to top component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function Home() {
   return (
@@ -52,17 +79,39 @@ function Home() {
 }
 
 function App() {
+  const location = useLocation();
+  const isGuidelinesPage = location.pathname.startsWith('/guidelines');
+  const isAdminPage = location.pathname === '/admin-update';
+
   return (
-    <div className="min-h-screen bg-slate-50 text-brand-dark">
-      <Header />
-      <Routes>
+    <LeaderboardProvider>
+      <div className="min-h-screen bg-slate-50 text-brand-dark">
+        <ScrollToTop />
+        {!isAdminPage && <Header />}
+        {isGuidelinesPage && <GuidelinesNav />}
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lecture-series" element={<LectureSeries />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/admin-update" element={<AdminUpdate />} />
         <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}
-      </Routes>
-      <Footer />
-      <Toaster />
-    </div>
+        <Route path="/guidelines/news" element={<NewsWriting />} />
+        <Route path="/guidelines/editorial" element={<EditorialWriting />} />
+        <Route path="/guidelines/column" element={<ColumnWriting />} />
+        <Route path="/guidelines/feature" element={<FeatureWriting />} />
+        <Route path="/guidelines/crhw" element={<CopyreadingHeadline />} />
+        <Route path="/guidelines/scitech" element={<ScienceTechnologyWriting />} />
+        <Route path="/guidelines/sports" element={<SportsWriting />} />
+        <Route path="/guidelines/photojournalism" element={<Photojournalism />} />
+        <Route path="/guidelines/editorial-cartooning" element={<EditorialCartooning />} />
+        <Route path="/guidelines/mobile-journalism" element={<MobileJournalism />} />
+        <Route path="/guidelines/cdp" element={<CollaborativeDesktopPublishing />} />
+        <Route path="/guidelines/online-publishing" element={<OnlinePublishing />} />
+        </Routes>
+        <Footer />
+        <Toaster />
+      </div>
+    </LeaderboardProvider>
   );
 }
 

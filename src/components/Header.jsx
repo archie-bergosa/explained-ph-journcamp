@@ -29,6 +29,8 @@ const Header = () => {
     { id: 'topics', name: 'Topics', path: '/' },
     { id: 'faq', name: 'FAQs', path: '/' },
     { id: 'lecture-series', name: 'Lecture Series', path: '/lecture-series' },
+    { id: 'guidelines', name: 'Guidelines', path: '/guidelines' },
+    { id: 'leaderboard', name: 'Leaderboard', path: '/leaderboard' },
   ];
 
   return (
