@@ -31,6 +31,7 @@ import CollaborativeDesktopPublishing from '@/pages/guidelines/CollaborativeDesk
 import OnlinePublishing from '@/pages/guidelines/OnlinePublishing';
 import Leaderboard from '@/pages/Leaderboard';
 import AdminUpdate from '@/pages/AdminUpdate';
+import Schedule from '@/pages/Schedule';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -91,6 +92,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lecture-series" element={<LectureSeries />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/rankings" element={<Leaderboard />} />
         <Route path="/admin-update" element={<AdminUpdate />} />
         <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}

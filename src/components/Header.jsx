@@ -46,9 +46,9 @@ const Header = () => {
   };
 
   const navItems = [
-    { id: 'program-info', name: 'About', path: '/' },
-    { id: 'topics', name: 'Topics', path: '/' },
+    { id: 'hero', name: 'Home', path: '/' },
     { id: 'lecture-series', name: 'Lecture Series', path: '/lecture-series' },
+    { id: 'schedule', name: 'Schedule', path: '/schedule' },
     { id: 'guidelines', name: 'Guidelines', path: '/guidelines' },
     { id: 'rankings', name: 'Rankings', path: '/rankings' },
   ];
