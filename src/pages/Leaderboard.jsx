@@ -35,7 +35,7 @@ const Leaderboard = () => {
           >
             <Trophy className="w-16 h-16 mx-auto mb-6 opacity-90" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              Medal Tally
+              Points Leaderboard
             </h1>
             <div className="h-1 w-24 bg-white mx-auto mb-4"></div>
             <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-light">
@@ -107,24 +107,10 @@ const Leaderboard = () => {
                   </div>
                   {/* Stats Card Below Pedestal */}
                   <div className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 lg:-bottom-18 left-1/2 transform -translate-x-1/2 w-full px-1">
-                    <div className="bg-white rounded-md shadow-lg p-1.5 sm:p-2 md:p-2.5 border border-gray-300">
-                      <div className="flex justify-around">
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-yellow-600">{sortedData[1]?.gold}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Gold</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-gray-600">{sortedData[1]?.silver}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Silver</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-amber-700">{sortedData[1]?.bronze}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Bronze</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-brand-teal">{sortedData[1]?.total}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Total</p>
-                        </div>
+                    <div className="bg-white rounded-md shadow-lg p-2 sm:p-3 md:p-4 border border-gray-300">
+                      <div className="text-center">
+                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-teal">{sortedData[1]?.gold}</p>
+                        <p className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-600 font-medium">Points</p>
                       </div>
                     </div>
                   </div>
@@ -172,24 +158,10 @@ const Leaderboard = () => {
                   </div>
                   {/* Stats Card Below Pedestal */}
                   <div className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 lg:-bottom-18 left-1/2 transform -translate-x-1/2 w-full px-1">
-                    <div className="bg-white rounded-md shadow-lg p-1.5 sm:p-2 md:p-2.5 border border-yellow-400">
-                      <div className="flex justify-around">
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-yellow-600">{sortedData[0]?.gold}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Gold</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-gray-600">{sortedData[0]?.silver}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Silver</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-amber-700">{sortedData[0]?.bronze}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Bronze</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-brand-teal">{sortedData[0]?.total}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Total</p>
-                        </div>
+                    <div className="bg-white rounded-md shadow-lg p-2 sm:p-3 md:p-4 border border-yellow-400">
+                      <div className="text-center">
+                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-teal">{sortedData[0]?.gold}</p>
+                        <p className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-600 font-medium">Points</p>
                       </div>
                     </div>
                   </div>
@@ -235,24 +207,10 @@ const Leaderboard = () => {
                   </div>
                   {/* Stats Card Below Pedestal */}
                   <div className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 lg:-bottom-18 left-1/2 transform -translate-x-1/2 w-full px-1">
-                    <div className="bg-white rounded-md shadow-lg p-1.5 sm:p-2 md:p-2.5 border border-amber-600">
-                      <div className="flex justify-around">
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-yellow-600">{sortedData[2]?.gold}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Gold</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-gray-600">{sortedData[2]?.silver}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Silver</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-amber-700">{sortedData[2]?.bronze}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Bronze</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-brand-teal">{sortedData[2]?.total}</p>
-                          <p className="text-[7px] sm:text-[8px] md:text-[9px] text-gray-500">Total</p>
-                        </div>
+                    <div className="bg-white rounded-md shadow-lg p-2 sm:p-3 md:p-4 border border-amber-600">
+                      <div className="text-center">
+                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-teal">{sortedData[2]?.gold}</p>
+                        <p className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-600 font-medium">Points</p>
                       </div>
                     </div>
                   </div>
@@ -287,27 +245,11 @@ const Leaderboard = () => {
                   <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-left text-xs sm:text-sm font-bold uppercase">Rank</th>
                   <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-left text-xs sm:text-sm font-bold uppercase">Region</th>
                   <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-center text-xs sm:text-sm font-bold uppercase">
-                    <div className="flex flex-col items-center justify-center gap-0.5 sm:flex-row sm:gap-2">
-                      <Trophy className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="hidden xs:inline">Gold</span>
-                      <span className="xs:hidden text-[10px]">G</span>
+                    <div className="flex items-center justify-center gap-2">
+                      <TrendingUp className="w-4 h-4" />
+                      <span>Points</span>
                     </div>
                   </th>
-                  <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-center text-xs sm:text-sm font-bold uppercase">
-                    <div className="flex flex-col items-center justify-center gap-0.5 sm:flex-row sm:gap-2">
-                      <Medal className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="hidden xs:inline">Silver</span>
-                      <span className="xs:hidden text-[10px]">S</span>
-                    </div>
-                  </th>
-                  <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-center text-xs sm:text-sm font-bold uppercase">
-                    <div className="flex flex-col items-center justify-center gap-0.5 sm:flex-row sm:gap-2">
-                      <Award className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="hidden xs:inline">Bronze</span>
-                      <span className="xs:hidden text-[10px]">B</span>
-                    </div>
-                  </th>
-                  <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 md:py-4 text-center text-xs sm:text-sm font-bold uppercase">Total</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -341,22 +283,7 @@ const Leaderboard = () => {
                       </div>
                     </td>
                     <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-center">
-                      <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-md sm:rounded-lg bg-yellow-100 text-yellow-700 font-bold text-sm sm:text-base md:text-lg">
-                        {region.gold}
-                      </span>
-                    </td>
-                    <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-center">
-                      <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-md sm:rounded-lg bg-gray-100 text-gray-700 font-bold text-sm sm:text-base md:text-lg">
-                        {region.silver}
-                      </span>
-                    </td>
-                    <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-center">
-                      <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-md sm:rounded-lg bg-amber-100 text-amber-700 font-bold text-sm sm:text-base md:text-lg">
-                        {region.bronze}
-                      </span>
-                    </td>
-                    <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-center">
-                      <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-brand-teal">{region.total}</span>
+                      <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand-teal">{region.gold}</span>
                     </td>
                   </motion.tr>
                 ))}
@@ -376,7 +303,7 @@ const Leaderboard = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
             <p className="text-sm text-gray-700">
-              <span className="font-bold text-brand-teal">Note:</span> Medal counts are updated as competitions conclude.
+              <span className="font-bold text-brand-teal">Note:</span> Points are updated as competitions conclude.
             </p>
           </div>
         </div>

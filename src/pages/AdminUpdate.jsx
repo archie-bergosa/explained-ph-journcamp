@@ -190,7 +190,7 @@ const AdminUpdate = () => {
             <Shield className="w-8 h-8" />
             <div>
               <h1 className="text-2xl md:text-3xl font-bold">Admin Dashboard</h1>
-              <p className="text-sm text-white/80">Leaderboard Management</p>
+              <p className="text-sm text-white/80">Points Management</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -242,14 +242,14 @@ const AdminUpdate = () => {
             className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <Save className="w-5 h-5" />
-            Save All Changes
+            Save All Points
           </button>
           <button
             onClick={handleReset}
             className="flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <RotateCcw className="w-5 h-5" />
-            Reset All to 0
+            Reset All Points to 0
           </button>
         </div>
       </motion.section>
@@ -280,11 +280,9 @@ const AdminUpdate = () => {
                   <span className="text-sm font-semibold text-gray-500">#{index + 1}</span>
                 </div>
                 <h3 className="text-sm font-bold text-gray-800 mb-2">{region.region}</h3>
-                <div className="flex items-center justify-between text-xs">
-                  <span>🏆 {region.gold}</span>
-                  <span>🥈 {region.silver}</span>
-                  <span>🥉 {region.bronze}</span>
-                  <span className="font-bold">Total: {region.total}</span>
+                <div className="text-center">
+                  <span className="text-2xl font-bold text-brand-teal">{region.gold}</span>
+                  <p className="text-xs text-gray-600 mt-1">Points</p>
                 </div>
               </div>
             ))}
@@ -301,7 +299,7 @@ const AdminUpdate = () => {
       >
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
-            Update Regional Medals
+            Update Regional Points
           </h2>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -311,27 +309,11 @@ const AdminUpdate = () => {
                   <tr className="bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white">
                     <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-left text-[10px] sm:text-xs md:text-sm font-bold">Region</th>
                     <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center text-[10px] sm:text-xs md:text-sm font-bold">
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-2">
-                        <Trophy className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span className="hidden xs:inline">Gold</span>
-                        <span className="xs:hidden">G</span>
+                      <div className="flex items-center justify-center gap-2">
+                        <TrendingUp className="w-4 h-4" />
+                        <span>Points</span>
                       </div>
                     </th>
-                    <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center text-[10px] sm:text-xs md:text-sm font-bold">
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-2">
-                        <Medal className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span className="hidden xs:inline">Silver</span>
-                        <span className="xs:hidden">S</span>
-                      </div>
-                    </th>
-                    <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center text-[10px] sm:text-xs md:text-sm font-bold">
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-2">
-                        <Award className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span className="hidden xs:inline">Bronze</span>
-                        <span className="xs:hidden">B</span>
-                      </div>
-                    </th>
-                    <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center text-[10px] sm:text-xs md:text-sm font-bold">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -357,31 +339,8 @@ const AdminUpdate = () => {
                             pattern="[0-9]*"
                             value={region.gold}
                             onChange={(e) => handleMedalChange(index, 'gold', e.target.value)}
-                            className="w-12 sm:w-16 md:w-20 px-1 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 border-2 border-yellow-200 rounded-md sm:rounded-lg text-center font-bold focus:border-yellow-400 focus:outline-none bg-yellow-50 text-xs sm:text-sm md:text-base"
+                            className="w-16 sm:w-20 md:w-24 lg:w-28 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 border-2 border-brand-teal/30 rounded-lg text-center font-bold focus:border-brand-teal focus:outline-none bg-teal-50 text-sm sm:text-base md:text-lg"
                           />
-                        </td>
-                        <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center">
-                          <input
-                            type="text"
-                            inputMode="numeric"
-                            pattern="[0-9]*"
-                            value={region.silver}
-                            onChange={(e) => handleMedalChange(index, 'silver', e.target.value)}
-                            className="w-12 sm:w-16 md:w-20 px-1 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 border-2 border-gray-200 rounded-md sm:rounded-lg text-center font-bold focus:border-gray-400 focus:outline-none bg-gray-50 text-xs sm:text-sm md:text-base"
-                          />
-                        </td>
-                        <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center">
-                          <input
-                            type="text"
-                            inputMode="numeric"
-                            pattern="[0-9]*"
-                            value={region.bronze}
-                            onChange={(e) => handleMedalChange(index, 'bronze', e.target.value)}
-                            className="w-12 sm:w-16 md:w-20 px-1 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 border-2 border-amber-200 rounded-md sm:rounded-lg text-center font-bold focus:border-amber-400 focus:outline-none bg-amber-50 text-xs sm:text-sm md:text-base"
-                          />
-                        </td>
-                        <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 text-center">
-                          <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-brand-teal">{total}</span>
                         </td>
                       </tr>
                     );
@@ -395,7 +354,7 @@ const AdminUpdate = () => {
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-6 py-3 rounded-lg">
               <AlertCircle className="w-5 h-5 text-blue-600" />
               <p className="text-sm text-gray-700">
-                Changes are saved locally. Click "Save All Changes" to apply updates to the leaderboard.
+                Changes are saved locally. Click "Save All Points" to apply updates to the leaderboard.
               </p>
             </div>
           </div>
