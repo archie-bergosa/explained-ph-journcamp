@@ -12,7 +12,7 @@ import Topics from '@/components/Topics';
 import Competition from '@/components/Competition';
 import InfoAndSchedules from '@/components/InfoAndSchedules';
 import History from '@/components/History';
-import FAQ from '@/components/FAQ';
+import FAQ from '@/contexts/FAQ';
 import Footer from '@/components/Footer';
 import LectureSeries from '@/components/LectureSeries';
 import GuidelinesNav from '@/components/GuidelinesNav';

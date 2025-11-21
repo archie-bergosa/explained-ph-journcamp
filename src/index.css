@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
@@ -52,15 +50,21 @@
 
 * {
   border-color: hsl(var(--border));
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 body {
   @apply bg-background text-foreground;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   line-height: 1.6;
 }
 
 html {
+  font-family: 'Montserrat', sans-serif !important;
   scroll-behavior: smooth;
 }
 
