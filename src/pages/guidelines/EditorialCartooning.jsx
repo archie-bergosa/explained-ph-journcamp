@@ -265,37 +265,35 @@ const EditorialCartooning = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-brand-teal/5 border-l-4 border-brand-teal p-6 rounded-r-lg">
-              <div className="space-y-3 text-gray-700">
+              <h3 className="text-2xl font-bold text-brand-dark-teal mb-4">Asynchronous</h3>
+              <div className="space-y-4 text-gray-700">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mt-1">
-                    1
-                  </div>
+                  <Clock className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-lg">1 hour and 30 minutes</p>
-                    <p className="text-base">Maximum time for Editorial Cartooning contest (drawing period)</p>
+                    <p className="font-bold text-lg">Release of Topics</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-sm mt-1">
-                    2
-                  </div>
+                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-lg">40 minutes</p>
-                    <p className="text-base">Scanning and submission must be completed within this period</p>
+                    <p className="font-bold text-lg">Opening of Submissions</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-bold text-lg text-red-900 mb-2">Critical Deadline</p>
-                  <p className="text-base text-gray-700">
-                    Participants are free to submit as soon as possible and are highly encouraged to do so. 
-                    <span className="font-bold text-red-900"> Going beyond each limit will result in disqualification.</span>
-                  </p>
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Deadline of Submissions</p>
+                    <p className="text-base">11:59 PM Philippine Time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Video className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Schedule of Free Lectures</p>
+                    <p className="text-base">8:00 PM Philippine Time</p>
+                  </div>
                 </div>
               </div>
             </div>

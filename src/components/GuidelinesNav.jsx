@@ -120,18 +120,18 @@ const GuidelinesNav = () => {
 
   return (
     <>
-      {/* Toggle Button - Bottom of Screen */}
+      {/* Toggle Button - Fixed Left Side */}
       <motion.button
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
         transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
         onClick={() => setIsOpen(true)}
-        className="fixed left-0 right-0 bottom-0 z-40 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white shadow-lg"
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-40 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white shadow-lg rounded-r-lg"
         aria-label="Open guidelines menu"
       >
-        <div className="container mx-auto px-6 py-4 flex items-center justify-center gap-2">
+        <div className="px-2 py-6 flex flex-col items-center gap-2">
           <Menu className="w-5 h-5" />
-          <span className="font-semibold">Browse Guidelines</span>
+          <span className="font-semibold text-xs [writing-mode:vertical-rl] rotate-180">Guidelines</span>
         </div>
       </motion.button>
 
@@ -149,16 +149,16 @@ const GuidelinesNav = () => {
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
             />
 
-            {/* Drawer Content - Slides from Bottom */}
+            {/* Drawer Content - Slides from Left */}
             <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed left-0 right-0 bottom-0 max-h-[85vh] bg-white shadow-2xl z-50 overflow-y-auto rounded-t-3xl"
+              className="fixed left-0 top-0 bottom-0 w-full sm:w-96 md:w-[28rem] bg-white shadow-2xl z-50 overflow-y-auto"
             >
               {/* Header */}
-              <div className="sticky top-0 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white p-6 shadow-md z-10 rounded-t-3xl">
+              <div className="sticky top-0 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white p-6 shadow-md z-10">
                 <div className="flex items-center justify-between mb-2">
                   <h2 className="text-xl font-bold">Guidelines Menu</h2>
                   <button
@@ -173,7 +173,7 @@ const GuidelinesNav = () => {
               </div>
 
               {/* Navigation Links */}
-              <nav className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-6">
+              <nav className="p-4 grid grid-cols-1 gap-3 pb-6">
                 {categoryPages.map((category, index) => {
                   const IconComponent = category.icon;
                   const isActive = location.pathname === category.path;

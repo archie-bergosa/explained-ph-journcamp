@@ -271,32 +271,34 @@ const Photojournalism = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-white border-2 border-brand-teal p-6 rounded-lg">
+              <h3 className="text-2xl font-bold text-brand-dark-teal mb-4">Asynchronous</h3>
               <div className="space-y-4 text-gray-700">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mt-1">
-                    1
-                  </div>
+                  <Clock className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-xl text-brand-dark-teal">1.5 hours (90 minutes)</p>
-                    <p className="text-base">Photo capture period – on-field and at-home shooting, done exclusively within this window</p>
+                    <p className="font-bold text-lg">Release of Topics</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-sm mt-1">
-                    2
-                  </div>
+                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-xl text-brand-dark-teal">45 minutes</p>
-                    <p className="text-base">Caption writing period – provide captions for five best photos using official JournCamp+ Photojournalism Activity Sheet</p>
+                    <p className="font-bold text-lg">Opening of Submissions</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm mt-1">
-                    3
-                  </div>
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-xl text-brand-dark-teal">20 minutes</p>
-                    <p className="text-base">Uploading period – submit all required files and materials</p>
+                    <p className="font-bold text-lg">Deadline of Submissions</p>
+                    <p className="text-base">11:59 PM Philippine Time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Video className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Schedule of Free Lectures</p>
+                    <p className="text-base">7:00 PM Philippine Time</p>
                   </div>
                 </div>
               </div>

@@ -72,7 +72,6 @@ function Home() {
         <Advisory />
         <Topics />
         <History />
-        <FAQ />
       </main>
     </>
   );
@@ -92,7 +91,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lecture-series" element={<LectureSeries />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/rankings" element={<Leaderboard />} />
         <Route path="/admin-update" element={<AdminUpdate />} />
         <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}
         <Route path="/guidelines/news" element={<NewsWriting />} />

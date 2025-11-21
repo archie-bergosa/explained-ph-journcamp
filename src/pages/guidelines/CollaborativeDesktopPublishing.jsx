@@ -209,6 +209,60 @@ const CollaborativeDesktopPublishing = () => {
         </div>
       </motion.section>
 
+      {/* Time Allotment Section */}
+      <motion.section 
+        variants={fadeIn('up', 'tween', 0.35, 0.6)}
+        initial="initial"
+        animate="animate"
+        className="py-16 px-4 bg-white"
+      >
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <Clock className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
+              Time Allotment
+            </h2>
+            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="bg-brand-teal/5 border-l-4 border-brand-teal p-6 rounded-r-lg">
+              <h3 className="text-2xl font-bold text-brand-dark-teal mb-4">Asynchronous</h3>
+              <div className="space-y-4 text-gray-700">
+                <div className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Release of Topics</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Opening of Submissions</p>
+                    <p className="text-base">7:00 AM Philippine Time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Deadline of Submissions</p>
+                    <p className="text-base">11:59 PM Philippine Time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Video className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-lg">Schedule of Free Lectures</p>
+                    <p className="text-base">7:00 PM Philippine Time</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Stages and Time Blocks Section */}
       <motion.section 
         variants={fadeIn('up', 'tween', 0.4, 0.6)}

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,23 +19,38 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (e, item) => {
-    if (item.path === '/') {
-      e.preventDefault();
-      const section = document.getElementById(item.id.toLowerCase());
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    e.preventDefault();
     setIsMenuOpen(false);
+    
+    if (item.path === '/') {
+      // If we're already on home page, just scroll
+      if (location.pathname === '/') {
+        const section = document.getElementById(item.id.toLowerCase());
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to home first, then scroll after a short delay
+        navigate('/');
+        setTimeout(() => {
+          const section = document.getElementById(item.id.toLowerCase());
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else {
+      // For other routes, just navigate normally
+      navigate(item.path);
+    }
   };
 
   const navItems = [
     { id: 'program-info', name: 'About', path: '/' },
     { id: 'topics', name: 'Topics', path: '/' },
-    { id: 'faq', name: 'FAQs', path: '/' },
     { id: 'lecture-series', name: 'Lecture Series', path: '/lecture-series' },
     { id: 'guidelines', name: 'Guidelines', path: '/guidelines' },
-    { id: 'leaderboard', name: 'Leaderboard', path: '/leaderboard' },
+    { id: 'rankings', name: 'Rankings', path: '/rankings' },
   ];
 
   return (
@@ -55,15 +72,15 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-inner">
                 {navItems.map((item) => (
-                  <Link
+                  <a
                     key={item.id}
-                    to={item.path}
+                    href={item.path === '/' ? `#${item.id}` : item.path}
                     onClick={(e) => handleNavClick(e, item)}
                     className="capitalize font-semibold text-brand-dark hover:text-white transition-colors text-sm md:text-base px-5 py-2 rounded-full hover:bg-brand-teal block"
                     itemProp="url"
                   >
                     <span itemProp="name">{item.name}</span>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -107,14 +124,14 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
                 >
-                  <Link
-                    to={item.path}
+                  <a
+                    href={item.path === '/' ? `#${item.id}` : item.path}
                     onClick={(e) => handleNavClick(e, item)}
                     className="text-3xl sm:text-4xl capitalize font-bold text-brand-dark hover:text-brand-teal transition-colors block"
                     itemProp="url"
                   >
                     <span itemProp="name">{item.name}</span>
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </div>

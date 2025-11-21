@@ -55,7 +55,7 @@ const Guidelines = () => {
     },
     {
       title: "Column Writing",
-      titleFl: "Pagsulat ng Kolumn",
+      titleFl: "Pagsulat ng kolum",
       path: "/guidelines/column",
       icon: FileText,
       color: "blue-600",
