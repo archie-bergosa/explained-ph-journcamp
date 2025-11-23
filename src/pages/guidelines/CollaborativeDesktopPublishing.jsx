@@ -280,47 +280,12 @@ const CollaborativeDesktopPublishing = () => {
           </div>
 
           <div className="max-w-4xl mx-auto space-y-8">
-            {/* Coverage Stage */}
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-400 p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
-                  1
-                </div>
-                <h3 className="text-2xl font-bold text-brand-dark-teal">COVERAGE STAGE (Synchronous)</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg border border-blue-200">
-                  <p className="text-base text-gray-700 mb-3">
-                    Participants will attend a <span className="font-bold">live briefing</span> where a resource speaker delivers a statement on the assigned topic. This is followed by a <span className="font-bold">moderated Q&A</span> in which teams may raise questions for further clarification.
-                  </p>
-                </div>
-
-                <div className="bg-white p-4 rounded-lg border border-blue-200">
-                  <h4 className="text-lg font-bold text-brand-dark-teal mb-3">Sports Exhibition Simulation</h4>
-                  <p className="text-sm text-gray-700 mb-3">
-                    Sports writers and photojournalists can attend a sports simulation designed to replicate a complete match environment. This may include:
-                  </p>
-                  <ul className="space-y-2">
-                    {sportsSimulationFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                        <p className="text-sm text-gray-700">{feature}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-gray-600 mt-3 italic">
-                    Teams may ask questions to players or coaches during the post-game Q&A to gather quotes for their sports article.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             {/* Release of Media Assets */}
             <div className="bg-gradient-to-r from-brand-teal/10 to-green-50 border-2 border-brand-teal p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-lg">
-                  2
+                  1
                 </div>
                 <h3 className="text-2xl font-bold text-brand-dark-teal">RELEASE OF MEDIA ASSETS PACKAGE</h3>
               </div>

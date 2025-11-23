@@ -330,7 +330,7 @@ const OnlinePublishing = () => {
       </motion.section>
 
       {/* Time Allotment Section */}
-      <motion.section 
+      <motion.section
         variants={fadeIn('up', 'tween', 0.35, 0.6)}
         initial="initial"
         animate="animate"
