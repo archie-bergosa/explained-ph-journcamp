@@ -179,7 +179,7 @@ const OnlinePublishing = () => {
                 In Online Publishing, a <span className="font-bold text-brand-teal">team of five</span> will produce a <span className="font-bold">multi-format digital publication</span> consisting of written stories, multimedia content, and a functional online layout.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Outputs must be completed within a <span className="font-bold text-brand-teal">four-hour timed production window</span>, using synchronized editorial inputs (a mini press conference and a sports exhibition) and a standardized multimedia assets package provided by the organizers.
+                Outputs must be completed within the <span className="font-bold text-brand-teal">given production window</span>, using synchronized editorial inputs (a mini press conference and a sports exhibition) and a standardized multimedia assets package provided by the organizers.
               </p>
             </div>
 

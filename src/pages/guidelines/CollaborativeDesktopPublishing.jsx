@@ -310,30 +310,6 @@ const CollaborativeDesktopPublishing = () => {
               </div>
             </div>
 
-            {/* Four-Hour Production Phase */}
-            <div className="bg-gradient-to-r from-brand-orange/10 to-red-50 border-2 border-brand-orange p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-lg">
-                  3
-                </div>
-                <h3 className="text-2xl font-bold text-brand-dark-teal">FOUR-HOUR PRODUCTION PHASE (Synchronous)</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg border border-brand-orange/30">
-                  <p className="text-base text-gray-700">
-                    Teams are tasked with producing a <span className="font-bold">four-page output</span> that includes a news section, a features section, an editorial and opinion page, and a sports page.
-                  </p>
-                </div>
-
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                  <p className="text-sm text-gray-700">
-                    <span className="font-bold text-blue-900">Planning Time:</span> Specific instructions and production-specific rules will be released before the production phase, allowing <span className="font-bold">15 minutes of planning time</span>.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <div className="bg-white border-2 border-brand-teal p-6 rounded-lg">
               <h3 className="text-xl font-bold text-brand-dark-teal mb-4">Submission Requirements</h3>
               <div className="space-y-3">
