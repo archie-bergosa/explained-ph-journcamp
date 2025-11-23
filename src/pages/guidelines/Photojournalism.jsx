@@ -164,11 +164,6 @@ const Photojournalism = () => {
               <p className="text-base text-gray-700 leading-relaxed mb-4">
                 Participants will be given a <span className="font-bold">general theme or photo assignment in advance</span>. This early release enables contestants to prepare their shooting locations, identify subjects, and plan their fieldwork in a responsible and safe manner.
               </p>
-              <div className="bg-red-50 border-l-4 border-red-600 p-4 rounded-r-lg">
-                <p className="text-base text-gray-700">
-                  <span className="font-bold text-red-900">Despite the advanced theme, all actual shooting must take place strictly within the designated 1.5-hour contest period under proctored conditions.</span>
-                </p>
-              </div>
             </div>
 
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">

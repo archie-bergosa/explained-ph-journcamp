@@ -270,33 +270,6 @@ const MobileJournalism = () => {
                 </div>
               </div>
             </div>
-
-            <div className="bg-gradient-to-r from-brand-orange/10 to-red-50 border-l-4 border-brand-orange p-6 rounded-r-lg">
-              <div className="flex items-start gap-3 mb-3">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-brand-dark-teal mb-2">Upload Window</h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    <span className="font-bold">40 minutes</span> for file transfer, form submission, and other requirements necessary in the assigned Google Forms.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-bold text-lg text-red-900 mb-2">Critical Deadline</p>
-                  <p className="text-base text-gray-700">
-                    Individuals can opt to finish earlier and submit their work. 
-                    <span className="font-bold text-red-900"> Submissions after the said production and upload window (a total of four hours and 40 minutes) are disqualified</span> unless the proctor verifies a technical outage.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </motion.section>

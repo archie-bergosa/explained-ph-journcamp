@@ -356,9 +356,6 @@ const CollaborativeDesktopPublishing = () => {
               
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-lg border border-brand-orange/30">
-                  <p className="text-base text-gray-700 mb-3">
-                    The Collaborative Desktop Publishing contest follows a strict <span className="font-bold text-brand-orange">four-hour lock-in period</span>. No extensions will be granted except in cases of platform-wide failure.
-                  </p>
                   <p className="text-base text-gray-700">
                     Teams are tasked with producing a <span className="font-bold">four-page output</span> that includes a news section, a features section, an editorial and opinion page, and a sports page.
                   </p>
