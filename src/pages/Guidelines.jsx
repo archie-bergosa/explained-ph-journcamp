@@ -202,7 +202,7 @@ const Guidelines = () => {
               <div className="space-y-3">
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Calendar className="w-5 h-5" />
-                  <span className="font-semibold">Nov 21-23 - Registration for OPC & Late Registration</span>
+                  <span className="font-semibold">Nove 21-24 - Registration for OPC & Late Registration</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Calendar className="w-5 h-5" />
