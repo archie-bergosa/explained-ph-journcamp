@@ -221,54 +221,7 @@ const OnlinePublishing = () => {
                     <span className="font-bold">Only individuals who register from the same school</span> may compete together; cross-school or composite teams are not allowed.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Video className="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">
-                    All contestants must join a <span className="font-bold">Zoom meeting or other video conferencing platform</span> for real-time monitoring during the coverage and production stages.
-                  </p>
-                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Proctoring Requirements Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 0.4, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-white"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Monitor className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Proctoring Requirements
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <p className="text-lg text-gray-700 text-center mb-10 max-w-4xl mx-auto">
-            <span className="font-bold text-brand-teal">No in-person proctoring</span> will be enacted. Instead:
-          </p>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {proctoringRequirements.map((req, index) => (
-              <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-600 p-5 rounded-r-lg">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mt-0.5">
-                  {index + 1}
-                </div>
-                <p className="text-base text-gray-700">{req}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-4xl mx-auto mt-6">
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
-              <p className="text-base text-gray-700 font-bold text-red-900">
-                Failure to comply may result in deductions or disqualification.
-              </p>
             </div>
           </div>
         </div>
