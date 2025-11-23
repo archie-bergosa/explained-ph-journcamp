@@ -29,7 +29,7 @@ const Photojournalism = () => {
   ];
 
   const allowedMaterials = [
-    "For Non-Mobile Bracket: One DSLR or point-and-shoot camera with an approved lens",
+    "For Non-Mobile Bracket: One DSLR or point-and-shoot camera with kit lens only",
     "For Mobile Bracket: One smartphone with a standard camera mode",
     "Two blank memory cards (Non-Mobile bracket)",
     "Official JournCamp+ Photojournalism Activity Sheet",

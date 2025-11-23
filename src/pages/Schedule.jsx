@@ -6,11 +6,35 @@ const Schedule = () => {
   
   const scheduleData = [
     {
-      date: "November 23",
+      date: "November 22",
       day: "Saturday",
       events: [
         { 
-          time: "", 
+          time: "1:00 PM - 2:00 PM", 
+          title: "Community Journalism with Samantha Bagayas", 
+          type: "lecture",
+          description: "Head of Civic Engagements, Rappler. Learn about community journalism practices.",
+        }
+      ]
+    },
+    {
+      date: "November 23",
+      day: "Sunday",
+      events: [
+        { 
+          time: "2:20 PM - 3:20 PM", 
+          title: "Becoming an Effective Editor with Marjuice Destinado", 
+          type: "lecture",
+          description: "Rapper 2025 - Aries Rufo Journalism Fellow. Workshop on editorial skills.",
+        },
+        { 
+          time: "4:00 PM - 5:00 PM", 
+          title: "Acing your MOCJ Portfolio with Yesha Camile", 
+          type: "lecture",
+          description: "NSPC 2025 Most Outstanding Campus Journalist. Tips for building your journalism portfolio.",
+        },
+        { 
+          time: "6:00 PM", 
           title: "NCPS Opening Program", 
           type: "opening",
           description: "Official opening ceremony of JournCamp+ National Campus Press Summit 2025.",
@@ -19,7 +43,7 @@ const Schedule = () => {
     },
     {
       date: "November 24",
-      day: "Sunday",
+      day: "Monday",
       events: [
         { 
           time: "7:00 PM", 
@@ -31,7 +55,7 @@ const Schedule = () => {
     },
     {
       date: "November 25",
-      day: "Monday",
+      day: "Tuesday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -49,7 +73,7 @@ const Schedule = () => {
     },
     {
       date: "November 26",
-      day: "Tuesday",
+      day: "Wednesday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -67,7 +91,7 @@ const Schedule = () => {
     },
     {
       date: "November 27",
-      day: "Wednesday",
+      day: "Thursday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -85,7 +109,7 @@ const Schedule = () => {
     },
     {
       date: "November 28",
-      day: "Thursday",
+      day: "Friday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -103,7 +127,7 @@ const Schedule = () => {
     },
     {
       date: "November 29",
-      day: "Friday",
+      day: "Saturday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -121,7 +145,7 @@ const Schedule = () => {
     },
     {
       date: "November 30",
-      day: "Saturday",
+      day: "Sunday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -139,7 +163,7 @@ const Schedule = () => {
     },
     {
       date: "December 1",
-      day: "Sunday",
+      day: "Monday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -157,7 +181,7 @@ const Schedule = () => {
     },
     {
       date: "December 2",
-      day: "Monday",
+      day: "Tuesday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -175,7 +199,7 @@ const Schedule = () => {
     },
     {
       date: "December 3",
-      day: "Tuesday",
+      day: "Wednesday",
       events: [
         { 
           time: "6:00 AM - 11:59 PM", 
@@ -187,7 +211,7 @@ const Schedule = () => {
     },
     {
       date: "December 6",
-      day: "Friday",
+      day: "Saturday",
       events: [
         { 
           time: "", 
