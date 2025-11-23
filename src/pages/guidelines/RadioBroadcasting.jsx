@@ -160,7 +160,7 @@ const RadioBroadcasting = () => {
                 In Radio Broadcasting and Script Writing, a team of seven will produce a <span className="font-bold text-purple-700">five-minute simulated radio newscast</span> and a complete <span className="font-bold text-purple-700">handwritten radio script</span>, based on synchronized editorial materials from mini press conference and sports exhibition simulations.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                This contest replicates a real newsroom environment through coordinated news reporting, recorded delivery, fully original handwritten scripting, teamwork, timing, vocal precision, and technical execution.
+                This contest replicates a real newsroom environment through coordinated news reporting, recorded delivery, teamwork, timing, vocal precision, and technical execution.
               </p>
             </div>
 
@@ -349,6 +349,20 @@ const RadioBroadcasting = () => {
               </div>
             </div>
 
+            <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-base text-gray-700 mb-2">
+                    <span className="font-bold text-green-900">News articles / fact sheets will be provided by the organizers.</span>
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    All news content must be based solely on these provided materials.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
@@ -421,6 +435,30 @@ const RadioBroadcasting = () => {
                     <p className="text-base text-gray-700">{format}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-400 p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-purple-900 mb-4">The Script Must Include:</h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    1
+                  </div>
+                  <p className="text-base text-gray-700">The names and roles of all team members</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    2
+                  </div>
+                  <p className="text-base text-gray-700">A story lineup</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    3
+                  </div>
+                  <p className="text-base text-gray-700">The script in Audio - Video table format</p>
+                </div>
               </div>
             </div>
 

@@ -522,6 +522,18 @@ const TVBroadcasting = () => {
               ))}
             </div>
 
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-6">
+              <div className="flex gap-3">
+                <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-blue-900 mb-2">Materials Provided</h3>
+                  <p className="text-blue-800">
+                    <strong>News articles / fact sheets will be provided by the organizers.</strong> All news content must be based solely on these provided materials.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
               <div className="flex gap-3">
                 <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
