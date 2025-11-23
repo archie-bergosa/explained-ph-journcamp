@@ -80,8 +80,8 @@ const Leaderboard = () => {
                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white overflow-hidden shadow-2xl border-4 border-gray-400 flex items-center justify-center p-1">
                       {sortedData[1]?.image ? (
                         <img 
-                          src={`/regions/${sortedData[1].image}`}
-                          alt={`${sortedData[1]?.region} logo`}
+                          src={sortedData[1]?.total === 0 ? '/regions/deped.png' : `/regions/${sortedData[1].image}`}
+                          alt={sortedData[1]?.total === 0 ? 'DepEd logo' : `${sortedData[1]?.region} logo`}
                           className="w-full h-full object-contain"
                           onError={(e) => {
                             console.error('Image failed to load:', sortedData[1]?.image);
@@ -135,8 +135,8 @@ const Leaderboard = () => {
                     <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white overflow-hidden shadow-2xl border-4 md:border-6 border-yellow-500 flex items-center justify-center p-1.5">
                       {sortedData[0]?.image ? (
                         <img 
-                          src={`/regions/${sortedData[0].image}`}
-                          alt={`${sortedData[0]?.region} logo`}
+                          src={sortedData[0]?.total === 0 ? '/regions/deped.png' : `/regions/${sortedData[0].image}`}
+                          alt={sortedData[0]?.total === 0 ? 'DepEd logo' : `${sortedData[0]?.region} logo`}
                           className="w-full h-full object-contain"
                           onError={(e) => {
                             console.error('Image failed to load:', sortedData[0]?.image);
@@ -192,8 +192,8 @@ const Leaderboard = () => {
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full bg-white overflow-hidden shadow-2xl border-4 border-amber-700 flex items-center justify-center p-1">
                       {sortedData[2]?.image ? (
                         <img 
-                          src={`/regions/${sortedData[2].image}`}
-                          alt={`${sortedData[2]?.region} logo`}
+                          src={sortedData[2]?.total === 0 ? '/regions/deped.png' : `/regions/${sortedData[2].image}`}
+                          alt={sortedData[2]?.total === 0 ? 'DepEd logo' : `${sortedData[2]?.region} logo`}
                           className="w-full h-full object-contain"
                           onError={(e) => {
                             console.error('Image failed to load:', sortedData[2]?.image);
