@@ -956,7 +956,7 @@ const TVBroadcasting = () => {
 
             <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
               <p className="text-yellow-900">
-                <strong>Note:</strong> Timing deductions take effect starting at the 1-second mark.
+                <strong>Note:</strong> Timing deductions take effect starting at the 6-second mark.
               </p>
             </div>
           </motion.div>
