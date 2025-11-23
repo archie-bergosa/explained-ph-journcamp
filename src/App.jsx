@@ -29,6 +29,8 @@ import EditorialCartooning from '@/pages/guidelines/EditorialCartooning';
 import MobileJournalism from '@/pages/guidelines/MobileJournalism';
 import CollaborativeDesktopPublishing from '@/pages/guidelines/CollaborativeDesktopPublishing';
 import OnlinePublishing from '@/pages/guidelines/OnlinePublishing';
+import RadioBroadcasting from "@/pages/guidelines/RadioBroadcasting";
+import TVBroadcasting from "@/pages/guidelines/TVBroadcasting";
 import Leaderboard from '@/pages/Leaderboard';
 import AdminUpdate from '@/pages/AdminUpdate';
 import Schedule from '@/pages/Schedule';
@@ -108,6 +110,8 @@ function App() {
         <Route path="/guidelines/mobile-journalism" element={<MobileJournalism />} />
         <Route path="/guidelines/cdp" element={<CollaborativeDesktopPublishing />} />
         <Route path="/guidelines/online-publishing" element={<OnlinePublishing />} />
+        <Route path="/guidelines/radio-broadcasting" element={<RadioBroadcasting />} />
+        <Route path="/guidelines/tv-broadcasting" element={<TVBroadcasting />} />
         </Routes>
         <Footer />
         <Toaster />

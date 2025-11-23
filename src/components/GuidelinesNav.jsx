@@ -16,7 +16,9 @@ import {
   Users, 
   Globe,
   Home,
-  ChevronRight
+  ChevronRight,
+  Radio,
+  Tv
 } from 'lucide-react';
 
 const GuidelinesNav = () => {
@@ -110,6 +112,18 @@ const GuidelinesNav = () => {
       path: "/guidelines/online-publishing",
       icon: Globe,
       color: "orange-600"
+    },
+    {
+      title: "Radio Broadcasting",
+      path: "/guidelines/radio-broadcasting",
+      icon: Radio,
+      color: "red-600"
+    },
+    {
+      title: "TV Broadcasting",
+      path: "/guidelines/tv-broadcasting",
+      icon: Tv,
+      color: "purple-600"
     }
   ];
 

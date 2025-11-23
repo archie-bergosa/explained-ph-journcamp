@@ -22,7 +22,9 @@ import {
   MessageSquare,
   Microscope,
   Trophy,
-  Globe
+  Globe,
+  Radio,
+  Tv
 } from 'lucide-react';
 
 const Guidelines = () => {
@@ -141,6 +143,24 @@ const Guidelines = () => {
       icon: Globe,
       color: "orange-600",
       description: "Multi-format digital publication with WordPress",
+      eligibility: ["Secondary", "Tertiary"]
+    },
+    {
+      title: "Radio Broadcasting",
+      titleFl: "Radio Broadcasting",
+      path: "/guidelines/radio-broadcasting",
+      icon: Radio,
+      color: "red-600",
+      description: "5-minute audio newscast with script and infomercial",
+      eligibility: ["Secondary", "Tertiary"]
+    },
+    {
+      title: "TV Broadcasting",
+      titleFl: "TV Broadcasting",
+      path: "/guidelines/tv-broadcasting",
+      icon: Tv,
+      color: "purple-600",
+      description: "6-minute video newscast with complete TV script",
       eligibility: ["Secondary", "Tertiary"]
     }
   ];
@@ -358,14 +378,7 @@ const Guidelines = () => {
             })}
           </div>
 
-          <div className="mt-10 text-center">
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-6 py-3 rounded-full">
-              <AlertCircle className="w-5 h-5 text-blue-600" />
-              <p className="text-sm font-medium text-gray-700">
-                <span className="font-bold text-blue-900">Note:</span> Radio Broadcasting and TV Broadcasting guidelines coming soon
-              </p>
-            </div>
-          </div>
+
         </div>
       </motion.section>
 
