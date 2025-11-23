@@ -157,7 +157,7 @@ const RadioBroadcasting = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-600 p-6 rounded-r-lg">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                In Radio Broadcasting and Script Writing, a team of seven will produce a <span className="font-bold text-purple-700">five-minute simulated radio newscast</span> and a complete <span className="font-bold text-purple-700"></span>, based on synchronized editorial materials from mini press conference and sports exhibition simulations.
+                In Radio Broadcasting and Script Writing, a team of seven will produce a <span className="font-bold text-purple-700">five-minute simulated radio newscast</span> and a complete script <span className="font-bold text-purple-700"></span>, based on synchronized editorial materials from mini press conference and sports exhibition simulations.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
                 This contest replicates a real newsroom environment through coordinated news reporting, recorded delivery, teamwork, timing, vocal precision, and technical execution.
