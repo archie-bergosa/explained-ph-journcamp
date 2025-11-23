@@ -200,7 +200,7 @@ const CollaborativeDesktopPublishing = () => {
                 <div className="flex items-start gap-3">
                   <Clock className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <p className="text-base text-gray-700">
-                    Participants are still subject to following the <span className="font-bold">four-hour output production</span>, which includes the printing process. Laptops will not need to be emptied, as they will be monitored in real-time.
+                    Participants are still subject to following the <span className="font-bold">output production period</span>, which includes the printing process. Laptops will not need to be emptied, as they will be monitored in real-time.
                   </p>
                 </div>
               </div>
