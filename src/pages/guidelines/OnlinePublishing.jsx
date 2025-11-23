@@ -274,7 +274,7 @@ const OnlinePublishing = () => {
         </div>
       </motion.section>
 
-      {/* Allowed and Prohibited Materials Section */}
+      {/* Allowed and Prohibited Materials Section THIS */}
       <motion.section 
         variants={fadeIn('up', 'tween', 0.5, 0.6)}
         initial="initial"
