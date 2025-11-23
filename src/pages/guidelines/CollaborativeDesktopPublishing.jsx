@@ -160,7 +160,7 @@ const CollaborativeDesktopPublishing = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-r from-brand-teal/10 to-blue-50 border-l-4 border-brand-teal p-6 rounded-r-lg">
               <p className="text-lg text-gray-700 leading-relaxed">
-                In Collaborative Desktop Publishing, a <span className="font-bold text-brand-teal">team of seven</span> will produce a <span className="font-bold">four-page, full-color publication in A4 bond paper size</span> using synchronized editorial inputs (a mini press conference and a sports exhibition) within a <span className="font-bold text-brand-teal">four-hour timed production window</span>.
+                In Collaborative Desktop Publishing, a <span className="font-bold text-brand-teal">team of seven</span> will produce a <span className="font-bold">four-page, full-color publication in A4 bond paper size</span> using synchronized editorial inputs (a mini press conference and a sports exhibition) within the <span className="font-bold text-brand-teal">given production window</span>.
               </p>
             </div>
 
@@ -371,9 +371,6 @@ const CollaborativeDesktopPublishing = () => {
 
             <div className="bg-white border-2 border-brand-teal p-6 rounded-lg">
               <h3 className="text-xl font-bold text-brand-dark-teal mb-4">Submission Requirements</h3>
-              <p className="text-base text-gray-700 mb-4">
-                After the four-hour production period and 15 minutes of planning and preparation time, the team must submit:
-              </p>
               <div className="space-y-3">
                 {submissionRequirements.map((req, index) => (
                   <div key={index} className="flex items-start gap-3">

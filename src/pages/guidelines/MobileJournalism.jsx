@@ -265,7 +265,7 @@ const MobileJournalism = () => {
                 <div>
                   <h3 className="text-xl font-bold text-brand-dark-teal mb-2">Production Window</h3>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    <span className="font-bold">Four (4) hours total.</span> It will encompass shooting, editing, final rendering, and ultimately, the upload window.
+                    <span className="font-bold">Four (4) hours total.</span>
                   </p>
                 </div>
               </div>
