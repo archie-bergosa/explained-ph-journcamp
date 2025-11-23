@@ -597,7 +597,7 @@ const Photojournalism = () => {
               </p>
             </div>
             <div className="border-l-4 border-brand-teal pl-6 py-3">
-              <p className="text-base text-gray-700">Each category has a designated writing/production period.</p>
+              <p className="text-base text-gray-700">The writing/production for each category must be completed by 11:59 PM on the same day..</p>
             </div>
             <div className="border-l-4 border-brand-orange pl-6 py-3">
               <p className="text-base text-gray-700">For handwritten individual events, the writing window is strictly limited; scanning and submission time are controlled separately.</p>
