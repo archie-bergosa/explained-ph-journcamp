@@ -437,9 +437,13 @@ const MobileJournalism = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-r from-brand-orange/10 to-red-50 border-l-4 border-brand-orange p-6 rounded-r-lg">
               <h3 className="text-xl font-bold text-brand-dark-teal mb-3">Folder Structure</h3>
-              <div className="bg-slate-100 p-4 rounded-lg border border-slate-300 font-mono mb-4">
-                <p className="text-sm md:text-base font-bold text-gray-800 mb-2">Folder Name:</p>
-                <p className="text-sm md:text-base lg:text-lg text-brand-teal break-all">CODE_JOURNCAMP2025_MOJO</p>
+              <div className="bg-slate-100 p-4 rounded-lg border border-slate-300 font-mono mb-3">
+                <p className="text-sm md:text-base font-bold text-gray-800 mb-2">Folder Name Format:</p>
+                <p className="text-sm md:text-base lg:text-lg text-brand-teal break-all">Acad Level_Language Medium_Journcamp2025_MobileJournalism</p>
+              </div>
+              <div className="bg-brand-teal/5 p-4 rounded-lg border border-brand-teal/20 font-mono mb-4">
+                <p className="text-sm font-bold text-gray-800 mb-2">Example:</p>
+                <p className="text-sm md:text-base text-brand-dark-teal break-all">Elementary_Filipino_Journcamp2025_MobileJournalism</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-brand-orange/20">
                 <p className="text-sm font-bold text-gray-800 mb-3">Inside folder:</p>

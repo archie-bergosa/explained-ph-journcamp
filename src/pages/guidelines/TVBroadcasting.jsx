@@ -56,7 +56,7 @@ const TVBroadcasting = () => {
     "A4-sized paper using official activity sheets",
     "Labels for all video, audio, graphics, camera cues",
     "Team member names + assigned roles on cover page",
-    "No identifying marks (school, division, region) - code number only"
+    "No identifying marks (school, division, region)"
   ];
 
   const contentBasis = [

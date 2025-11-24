@@ -335,8 +335,13 @@ const Photojournalism = () => {
 
             <div className="bg-white border-2 border-brand-orange p-6 rounded-lg">
               <h3 className="text-xl font-bold text-brand-dark-teal mb-4">File Naming Convention</h3>
-              <div className="bg-slate-100 p-4 rounded-lg border border-slate-300 font-mono text-center">
-                <p className="text-sm md:text-base lg:text-lg font-bold text-gray-800 break-all">CODE NUMBER_JOURNCAMP2025_PHOTOJOURNALISM</p>
+              <div className="bg-slate-100 p-4 rounded-lg border border-slate-300 font-mono mb-3">
+                <p className="text-sm md:text-base font-bold text-gray-800 mb-2">Format:</p>
+                <p className="text-sm md:text-base lg:text-lg text-brand-teal break-all">Acad Level_Language Medium_Journcamp2025_Photojournalism</p>
+              </div>
+              <div className="bg-brand-teal/5 p-4 rounded-lg border border-brand-teal/20 font-mono">
+                <p className="text-sm font-bold text-gray-800 mb-2">Example:</p>
+                <p className="text-sm md:text-base text-brand-dark-teal break-all">Elementary_Filipino_Journcamp2025_Photojournalism</p>
               </div>
               <p className="text-sm text-gray-600 mt-3 text-center italic">
                 All photos must be saved in one folder and submitted to the corresponding Google Forms submission bin

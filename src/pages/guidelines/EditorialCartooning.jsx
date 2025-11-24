@@ -39,7 +39,7 @@ const EditorialCartooning = () => {
     "Free from smudges and stray marks",
     "Scanned or photographed clearly",
     "Uploaded in PDF or JPEG format",
-    "No bylines, initials, signatures, school names, or identifying marks—just the participant code"
+    "No bylines, initials, signatures, school names, or identifying marks"
   ];
 
   const allowedMaterials = [

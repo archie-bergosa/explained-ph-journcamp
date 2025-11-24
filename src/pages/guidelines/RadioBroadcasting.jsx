@@ -48,7 +48,7 @@ const RadioBroadcasting = () => {
     "Double-spaced with normal margin (1 inch on all sides)",
     "Printed on A4-sized bond paper (8.27 x 11.69 inches)",
     "Using official activity sheet only",
-    "No identifying marks (school, division, region) - code number only"
+    "No identifying marks (school, division, region)"
   ];
 
   const timingDeductions = [
@@ -470,7 +470,7 @@ const RadioBroadcasting = () => {
                     <span className="font-bold text-red-900">Ensure that the script is printed on the official JournCamp+ activity sheet.</span>
                   </p>
                   <p className="text-sm text-gray-600 mt-2 italic">
-                    There shall be no information or marks that may identify the contestants, their schools, divisions, or regions. Only the code will be seen at the top of each activity sheet.
+                    There shall be no information or marks that may identify the contestants, their schools, divisions, or regions.
                   </p>
                 </div>
               </div>
