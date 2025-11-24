@@ -34,6 +34,7 @@ import TVBroadcasting from "@/pages/guidelines/TVBroadcasting";
 import Leaderboard from '@/pages/Leaderboard';
 import AdminUpdate from '@/pages/AdminUpdate';
 import Schedule from '@/pages/Schedule';
+import Wrapped from '@/pages/Wrapped';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -84,12 +85,13 @@ function App() {
   const location = useLocation();
   const isGuidelinesPage = location.pathname.startsWith('/guidelines');
   const isAdminPage = location.pathname === '/admin-update';
+  const isWrappedPage = location.pathname === '/wrapped';
 
   return (
     <LeaderboardProvider>
       <div className="min-h-screen bg-slate-50 text-brand-dark">
         <ScrollToTop />
-        {!isAdminPage && <Header />}
+        {!isAdminPage && !isWrappedPage && <Header />}
         {isGuidelinesPage && <GuidelinesNav />}
         <Routes>
         <Route path="/" element={<Home />} />
@@ -97,6 +99,7 @@ function App() {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/rankings" element={<Leaderboard />} />
         <Route path="/admin-update" element={<AdminUpdate />} />
+        <Route path="/wrapped" element={<Wrapped />} />
         <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}
         <Route path="/guidelines/news" element={<NewsWriting />} />
         <Route path="/guidelines/editorial" element={<EditorialWriting />} />
@@ -113,7 +116,7 @@ function App() {
         <Route path="/guidelines/radio-broadcasting" element={<RadioBroadcasting />} />
         <Route path="/guidelines/tv-broadcasting" element={<TVBroadcasting />} />
         </Routes>
-        <Footer />
+        {!isWrappedPage && <Footer />}
         <Toaster />
       </div>
     </LeaderboardProvider>
