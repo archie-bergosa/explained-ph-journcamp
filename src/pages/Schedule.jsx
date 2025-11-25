@@ -58,7 +58,7 @@ const Schedule = () => {
       day: "Tuesday",
       events: [
         { 
-          time: "6:00 AM - 11:59 PM", 
+          time: "6:00 AM", 
           title: "Column Writing & Feature Writing Competition", 
           type: "competition",
           description: "Asynchronous competition. Work at your own pace throughout the day.",
@@ -75,6 +75,12 @@ const Schedule = () => {
       date: "November 26",
       day: "Wednesday",
       events: [
+        { 
+          time: "Deadline: 11:59 PM", 
+          title: "Column Writing & Feature Writing Competition (EXTENDED DEADLINE)", 
+          type: "competition",
+          description: "DEADLINE EXTENDED! Submit by 11:59 PM today.",
+        },
         { 
           time: "6:00 AM - 11:59 PM", 
           title: "SciTech Writing & Sports Writing Competition", 
