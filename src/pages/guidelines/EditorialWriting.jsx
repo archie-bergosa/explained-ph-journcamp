@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
+import ContestStatusBanner from '@/components/ContestStatusBanner';
 import { 
   FileText, 
   Calendar,
@@ -97,6 +98,13 @@ const EditorialWriting = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Contest Status Banner */}
+      <ContestStatusBanner 
+        startDate="2025-12-01"
+        endDate="2025-12-01"
+        categoryName="Editorial Writing"
+      />
 
       {/* Overview Section */}
       <motion.section 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
+import ContestStatusBanner from '@/components/ContestStatusBanner';
 import { 
   FileText, 
   Clock,
@@ -15,41 +16,6 @@ import {
 } from 'lucide-react';
 
 const FeatureWriting = () => {
-  const [timeLeft, setTimeLeft] = React.useState({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-  const [isDeadlinePassed, setIsDeadlinePassed] = React.useState(false);
-
-  React.useEffect(() => {
-    const targetDate = new Date('November 26, 2025 23:59:59 GMT+0800');
-
-    const updateCountdown = () => {
-      const now = new Date();
-      const difference = targetDate - now;
-
-      if (difference <= 0) {
-        setIsDeadlinePassed(true);
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
-
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      // Calculate total hours (including days) for display
-      const totalHours = Math.floor(difference / (1000 * 60 * 60));
-
-      setTimeLeft({ hours: totalHours, minutes, seconds });
-    };
-
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const allowedMaterials = [
     "Official JournCamp+ Activity Sheet (print multiple copies)",
@@ -132,45 +98,11 @@ const FeatureWriting = () => {
       </motion.section>
 
       {/* Contest Status Banner */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className={`sticky top-0 z-40 ${isDeadlinePassed ? 'bg-slate-600' : 'bg-gradient-to-r from-red-600 to-red-700'} text-white py-3 px-4 shadow-lg`}
-      >
-        <div className="container mx-auto max-w-6xl">
-          {isDeadlinePassed ? (
-            <div className="text-center">
-              <p className="text-lg font-bold">Contest Concluded</p>
-              <p className="text-sm opacity-90">The submission deadline has passed.</p>
-            </div>
-          ) : (
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                <span className="font-bold text-base md:text-lg">Contest Ongoing - DEADLINE EXTENDED ⚠️</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span className="text-sm md:text-base">Time Remaining:</span>
-                <div className="flex items-center gap-1">
-                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded font-bold text-sm">
-                    {String(timeLeft.hours).padStart(2, '0')}h
-                  </div>
-                  <span>:</span>
-                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded font-bold text-sm">
-                    {String(timeLeft.minutes).padStart(2, '0')}m
-                  </div>
-                  <span>:</span>
-                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded font-bold text-sm">
-                    {String(timeLeft.seconds).padStart(2, '0')}s
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </motion.div>
+      <ContestStatusBanner 
+        startDate="2025-11-25"
+        endDate="2025-11-26"
+        categoryName="Feature Writing"
+      />
 
       {/* Overview Section */}
       <motion.section 
