@@ -311,11 +311,7 @@ const NewsWriting = () => {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Writers must sign and submit a <span className="font-bold">declaration of originality</span>, with the format to be provided by the organizers beforehand</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Ensure declaration and activity sheets are prepared and printed beforehand to avoid delays in submission</p>
+                  <p className="text-base text-gray-700">Ensure activity sheets are prepared and printed beforehand to avoid delays in submission</p>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />

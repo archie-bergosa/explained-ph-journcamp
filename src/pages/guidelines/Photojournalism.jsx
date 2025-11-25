@@ -504,12 +504,9 @@ const Photojournalism = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg border-2 border-brand-teal">
-              <h4 className="text-lg font-bold text-brand-dark-teal mb-3">Declaration of Originality</h4>
-              <p className="text-base text-gray-700 mb-4">
-                Writers must sign and submit a declaration of originality, with the format to be provided by the organizers beforehand. The participants shall ensure that this is prepared and printed beforehand to avoid any delays in submission.
-              </p>
+              <h4 className="text-lg font-bold text-brand-dark-teal mb-3">Photo Integrity Requirements</h4>
               <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                <p className="text-sm font-bold text-gray-800 mb-2">Furthermore, it affirms the following:</p>
+                <p className="text-sm font-bold text-gray-800 mb-2">The following must be affirmed:</p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-brand-teal flex-shrink-0 mt-0.5" />

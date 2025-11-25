@@ -65,8 +65,7 @@ const OnlinePublishing = () => {
   ];
 
   const submissionRequirements = [
-    "The final published WordPress website link, accessible by all",
-    "Originality Declaration Form, signed by all team members"
+    "The final published WordPress website link, accessible by all"
   ];
 
   const recommendations = [

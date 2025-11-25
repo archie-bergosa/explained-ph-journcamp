@@ -59,8 +59,7 @@ const CollaborativeDesktopPublishing = () => {
   ];
 
   const submissionRequirements = [
-    "The final PDF of the four-page publication",
-    "Originality Declaration Form, signed by all team members"
+    "The final PDF of the four-page publication"
   ];
 
   const recommendations = [

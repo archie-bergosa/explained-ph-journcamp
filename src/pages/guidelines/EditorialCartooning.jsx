@@ -447,43 +447,6 @@ const EditorialCartooning = () => {
         </div>
       </motion.section>
 
-      {/* Declaration of Originality Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 0.9, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-white"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Shield className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Declaration of Originality
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-white p-6 rounded-lg border-2 border-brand-teal">
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Writers must sign and submit a <span className="font-bold">declaration of originality</span>, with the format to be provided by the organizers beforehand</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Ensure declaration and activity sheets are prepared and printed beforehand to avoid delays in submission</p>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Submit handdrawn output <span className="font-bold">(with no byline or identifying marks)</span> through clear scanned photos (using a scanner or apps like CamScanner) or as PDF</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
       {/* Timekeeping and Deadlines */}
       <motion.section 
         variants={fadeIn('up', 'tween', 1.0, 0.6)}

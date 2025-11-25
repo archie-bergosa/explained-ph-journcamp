@@ -598,15 +598,7 @@ const RadioBroadcasting = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg border-2 border-brand-teal">
-              <h4 className="text-lg font-bold text-brand-dark-teal mb-3">Declaration of Originality</h4>
-              <p className="text-base text-gray-700 mb-4">
-                Writers must sign and submit a declaration of originality, with the format to be provided by the organizers beforehand. The participants shall, alongside the activity sheets, ensure that this is also prepared and printed beforehand to avoid any delays in submission.
-              </p>
-              <p className="text-base text-gray-700">
-                Participants can also opt to submit their declarations, alongside their script work, via PDF, provided they have the necessary equipment and software.
-              </p>
-            </div>
+
           </div>
         </div>
       </motion.section>

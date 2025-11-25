@@ -34,7 +34,6 @@ const MobileJournalism = () => {
     "final.mp4 (60-120 seconds portrait video)",
     "raw1.mp4, raw2.mp4... (all source mobile clips and photos)",
     "edit_screen.mp4 (screen recording of editing process)",
-    "declaration.pdf (signed Declaration of Originality)",
     "blurb.txt/blurb.word/blurb.pdf (one-paragraph text blurb)",
     "Simple edit decision list (EDL) or list of timestamps/takes used"
   ];

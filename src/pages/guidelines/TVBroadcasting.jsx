@@ -854,29 +854,7 @@ const TVBroadcasting = () => {
             </div>
 
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg border-2 border-orange-200"
-              >
-                <h3 className="text-xl font-bold text-orange-900 mb-4">Declaration of Originality</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span>Writers must sign and submit a declaration of originality (format provided by organizers)</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span>Declaration must be prepared and printed beforehand to avoid submission delays</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                    <span>Teams can opt to submit declarations via PDF (alongside script work) if they have necessary equipment and software</span>
-                  </li>
-                </ul>
-              </motion.div>
+
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
