@@ -23,7 +23,7 @@ const ColumnWriting = () => {
   const [isDeadlinePassed, setIsDeadlinePassed] = React.useState(false);
 
   React.useEffect(() => {
-    const targetDate = new Date('November 25, 2025 23:59:59 GMT+0800');
+    const targetDate = new Date('November 26, 2025 23:59:59 GMT+0800');
 
     const updateCountdown = () => {
       const now = new Date();
@@ -149,9 +149,9 @@ const ColumnWriting = () => {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                <span className="font-bold text-base md:text-lg">Contest Ongoing</span>
+                <span className="font-bold text-base md:text-lg">Contest Ongoing - DEADLINE EXTENDED ⚠️</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2">"
                 <Clock className="w-5 h-5" />
                 <span className="text-sm md:text-base">Time Remaining:</span>
                 <div className="flex items-center gap-1">

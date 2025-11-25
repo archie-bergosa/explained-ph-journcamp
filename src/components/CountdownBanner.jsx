@@ -17,7 +17,7 @@ const CountdownBanner = () => {
     // Show modal on component mount (home page visit)
     setShowModal(true);
 
-    const targetDate = new Date('November 25, 2025 23:59:59 GMT+0800');
+    const targetDate = new Date('November 26, 2025 23:59:59 GMT+0800');
 
     const updateCountdown = () => {
       const now = new Date();
@@ -123,7 +123,7 @@ const CountdownBanner = () => {
                       </div>
                     </div>
                     <p className="text-center text-red-600 text-xs font-bold mt-2">
-                      November 25, 2025 at 11:59 PM PHT
+                      ⚠️ DEADLINE EXTENDED: November 26, 2025 at 11:59 PM PHT
                     </p>
                   </motion.div>
                 )}
