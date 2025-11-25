@@ -19,7 +19,7 @@ const Photojournalism = () => {
     "Photographs must be taken using DSLR or point-and-shoot cameras",
     "Only a standard zoom lens (kit lens 18–55mm) is allowed",
     "Participants must ensure their cameras are completely emptied before the contest",
-    "Two (2) blank memory cards must be prepared for inspection before the contest begins"
+    "Two (2) blank memory cards"
   ];
 
   const allowedMaterials = [
@@ -335,7 +335,7 @@ const Photojournalism = () => {
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-bold text-lg text-red-900 mb-2">For Non-Mobile Bracket Participants</p>
+                  <p className="font-bold text-lg text-red-900 mb-2">NOTE</p>
                   <p className="text-base text-gray-700">
                     <span className="font-bold">All RAW files must be submitted for verification.</span> No edits, filters, or crops are permitted. Any discrepancies between JPEG files and corresponding RAW files may result in disqualification.
                   </p>
