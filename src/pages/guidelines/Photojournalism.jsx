@@ -15,23 +15,16 @@ import {
 } from 'lucide-react';
 
 const Photojournalism = () => {
-  const mobileRequirements = [
-    "Photographs must be taken using smartphones only",
-    "Devices capable of computational manipulation must be used strictly in standard camera mode",
-    "Editing features, filters, or enhancements is prohibited"
-  ];
-
-  const nonMobileRequirements = [
+  const cameraRequirements = [
     "Photographs must be taken using DSLR or point-and-shoot cameras",
-    "Only one prime lens or a standard zoom lens (18–55mm) is allowed",
+    "Only a standard zoom lens (kit lens 18–55mm) is allowed",
     "Participants must ensure their cameras are completely emptied before the contest",
     "Two (2) blank memory cards must be prepared for inspection before the contest begins"
   ];
 
   const allowedMaterials = [
-    "For Non-Mobile Bracket: One DSLR or point-and-shoot camera with kit lens only",
-    "For Mobile Bracket: One smartphone with a standard camera mode",
-    "Two blank memory cards (Non-Mobile bracket)",
+    "One DSLR or point-and-shoot camera with kit lens only (18–55mm)",
+    "Two blank memory cards",
     "Official JournCamp+ Photojournalism Activity Sheet",
     "Two black ballpoint pens"
   ];
@@ -186,7 +179,7 @@ const Photojournalism = () => {
         </div>
       </motion.section>
 
-      {/* Camera Categories Section */}
+      {/* Camera Requirements Section */}
       <motion.section 
         variants={fadeIn('up', 'tween', 0.4, 0.6)}
         initial="initial"
@@ -197,52 +190,30 @@ const Photojournalism = () => {
           <div className="text-center mb-10">
             <Camera className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
             <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Camera Categories
+              Camera Requirements
             </h2>
             <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
           </div>
 
           <p className="text-lg text-gray-700 text-center mb-10 max-w-4xl mx-auto leading-relaxed">
-            The JournCamp+ Photojournalism category consists of <span className="font-bold text-brand-orange">two brackets</span>, acknowledging the diversity of equipment used by student journalists nationwide.
+            All participants must follow these camera and equipment requirements for the competition.
           </p>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* Mobile Bracket */}
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-400 p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <Smartphone className="w-8 h-8 text-blue-600" />
-                <h3 className="text-2xl font-bold text-brand-dark-teal">1. Mobile Bracket</h3>
-              </div>
-              <ul className="space-y-3">
-                {mobileRequirements.map((req, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <p className="text-base text-gray-700">{req}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Non-Mobile Bracket */}
+          <div className="max-w-4xl mx-auto">
+            {/* Camera Requirements */}
             <div className="bg-gradient-to-r from-brand-teal/10 to-green-50 border-2 border-brand-teal p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <Camera className="w-8 h-8 text-brand-teal" />
-                <h3 className="text-2xl font-bold text-brand-dark-teal">2. Non-Mobile Bracket</h3>
+                <h3 className="text-2xl font-bold text-brand-dark-teal">Equipment Requirements</h3>
               </div>
               <ul className="space-y-3">
-                {nonMobileRequirements.map((req, index) => (
+                {cameraRequirements.map((req, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-brand-teal rounded-full flex-shrink-0 mt-2"></div>
                     <p className="text-base text-gray-700">{req}</p>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
-              <p className="text-base text-gray-700">
-                <span className="font-bold text-red-900">Note: Cross-category switching is not allowed once registration is finalized.</span>
-              </p>
             </div>
           </div>
         </div>
