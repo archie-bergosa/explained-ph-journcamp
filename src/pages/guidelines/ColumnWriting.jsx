@@ -39,7 +39,10 @@ const ColumnWriting = () => {
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      setTimeLeft({ hours, minutes, seconds });
+      // Calculate total hours (including days) for display
+      const totalHours = Math.floor(difference / (1000 * 60 * 60));
+
+      setTimeLeft({ hours: totalHours, minutes, seconds });
     };
 
     updateCountdown();
