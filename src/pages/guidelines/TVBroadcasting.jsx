@@ -178,6 +178,16 @@ const TVBroadcasting = () => {
             <p className="text-xl md:text-2xl text-orange-100 mb-8">
               Mechanics and Guidelines
             </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-6">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Clock className="w-5 h-5" />
+                <span>Contest Date: December 3, 2025</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Clock className="w-5 h-5" />
+                <span>Deadline: December 3, 2025 - 11:59 PM</span>
+              </div>
+            </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Clock className="w-5 h-5" />

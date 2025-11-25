@@ -130,11 +130,11 @@ const CollaborativeDesktopPublishing = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Clock className="w-5 h-5" />
-                  <span className="font-semibold">Contest Date: November 29, 2025</span>
+                  <span className="font-semibold">Contest Date: November 30, 2025</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Clock className="w-5 h-5" />
-                  <span className="font-semibold">Submission Deadline: November 29, 2025 - 11:59 PM</span>
+                  <span className="font-semibold">Submission Deadline: November 30, 2025 - 11:59 PM</span>
                 </div>
               </div>
             </div>

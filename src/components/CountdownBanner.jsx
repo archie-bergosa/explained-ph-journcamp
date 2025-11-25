@@ -10,21 +10,21 @@ const CountdownBanner = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [isEventStarted, setIsEventStarted] = useState(false);
+  const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Show modal on component mount (home page visit)
     setShowModal(true);
 
-    const targetDate = new Date('November 23, 2025 18:00:00 GMT+0800');
+    const targetDate = new Date('November 25, 2025 23:59:59 GMT+0800');
 
     const updateCountdown = () => {
       const now = new Date();
       const difference = targetDate - now;
 
       if (difference <= 0) {
-        setIsEventStarted(true);
+        setIsDeadlinePassed(true);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         return;
       }
@@ -89,31 +89,87 @@ const CountdownBanner = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-base font-bold mb-1 bg-gradient-to-r from-brand-teal via-brand-dark-teal to-brand-teal bg-clip-text text-transparent"
+                    className="text-lg font-bold mb-1 bg-gradient-to-r from-brand-teal via-brand-dark-teal to-brand-teal bg-clip-text text-transparent"
                   >
-                    Day 1 Masterclass Links Sent!
+                    Contest Now Ongoing! 🎯
                   </motion.h2>
                 </div>
+
+                {/* Countdown Timer */}
+                {!isDeadlinePassed && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25 }}
+                    className="mb-3"
+                  >
+                    <p className="text-center text-gray-700 text-xs font-semibold mb-2">
+                      Submission deadline in:
+                    </p>
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
+                        <span className="text-xl font-bold leading-none">{timeLeft.hours}</span>
+                        <span className="text-[9px] uppercase mt-1 opacity-90">Hours</span>
+                      </div>
+                      <span className="text-lg font-bold text-gray-400">:</span>
+                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
+                        <span className="text-xl font-bold leading-none">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                        <span className="text-[9px] uppercase mt-1 opacity-90">Mins</span>
+                      </div>
+                      <span className="text-lg font-bold text-gray-400">:</span>
+                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
+                        <span className="text-xl font-bold leading-none">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                        <span className="text-[9px] uppercase mt-1 opacity-90">Secs</span>
+                      </div>
+                    </div>
+                    <p className="text-center text-red-600 text-xs font-bold mt-2">
+                      November 25, 2025 at 11:59 PM PHT
+                    </p>
+                  </motion.div>
+                )}
 
                 {/* Announcement Content */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-3 mb-3 border border-slate-200"
+                  className="bg-gradient-to-r from-brand-teal/10 to-blue-50 rounded-xl p-4 mb-3 border-2 border-brand-teal/30"
                 >
-                  <div className="text-xs text-gray-700 space-y-2">
-                    <p className="leading-relaxed">
-                      <strong>Check your emails</strong> for column and feature writing sessions with <strong>Kirsten Flores</strong> and <strong>Gianela Zapata</strong>.
-                    </p>
-                    <a 
-                      href="https://journcamp.explained.ph" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-brand-teal hover:text-brand-dark-teal font-semibold transition-colors text-xs"
-                    >
-                      View all guidelines →
-                    </a>
+                  <div className="text-sm text-gray-800 space-y-3">
+                    <div className="flex items-start gap-2">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold mt-0.5">
+                        ✓
+                      </div>
+                      <div>
+                        <p className="font-bold text-brand-dark-teal mb-1">Column and Feature Writing</p>
+                        <p className="text-xs leading-relaxed text-gray-700">
+                          The contest is <span className="font-bold text-brand-teal">currently ongoing</span>! Please check your registered email for:
+                        </p>
+                      </div>
+                    </div>
+                    <ul className="ml-8 space-y-1 text-xs text-gray-700">
+                      <li className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
+                        Activity sheet
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
+                        Fact sheet
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
+                        All other necessary information
+                      </li>
+                    </ul>
+                    <div className="pt-2 border-t border-brand-teal/20">
+                      <Link 
+                        to="/guidelines" 
+                        onClick={closeModal}
+                        className="inline-flex items-center gap-1 text-brand-teal hover:text-brand-dark-teal font-bold transition-colors text-sm"
+                      >
+                        View Contest Guidelines →
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
 
