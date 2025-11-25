@@ -518,7 +518,7 @@ const Guidelines = () => {
           </div>
           
           <p className="text-lg md:text-xl text-gray-700 text-center mb-10 max-w-4xl mx-auto leading-relaxed">
-            All participants must use the <span className="font-bold text-brand-teal">official JournCamp+ Activity Sheet</span> for handwritten categories. The sheet includes your participant code and category details.
+            All participants must use the <span className="font-bold text-brand-teal">official JournCamp+ Activity Sheet</span> for handwritten categories. 
           </p>
 
           <div className="max-w-3xl mx-auto space-y-6">
@@ -532,19 +532,10 @@ const Guidelines = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center">
-                <span className="text-xl font-bold text-brand-teal">2</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-1">Use Only Your Assigned Code</h3>
-                <p className="text-base text-gray-600">No names, schools, or any identifying marks. Only the code provided by organizers should appear on your sheets.</p>
-              </div>
-            </div>
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center">
-                <span className="text-xl font-bold text-brand-teal">3</span>
+                <span className="text-xl font-bold text-brand-teal">2</span>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1">Submit Clear Scans</h3>
@@ -554,7 +545,7 @@ const Guidelines = () => {
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center">
-                <span className="text-xl font-bold text-brand-teal">4</span>
+                <span className="text-xl font-bold text-brand-teal">3</span>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1">Attach Video Recording</h3>
@@ -562,15 +553,6 @@ const Guidelines = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center">
-                <span className="text-xl font-bold text-brand-teal">5</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-1">Signed Authenticity Declaration</h3>
-                <p className="text-base text-gray-600">Attach the signed authenticity declaration, either within one file or separately in the submission bin.</p>
-              </div>
-            </div>
           </div>
         </div>
       </motion.section>
@@ -656,7 +638,7 @@ const Guidelines = () => {
                     <h4 className="text-xl font-bold text-gray-800">No Identifying Marks</h4>
                   </div>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    Entries must contain <span className="font-bold">no identifying marks</span>. Each participant receives a codename, which is used in place of their name on submissions. Entries with identifying marks will be subject to disqualification.
+                    Entries must contain <span className="font-bold">no identifying marks</span>. Entries with identifying marks will be subject to disqualification.
                   </p>
                 </div>
 
