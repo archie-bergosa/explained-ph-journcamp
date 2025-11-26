@@ -150,7 +150,7 @@ const SportsWriting = () => {
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                  <p className="text-base text-gray-700">A video for the writers to watch</p>
+                  <p className="text-base text-gray-700">A fact sheet with details about the sports event</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>

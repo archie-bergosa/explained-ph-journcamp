@@ -122,10 +122,10 @@ const ScienceTechnologyWriting = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-r from-brand-teal/10 to-blue-50 border-l-4 border-brand-teal p-6 rounded-r-lg">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Aside from the conventional <span className="font-bold text-brand-teal">science and technology features</span>, writers must prepare for the possibility of being assigned a <span className="font-bold">science news story or even a science editorial</span>.
+                Participants will write a <span className="font-bold text-brand-teal">science feature article</span> that explores scientific or technological topics in an engaging, accessible manner.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Regardless, these scitech outputs must be able to <span className="font-bold text-brand-teal">explain scientific or technological topics</span> based on the organizers' materials, using accessible language without losing accuracy. Fact sheets will be provided.
+                The article must be able to <span className="font-bold text-brand-teal">explain scientific or technological topics</span> based on the provided materials, using accessible language without losing accuracy. Fact sheets will be provided.
               </p>
             </div>
 
