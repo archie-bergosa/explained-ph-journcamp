@@ -272,7 +272,7 @@ const MobileJournalism = () => {
                 <div>
                   <h3 className="text-xl font-bold text-brand-dark-teal mb-2">Production Window</h3>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    <span className="font-bold">Four (4) hours total.</span>
+                    <span className="font-bold">24 hours (whole day) - from 7:00 AM to 11:59 PM.</span>
                   </p>
                 </div>
               </div>
@@ -388,7 +388,7 @@ const MobileJournalism = () => {
             <div className="bg-gradient-to-r from-brand-teal/10 to-blue-50 border-l-4 border-brand-teal p-6 rounded-r-lg">
               <h3 className="text-xl font-bold text-brand-dark-teal mb-3">Continuous Documentation Required</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-3">
-                <span className="font-bold">Continuous screen-recording during editing, or a desk camera/alternative phone to record the rendering process:</span> The journalist must be visibly seen working on the phone, conducting field work, or engaging in similar activities for the entire four-hour production time.
+                <span className="font-bold">Continuous screen-recording during editing, or a desk camera/alternative phone to record the rendering process:</span> The journalist must be visibly seen working on the phone, conducting field work, or engaging in similar activities during the production time.
               </p>
               <div className="bg-white p-4 rounded-lg border border-brand-teal/20">
                 <p className="text-sm text-gray-700">
@@ -416,7 +416,7 @@ const MobileJournalism = () => {
                 <div>
                   <p className="font-bold text-lg text-gray-800 mb-2">Metadata Check</p>
                   <p className="text-base text-gray-700">
-                    Participants must ensure that their submitted final file and source clips contain <span className="font-bold">creation timestamps in the file properties</span>. Organizers will cross-verify to ensure that shooting and editing took place within the four-hour window.
+                    Participants must ensure that their submitted final file and source clips contain <span className="font-bold">creation timestamps in the file properties</span>. Organizers will cross-verify to ensure that shooting and editing took place within the production window (7:00 AM to 11:59 PM).
                   </p>
                 </div>
               </div>
