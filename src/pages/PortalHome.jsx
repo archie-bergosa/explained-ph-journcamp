@@ -261,7 +261,7 @@ const PortalHome = () => {
       >
         <div className="container mx-auto max-w-7xl flex items-center justify-between">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Competitor Portal</h1>
+            <h1 className="text-2xl md:text-3xl font-bold">User Portal</h1>
             <p className="text-white/90 text-sm md:text-base">JournCamp+ Resources Hub</p>
           </div>
           <Button
