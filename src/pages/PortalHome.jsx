@@ -32,6 +32,14 @@ const PortalHome = () => {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  // Check authentication on mount
+  useEffect(() => {
+    const auth = sessionStorage.getItem('portalAuth');
+    if (auth !== 'authenticated') {
+      navigate('/portal', { replace: true });
+    }
+  }, [navigate]);
+
   // Update time every second for countdown
   useEffect(() => {
     const interval = setInterval(() => {

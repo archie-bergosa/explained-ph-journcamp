@@ -28,6 +28,14 @@ const CategoryDetail = () => {
   const { categorySlug } = useParams();
   const navigate = useNavigate();
 
+  // Check authentication on mount
+  React.useEffect(() => {
+    const auth = sessionStorage.getItem('portalAuth');
+    if (auth !== 'authenticated') {
+      navigate('/portal', { replace: true });
+    }
+  }, [navigate]);
+
   // Category definitions (same as in PortalHome)
   const categoryData = {
     "news": {
