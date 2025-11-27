@@ -50,6 +50,7 @@ const Header = () => {
     { id: 'lecture-series', name: 'Lecture Series', path: '/lecture-series' },
     { id: 'schedule', name: 'Schedule', path: '/schedule' },
     { id: 'guidelines', name: 'Guidelines', path: '/guidelines' },
+    { id: 'portal', name: 'Portal', path: '/portal' },
     { id: 'rankings', name: 'Rankings', path: '/rankings' },
   ];
 

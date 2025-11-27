@@ -35,6 +35,9 @@ import Leaderboard from '@/pages/Leaderboard';
 import AdminUpdate from '@/pages/AdminUpdate';
 import Schedule from '@/pages/Schedule';
 import Wrapped from '@/pages/Wrapped';
+import Portal from '@/pages/Portal';
+import CategoryDetail from '@/pages/CategoryDetail';
+import GradeResources from '@/pages/GradeResources';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -86,12 +89,13 @@ function App() {
   const isGuidelinesPage = location.pathname.startsWith('/guidelines');
   const isAdminPage = location.pathname === '/admin-update';
   const isWrappedPage = location.pathname === '/wrapped';
+  const isPortalPage = location.pathname.startsWith('/portal');
 
   return (
     <LeaderboardProvider>
       <div className="min-h-screen bg-slate-50 text-brand-dark">
         <ScrollToTop />
-        {!isAdminPage && !isWrappedPage && <Header />}
+        {!isAdminPage && !isWrappedPage && !isPortalPage && <Header />}
         {isGuidelinesPage && <GuidelinesNav />}
         <Routes>
         <Route path="/" element={<Home />} />
@@ -100,6 +104,9 @@ function App() {
         <Route path="/rankings" element={<Leaderboard />} />
         <Route path="/admin-update" element={<AdminUpdate />} />
         <Route path="/wrapped" element={<Wrapped />} />
+        <Route path="/portal" element={<Portal />} />
+        <Route path="/portal/category/:categorySlug" element={<CategoryDetail />} />
+        <Route path="/portal/category/:categorySlug/:gradeLevel" element={<GradeResources />} />
         <Route path="/guidelines" element={<Guidelines />} /> {/* Add the new route for the guidelines page */}
         <Route path="/guidelines/news" element={<NewsWriting />} />
         <Route path="/guidelines/editorial" element={<EditorialWriting />} />
@@ -116,7 +123,7 @@ function App() {
         <Route path="/guidelines/radio-broadcasting" element={<RadioBroadcasting />} />
         <Route path="/guidelines/tv-broadcasting" element={<TVBroadcasting />} />
         </Routes>
-        {!isWrappedPage && <Footer />}
+        {!isWrappedPage && !isPortalPage && <Footer />}
         <Toaster />
       </div>
     </LeaderboardProvider>
