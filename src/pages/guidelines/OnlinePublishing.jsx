@@ -218,17 +218,6 @@ const OnlinePublishing = () => {
                 </p>
               </div>
             </div>
-
-            <div className="bg-slate-100 border-l-4 border-slate-400 p-6 rounded-r-lg">
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <AlertCircle className="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">
-                    <span className="font-bold">Only individuals who register from the same school</span> may compete together; cross-school or composite teams are not allowed.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </motion.section>

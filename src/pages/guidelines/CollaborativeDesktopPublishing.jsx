@@ -192,12 +192,6 @@ const CollaborativeDesktopPublishing = () => {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">
-                    <span className="font-bold">Only individuals who register from the same school</span> are allowed to compete together; no cross-school registrations are permitted.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
                   <Video className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <p className="text-base text-gray-700">
                     <span className="font-bold">No in-person proctoring</span> will be enacted, yet all participants must join a Zoom meeting or other forms of video conferencing and <span className="font-bold">screen record their laptops</span> for proctor monitoring.
