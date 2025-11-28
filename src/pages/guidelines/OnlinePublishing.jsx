@@ -27,7 +27,6 @@ const OnlinePublishing = () => {
   const allowedMaterials = [
     "Adobe InDesign, Adobe Illustrator, Adobe Photoshop, and Microsoft Publisher",
     "WordPress Basic (no premium subscriptions, no add-ons)",
-    "Fonts available offline (reviewed during registration process)",
     "Built-in shapes and default vectors",
     "Creating assets using Canva and other online tools for building assets"
   ];

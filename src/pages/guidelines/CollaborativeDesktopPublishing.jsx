@@ -28,7 +28,6 @@ const CollaborativeDesktopPublishing = () => {
 
   const allowedMaterials = [
     "Adobe InDesign, Adobe Illustrator, Adobe Photoshop, and Microsoft Publisher",
-    "Fonts available offline (reviewed during registration process)",
     "Built-in shapes and default vectors",
     "Non-AI editing tools"
   ];
