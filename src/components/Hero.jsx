@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { FileText } from 'lucide-react';
+import { FileText, Lock } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -46,11 +46,18 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Link to="/guidelines">
                 <Button className="bg-gradient-to-r from-brand-teal to-brand-dark-teal hover:from-brand-dark-teal hover:to-brand-teal text-white font-semibold px-8 py-6 text-base md:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <FileText className="w-5 h-5 mr-2" />
                   View NCPS Guidelines
+                </Button>
+              </Link>
+              <Link to="/portal">
+                <Button className="bg-gradient-to-r from-brand-orange to-amber-600 hover:from-amber-600 hover:to-brand-orange text-white font-semibold px-8 py-6 text-base md:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <Lock className="w-5 h-5 mr-2" />
+                  User Portal
                 </Button>
               </Link>
             </motion.div>
