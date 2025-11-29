@@ -17,7 +17,7 @@ const CountdownBanner = () => {
     // Show modal on component mount (home page visit)
     setShowModal(true);
 
-    const targetDate = new Date('November 26, 2025 23:59:59 GMT+0800');
+    const targetDate = new Date('November 29, 2025 23:59:59 GMT+0800');
 
     const updateCountdown = () => {
       const now = new Date();
@@ -126,7 +126,7 @@ const CountdownBanner = () => {
                       </div>
                     </div>
                     <p className="text-center text-red-600 text-xs font-bold mt-2">
-                      ⚠️ DEADLINE EXTENDED: November 26, 2025 at 11:59 PM PHT
+                      DEADLINE: November 29, 2025 at 11:59 PM PHT
                     </p>
                   </motion.div>
                 )}
@@ -144,7 +144,7 @@ const CountdownBanner = () => {
                         ✓
                       </div>
                       <div>
-                        <p className="font-bold text-brand-dark-teal mb-1">Column and Feature Writing</p>
+                        <p className="font-bold text-brand-dark-teal mb-1">Online Publishing</p>
                         <p className="text-xs leading-relaxed text-gray-700">
                           The contest is <span className="font-bold text-brand-teal">currently ongoing</span>! Please check your registered email for:
                         </p>
@@ -166,7 +166,7 @@ const CountdownBanner = () => {
                     </ul>
                     <div className="pt-2 border-t border-brand-teal/20">
                       <Link 
-                        to="/guidelines" 
+                        to="/guidelines/online-publishing" 
                         onClick={closeModal}
                         className="inline-flex items-center gap-1 text-brand-teal hover:text-brand-dark-teal font-bold transition-colors text-sm"
                       >
