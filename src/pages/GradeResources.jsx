@@ -369,13 +369,13 @@ const GradeResources = () => {
     "online-publishing": {
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/file/d/1UFMpj4ETScHjge0jT3_dszbwYOj5rUX8/view?usp=sharing",
+        submissionBin: "https://forms.gle/6CkqVShfpucBzWjaA"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/file/d/1UFMpj4ETScHjge0jT3_dszbwYOj5rUX8/view?usp=sharing",
+        submissionBin: "https://forms.gle/6CkqVShfpucBzWjaA"
       }
     },
     "radio-broadcasting": {
