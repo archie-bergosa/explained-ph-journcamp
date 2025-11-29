@@ -58,98 +58,112 @@ const GradeResources = () => {
       titleFl: "Pagsulat ng Balita",
       icon: FileText,
       color: "brand-teal",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "editorial": {
       title: "Editorial Writing",
       titleFl: "Pagsulat ng Pangulong Tudling",
       icon: MessageSquare,
       color: "brand-orange",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "column": {
       title: "Column Writing",
       titleFl: "Pagsulat ng kolum",
       icon: FileText,
       color: "blue-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "feature": {
       title: "Feature Writing",
       titleFl: "Pagsulat ng Lathalain",
       icon: BookOpen,
       color: "purple-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "crhw": {
       title: "Copyreading & Headline Writing",
       titleFl: "Pagwawasto ng Sipi at Pag-uulo ng Balita",
       icon: Edit3,
       color: "green-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "scitech": {
       title: "Science & Technology Writing",
       titleFl: "Pagsulat ng Balitang Agham at Teknolohiya",
       icon: Microscope,
       color: "indigo-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "sports": {
       title: "Sports Writing",
       titleFl: "Pagsulat ng Balitang Pampalakasan",
       icon: Trophy,
       color: "amber-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "photojournalism": {
       title: "Photojournalism",
       titleFl: "Pagkuha ng Larawang Pampahayagan",
       icon: Camera,
       color: "pink-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "editorial-cartooning": {
       title: "Editorial Cartooning",
       titleFl: "Paglalarawang Tudling",
       icon: PenTool,
       color: "red-600",
-      contestDate: "2025-11-28T00:00:00"
+      contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59"
     },
     "mobile-journalism": {
       title: "Mobile Journalism",
       titleFl: "Mobile Journalism",
       icon: Video,
       color: "cyan-600",
-      contestDate: "2025-11-28T00:00:00"
+      contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59"
     },
     "cdp": {
       title: "Collaborative Desktop Publishing",
       titleFl: "Collaborative Desktop Publishing",
       icon: Users,
       color: "teal-600",
-      contestDate: "2025-11-30T00:00:00"
+      contestDate: "2025-11-30T00:00:00",
+      contestDeadline: "2025-11-30T23:59:59"
     },
     "online-publishing": {
       title: "Online Publishing",
       titleFl: "Online Publishing",
       icon: Globe,
       color: "orange-600",
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-11-29T23:59:59"
     },
     "radio-broadcasting": {
       title: "Radio Broadcasting",
       titleFl: "Radio Broadcasting",
       icon: Radio,
       color: "red-600",
-      contestDate: "2025-12-02T00:00:00"
+      contestDate: "2025-12-02T00:00:00",
+      contestDeadline: "2025-12-02T23:59:59"
     },
     "tv-broadcasting": {
       title: "TV Broadcasting",
       titleFl: "TV Broadcasting",
       icon: Tv,
       color: "purple-600",
-      contestDate: "2025-12-03T00:00:00"
+      contestDate: "2025-12-03T00:00:00",
+      contestDeadline: "2025-12-03T23:59:59"
     }
   };
 
@@ -184,11 +198,9 @@ const GradeResources = () => {
 
   // Check if submission window has closed
   const isSubmissionClosed = () => {
-    if (!category || !category.contestDate) return false;
-    const contestStart = new Date(category.contestDate);
-    const submissionDeadline = new Date(contestStart);
-    submissionDeadline.setHours(23, 59, 59, 999);
-    return currentTime > submissionDeadline;
+    if (!category || !category.contestDeadline) return false;
+    const deadline = new Date(category.contestDeadline);
+    return currentTime > deadline;
   };
 
   if (!category || !gradeInfo) {

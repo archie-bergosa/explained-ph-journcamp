@@ -55,7 +55,8 @@ const CategoryDetail = () => {
       color: "brand-teal",
       description: "Straight news reporting with inverted pyramid structure",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "editorial": {
       title: "Editorial Writing",
@@ -64,7 +65,8 @@ const CategoryDetail = () => {
       color: "brand-orange",
       description: "Opinion pieces with clear stance and persuasive arguments",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "column": {
       title: "Column Writing",
@@ -73,7 +75,8 @@ const CategoryDetail = () => {
       color: "blue-600",
       description: "Personal commentary with distinctive voice and style",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "feature": {
       title: "Feature Writing",
@@ -82,7 +85,8 @@ const CategoryDetail = () => {
       color: "purple-600",
       description: "Human-interest stories with narrative depth",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "crhw": {
       title: "Copyreading & Headline Writing",
@@ -91,7 +95,8 @@ const CategoryDetail = () => {
       color: "green-600",
       description: "Paragraph rearrangement and headline crafting",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "scitech": {
       title: "Science & Technology Writing",
@@ -100,7 +105,8 @@ const CategoryDetail = () => {
       color: "indigo-600",
       description: "Complex topics explained in accessible language",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "sports": {
       title: "Sports Writing",
@@ -109,7 +115,8 @@ const CategoryDetail = () => {
       color: "amber-600",
       description: "Game coverage with statistical analysis and angles",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "photojournalism": {
       title: "Photojournalism",
@@ -118,7 +125,8 @@ const CategoryDetail = () => {
       color: "pink-600",
       description: "Visual storytelling through photographs and captions",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "editorial-cartooning": {
       title: "Editorial Cartooning",
@@ -127,7 +135,8 @@ const CategoryDetail = () => {
       color: "red-600",
       description: "Hand-drawn political commentary and satire",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-28T00:00:00"
+      contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59"
     },
     "mobile-journalism": {
       title: "Mobile Journalism",
@@ -136,7 +145,8 @@ const CategoryDetail = () => {
       color: "cyan-600",
       description: "Smartphone-only video journalism and reporting",
       eligibility: ["Secondary", "Tertiary"],
-      contestDate: "2025-11-28T00:00:00"
+      contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59"
     },
     "cdp": {
       title: "Collaborative Desktop Publishing",
@@ -145,7 +155,8 @@ const CategoryDetail = () => {
       color: "teal-600",
       description: "Team-based four-page publication production",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-30T00:00:00"
+      contestDate: "2025-11-30T00:00:00",
+      contestDeadline: "2025-11-30T23:59:59"
     },
     "online-publishing": {
       title: "Online Publishing",
@@ -154,7 +165,8 @@ const CategoryDetail = () => {
       color: "orange-600",
       description: "Multi-format digital publication with WordPress",
       eligibility: ["Secondary", "Tertiary"],
-      contestDate: "2025-11-29T00:00:00"
+      contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-11-29T23:59:59"
     },
     "radio-broadcasting": {
       title: "Radio Broadcasting",
@@ -163,7 +175,8 @@ const CategoryDetail = () => {
       color: "red-600",
       description: "5-minute audio newscast with script and infomercial",
       eligibility: ["Secondary", "Tertiary"],
-      contestDate: "2025-12-02T00:00:00"
+      contestDate: "2025-12-02T00:00:00",
+      contestDeadline: "2025-12-02T23:59:59"
     },
     "tv-broadcasting": {
       title: "TV Broadcasting",
@@ -172,7 +185,8 @@ const CategoryDetail = () => {
       color: "purple-600",
       description: "6-minute video newscast with complete TV script",
       eligibility: ["Secondary", "Tertiary"],
-      contestDate: "2025-12-03T00:00:00"
+      contestDate: "2025-12-03T00:00:00",
+      contestDeadline: "2025-12-03T23:59:59"
     }
   };
 
@@ -180,11 +194,9 @@ const CategoryDetail = () => {
 
   // Check if submission window has closed
   const isSubmissionClosed = () => {
-    if (!category || !category.contestDate) return false;
-    const contestStart = new Date(category.contestDate);
-    const submissionDeadline = new Date(contestStart);
-    submissionDeadline.setHours(23, 59, 59, 999);
-    return currentTime > submissionDeadline;
+    if (!category || !category.contestDeadline) return false;
+    const deadline = new Date(category.contestDeadline);
+    return currentTime > deadline;
   };
 
   if (!category) {

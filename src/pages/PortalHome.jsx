@@ -53,20 +53,17 @@ const PortalHome = () => {
     return currentTime >= new Date(contestDate);
   };
 
-  // Check if submission window is still open (closes at 11:59 PM Philippine Time on contest date)
-  const isSubmissionOpen = (contestDate) => {
+  // Check if submission window is still open (uses contestDeadline field)
+  const isSubmissionOpen = (contestDate, contestDeadline) => {
     const contestStart = new Date(contestDate);
-    const submissionDeadline = new Date(contestStart);
-    submissionDeadline.setHours(23, 59, 59, 999); // Set to 11:59:59 PM
-    return currentTime >= contestStart && currentTime <= submissionDeadline;
+    const deadline = new Date(contestDeadline);
+    return currentTime >= contestStart && currentTime <= deadline;
   };
 
   // Check if submission window has ended
-  const isSubmissionClosed = (contestDate) => {
-    const contestStart = new Date(contestDate);
-    const submissionDeadline = new Date(contestStart);
-    submissionDeadline.setHours(23, 59, 59, 999);
-    return currentTime > submissionDeadline;
+  const isSubmissionClosed = (contestDeadline) => {
+    const deadline = new Date(contestDeadline);
+    return currentTime > deadline;
   };
 
   // Calculate time remaining until contest starts
@@ -83,11 +80,9 @@ const PortalHome = () => {
   };
 
   // Calculate time remaining until submission closes
-  const getSubmissionTimeRemaining = (contestDate) => {
-    const contestStart = new Date(contestDate);
-    const submissionDeadline = new Date(contestStart);
-    submissionDeadline.setHours(23, 59, 59, 999);
-    const total = submissionDeadline - currentTime;
+  const getSubmissionTimeRemaining = (contestDeadline) => {
+    const deadline = new Date(contestDeadline);
+    const total = deadline - currentTime;
     if (total <= 0) return null;
 
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
@@ -115,6 +110,7 @@ const PortalHome = () => {
       description: "Straight news reporting with inverted pyramid structure",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/news"
     },
     {
@@ -126,6 +122,7 @@ const PortalHome = () => {
       description: "Opinion pieces with clear stance and persuasive arguments",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-12-01T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/editorial"
     },
     {
@@ -137,6 +134,7 @@ const PortalHome = () => {
       description: "Personal commentary with distinctive voice and style",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/column"
     },
     {
@@ -148,6 +146,7 @@ const PortalHome = () => {
       description: "Human-interest stories with narrative depth",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/feature"
     },
     {
@@ -159,6 +158,7 @@ const PortalHome = () => {
       description: "Paragraph rearrangement and headline crafting",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/crhw"
     },
     {
@@ -170,6 +170,7 @@ const PortalHome = () => {
       description: "Complex topics explained in accessible language",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/scitech"
     },
     {
@@ -181,6 +182,7 @@ const PortalHome = () => {
       description: "Game coverage with statistical analysis and angles",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/sports"
     },
     {
@@ -192,6 +194,7 @@ const PortalHome = () => {
       description: "Visual storytelling through photographs and captions",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/photojournalism"
     },
     {
@@ -203,6 +206,7 @@ const PortalHome = () => {
       description: "Hand-drawn political commentary and satire",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59",
       guidelinesPath: "/guidelines/editorial-cartooning"
     },
     {
@@ -214,6 +218,7 @@ const PortalHome = () => {
       description: "Smartphone-only video journalism and reporting",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-11-28T00:00:00",
+      contestDeadline: "2025-11-28T23:59:59",
       guidelinesPath: "/guidelines/mobile-journalism"
     },
     {
@@ -225,6 +230,7 @@ const PortalHome = () => {
       description: "Team-based four-page publication production",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-30T00:00:00",
+      contestDeadline: "2025-11-30T23:59:59",
       guidelinesPath: "/guidelines/cdp"
     },
     {
@@ -236,6 +242,7 @@ const PortalHome = () => {
       description: "Multi-format digital publication with WordPress",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-11-29T00:00:00",
+      contestDeadline: "2025-11-29T23:59:59",
       guidelinesPath: "/guidelines/online-publishing"
     },
     {
@@ -247,6 +254,7 @@ const PortalHome = () => {
       description: "5-minute audio newscast with script and infomercial",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-12-02T00:00:00",
+      contestDeadline: "2025-12-02T23:59:59",
       guidelinesPath: "/guidelines/radio-broadcasting"
     },
     {
@@ -258,6 +266,7 @@ const PortalHome = () => {
       description: "6-minute video newscast with complete TV script",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-12-03T00:00:00",
+      contestDeadline: "2025-12-03T23:59:59",
       guidelinesPath: "/guidelines/tv-broadcasting"
     }
   ];
@@ -439,10 +448,10 @@ const PortalHome = () => {
             {categories.map((category, index) => {
               const IconComponent = category.icon;
               const isActive = isContestActive(category.contestDate);
-              const isOpen = isSubmissionOpen(category.contestDate);
-              const isClosed = isSubmissionClosed(category.contestDate);
+              const isOpen = isSubmissionOpen(category.contestDate, category.contestDeadline);
+              const isClosed = isSubmissionClosed(category.contestDeadline);
               const timeRemaining = !isActive ? getTimeRemaining(category.contestDate) : null;
-              const submissionTimeRemaining = isOpen ? getSubmissionTimeRemaining(category.contestDate) : null;
+              const submissionTimeRemaining = isOpen ? getSubmissionTimeRemaining(category.contestDeadline) : null;
               const CardWrapper = isOpen ? Link : 'div';
               const cardProps = isOpen ? { to: `/portal/category/${category.slug}` } : {};
 
