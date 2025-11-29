@@ -206,7 +206,7 @@ const PortalHome = () => {
       description: "Hand-drawn political commentary and satire",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-11-28T00:00:00",
-      contestDeadline: "2025-11-28T23:59:59",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/editorial-cartooning"
     },
     {
@@ -218,7 +218,7 @@ const PortalHome = () => {
       description: "Smartphone-only video journalism and reporting",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-11-28T00:00:00",
-      contestDeadline: "2025-11-28T23:59:59",
+      contestDeadline: "2025-12-01T23:59:59",
       guidelinesPath: "/guidelines/mobile-journalism"
     },
     {

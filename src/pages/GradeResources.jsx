@@ -123,7 +123,7 @@ const GradeResources = () => {
       icon: PenTool,
       color: "red-600",
       contestDate: "2025-11-28T00:00:00",
-      contestDeadline: "2025-11-28T23:59:59"
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "mobile-journalism": {
       title: "Mobile Journalism",
@@ -131,7 +131,7 @@ const GradeResources = () => {
       icon: Video,
       color: "cyan-600",
       contestDate: "2025-11-28T00:00:00",
-      contestDeadline: "2025-11-28T23:59:59"
+      contestDeadline: "2025-12-01T23:59:59"
     },
     "cdp": {
       title: "Collaborative Desktop Publishing",
@@ -433,18 +433,18 @@ const GradeResources = () => {
     "cdp": {
       "elementary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1U70ilwrZMhl44Ea4PNBFmC01PnD2uOlc?usp=drive_link",
+        submissionBin: "https://forms.gle/yvLokjmCqBesz4aH9"
       },
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1U70ilwrZMhl44Ea4PNBFmC01PnD2uOlc?usp=drive_link",
+        submissionBin: "https://forms.gle/yvLokjmCqBesz4aH9"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1U70ilwrZMhl44Ea4PNBFmC01PnD2uOlc?usp=drive_link",
+        submissionBin: "https://forms.gle/yvLokjmCqBesz4aH9"
       }
     },
     "online-publishing": {
