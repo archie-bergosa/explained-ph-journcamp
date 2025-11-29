@@ -72,42 +72,42 @@ const GradeResources = () => {
       titleFl: "Pagsulat ng kolum",
       icon: FileText,
       color: "blue-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "feature": {
       title: "Feature Writing",
       titleFl: "Pagsulat ng Lathalain",
       icon: BookOpen,
       color: "purple-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "crhw": {
       title: "Copyreading & Headline Writing",
       titleFl: "Pagwawasto ng Sipi at Pag-uulo ng Balita",
       icon: Edit3,
       color: "green-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "scitech": {
       title: "Science & Technology Writing",
       titleFl: "Pagsulat ng Balitang Agham at Teknolohiya",
       icon: Microscope,
       color: "indigo-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "sports": {
       title: "Sports Writing",
       titleFl: "Pagsulat ng Balitang Pampalakasan",
       icon: Trophy,
       color: "amber-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "photojournalism": {
       title: "Photojournalism",
       titleFl: "Pagkuha ng Larawang Pampahayagan",
       icon: Camera,
       color: "pink-600",
-      contestDate: "2025-12-01T00:00:00"
+      contestDate: "2025-11-29T00:00:00"
     },
     "editorial-cartooning": {
       title: "Editorial Cartooning",
