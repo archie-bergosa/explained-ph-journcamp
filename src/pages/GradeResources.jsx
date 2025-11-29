@@ -369,12 +369,12 @@ const GradeResources = () => {
     "online-publishing": {
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/file/d/1UFMpj4ETScHjge0jT3_dszbwYOj5rUX8/view?usp=sharing",
+        factSheet: "https://drive.google.com/drive/folders/1VTTXEE9Pbo8ZyB3TWh_g_whcKKZD06pe",
         submissionBin: "https://forms.gle/6CkqVShfpucBzWjaA"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/file/d/1UFMpj4ETScHjge0jT3_dszbwYOj5rUX8/view?usp=sharing",
+        factSheet: "https://drive.google.com/drive/folders/1VTTXEE9Pbo8ZyB3TWh_g_whcKKZD06pe",
         submissionBin: "https://forms.gle/6CkqVShfpucBzWjaA"
       }
     },
