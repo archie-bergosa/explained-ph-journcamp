@@ -136,7 +136,7 @@ const PortalHome = () => {
       color: "blue-600",
       description: "Personal commentary with distinctive voice and style",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-25T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/column"
     },
     {
@@ -147,7 +147,7 @@ const PortalHome = () => {
       color: "purple-600",
       description: "Human-interest stories with narrative depth",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-25T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/feature"
     },
     {
@@ -158,7 +158,7 @@ const PortalHome = () => {
       color: "green-600",
       description: "Paragraph rearrangement and headline crafting",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-27T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/crhw"
     },
     {
@@ -169,7 +169,7 @@ const PortalHome = () => {
       color: "indigo-600",
       description: "Complex topics explained in accessible language",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-26T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/scitech"
     },
     {
@@ -180,7 +180,7 @@ const PortalHome = () => {
       color: "amber-600",
       description: "Game coverage with statistical analysis and angles",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-26T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/sports"
     },
     {
@@ -191,7 +191,7 @@ const PortalHome = () => {
       color: "pink-600",
       description: "Visual storytelling through photographs and captions",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-27T00:00:00",
+      contestDate: "2025-12-01T00:00:00",
       guidelinesPath: "/guidelines/photojournalism"
     },
     {

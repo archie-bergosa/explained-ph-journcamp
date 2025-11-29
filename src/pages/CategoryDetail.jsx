@@ -73,7 +73,7 @@ const CategoryDetail = () => {
       color: "blue-600",
       description: "Personal commentary with distinctive voice and style",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-25T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "feature": {
       title: "Feature Writing",
@@ -82,7 +82,7 @@ const CategoryDetail = () => {
       color: "purple-600",
       description: "Human-interest stories with narrative depth",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-25T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "crhw": {
       title: "Copyreading & Headline Writing",
@@ -91,7 +91,7 @@ const CategoryDetail = () => {
       color: "green-600",
       description: "Paragraph rearrangement and headline crafting",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-27T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "scitech": {
       title: "Science & Technology Writing",
@@ -100,7 +100,7 @@ const CategoryDetail = () => {
       color: "indigo-600",
       description: "Complex topics explained in accessible language",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-26T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "sports": {
       title: "Sports Writing",
@@ -109,7 +109,7 @@ const CategoryDetail = () => {
       color: "amber-600",
       description: "Game coverage with statistical analysis and angles",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-26T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "photojournalism": {
       title: "Photojournalism",
@@ -118,7 +118,7 @@ const CategoryDetail = () => {
       color: "pink-600",
       description: "Visual storytelling through photographs and captions",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
-      contestDate: "2025-11-27T00:00:00"
+      contestDate: "2025-12-01T00:00:00"
     },
     "editorial-cartooning": {
       title: "Editorial Cartooning",
