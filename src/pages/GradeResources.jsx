@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { 
@@ -23,7 +23,8 @@ import {
   School,
   GraduationCap,
   Link as LinkIcon,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Lock
 } from 'lucide-react';
 import { fadeIn } from '@/lib/variants';
 import { Button } from '@/components/ui/button';
@@ -32,14 +33,23 @@ import Footer from '@/components/Footer';
 const GradeResources = () => {
   const { categorySlug, gradeLevel } = useParams();
   const navigate = useNavigate();
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   // Check authentication on mount
-  React.useEffect(() => {
+  useEffect(() => {
     const auth = sessionStorage.getItem('portalAuth');
     if (auth !== 'authenticated') {
       navigate('/portal', { replace: true });
     }
   }, [navigate]);
+
+  // Update time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Category definitions (same structure as before)
   const categoryData = {
@@ -47,85 +57,99 @@ const GradeResources = () => {
       title: "News Writing",
       titleFl: "Pagsulat ng Balita",
       icon: FileText,
-      color: "brand-teal"
+      color: "brand-teal",
+      contestDate: "2025-12-01T00:00:00"
     },
     "editorial": {
       title: "Editorial Writing",
       titleFl: "Pagsulat ng Pangulong Tudling",
       icon: MessageSquare,
-      color: "brand-orange"
+      color: "brand-orange",
+      contestDate: "2025-12-01T00:00:00"
     },
     "column": {
       title: "Column Writing",
       titleFl: "Pagsulat ng kolum",
       icon: FileText,
-      color: "blue-600"
+      color: "blue-600",
+      contestDate: "2025-11-25T00:00:00"
     },
     "feature": {
       title: "Feature Writing",
       titleFl: "Pagsulat ng Lathalain",
       icon: BookOpen,
-      color: "purple-600"
+      color: "purple-600",
+      contestDate: "2025-11-25T00:00:00"
     },
     "crhw": {
       title: "Copyreading & Headline Writing",
       titleFl: "Pagwawasto ng Sipi at Pag-uulo ng Balita",
       icon: Edit3,
-      color: "green-600"
+      color: "green-600",
+      contestDate: "2025-11-27T00:00:00"
     },
     "scitech": {
       title: "Science & Technology Writing",
       titleFl: "Pagsulat ng Balitang Agham at Teknolohiya",
       icon: Microscope,
-      color: "indigo-600"
+      color: "indigo-600",
+      contestDate: "2025-11-26T00:00:00"
     },
     "sports": {
       title: "Sports Writing",
       titleFl: "Pagsulat ng Balitang Pampalakasan",
       icon: Trophy,
-      color: "amber-600"
+      color: "amber-600",
+      contestDate: "2025-11-26T00:00:00"
     },
     "photojournalism": {
       title: "Photojournalism",
       titleFl: "Pagkuha ng Larawang Pampahayagan",
       icon: Camera,
-      color: "pink-600"
+      color: "pink-600",
+      contestDate: "2025-11-27T00:00:00"
     },
     "editorial-cartooning": {
       title: "Editorial Cartooning",
       titleFl: "Paglalarawang Tudling",
       icon: PenTool,
-      color: "red-600"
+      color: "red-600",
+      contestDate: "2025-11-28T00:00:00"
     },
     "mobile-journalism": {
       title: "Mobile Journalism",
       titleFl: "Mobile Journalism",
       icon: Video,
-      color: "cyan-600"
+      color: "cyan-600",
+      contestDate: "2025-11-28T00:00:00"
     },
     "cdp": {
       title: "Collaborative Desktop Publishing",
       titleFl: "Collaborative Desktop Publishing",
       icon: Users,
-      color: "teal-600"
+      color: "teal-600",
+      contestDate: "2025-11-30T00:00:00"
     },
     "online-publishing": {
       title: "Online Publishing",
       titleFl: "Online Publishing",
       icon: Globe,
-      color: "orange-600"
+      color: "orange-600",
+      contestDate: "2025-11-29T00:00:00"
     },
     "radio-broadcasting": {
       title: "Radio Broadcasting",
       titleFl: "Radio Broadcasting",
       icon: Radio,
-      color: "red-600"
+      color: "red-600",
+      contestDate: "2025-12-02T00:00:00"
     },
     "tv-broadcasting": {
       title: "TV Broadcasting",
       titleFl: "TV Broadcasting",
       icon: Tv,
-      color: "purple-600"
+      color: "purple-600",
+      contestDate: "2025-12-03T00:00:00"
     }
   };
 
@@ -158,6 +182,15 @@ const GradeResources = () => {
 
   const gradeInfo = gradeLevelData[gradeLevel];
 
+  // Check if submission window has closed
+  const isSubmissionClosed = () => {
+    if (!category || !category.contestDate) return false;
+    const contestStart = new Date(category.contestDate);
+    const submissionDeadline = new Date(contestStart);
+    submissionDeadline.setHours(23, 59, 59, 999);
+    return currentTime > submissionDeadline;
+  };
+
   if (!category || !gradeInfo) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
@@ -165,6 +198,42 @@ const GradeResources = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Page not found</h2>
           <Button onClick={() => navigate('/portal')}>Return to Portal</Button>
         </div>
+      </div>
+    );
+  }
+
+  // Show submission closed page
+  if (isSubmissionClosed()) {
+    const IconComponent = category.icon;
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-md"
+        >
+          <div className="mb-6 flex justify-center">
+            <div className="w-24 h-24 rounded-full bg-red-100 flex items-center justify-center">
+              <IconComponent className="w-12 h-12 text-red-600" />
+            </div>
+          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">{category.title}</h2>
+          <p className="text-lg text-gray-600 mb-6">{gradeInfo.name} Level</p>
+          <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 mb-6">
+            <Lock className="w-12 h-12 text-red-600 mx-auto mb-3" />
+            <h3 className="text-xl font-bold text-red-800 mb-2">Submission Window Closed</h3>
+            <p className="text-red-700">
+              The submission window for this category has ended. Submissions are no longer being accepted.
+            </p>
+          </div>
+          <Button 
+            onClick={() => navigate('/portal')}
+            className="bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white font-semibold px-8 py-4 text-lg"
+          >
+            Return to Portal Home
+          </Button>
+        </motion.div>
       </div>
     );
   }

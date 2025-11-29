@@ -334,7 +334,7 @@ const Guidelines = () => {
                     className="bg-white rounded-lg border-2 border-slate-200 hover:border-brand-teal hover:shadow-lg transition-all duration-300 p-6 h-full flex flex-col"
                   >
                     <div className="flex items-start gap-4 mb-3">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-${category.color}/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={"flex-shrink-0 w-12 h-12 rounded-lg bg-" + category.color + "/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"}>
                         <IconComponent className={`w-6 h-6 text-${category.color}`} />
                       </div>
                       <div className="flex-1">

@@ -53,9 +53,41 @@ const PortalHome = () => {
     return currentTime >= new Date(contestDate);
   };
 
-  // Calculate time remaining
+  // Check if submission window is still open (closes at 11:59 PM Philippine Time on contest date)
+  const isSubmissionOpen = (contestDate) => {
+    const contestStart = new Date(contestDate);
+    const submissionDeadline = new Date(contestStart);
+    submissionDeadline.setHours(23, 59, 59, 999); // Set to 11:59:59 PM
+    return currentTime >= contestStart && currentTime <= submissionDeadline;
+  };
+
+  // Check if submission window has ended
+  const isSubmissionClosed = (contestDate) => {
+    const contestStart = new Date(contestDate);
+    const submissionDeadline = new Date(contestStart);
+    submissionDeadline.setHours(23, 59, 59, 999);
+    return currentTime > submissionDeadline;
+  };
+
+  // Calculate time remaining until contest starts
   const getTimeRemaining = (contestDate) => {
     const total = new Date(contestDate) - currentTime;
+    if (total <= 0) return null;
+
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const seconds = Math.floor((total / 1000) % 60);
+
+    return { days, hours, minutes, seconds, total };
+  };
+
+  // Calculate time remaining until submission closes
+  const getSubmissionTimeRemaining = (contestDate) => {
+    const contestStart = new Date(contestDate);
+    const submissionDeadline = new Date(contestStart);
+    submissionDeadline.setHours(23, 59, 59, 999);
+    const total = submissionDeadline - currentTime;
     if (total <= 0) return null;
 
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
@@ -361,8 +393,8 @@ const PortalHome = () => {
                   className="group bg-white rounded-xl border-2 border-slate-200 hover:border-brand-teal hover:shadow-xl transition-all duration-300 p-6"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-${form.color}/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className={`w-7 h-7 text-${form.color}`} />
+                    <div className={"flex-shrink-0 w-14 h-14 rounded-xl bg-" + form.color + "/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"}>
+                      <IconComponent className={"w-7 h-7 text-" + form.color} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-800 group-hover:text-brand-teal transition-colors duration-300 mb-2">
@@ -407,9 +439,12 @@ const PortalHome = () => {
             {categories.map((category, index) => {
               const IconComponent = category.icon;
               const isActive = isContestActive(category.contestDate);
+              const isOpen = isSubmissionOpen(category.contestDate);
+              const isClosed = isSubmissionClosed(category.contestDate);
               const timeRemaining = !isActive ? getTimeRemaining(category.contestDate) : null;
-              const CardWrapper = isActive ? Link : 'div';
-              const cardProps = isActive ? { to: `/portal/category/${category.slug}` } : {};
+              const submissionTimeRemaining = isOpen ? getSubmissionTimeRemaining(category.contestDate) : null;
+              const CardWrapper = isOpen ? Link : 'div';
+              const cardProps = isOpen ? { to: `/portal/category/${category.slug}` } : {};
 
               return (
                 <CardWrapper
@@ -422,12 +457,14 @@ const PortalHome = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.05 * index, duration: 0.3 }}
                     className={`bg-white rounded-xl border-2 ${
-                      isActive 
+                      isOpen 
                         ? 'border-slate-200 hover:border-brand-teal hover:shadow-xl' 
+                        : isClosed
+                        ? 'border-slate-200 bg-slate-50 opacity-60'
                         : 'border-slate-200 bg-slate-50 opacity-75'
                     } transition-all duration-300 p-4 md:p-6 h-full flex flex-col relative overflow-hidden`}
                   >
-                    {/* Lock Overlay */}
+                    {/* Lock Overlay for not started */}
                     {!isActive && (
                       <div className="absolute top-3 right-3 z-10">
                         <div className="w-8 h-8 bg-slate-300 rounded-full flex items-center justify-center">
@@ -436,8 +473,18 @@ const PortalHome = () => {
                       </div>
                     )}
 
-                    {/* Active Badge */}
-                    {isActive && (
+                    {/* Closed Badge */}
+                    {isClosed && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <div className="flex items-center gap-1 bg-red-100 border border-red-300 px-2 py-1 rounded-full">
+                          <Lock className="w-3 h-3 text-red-600" />
+                          <span className="text-[10px] font-semibold text-red-700">Closed</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Open Badge */}
+                    {isOpen && (
                       <div className="absolute top-3 right-3 z-10">
                         <div className="flex items-center gap-1 bg-green-100 border border-green-300 px-2 py-1 rounded-full">
                           <CheckCircle className="w-3 h-3 text-green-600" />
@@ -447,10 +494,8 @@ const PortalHome = () => {
                     )}
 
                     <div className="flex items-start gap-3 md:gap-4 mb-3">
-                      <div className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-${category.color}/10 flex items-center justify-center ${
-                        isActive ? 'group-hover:scale-110' : ''
-                      } transition-transform duration-300`}>
-                        <IconComponent className={`w-5 h-5 md:w-6 md:h-6 text-${category.color} ${!isActive ? 'opacity-50' : ''}`} />
+                      <div className={"flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-" + category.color + "/10 flex items-center justify-center " + (isActive ? 'group-hover:scale-110' : '') + " transition-transform duration-300"}>
+                          <IconComponent className={"w-5 h-5 md:w-6 md:h-6 text-" + category.color + " " + (!isActive ? 'opacity-50' : '')} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className={`text-base md:text-lg font-bold leading-tight mb-1 ${
@@ -514,14 +559,45 @@ const PortalHome = () => {
                           </div>
                         </div>
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-between pt-3 border-t border-slate-200">
-                        <span className="text-brand-teal font-semibold text-xs md:text-sm">View Resources</span>
-                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-brand-teal/10 flex items-center justify-center group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
-                          <span className="text-base md:text-lg">→</span>
+                    ) : isClosed ? (
+                      <div className="pt-3 border-t border-slate-200">
+                        <div className="flex items-center justify-center gap-2 text-red-600">
+                          <Lock className="w-4 h-4" />
+                          <span className="text-xs md:text-sm font-semibold">Submission Closed</span>
                         </div>
                       </div>
-                    )}
+                    ) : isOpen && submissionTimeRemaining ? (
+                      <div className="pt-3 border-t border-slate-200">
+                        <div className="flex items-center gap-2 text-amber-600 mb-2">
+                          <Clock className="w-3 h-3 md:w-4 md:h-4" />
+                          <span className="text-[10px] md:text-xs font-semibold">Closes in:</span>
+                        </div>
+                        <div className="grid grid-cols-4 gap-1 md:gap-2 mb-3">
+                          <div className="text-center">
+                            <div className="text-xs md:text-sm font-bold text-amber-600">{submissionTimeRemaining.days}</div>
+                            <div className="text-[8px] md:text-[10px] text-gray-500">days</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xs md:text-sm font-bold text-amber-600">{String(submissionTimeRemaining.hours).padStart(2, '0')}</div>
+                            <div className="text-[8px] md:text-[10px] text-gray-500">hrs</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xs md:text-sm font-bold text-amber-600">{String(submissionTimeRemaining.minutes).padStart(2, '0')}</div>
+                            <div className="text-[8px] md:text-[10px] text-gray-500">min</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xs md:text-sm font-bold text-amber-600">{String(submissionTimeRemaining.seconds).padStart(2, '0')}</div>
+                            <div className="text-[8px] md:text-[10px] text-gray-500">sec</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-brand-teal font-semibold text-xs md:text-sm">View Resources</span>
+                          <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-brand-teal/10 flex items-center justify-center group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                            <span className="text-base md:text-lg">→</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
                   </motion.div>
                 </CardWrapper>
               );
