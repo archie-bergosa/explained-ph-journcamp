@@ -273,6 +273,27 @@ const OnlinePublishing = () => {
                 </p>
               </div>
             </div>
+
+            <div className="bg-white border-2 border-brand-teal p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-brand-dark-teal mb-4">Submission Requirements</h3>
+              <p className="text-base text-gray-700 mb-4">
+                After the given production period, the team must submit:
+              </p>
+              <div className="space-y-3">
+                {submissionRequirements.map((req, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <p className="text-base text-gray-700">{req}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 pt-4 border-t border-slate-200">
+                <p className="text-sm text-red-900 font-bold">
+                  Failure to submit any of these will result in disqualification or deduction, depending on severity.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </motion.section>
@@ -325,76 +346,6 @@ const OnlinePublishing = () => {
                     <p className="text-base">7:00 PM Philippine Time</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Stages and Time Blocks Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 0.4, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-white"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Clock className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Stages and Time Blocks
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-
-            {/* Release of Media Assets */}
-            <div className="bg-gradient-to-r from-brand-teal/10 to-green-50 border-2 border-brand-teal p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-lg">
-                  2
-                </div>
-                <h3 className="text-2xl font-bold text-brand-dark-teal">RELEASE OF MEDIA ASSETS PACKAGE</h3>
-              </div>
-              
-              <p className="text-base text-gray-700 mb-4">
-                At the conclusion of the coverage, organizers will release the following materials <span className="font-bold">simultaneously to all teams</span>:
-              </p>
-              
-              <div className="space-y-2 mb-4">
-                {mediaAssets.map((asset, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-white p-3 rounded-lg">
-                    <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <p className="text-base text-gray-700">{asset}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-r-lg">
-                <p className="text-base text-gray-700">
-                  <span className="font-bold text-yellow-900">Important:</span> All teams must exclusively use the released materials. <span className="font-bold">External photos, videos, audio clips, vectors, and articles are not strictly prohibited; however, you must exercise caution regarding copyright and intellectual property.</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white border-2 border-brand-teal p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-brand-dark-teal mb-4">Submission Requirements</h3>
-              <p className="text-base text-gray-700 mb-4">
-                After the given production period, the team must submit:
-              </p>
-              <div className="space-y-3">
-                {submissionRequirements.map((req, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <p className="text-base text-gray-700">{req}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 pt-4 border-t border-slate-200">
-                <p className="text-sm text-red-900 font-bold">
-                  Failure to submit any of these will result in disqualification or deduction, depending on severity.
-                </p>
               </div>
             </div>
           </div>
