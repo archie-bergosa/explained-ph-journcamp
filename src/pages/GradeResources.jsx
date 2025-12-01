@@ -462,13 +462,13 @@ const GradeResources = () => {
     "radio-broadcasting": {
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1a2KIYFtOCieAfvu61fhnigvH8224uV0e",
+        submissionBin: "https://forms.gle/9THdoySm7MwLgKYK8"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1a2KIYFtOCieAfvu61fhnigvH8224uV0e",
+        submissionBin: "https://forms.gle/9THdoySm7MwLgKYK8"
       }
     },
     "tv-broadcasting": {
