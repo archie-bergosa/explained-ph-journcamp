@@ -491,60 +491,6 @@ const RadioBroadcasting = () => {
         </div>
       </motion.section>
 
-      {/* Proctoring and Monitoring Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 0.9, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-gradient-to-br from-blue-50 to-cyan-50"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Video className="w-14 h-14 mx-auto mb-4 text-brand-teal" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Proctoring and Monitoring
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-white p-6 rounded-lg border-2 border-brand-teal">
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                Although teams have a 24-hour window in choosing when to start their official creation process, the group will be required to submit a <span className="font-bold text-brand-teal">continuous-angle documentation video</span> instead of live monitoring.
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed">
-                A continuous-angle video shows the entire recording process, preferably from an angle that captures the entire workspace of the team. Any angles that raise suspicion allow the JournCamp+ organizers and proctors to trigger an investigation.
-              </p>
-            </div>
-
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-              <h3 className="text-xl font-bold text-brand-dark-teal mb-4">Documentation Requirements:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Continuous-angle video of the entire recording process</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Screen recordings of the team's laptops showing workflow, audio routing, sound playback, and script creation</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700">Proof that recording was performed within the allotted window</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Verification After the Broadcast</h3>
-              <p className="text-base text-gray-700 leading-relaxed">
-                After each performance, the organizer's recording and the team's local backup recording are cross-checked to ensure no discrepancy occurred. This provides a safeguard for both teams and adjudicators, ensuring consistency between the judged audio and the archived file.
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
       {/* Allowed Materials Section */}
       <motion.section 
         variants={fadeIn('up', 'tween', 1.0, 0.6)}
