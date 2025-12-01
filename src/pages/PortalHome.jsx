@@ -110,7 +110,7 @@ const PortalHome = () => {
       description: "Straight news reporting with inverted pyramid structure",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-12-01T00:00:00",
-      contestDeadline: "2025-12-01T23:59:59",
+      contestDeadline: "2025-12-02T09:00:00",
       guidelinesPath: "/guidelines/news"
     },
     {
@@ -122,7 +122,7 @@ const PortalHome = () => {
       description: "Opinion pieces with clear stance and persuasive arguments",
       eligibility: ["Elementary", "Secondary", "Tertiary"],
       contestDate: "2025-12-01T00:00:00",
-      contestDeadline: "2025-12-01T23:59:59",
+      contestDeadline: "2025-12-02T09:00:00",
       guidelinesPath: "/guidelines/editorial"
     },
     {
