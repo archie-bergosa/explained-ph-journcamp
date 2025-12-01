@@ -103,7 +103,7 @@ const NewsWriting = () => {
       {/* Contest Status Banner */}
       <ContestStatusBanner 
         startDate="2025-12-01"
-        endDate="2025-12-01"
+        endDate="2025-12-02"
         categoryName="News Writing"
       />
 
