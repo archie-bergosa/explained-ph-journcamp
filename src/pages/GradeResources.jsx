@@ -259,40 +259,34 @@ const GradeResources = () => {
     "news": {
       "elementary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K
-",
+        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K",
         submissionBin: "https://forms.gle/Hor8b2ASk7RtTE2y8"
       },
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K
-",
+        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K",
         submissionBin: "https://forms.gle/Hor8b2ASk7RtTE2y8"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K
-",
+        factSheet: "https://drive.google.com/drive/folders/1SXYi0PyWduwGkMmQj4r0zEec0DD-9a8K",
         submissionBin: "https://forms.gle/Hor8b2ASk7RtTE2y8"
       }
     },
     "editorial": {
       "elementary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB
-",
+        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB",
         submissionBin: "https://forms.gle/Eu2ypfEHwtrxCBNi9"
       },
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB
-",
+        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB",
         submissionBin: "https://forms.gle/Eu2ypfEHwtrxCBNi9"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB
-",
+        factSheet: "https://drive.google.com/drive/folders/1x_4LdY8L6f7H3CuzflPNwrkLEvCFNEWB",
         submissionBin: "https://forms.gle/Eu2ypfEHwtrxCBNi9"
       }
     },
