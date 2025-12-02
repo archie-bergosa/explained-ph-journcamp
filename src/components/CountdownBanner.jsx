@@ -144,7 +144,7 @@ const CountdownBanner = () => {
                         ✓
                       </div>
                       <div>
-                        <p className="font-bold text-brand-dark-teal mb-1">Online Publishing</p>
+                        <p className="font-bold text-brand-dark-teal mb-1">Radio Broadcasting</p>
                         <p className="text-xs leading-relaxed text-gray-700">
                           The contest is <span className="font-bold text-brand-teal">currently ongoing</span>! Please check your registered email for:
                         </p>
@@ -166,7 +166,7 @@ const CountdownBanner = () => {
                     </ul>
                     <div className="pt-2 border-t border-brand-teal/20">
                       <Link 
-                        to="/guidelines/online-publishing" 
+                        to="/guidelines/radio-broadcasting" 
                         onClick={closeModal}
                         className="inline-flex items-center gap-1 text-brand-teal hover:text-brand-dark-teal font-bold transition-colors text-sm"
                       >

@@ -36,7 +36,6 @@ const RadioBroadcasting = () => {
   ];
 
   const allowedMaterials = [
-    "Official JournCamp+ Radio Broadcasting Activity Sheets (printed in advance)",
     "Maximum of two black ballpoint pens",
     "Classic watch for timekeeping",
     "Recording equipment (microphones, audio interface, computer)",
@@ -132,7 +131,7 @@ const RadioBroadcasting = () => {
                 </div>
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Clock className="w-5 h-5" />
-                  <span className="font-semibold">Submission Deadline: December 2, 2025 - 11:59 PM</span>
+                  <span className="font-semibold">Submission Deadline: December 3, 2025 - 6:00 PM</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-base md:text-lg">
                   <Users className="w-5 h-5" />
@@ -169,7 +168,7 @@ const RadioBroadcasting = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-600 p-6 rounded-r-lg">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                In Radio Broadcasting and Script Writing, a team of seven will produce a <span className="font-bold text-purple-700">five-minute simulated radio newscast</span> and a complete script <span className="font-bold text-purple-700"></span>, based on synchronized editorial materials from mini press conference and sports exhibition simulations.
+                In Radio Broadcasting and Script Writing, a team of seven will produce a <span className="font-bold text-purple-700">five-minute simulated radio newscast</span> and a <span className="font-bold text-purple-700">complete script</span> with the following formatting conventions.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
                 This contest replicates a real newsroom environment through coordinated news reporting, recorded delivery, teamwork, timing, vocal precision, and technical execution.
@@ -183,16 +182,44 @@ const RadioBroadcasting = () => {
               </p>
             </div>
 
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-              <h3 className="text-lg font-bold text-gray-800 mb-4">Team Outputs:</h3>
+            <div className="bg-white p-6 rounded-lg border-2 border-indigo-400">
+              <h3 className="text-xl font-bold text-brand-dark-teal mb-4">The script must include:</h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <Mic className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="bg-indigo-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    1
+                  </div>
+                  <p className="text-base text-gray-700">The names and roles of all team members</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-indigo-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    2
+                  </div>
+                  <p className="text-base text-gray-700">A story lineup</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-indigo-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    3
+                  </div>
+                  <p className="text-base text-gray-700">The script in Audio - Video table format</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <h3 className="text-lg font-bold text-gray-800 mb-4">Submit the following team outputs in a <span className="text-blue-900">Google Drive</span> the <a href="#" className="text-blue-700 underline hover:text-blue-800">submission bin</a>:</h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="bg-blue-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    1
+                  </div>
                   <p className="text-base text-gray-700"><span className="font-bold">A five-minute radio broadcast</span> (recorded audio performance)</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <FileText className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-base text-gray-700"><span className="font-bold">A complete script</span> on official activity sheets</p>
+                  <div className="bg-blue-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
+                    2
+                  </div>
+                  <p className="text-base text-gray-700"><span className="font-bold">A complete script</span></p>
                 </div>
               </div>
             </div>
@@ -306,9 +333,6 @@ const RadioBroadcasting = () => {
               <p className="text-base text-gray-700 leading-relaxed mb-3">
                 <span className="font-bold">While roles are defined, teams retain complete freedom to reorganize task distribution internally.</span>
               </p>
-              <p className="text-base text-gray-700 leading-relaxed">
-                Only teams from the same school are eligible to participate and register. <span className="font-bold text-red-600">No cross-school teams are allowed.</span>
-              </p>
             </div>
           </div>
         </div>
@@ -392,7 +416,7 @@ const RadioBroadcasting = () => {
         </div>
       </motion.section>
 
-      {/* Broadcast Identity Section */}
+      {/* Station IDs Section */}
       <motion.section 
         variants={fadeIn('up', 'tween', 0.7, 0.6)}
         initial="initial"
@@ -403,19 +427,20 @@ const RadioBroadcasting = () => {
           <div className="text-center mb-10">
             <Radio className="w-14 h-14 mx-auto mb-4 text-purple-600" />
             <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Team Broadcast Identity
+              Station IDs
             </h2>
             <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-4">
             <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-400 p-6 rounded-lg">
-              <p className="text-base text-gray-700 leading-relaxed">
-                The board of judges will provide the <span className="font-bold text-purple-700">name of the radio station, program title, and kilohertz frequency</span>, which all registered groups in the competition must use.
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed mt-3">
-                These shall be used consistently in both the script and the recorded broadcast.
-              </p>
+              <h3 className="text-xl font-bold text-purple-900 mb-4">FILIPINO (SECONDARY AND TERTIARY)</h3>
+              <p className="text-2xl font-bold text-purple-700">DZRB Radyo Alisto 97.3 kHz</p>
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-400 p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">ENGLISH (SECONDARY AND TERTIARY)</h3>
+              <p className="text-2xl font-bold text-blue-700">DZLC News on the Line 89.4 kHz</p>
             </div>
           </div>
         </div>
@@ -450,38 +475,11 @@ const RadioBroadcasting = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-400 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-purple-900 mb-4">The Script Must Include:</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
-                    1
-                  </div>
-                  <p className="text-base text-gray-700">The names and roles of all team members</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
-                    2
-                  </div>
-                  <p className="text-base text-gray-700">A story lineup</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-sm mt-0.5">
-                    3
-                  </div>
-                  <p className="text-base text-gray-700">The script in Audio - Video table format</p>
-                </div>
-              </div>
-            </div>
-
             <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-base text-gray-700">
-                    <span className="font-bold text-red-900">Ensure that the script is printed on the official JournCamp+ activity sheet.</span>
-                  </p>
-                  <p className="text-sm text-gray-600 mt-2 italic">
                     There shall be no information or marks that may identify the contestants, their schools, divisions, or regions.
                   </p>
                 </div>
@@ -518,69 +516,6 @@ const RadioBroadcasting = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Proof of Authenticity Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 1.1, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-slate-50"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Shield className="w-14 h-14 mx-auto mb-4 text-brand-orange" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Proof of Authenticity
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-              <p className="text-base text-gray-700 leading-relaxed">
-                Writers and participants must submit a <span className="font-bold text-blue-900">single, uninterrupted, continuous-angle video recording</span> of themselves working.
-              </p>
-            </div>
-
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
-              <p className="text-base text-gray-700 mb-4">
-                <span className="font-bold text-red-900">Any attempts to conduct research, paste external output, or engage in other forms of dishonesty and foul play will be grounds for disqualification, should such actions be found to have occurred.</span>
-              </p>
-            </div>
-
-
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Authorship and Integrity Section */}
-      <motion.section 
-        variants={fadeIn('up', 'tween', 1.2, 0.6)}
-        initial="initial"
-        animate="animate"
-        className="py-16 px-4 bg-white"
-      >
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-10">
-            <Shield className="w-14 h-14 mx-auto mb-4 text-purple-600" />
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark-teal mb-4">
-              Authorship, Integrity, and Accessibility
-            </h2>
-            <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-400 p-6 rounded-lg">
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                <span className="font-bold text-purple-700">Every component of the script and broadcast must be created solely during contest hours.</span>
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed">
-                To safeguard integrity, all teams must submit a <span className="font-bold">Proof of Authorship package</span>, consisting of their script, process documentation, routing proof, local recording, and signed declarations.
-              </p>
             </div>
           </div>
         </div>
