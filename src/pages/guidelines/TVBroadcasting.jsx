@@ -486,10 +486,6 @@ const TVBroadcasting = () => {
                   <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>Teams retain complete freedom to reorganize task distribution internally</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <span>Only teams from the same school are eligible (no cross-school teams)</span>
-                </li>
               </ul>
             </div>
           </motion.div>
