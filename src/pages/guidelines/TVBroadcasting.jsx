@@ -61,9 +61,7 @@ const TVBroadcasting = () => {
   ];
 
   const contentBasis = [
-    "Press conference simulation materials",
-    "Sports exhibition materials and footage",
-    "Fact sheets, raw data, and press releases from organizers",
+    "Fact sheets, raw data, videos, and press releases from organizers",
     "No external research permitted"
   ];
 
@@ -721,73 +719,6 @@ const TVBroadcasting = () => {
                   <span>Only the final chosen take should be submitted</span>
                 </li>
               </ul>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Authorship & Integrity */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <FileText className="w-8 h-8 text-orange-600" />
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Authorship, Integrity & Accessibility</h2>
-            </div>
-
-            <div className="space-y-6">
-
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-600"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Proof of Authorship Package</h3>
-                <p className="text-gray-700 mb-4">
-                  <strong>Every component of the script and broadcast must be created solely during contest hours.</strong> To safeguard integrity, all teams must submit a complete Proof of Authorship package consisting of:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Complete TV script",
-                    "Process documentation",
-                    "Routing proof",
-                    "Local recording backup",
-                    "Signed declarations of originality",
-                    "Continuous-angle video recording"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-2 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg"
-              >
-                <div className="flex gap-3">
-                  <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-red-900 mb-2">Disqualification Grounds</h3>
-                    <p className="text-red-800">
-                      Any attempts to <strong>conduct external research, paste external output, or engage in any form of dishonesty and foul play</strong> will be grounds for immediate disqualification upon discovery.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

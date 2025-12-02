@@ -474,13 +474,13 @@ const GradeResources = () => {
     "tv-broadcasting": {
       "secondary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1neETL9pTz2WBJLV3PEqBwLjcfLcyAunN",
+        submissionBin: "https://forms.gle/dVTaCEfmXFRyUMCh9"
       },
       "tertiary": {
         activitySheet: "https://drive.google.com/file/d/10bnOeUmuUv-ChLnZJTvfq_KRNtmMMexJ/view?usp=sharing",
-        factSheet: "#",
-        submissionBin: "#"
+        factSheet: "https://drive.google.com/drive/folders/1neETL9pTz2WBJLV3PEqBwLjcfLcyAunN",
+        submissionBin: "https://forms.gle/dVTaCEfmXFRyUMCh9"
       }
     }
   };
