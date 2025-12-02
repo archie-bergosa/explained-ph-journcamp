@@ -146,7 +146,7 @@ const RadioBroadcasting = () => {
       {/* Contest Status Banner */}
       <ContestStatusBanner 
         startDate="2025-12-02"
-        endDate="2025-12-02"
+        endDate="2025-12-03"
         categoryName="Radio Broadcasting"
       />
 
