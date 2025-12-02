@@ -254,7 +254,7 @@ const PortalHome = () => {
       description: "5-minute audio newscast with script and infomercial",
       eligibility: ["Secondary", "Tertiary"],
       contestDate: "2025-12-02T00:00:00",
-      contestDeadline: "2025-12-02T23:59:59",
+      contestDeadline: "2025-12-03T18:00:00",
       guidelinesPath: "/guidelines/radio-broadcasting"
     },
     {
