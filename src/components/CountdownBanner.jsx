@@ -1,52 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, FileText, X, Trophy, Sparkles, Award, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-// Confetti Component
-const Confetti = () => {
-  const confettiPieces = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    animationDelay: Math.random() * 3,
-    backgroundColor: [
-      '#0D9488', // brand-teal
-      '#FB923C', // brand-orange
-      '#0F766E', // brand-dark-teal
-      '#FCD34D', // yellow
-      '#60A5FA', // blue
-      '#F472B6', // pink
-    ][Math.floor(Math.random() * 6)],
-  }));
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {confettiPieces.map((piece) => (
-        <motion.div
-          key={piece.id}
-          className="absolute w-2 h-2 rounded-full"
-          style={{
-            left: `${piece.left}%`,
-            backgroundColor: piece.backgroundColor,
-            top: '-10%',
-          }}
-          animate={{
-            y: ['0vh', '110vh'],
-            x: [0, Math.random() * 100 - 50],
-            rotate: [0, Math.random() * 360],
-            opacity: [1, 1, 0.8, 0],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            delay: piece.animationDelay,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+import { X, Trophy, Award } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 const CountdownBanner = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -61,6 +16,16 @@ const CountdownBanner = () => {
   useEffect(() => {
     // Show modal on component mount (home page visit)
     setShowModal(true);
+
+    // Trigger confetti when modal opens
+    const confettiTimer = setTimeout(() => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#0D9488', '#FB923C', '#0F766E', '#FCD34D', '#60A5FA', '#F472B6']
+      });
+    }, 300);
 
     const targetDate = new Date('November 29, 2025 23:59:59 GMT+0800');
 
@@ -86,9 +51,12 @@ const CountdownBanner = () => {
     };
 
     updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
+    const countdownTimer = setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(confettiTimer);
+      clearInterval(countdownTimer);
+    };
   }, []);
 
   const closeModal = () => {
@@ -117,79 +85,18 @@ const CountdownBanner = () => {
             className="fixed inset-0 z-[101] flex items-center justify-center p-4"
           >
             <div className="w-full max-w-lg relative">
-              {/* Confetti Effect */}
-              <Confetti />
-              
-              <div className="bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 rounded-3xl shadow-2xl overflow-hidden border-2 border-brand-teal/20 relative backdrop-blur-sm">
+              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-brand-teal/20 relative">
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 p-2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 hover:rotate-90 group"
+                className="absolute top-4 right-4 z-10 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 hover:rotate-90 group"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
               </button>
 
-              {/* Animated decorative top accent with gradient shimmer */}
-              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-teal overflow-hidden">
-                <motion.div
-                  className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                  animate={{
-                    x: ['-100%', '300%'],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  }}
-                />
-              </div>
-
-              {/* Decorative floating elements */}
-              <motion.div
-                className="absolute top-6 left-6 text-brand-orange/20"
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
-                <Star className="w-8 h-8" fill="currentColor" />
-              </motion.div>
-              <motion.div
-                className="absolute top-8 right-16 text-brand-teal/20"
-                animate={{
-                  y: [0, 10, 0],
-                  rotate: [0, -5, 0],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 0.5,
-                }}
-              >
-                <Sparkles className="w-6 h-6" />
-              </motion.div>
-              <motion.div
-                className="absolute bottom-8 left-10 text-blue-300/20"
-                animate={{
-                  y: [0, -8, 0],
-                  rotate: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 1,
-                }}
-              >
-                <Award className="w-7 h-7" />
-              </motion.div>
+              {/* Decorative top accent */}
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-teal"></div>
 
               {/* Content */}
               <div className="p-8 relative z-10">
@@ -207,47 +114,7 @@ const CountdownBanner = () => {
                   >
                     <div className="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-teal via-brand-dark-teal to-teal-700 rounded-full shadow-2xl">
                       <Trophy className="w-10 h-10 text-white relative z-10" />
-                      {/* Glow effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-brand-teal rounded-full"
-                        animate={{
-                          scale: [1, 1.3, 1],
-                          opacity: [0.5, 0.2, 0.5],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: 'easeInOut',
-                        }}
-                      />
                     </div>
-                    {/* Orbiting stars */}
-                    <motion.div
-                      className="absolute -top-1 -right-1"
-                      animate={{
-                        rotate: 360,
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: 'linear',
-                      }}
-                    >
-                      <Sparkles className="w-6 h-6 text-brand-orange" fill="currentColor" />
-                    </motion.div>
-                    <motion.div
-                      className="absolute -bottom-1 -left-1"
-                      animate={{
-                        rotate: -360,
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: 'linear',
-                      }}
-                    >
-                      <Star className="w-5 h-5 text-yellow-400" fill="currentColor" />
-                    </motion.div>
                   </motion.div>
                   <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -300,7 +167,7 @@ const CountdownBanner = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.6 }}
-                          className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border-2 border-brand-teal/20 shadow-md"
+                          className="bg-white rounded-xl p-4 border-2 border-brand-teal/20 shadow-md"
                         >
                           <div className="flex items-center gap-2 mb-2">
                             <Award className="w-5 h-5 text-brand-orange" />
