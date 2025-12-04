@@ -87,91 +87,61 @@ const CountdownBanner = () => {
 
               {/* Content */}
               <div className="p-5">
-                <div className="text-center mb-3">
+                <div className="text-center mb-4">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
+                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-dark-teal rounded-full mb-3 shadow-lg"
+                  >
+                    <Trophy className="w-8 h-8 text-white" />
+                  </motion.div>
                   <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg font-bold mb-1 bg-gradient-to-r from-brand-teal via-brand-dark-teal to-brand-teal bg-clip-text text-transparent"
+                    className="text-xl font-bold mb-2 bg-gradient-to-r from-brand-teal via-brand-dark-teal to-brand-teal bg-clip-text text-transparent"
                   >
-                    Contest Now Ongoing! 🎯
+                    Congratulations! 🎉
                   </motion.h2>
-                </div>
-
-                {/* Countdown Timer */}
-                {!isDeadlinePassed && (
-                  <motion.div
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="mb-3"
+                    className="text-sm text-gray-600"
                   >
-                    <p className="text-center text-gray-700 text-xs font-semibold mb-2">
-                      Submission deadline in:
-                    </p>
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
-                        <span className="text-xl font-bold leading-none">{timeLeft.hours}</span>
-                        <span className="text-[9px] uppercase mt-1 opacity-90">Hours</span>
-                      </div>
-                      <span className="text-lg font-bold text-gray-400">:</span>
-                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
-                        <span className="text-xl font-bold leading-none">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                        <span className="text-[9px] uppercase mt-1 opacity-90">Mins</span>
-                      </div>
-                      <span className="text-lg font-bold text-gray-400">:</span>
-                      <div className="flex flex-col items-center bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg px-3 py-2 min-w-[3rem] shadow-lg">
-                        <span className="text-xl font-bold leading-none">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                        <span className="text-[9px] uppercase mt-1 opacity-90">Secs</span>
-                      </div>
-                    </div>
-                    <p className="text-center text-red-600 text-xs font-bold mt-2">
-                      DEADLINE: November 29, 2025 at 11:59 PM PHT
-                    </p>
-                  </motion.div>
-                )}
+                    All Competitions Have Concluded
+                  </motion.p>
+                </div>
 
                 {/* Announcement Content */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="bg-gradient-to-r from-brand-teal/10 to-blue-50 rounded-xl p-4 mb-3 border-2 border-brand-teal/30"
+                  className="bg-gradient-to-r from-brand-teal/10 to-blue-50 rounded-xl p-5 mb-4 border-2 border-brand-teal/30"
                 >
-                  <div className="text-sm text-gray-800 space-y-3">
-                    <div className="flex items-start gap-2">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold mt-0.5">
+                  <div className="text-sm text-gray-800 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-brand-teal to-brand-dark-teal text-white flex items-center justify-center text-xs font-bold mt-0.5 shadow-md">
                         ✓
                       </div>
                       <div>
-                        <p className="font-bold text-brand-dark-teal mb-1">TV Scriptwriting and Broadcasting</p>
-                        <p className="text-xs leading-relaxed text-gray-700">
-                          The contest is <span className="font-bold text-brand-teal">currently ongoing</span>! Please check your registered email for:
+                        <p className="text-sm leading-relaxed text-gray-700 mb-3">
+                          All competitions have now <span className="font-bold text-brand-dark-teal">ended</span> and are currently undergoing the <span className="font-bold text-brand-teal">screening and judging process</span>.
                         </p>
+                        <div className="bg-white/70 backdrop-blur-sm rounded-lg p-3 border border-brand-teal/20">
+                          <p className="font-bold text-brand-dark-teal mb-1 text-sm">Winners Announcement</p>
+                          <p className="text-xs leading-relaxed text-gray-700">
+                            Winners will be announced at the <span className="font-semibold text-brand-teal">National Campus Press Summit Closing Ceremony</span> online via live stream at the <span className="font-semibold">JournCamp+ Facebook page</span>.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <ul className="ml-8 space-y-1 text-xs text-gray-700">
-                      <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
-                        Activity sheet
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
-                        Fact sheet
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 bg-brand-teal rounded-full"></span>
-                        All other necessary information
-                      </li>
-                    </ul>
-                    <div className="pt-2 border-t border-brand-teal/20">
-                      <Link 
-                        to="/guidelines/tv-broadcasting" 
-                        onClick={closeModal}
-                        className="inline-flex items-center gap-1 text-brand-teal hover:text-brand-dark-teal font-bold transition-colors text-sm"
-                      >
-                        View Contest Guidelines →
-                      </Link>
+                    <div className="text-center pt-3 border-t border-brand-teal/20">
+                      <p className="text-base font-bold text-brand-orange">
+                        Good luck to all participants! 🍀
+                      </p>
                     </div>
                   </div>
                 </motion.div>
