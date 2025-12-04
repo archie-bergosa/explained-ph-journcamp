@@ -220,6 +220,52 @@ const CountdownBanner = () => {
                           ease: 'easeInOut',
                         }}
                       />
+                    </div>
+                    {/* Orbiting stars */}
+                    <motion.div
+                      className="absolute -top-1 -right-1"
+                      animate={{
+                        rotate: 360,
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      <Sparkles className="w-6 h-6 text-brand-orange" fill="currentColor" />
+                    </motion.div>
+                    <motion.div
+                      className="absolute -bottom-1 -left-1"
+                      animate={{
+                        rotate: -360,
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      <Star className="w-5 h-5 text-yellow-400" fill="currentColor" />
+                    </motion.div>
+                  </motion.div>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-3xl font-extrabold mb-3 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-dark-teal bg-clip-text text-transparent leading-tight"
+                  >
+                    Congratulations! 🎉
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 }}
+                    className="text-base font-semibold text-gray-700"
+                  >
+                    All Competitions Have Concluded
+                  </motion.p>
+                </div>
                 {/* Announcement Content */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -305,53 +351,6 @@ const CountdownBanner = () => {
                       whileHover={{ x: '0%' }}
                       transition={{ duration: 0.3 }}
                     />
-                  </button>
-                </motion.div>
-                </div>
-
-                {/* Announcement Content */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-gradient-to-r from-brand-teal/10 to-blue-50 rounded-xl p-5 mb-4 border-2 border-brand-teal/30"
-                >
-                  <div className="text-sm text-gray-800 space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-brand-teal to-brand-dark-teal text-white flex items-center justify-center text-xs font-bold mt-0.5 shadow-md">
-                        ✓
-                      </div>
-                      <div>
-                        <p className="text-sm leading-relaxed text-gray-700 mb-3">
-                          All competitions have now <span className="font-bold text-brand-dark-teal">ended</span> and are currently undergoing the <span className="font-bold text-brand-teal">screening and judging process</span>.
-                        </p>
-                        <div className="bg-white/70 backdrop-blur-sm rounded-lg p-3 border border-brand-teal/20">
-                          <p className="font-bold text-brand-dark-teal mb-1 text-sm">Winners Announcement</p>
-                          <p className="text-xs leading-relaxed text-gray-700">
-                            Winners will be announced at the <span className="font-semibold text-brand-teal">National Campus Press Summit Closing Ceremony</span> online via live stream at the <span className="font-semibold">JournCamp+ Facebook page</span>.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center pt-3 border-t border-brand-teal/20">
-                      <p className="text-base font-bold text-brand-orange">
-                        Good luck to all participants! 🍀
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Action Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <button
-                    onClick={closeModal}
-                    className="px-4 py-2.5 border-2 border-slate-300 text-gray-700 rounded-lg font-semibold text-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-300"
-                  >
-                    Close
                   </button>
                 </motion.div>
               </div>
