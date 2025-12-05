@@ -84,147 +84,93 @@ const CountdownBanner = () => {
             transition={{ type: 'spring', duration: 0.6, bounce: 0.4 }}
             className="fixed inset-0 z-[101] flex items-center justify-center p-4"
           >
-            <div className="w-full max-w-lg relative">
-              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-brand-teal/20 relative">
+            <div className="w-full max-w-md relative">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-brand-teal/20 relative">
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 hover:rotate-90 group"
+                className="absolute top-3 right-3 z-10 p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-200 hover:scale-110 group"
                 aria-label="Close modal"
               >
-                <X className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
+                <X className="w-4 h-4 text-gray-600 group-hover:text-gray-900" />
               </button>
 
               {/* Decorative top accent */}
-              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-teal"></div>
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-teal"></div>
 
               {/* Content */}
-              <div className="p-8 relative z-10">
-                <div className="text-center mb-6">
+              <div className="p-5 pt-6 relative z-10">
+                <div className="text-center mb-4">
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ 
-                      delay: 0.2, 
-                      type: 'spring', 
-                      stiffness: 200,
-                      damping: 15 
-                    }}
-                    className="relative inline-block mb-4"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-dark-teal rounded-full shadow-lg mb-3"
                   >
-                    <div className="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-teal via-brand-dark-teal to-teal-700 rounded-full shadow-2xl">
-                      <Trophy className="w-10 h-10 text-white relative z-10" />
-                    </div>
+                    <Trophy className="w-6 h-6 text-white" />
                   </motion.div>
                   <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-3xl font-extrabold mb-3 bg-gradient-to-r from-brand-teal via-brand-orange to-brand-dark-teal bg-clip-text text-transparent leading-tight"
+                    className="text-xl font-bold text-gray-900 mb-1"
                   >
                     Congratulations! 🎉
                   </motion.h2>
                   <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
-                    className="text-base font-semibold text-gray-700"
+                    className="text-sm text-gray-600"
                   >
-                    All Competitions Have Concluded
+                    All competitions have concluded
                   </motion.p>
                 </div>
+
                 {/* Announcement Content */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-gradient-to-br from-white via-brand-teal/5 to-blue-50 rounded-2xl p-6 mb-6 border-2 border-brand-teal/30 shadow-lg relative overflow-hidden"
+                  className="bg-gradient-to-br from-brand-teal/5 to-blue-50 rounded-xl p-4 mb-4 border border-brand-teal/20"
                 >
-                  {/* Background decoration */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-teal/5 rounded-full -mr-16 -mt-16"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-orange/5 rounded-full -ml-12 -mb-12"></div>
-                  
-                  <div className="text-sm text-gray-800 space-y-4 relative z-10">
-                    <div className="flex items-start gap-4">
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-                        className="flex-shrink-0 w-9 h-9 rounded-xl bg-gradient-to-br from-brand-teal to-brand-dark-teal text-white flex items-center justify-center text-base font-bold shadow-lg"
-                      >
-                        ✓
-                      </motion.div>
-                      <div className="flex-1">
-                        <motion.p
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.55 }}
-                          className="text-base leading-relaxed text-gray-800 mb-4"
-                        >
-                          All competitions have now <span className="font-bold text-brand-dark-teal">ended</span> and are currently undergoing the <span className="font-bold text-brand-teal">screening and judging process</span>.
-                        </motion.p>
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.6 }}
-                          className="bg-white rounded-xl p-4 border-2 border-brand-teal/20 shadow-md"
-                        >
-                          <div className="flex items-center gap-2 mb-2">
-                            <Award className="w-5 h-5 text-brand-orange" />
-                            <p className="font-bold text-brand-dark-teal text-base">Winners Announcement</p>
-                          </div>
-                          <p className="text-sm leading-relaxed text-gray-700 mb-3">
-                            Winners will be announced at the <span className="font-semibold text-brand-teal">National Campus Press Summit Closing Ceremony</span> online via live stream at the <span className="font-semibold text-brand-orange">JournCamp+ Facebook page</span>.
-                          </p>
-                          <div className="bg-gradient-to-r from-brand-teal/10 to-brand-orange/10 rounded-lg p-3 border border-brand-teal/30">
-                            <p className="text-sm font-bold text-brand-dark-teal mb-1">📅 New Date & Time:</p>
-                            <p className="text-sm text-gray-700">
-                              <span className="font-semibold">December 13, 2025 (Saturday)</span><br />
-                              <span className="font-semibold">9:00 AM - 12:00 PM</span> (Philippine Time)
-                            </p>
-                          </div>
-                        </motion.div>
+                  <div className="space-y-3 text-sm text-gray-700">
+                    <p className="leading-relaxed">
+                      Entries are now undergoing <span className="font-semibold text-brand-teal">screening and judging</span>.
+                    </p>
+                    
+                    <div className="bg-white rounded-lg p-3 border border-brand-teal/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Award className="w-4 h-4 text-brand-orange" />
+                        <p className="font-bold text-brand-dark-teal text-sm">Winners Announcement</p>
+                      </div>
+                      <p className="text-xs text-gray-600 mb-2">
+                        NCPS Closing Ceremony via <span className="font-semibold text-brand-orange">JournCamp+ Facebook page</span>
+                      </p>
+                      <div className="bg-gradient-to-r from-brand-teal/10 to-brand-orange/10 rounded-md p-2 border border-brand-teal/30">
+                        <p className="text-xs font-bold text-brand-dark-teal mb-0.5">📅 December 13, 2025 (Saturday)</p>
+                        <p className="text-xs text-gray-700">⏰ 9:00 AM - 12:00 PM (Philippine Time)</p>
                       </div>
                     </div>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.65 }}
-                      className="text-center pt-4 border-t-2 border-brand-teal/20"
-                    >
-                      <p className="text-lg font-extrabold bg-gradient-to-r from-brand-orange via-brand-teal to-brand-dark-teal bg-clip-text text-transparent">
-                        Good luck to all participants! 🍀
-                      </p>
-                    </motion.div>
+                    
+                    <p className="text-center text-sm font-bold text-brand-teal">
+                      Good luck! 🍀
+                    </p>
                   </div>
                 </motion.div>
 
                 {/* Action Button */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
+                  transition={{ delay: 0.5 }}
                   className="flex justify-center"
                 >
                   <button
                     onClick={closeModal}
-                    className="group relative px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white rounded-xl font-bold text-base shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                    className="px-6 py-2 bg-gradient-to-r from-brand-teal to-brand-dark-teal text-white rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
                   >
-                    <span className="relative z-10 flex items-center gap-2">
-                      Got it!
-                      <motion.span
-                        animate={{ x: [0, 3, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        ✨
-                      </motion.span>
-                    </span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-brand-dark-teal to-brand-teal"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '0%' }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    Got it!
                   </button>
                 </motion.div>
               </div>
