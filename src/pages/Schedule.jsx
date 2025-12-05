@@ -216,14 +216,14 @@ const Schedule = () => {
       ]
     },
     {
-      date: "December 6",
+      date: "December 13",
       day: "Saturday",
       events: [
         { 
-          time: "", 
-          title: "NCPS Closing Program & Awarding", 
+          time: "9:00 AM - 12:00 PM", 
+          title: "NCPS Closing Program & Awarding Ceremony", 
           type: "closing",
-          description: "Official closing ceremony and awarding of winners.",
+          description: "Official closing ceremony and awarding of winners. Live stream via JournCamp+ Facebook page.",
         }
       ]
     }
@@ -268,7 +268,7 @@ const Schedule = () => {
               JournCamp+ National Campus Press Summit 2025
             </p>
             <p className="text-md text-teal-200 mt-2">
-              November 23 - December 6, 2025
+              November 23 - December 13, 2025
             </p>
           </motion.div>
         </div>

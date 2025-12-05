@@ -173,9 +173,16 @@ const CountdownBanner = () => {
                             <Award className="w-5 h-5 text-brand-orange" />
                             <p className="font-bold text-brand-dark-teal text-base">Winners Announcement</p>
                           </div>
-                          <p className="text-sm leading-relaxed text-gray-700">
+                          <p className="text-sm leading-relaxed text-gray-700 mb-3">
                             Winners will be announced at the <span className="font-semibold text-brand-teal">National Campus Press Summit Closing Ceremony</span> online via live stream at the <span className="font-semibold text-brand-orange">JournCamp+ Facebook page</span>.
                           </p>
+                          <div className="bg-gradient-to-r from-brand-teal/10 to-brand-orange/10 rounded-lg p-3 border border-brand-teal/30">
+                            <p className="text-sm font-bold text-brand-dark-teal mb-1">📅 New Date & Time:</p>
+                            <p className="text-sm text-gray-700">
+                              <span className="font-semibold">December 13, 2025 (Saturday)</span><br />
+                              <span className="font-semibold">9:00 AM - 12:00 PM</span> (Philippine Time)
+                            </p>
+                          </div>
                         </motion.div>
                       </div>
                     </div>

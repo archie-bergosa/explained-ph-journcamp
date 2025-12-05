@@ -1,11 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Howl } from 'howler';
+import { Volume2, VolumeX } from 'lucide-react';
 
 const Wrapped = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [autoAdvanceTimer, setAutoAdvanceTimer] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
+  const bgMusicRef = useRef(null);
+  const soundsRef = useRef({});
+
+  // Initialize background music and sound effects
+  useEffect(() => {
+    // Background music - celebratory, calm, and sincere
+    bgMusicRef.current = new Howl({
+      src: ['https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3'], // Uplifting, positive music
+      loop: true,
+      volume: 0.18,
+      html5: true,
+      onloaderror: () => {
+        console.log('Music failed to load');
+      }
+    });
+
+    // Pleasant sound effects
+    soundsRef.current = {
+      whoosh: new Howl({
+        src: ['https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3'],
+        volume: 0.25
+      }),
+      pop: new Howl({
+        src: ['https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3'],
+        volume: 0.3
+      }),
+      chime: new Howl({
+        src: ['https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3'],
+        volume: 0.3
+      }),
+      celebration: new Howl({
+        src: ['https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3'],
+        volume: 0.4
+      })
+    };
+
+    return () => {
+      bgMusicRef.current?.unload();
+      Object.values(soundsRef.current).forEach(sound => sound?.unload());
+    };
+  }, []);
+
+  // Play sound effect
+  const playSound = (type) => {
+    if (isMuted) return;
+    soundsRef.current[type]?.play();
+  };
+
+  // Toggle background music
+  const toggleMusic = () => {
+    if (!bgMusicRef.current) return;
+    
+    if (isMuted) {
+      bgMusicRef.current.play();
+      setIsMuted(false);
+    } else {
+      bgMusicRef.current.pause();
+      setIsMuted(true);
+    }
+  };
+
+  // Start background music when intro is dismissed
+  useEffect(() => {
+    if (!showIntro && !isMuted && bgMusicRef.current) {
+      bgMusicRef.current.play();
+    }
+  }, [showIntro, isMuted]);
 
   // Helper function to determine highlight color based on background
   const getHighlightColor = (bgColor) => {
@@ -260,14 +330,21 @@ const Wrapped = () => {
 
   const nextSlide = () => {
     if (!isAnimating && currentSlide < slides.length - 1) {
+      playSound('whoosh');
       setIsAnimating(true);
       setCurrentSlide(prev => prev + 1);
       setTimeout(() => setIsAnimating(false), 600);
+      
+      // Play celebration sound on last slide
+      if (currentSlide === slides.length - 2) {
+        setTimeout(() => playSound('celebration'), 400);
+      }
     }
   };
 
   const prevSlide = () => {
     if (!isAnimating && currentSlide > 0) {
+      playSound('whoosh');
       setIsAnimating(true);
       setCurrentSlide(prev => prev - 1);
       setTimeout(() => setIsAnimating(false), 600);
@@ -531,59 +608,49 @@ const Wrapped = () => {
         {/* Main content container */}
         <motion.div
           className="relative z-10 text-center w-full max-w-4xl"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
-          {/* Header section */}
-          <motion.div
-            className="mb-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+          {/* Title appears first - fade up */}
+          <motion.h2
+            className="text-3xl sm:text-4xl font-black text-white mb-8 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <motion.div
-              className="text-6xl mb-4"
-              animate={{ 
-                rotate: [0, 5, -5, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {slide.icon}
-            </motion.div>
-            
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]">
-              {slide.title}
-            </h2>
+            {slide.title}
+          </motion.h2>
 
-            {/* Big value showcase */}
-            <motion.div
-              className="inline-block bg-white rounded-2xl px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] border-[4px] border-black"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-              whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
-            >
-              <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#006B7D] to-[#F9A826]">
-                {slide.value}
-              </div>
-              <div className="text-base font-bold text-gray-900 mt-1">
-                {slide.unit}
-              </div>
-            </motion.div>
+          {/* Icon appears from scale - bounces in */}
+          <motion.div
+            className="text-7xl mb-6"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3, type: 'spring', stiffness: 200, damping: 12 }}
+          >
+            {slide.icon}
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Big value showcase - slides in from right */}
+          <motion.div
+            className="inline-block bg-white rounded-2xl px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] border-[4px] border-black"
+            initial={{ x: 100, opacity: 0, rotate: 10 }}
+            animate={{ x: 0, opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.5, type: 'spring', stiffness: 150, damping: 15 }}
+            whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
+          >
+            <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#006B7D] to-[#F9A826]">
+              {slide.value}
+            </div>
+            <div className="text-base font-bold text-gray-900 mt-1">
+              {slide.unit}
+            </div>
+          </motion.div>
+
+          {/* Subtitle - fades in from bottom */}
           <motion.p
-            className="text-lg sm:text-xl text-white font-bold mt-4 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-            initial={{ y: 20, opacity: 0 }}
+            className="text-lg sm:text-xl text-white font-bold mt-6 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
           >
             {slide.subtitle}
           </motion.p>
@@ -597,7 +664,7 @@ const Wrapped = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
       className="relative h-full flex flex-col items-center justify-center text-center px-6"
     >
       <BackgroundGraphics type="ribbons" />
@@ -630,40 +697,33 @@ const Wrapped = () => {
 
       <motion.div
         className="relative z-10 max-w-full"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
       >
+        {/* Subtitle appears first - fade from top */}
         <motion.h2
           className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          {slide.title}
-        </motion.h2>
-        <motion.h1
-          className="text-4xl sm:text-5xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           {slide.subtitle}
-        </motion.h1>
+        </motion.h2>
+        
+        {/* "Wrapped" text slides in from left with bounce */}
         <motion.div
-          className="relative inline-block"
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
+          className="relative inline-block mt-4"
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3, type: 'spring', stiffness: 100, damping: 15 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white relative z-10 px-2 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-white relative z-10 px-2 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]">
             {slide.highlight}
           </h1>
+          {/* Background slides in slightly delayed */}
           <motion.div
             className="absolute -inset-3 bg-black/30 rounded-2xl -z-10 border-[3px] border-black/40 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.3)]"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.7 }}
+            initial={{ scale: 0, rotate: -5 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
           />
         </motion.div>
       </motion.div>
@@ -812,42 +872,51 @@ const Wrapped = () => {
 
       <motion.div
         className="relative z-10 max-w-full"
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.3, type: 'spring', stiffness: 150 }}
       >
-        {/* Main title with typewriter effect simulation */}
-        <motion.div className="mb-6">
-          <motion.h2
-            className="text-4xl sm:text-5xl font-black text-white mb-2 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)]"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            {slide.title}
-          </motion.h2>
-          <motion.h3
-            className="text-2xl sm:text-3xl font-bold text-white/90 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)]"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-          >
-            {slide.subtitle}
-          </motion.h3>
-        </motion.div>
+        {/* Title appears FIRST - fade and slide up */}
+        <motion.h2
+          className="text-4xl sm:text-5xl font-black text-white mb-3 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)]"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          {slide.title}
+        </motion.h2>
+        
+        {/* Subtitle appears second - slide from right */}
+        <motion.h3
+          className="text-2xl sm:text-3xl font-bold text-white/90 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)] mb-8"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+        >
+          {slide.subtitle}
+        </motion.h3>
 
-        {/* Duration cards with flip animation */}
-        <div className="flex justify-center items-center gap-4">
+        {/* Duration cards appear last - staggered from different angles */}
+        <div className="flex justify-center items-center gap-6">
           {slide.duration.map((item, i) => (
             <motion.div
               key={item.label}
               className="relative"
-              initial={{ rotateY: -90, opacity: 0 }}
-              animate={{ rotateY: 0, opacity: 1 }}
+              initial={{ 
+                x: i === 0 ? -100 : 100,
+                y: 50,
+                opacity: 0,
+                rotate: i === 0 ? -15 : 15
+              }}
+              animate={{ 
+                x: 0,
+                y: 0,
+                opacity: 1,
+                rotate: 0
+              }}
               transition={{
-                delay: 0.9 + i * 0.2,
-                duration: 0.6,
+                delay: 0.5 + i * 0.15,
+                duration: 0.7,
                 type: 'spring',
+                stiffness: 100,
+                damping: 15
               }}
               style={{ perspective: 1000 }}
             >
@@ -1069,46 +1138,54 @@ const Wrapped = () => {
     >
       <BackgroundGraphics type="waves" />
 
-      {/* Title */}
+      {/* Title appears FIRST - clean fade up */}
       <motion.div
-        className="text-center mb-6 z-10"
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
+        className="text-center mb-8 z-10"
       >
         <motion.h2 
-          className="text-2xl sm:text-3xl font-bold text-white mb-1"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           {slide.title}
         </motion.h2>
         <motion.p
-          className="text-base sm:text-lg text-white/80 font-semibold"
-          initial={{ y: 10, opacity: 0 }}
+          className="text-base sm:text-lg text-white/90 font-semibold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
         >
           {slide.subtitle}
         </motion.p>
       </motion.div>
 
-      {/* Top 3 Lectures */}
-      <div className="relative z-10 w-full max-w-[340px] space-y-3">
+      {/* Lecture cards slide in from alternating sides */}
+      <div className="relative z-10 w-full max-w-[380px] space-y-4">
         {slide.lectures.map((lecture, index) => (
           <motion.div
             key={index}
             className="bg-white rounded-xl p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-[3px] border-black"
-            initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0, scale: 0.8 }}
-            animate={{ x: 0, opacity: 1, scale: 1 }}
+            initial={{ 
+              x: index === 0 ? -120 : index === 1 ? 120 : -120,
+              y: 30,
+              opacity: 0,
+              rotate: index === 0 ? -10 : index === 1 ? 10 : -10
+            }}
+            animate={{ 
+              x: 0,
+              y: 0,
+              opacity: 1,
+              rotate: 0
+            }}
             transition={{ 
-              delay: 0.5 + index * 0.15,
-              duration: 0.6,
+              delay: 0.4 + index * 0.2,
+              duration: 0.7,
               type: 'spring',
+              stiffness: 100,
               damping: 15
             }}
-            whileHover={{ scale: 1.03, y: -3 }}
+            whileHover={{ scale: 1.03, y: -5, transition: { duration: 0.2 } }}
           >
             <div className="flex items-start gap-3">
               {/* Rank badge */}
@@ -2490,7 +2567,10 @@ const Wrapped = () => {
           </motion.p>
           
           <motion.button
-            onClick={() => setShowIntro(false)}
+            onClick={() => {
+              playSound('chime');
+              setShowIntro(false);
+            }}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-xl font-black uppercase tracking-wider border-[4px] border-black/30 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -2527,12 +2607,33 @@ const Wrapped = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center py-6 px-4 min-h-screen bg-black" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      <div className="relative w-full max-w-[360px] sm:max-w-[400px] aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] border-[4px] border-gray-800"
-        style={{
-          boxShadow: '8px 8px 0px 0px rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.5)',
-        }}
-      >
+    <div 
+      className="fixed inset-0 flex items-center justify-center bg-black overflow-hidden" 
+      style={{ fontFamily: 'Montserrat, sans-serif' }}
+    >
+      {/* Audio Control */}
+      <div className="absolute top-4 right-4 z-30">
+        <motion.button
+          onClick={() => {
+            toggleMusic();
+            playSound('pop');
+          }}
+          className="p-3 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full border-2 border-white/30 shadow-lg transition-all"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          title={isMuted ? 'Play Music' : 'Pause Music'}
+        >
+          {isMuted ? (
+            <VolumeX className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          ) : (
+            <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          )}
+        </motion.button>
+      </div>
+
+      {/* Fullscreen responsive container */}
+      <div className="relative w-full h-full max-w-[600px] mx-auto flex items-center justify-center">
+        <div className="relative w-full h-full sm:h-[90vh] sm:max-h-[900px] sm:aspect-[9/16] overflow-hidden sm:rounded-3xl sm:border-4 sm:border-gray-800 shadow-2xl">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -2564,30 +2665,28 @@ const Wrapped = () => {
         )}
 
         {/* Slide indicators with neobrutalism */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 z-20">
+        <div className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => {
                 if (!isAnimating) {
+                  playSound('pop');
                   setIsAnimating(true);
                   setCurrentSlide(index);
                   setTimeout(() => setIsAnimating(false), 600);
                 }
               }}
-              className={`h-1.5 rounded-full transition-all border-2 ${
+              className={`h-2 rounded-full transition-all border-2 ${
                 index === currentSlide
-                  ? 'w-6 bg-white border-black/30 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]'
-                  : 'w-1.5 bg-white/60 border-white/40 hover:bg-white/80'
+                  ? 'w-8 bg-white border-black/30 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]'
+                  : 'w-2 bg-white/60 border-white/40 hover:bg-white/80'
               }`}
             />
           ))}
         </div>
+        </div>
       </div>
-
-      <p className="mt-4 text-white/60 text-xs sm:text-sm text-center max-w-md px-4">
-        Tap left/right to navigate • Auto-advances in 5s • {currentSlide + 1} / {slides.length}
-      </p>
     </div>
   );
 };
