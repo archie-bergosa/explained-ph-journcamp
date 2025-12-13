@@ -53,8 +53,8 @@ const Wrapped = () => {
       subtitle: "together",
       bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
       duration: [
-        { label: "Days", value: "4", icon: "📅" },
-        { label: "Weekends", value: "2", icon: "🗓️" },
+        { label: "Days", value: "15", icon: "📅" },
+        { label: "Weeks", value: "5", icon: "🗓️" },
       ],
     },
     {
@@ -68,7 +68,7 @@ const Wrapped = () => {
     {
       id: 4,
       type: "runtime",
-      title: "Total Runtime",
+      title: "Total Lecture Series Runtime",
       value: "30",
       unit: "hours",
       icon: "⏱️",
@@ -82,6 +82,15 @@ const Wrapped = () => {
     },
     {
       id: 5,
+      type: "runtime",
+      title: "Total Masterclass Lectures Runtime",
+      value: "22",
+      unit: "hours",
+      icon: "🎓",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]",
+    },
+    {
+      id: 6,
       type: "intro-lectures",
       title: "What did you watch?",
       subtitle: "Here are the lectures",
@@ -89,7 +98,7 @@ const Wrapped = () => {
       bgColor: "from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
-      id: 6,
+      id: 7,
       type: "top-lectures",
       title: "Top Most Watched Lectures",
       subtitle: "your favorites of the event",
@@ -119,45 +128,7 @@ const Wrapped = () => {
       ],
     },
     {
-      id: 7,
-      type: "intro-stats",
-      title: "But that’s not all...",
-      subtitle: "Let’s talk about the amazing people",
-      highlight: "who made it happen",
-      bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
-    },
-    {
       id: 8,
-      type: "stat",
-      title: "Meet the Community",
-      value: "3,500+",
-      unit: "passionate attendees",
-      subtitle: "joined us to learn and grow",
-      intro: "These are the people",
-      icon: "👥",
-      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]",
-    },
-    {
-      id: 9,
-      type: "intro-NCPS",
-      title: "But wait...",
-      subtitle: "Among them were",
-      highlight: "true champions",
-      bgColor: "from-[#F9A826] via-[#FDB847] to-[#FFCB69]",
-    },
-    {
-      id: 10,
-      type: "stat",
-      title: "NCPS Submissions",
-      value: "2373",
-      unit: "submitted competition output",
-      subtitle: "of NCPS participants",
-      intro: "The champions were",
-      icon: "🏆",
-      bgColor: "from-[#006B7D] via-[#0E8FA8] to-[#1AA8C8]",
-    },
-    {
-      id: 11,
       type: "intro-regions-participated",
       title: "From north to south,",
       subtitle: "campus journalists gathered",
@@ -165,7 +136,7 @@ const Wrapped = () => {
       bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
-      id: 16,
+      id: 9,
       type: "regions-participated",
       title: "Regions Participated",
       value: "18",
@@ -195,7 +166,7 @@ const Wrapped = () => {
       ],
     },
     {
-      id: 17,
+      id: 10,
       type: "intro-regions",
       title: "And the standouts?",
       subtitle: "These regions showed",
@@ -203,7 +174,7 @@ const Wrapped = () => {
       bgColor: "from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
-      id: 18,
+      id: 11,
       type: "regions",
       title: "Top Regions in NCPS",
       subtitle: "Most active participants by region",
@@ -215,7 +186,7 @@ const Wrapped = () => {
       ],
     },
     {
-      id: 19,
+      id: 12,
       type: "intro-thankyou",
       title: "To every single one of you",
       subtitle: "who made this journey meaningful",
@@ -223,7 +194,7 @@ const Wrapped = () => {
       bgColor: "from-[#F9A826] via-[#FDB847] to-[#FFCB69]",
     },
     {
-      id: 16,
+      id: 13,
       type: "message",
       title: "Your presence made all the difference",
       message:
@@ -232,7 +203,7 @@ const Wrapped = () => {
       bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]",
     },
     {
-      id: 17,
+      id: 14,
       type: "thankyou",
       title: "Thank You!",
       subtitle: "See you next year!",
@@ -977,7 +948,7 @@ const Wrapped = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="relative h-full flex flex-col items-center justify-center text-center px-6"
+        className="relative h-full flex flex-col items-center justify-center text-center px-6 overflow-hidden"
       >
         <BackgroundGraphics type="waves" />
 
@@ -1008,64 +979,179 @@ const Wrapped = () => {
             {slide.title}
           </h2>
 
-          <motion.div
-            className="relative inline-block mb-4"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
-          >
-            <div
-              className="text-5xl sm:text-6xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
-              style={{
-                WebkitTextStroke: "2px rgba(0,0,0,0.3)",
-                paintOrder: "stroke fill",
-              }}
-            >
-              {slide.value}
-            </div>
-            <div className="text-lg sm:text-xl font-semibold text-white/90 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
-              {slide.unit}
-            </div>
-
-            {/* Glowing effect with neobrutalism box */}
-            <motion.div
-              className="absolute -inset-3 bg-black/30 blur-lg -z-10 rounded-2xl border-[3px] border-black/40"
-              animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-          </motion.div>
-
-          {/* Daily Breakdown */}
-          <motion.div
-            className="grid grid-cols-2 gap-2.5 max-w-xs mx-auto mt-4"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            {slide.breakdown.map((day, i) => (
-              <motion.div
-                key={i}
-                className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.6 + i * 0.1 }}
-              >
-                {/* Card shine effect */}
+          {/* Conditional rendering based on breakdown */}
+          {!slide.breakdown ? (
+            // Beautiful standalone display for slides without breakdown
+            <>
+              {/* Floating particles around the number */}
+              {[...Array(8)].map((_, i) => (
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent"
-                  initial={{ x: "-100%", y: "-100%" }}
-                  animate={{ x: "100%", y: "100%" }}
-                  transition={{ delay: 1 + i * 0.1, duration: 1 }}
+                  key={`particle-${i}`}
+                  className="absolute w-2 h-2 bg-white/60 rounded-full"
+                  style={{
+                    left: `${30 + (i % 4) * 15}%`,
+                    top: `${40 + Math.floor(i / 4) * 30}%`,
+                  }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{
+                    scale: [0, 1, 1, 0],
+                    opacity: [0, 1, 1, 0],
+                    y: [0, -20, -40, -60],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                    ease: "easeOut",
+                  }}
                 />
-                <div className="text-xs font-bold text-gray-700 mb-0.5">
-                  {day.label}
-                </div>
-                <div className="text-2xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
-                  {day.value}
-                </div>
+              ))}
+
+              <motion.div
+                className="relative inline-block"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
+              >
+                {/* Main number with enhanced styling */}
+                <motion.div
+                  className="relative bg-white/95 backdrop-blur-sm rounded-3xl px-12 py-8 border-[4px] border-black/30 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.4)]"
+                  animate={{
+                    boxShadow: [
+                      "8px 8px 0px 0px rgba(0,0,0,0.4)",
+                      "12px 12px 0px 0px rgba(0,0,0,0.4)",
+                      "8px 8px 0px 0px rgba(0,0,0,0.4)",
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  {/* Sparkle effects */}
+                  {[...Array(4)].map((_, i) => (
+                    <motion.div
+                      key={`sparkle-${i}`}
+                      className="absolute text-2xl"
+                      style={{
+                        left: i % 2 === 0 ? "-10px" : "auto",
+                        right: i % 2 === 1 ? "-10px" : "auto",
+                        top: i < 2 ? "-10px" : "auto",
+                        bottom: i >= 2 ? "-10px" : "auto",
+                      }}
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        rotate: [0, 180, 360],
+                        opacity: [0.6, 1, 0.6],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                      }}
+                    >
+                      ✨
+                    </motion.div>
+                  ))}
+
+                  <motion.div
+                    className="text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#006B7D] via-[#1AA8C8] to-[#F9A826]"
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{ duration: 5, repeat: Infinity }}
+                    style={{
+                      backgroundSize: "200% 200%",
+                      WebkitTextStroke: "3px rgba(0,0,0,0.15)",
+                      paintOrder: "stroke fill",
+                    }}
+                  >
+                    {slide.value}
+                  </motion.div>
+                  <div className="text-2xl sm:text-3xl font-black text-gray-800 mt-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                    {slide.unit}
+                  </div>
+
+                  {/* Animated glow ring */}
+                  <motion.div
+                    className="absolute -inset-4 rounded-3xl border-4 border-white/40 -z-10"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.div>
+
+                {/* Bottom accent line */}
+                <motion.div
+                  className="mt-6 mx-auto w-32 h-2 bg-white/80 rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)]"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                />
               </motion.div>
-            ))}
-          </motion.div>
+            </>
+          ) : (
+            // Original breakdown display
+            <>
+              <motion.div
+                className="relative inline-block mb-4"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
+              >
+                <div
+                  className="text-5xl sm:text-6xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
+                  style={{
+                    WebkitTextStroke: "2px rgba(0,0,0,0.3)",
+                    paintOrder: "stroke fill",
+                  }}
+                >
+                  {slide.value}
+                </div>
+                <div className="text-lg sm:text-xl font-semibold text-white/90 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+                  {slide.unit}
+                </div>
+
+                {/* Glowing effect with neobrutalism box */}
+                <motion.div
+                  className="absolute -inset-3 bg-black/30 blur-lg -z-10 rounded-2xl border-[3px] border-black/40"
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+              </motion.div>
+
+              {/* Daily Breakdown */}
+              <motion.div
+                className="grid grid-cols-2 gap-2.5 max-w-xs mx-auto mt-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                {slide.breakdown.map((day, i) => (
+                  <motion.div
+                    key={i}
+                    className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.6 + i * 0.1 }}
+                  >
+                    {/* Card shine effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent"
+                      initial={{ x: "-100%", y: "-100%" }}
+                      animate={{ x: "100%", y: "100%" }}
+                      transition={{ delay: 1 + i * 0.1, duration: 1 }}
+                    />
+                    <div className="text-xs font-bold text-gray-700 mb-0.5">
+                      {day.label}
+                    </div>
+                    <div className="text-2xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                      {day.value}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </>
+          )}
         </motion.div>
       </motion.div>
     );
@@ -2174,7 +2260,7 @@ const Wrapped = () => {
 
             <!-- Personal message -->
             <div style="background: rgba(0,0,0,0.18); backdrop-filter: blur(10px); padding: 28px 32px; border-radius: 12px; margin-bottom: 40px; text-align: center;">
-              <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0; line-height: 1.5; opacity: 0.9;">I am one of the <span style="font-weight: 900; font-size: 28px;">3,500+</span> attendees who joined this year's JournCamp+</p>
+              <p style="font-size: 18px; font-weight: 700; color: #000; margin: 0; line-height: 1.5; opacity: 0.9;">I was part of <span style="font-weight: 900; font-size: 24px;">JournCamp+ 2025</span> — a month-long virtual journalism camp combining seasoned practitioners with award-winning storytellers to strengthen campus publications nationwide.</p>
             </div>
 
             <!-- Stats in Spotify-style layout -->
@@ -2182,12 +2268,12 @@ const Wrapped = () => {
               <!-- Top Stats -->
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
                 <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 28px; border-radius: 12px;">
-                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">Total Runtime</p>
-                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">30 hours</h2>
+                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">Lecture Series + Masterclass Runtime</p>
+                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">52 hours</h2>
                 </div>
                 <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 28px; border-radius: 12px;">
-                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">NCPS Submissions</p>
-                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">2,373</h2>
+                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">Days of Learning</p>
+                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">15 Days</h2>
                 </div>
               </div>
 
@@ -2206,8 +2292,8 @@ const Wrapped = () => {
                   <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">18</h3>
                 </div>
                 <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 38px 16px; border-radius: 10px; text-align: center;">
-                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Lecture Days</p>
-                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">4</h3>
+                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Weeks of Lectures</p>
+                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">5</h3>
                 </div>
               </div>
 
@@ -2242,16 +2328,61 @@ const Wrapped = () => {
                 </div>
 
                 <!-- Your Class -->
-                <div style="background: rgba(0,0,0,0.18); backdrop-filter: blur(10px); padding: 26px 24px 28px 24px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                  <p style="font-size: 18px; font-weight: 700; color: #000; margin: 0 0 12px 0; opacity: 0.8;">Your Personal Class</p>
-                  
-                  <!-- Large icon without circle -->
-                  <div style="font-size: 92px; margin-bottom: 12px;">${userClass.icon}</div>
-                  
-                  <div style="font-size: 22px; font-weight: 900; color: #000; margin-bottom: 6px; text-shadow: 1px 1px 0 rgba(255,255,255,0.5);">${userClass.name}</div>
-                  <div style="font-size: 14px; font-weight: 800; color: ${userClass.rarityColor}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">✦ ${userClass.rarity} ✦</div>
-                  <div style="font-size: 12px; font-weight: 600; color: #000; opacity: 0.85; line-height: 1.4;">${userClass.description}</div>
-                </div>
+                <div style="background: rgba(0,0,0,0.18); backdrop-filter: blur(10px); padding: 20px 24px 28px 24px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+  
+  <p style="font-size: 18px; font-weight: 700; color: #000; margin: 0 0 12px 0; opacity: 0.8;">
+    Your Personal Class
+  </p>
+
+  <div style="
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+">
+  <div style="
+    font-size: 92px;
+    line-height: 1;
+    transform: translateY(-14px);
+  ">
+    ${userClass.icon}
+  </div>
+</div>
+
+  <div style="
+    font-size: 22px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 6px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  ">
+    ${userClass.name}
+  </div>
+
+  <div style="
+    font-size: 14px;
+    font-weight: 800;
+    color: ${userClass.rarityColor};
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  ">
+    ✦ ${userClass.rarity} ✦
+  </div>
+
+  <div style="
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    opacity: 0.85;
+    line-height: 1.4;
+  ">
+    ${userClass.description}
+  </div>
+</div>
+
               </div>
 
               <!-- Top Regions -->
@@ -2457,10 +2588,6 @@ const Wrapped = () => {
         return <IntroToLecturesSlide slide={slide} />;
       case "top-lectures":
         return <TopLecturesSlide slide={slide} />;
-      case "intro-stats":
-        return <IntroToStatsSlide slide={slide} />;
-      case "intro-NCPS":
-        return <IntroToNCPSSlide slide={slide} />;
       case "stat":
         return <StatSlide slide={slide} />;
       case "intro-regions-participated":
