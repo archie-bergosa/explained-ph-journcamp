@@ -1,328 +1,257 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Howl } from 'howler';
-import { Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Wrapped = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [autoAdvanceTimer, setAutoAdvanceTimer] = useState(null);
-  const [isMuted, setIsMuted] = useState(false);
-  const bgMusicRef = useRef(null);
-  const soundsRef = useRef({});
-
-  // Initialize background music and sound effects
-  useEffect(() => {
-    // Background music - celebratory, calm, and sincere
-    bgMusicRef.current = new Howl({
-      src: ['https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3'], // Uplifting, positive music
-      loop: true,
-      volume: 0.18,
-      html5: true,
-      onloaderror: () => {
-        console.log('Music failed to load');
-      }
-    });
-
-    // Pleasant sound effects
-    soundsRef.current = {
-      whoosh: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3'],
-        volume: 0.25
-      }),
-      pop: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3'],
-        volume: 0.3
-      }),
-      chime: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3'],
-        volume: 0.3
-      }),
-      celebration: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3'],
-        volume: 0.4
-      })
-    };
-
-    return () => {
-      bgMusicRef.current?.unload();
-      Object.values(soundsRef.current).forEach(sound => sound?.unload());
-    };
-  }, []);
-
-  // Play sound effect
-  const playSound = (type) => {
-    if (isMuted) return;
-    soundsRef.current[type]?.play();
-  };
-
-  // Toggle background music
-  const toggleMusic = () => {
-    if (!bgMusicRef.current) return;
-    
-    if (isMuted) {
-      bgMusicRef.current.play();
-      setIsMuted(false);
-    } else {
-      bgMusicRef.current.pause();
-      setIsMuted(true);
-    }
-  };
-
-  // Start background music when intro is dismissed
-  useEffect(() => {
-    if (!showIntro && !isMuted && bgMusicRef.current) {
-      bgMusicRef.current.play();
-    }
-  }, [showIntro, isMuted]);
 
   // Helper function to determine highlight color based on background
   const getHighlightColor = (bgColor) => {
     // If background is teal-dominant, use yellow/orange
-    if (bgColor.includes('#006B7D') || bgColor.includes('#0E8FA8') || bgColor.includes('#1AA8C8')) {
-      return { bg: 'bg-yellow-300/70', text: 'text-gray-900' };
+    if (
+      bgColor.includes("#006B7D") ||
+      bgColor.includes("#0E8FA8") ||
+      bgColor.includes("#1AA8C8")
+    ) {
+      return { bg: "bg-yellow-300/70", text: "text-gray-900" };
     }
     // If background is orange/yellow-dominant, use teal
-    if (bgColor.includes('#F9A826') || bgColor.includes('#FDB847') || bgColor.includes('#FFCB69')) {
-      return { bg: 'bg-[#006B7D]/80', text: 'text-white' };
+    if (
+      bgColor.includes("#F9A826") ||
+      bgColor.includes("#FDB847") ||
+      bgColor.includes("#FFCB69")
+    ) {
+      return { bg: "bg-[#006B7D]/80", text: "text-white" };
     }
     // Default to yellow
-    return { bg: 'bg-yellow-300/70', text: 'text-gray-900' };
+    return { bg: "bg-yellow-300/70", text: "text-gray-900" };
   };
 
   const slides = [
     {
       id: 0,
-      type: 'welcome',
-      title: '',
-      subtitle: 'JournCamp+',
-      highlight: 'Wrapped',
-      bgColor: 'from-[#006B7D] via-[#0E8FA8] to-[#1AA8C8]',
+      type: "welcome",
+      title: "",
+      subtitle: "JournCamp+",
+      highlight: "Wrapped",
+      bgColor: "from-[#006B7D] via-[#0E8FA8] to-[#1AA8C8]",
     },
     {
       id: 1,
-      type: 'intro',
+      type: "intro",
       title: "Here's a look back at",
-      subtitle: 'the amazing journey',
-      highlight: 'of our event',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]',
+      subtitle: "the amazing journey",
+      highlight: "of our event",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]",
     },
     {
       id: 2,
-      type: 'learning',
-      title: 'We learned',
-      subtitle: 'together',
-      bgColor: 'from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]',
+      type: "learning",
+      title: "We learned",
+      subtitle: "together",
+      bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
       duration: [
-        { label: 'Days', value: '4', icon: '📅' },
-        { label: 'Weekends', value: '2', icon: '🗓️' },
-      ]
+        { label: "Days", value: "4", icon: "📅" },
+        { label: "Weekends", value: "2", icon: "🗓️" },
+      ],
     },
     {
       id: 3,
-      type: 'intro-runtime',
-      title: 'Let\'s break down',
-      subtitle: 'the time we spent',
-      highlight: 'learning together',
-      bgColor: 'from-[#F9A826] via-[#FDB847] to-[#FFCB69]',
+      type: "intro-runtime",
+      title: "Let's break down",
+      subtitle: "the time we spent",
+      highlight: "learning together",
+      bgColor: "from-[#F9A826] via-[#FDB847] to-[#FFCB69]",
     },
     {
       id: 4,
-      type: 'runtime',
-      title: 'Total Runtime',
-      value: '120',
-      unit: 'hours',
-      icon: '⏱️',
-      bgColor: 'from-[#FDB847] via-[#F9A826] to-[#E89614]',
+      type: "runtime",
+      title: "Total Runtime",
+      value: "30",
+      unit: "hours",
+      icon: "⏱️",
+      bgColor: "from-[#FDB847] via-[#F9A826] to-[#E89614]",
       breakdown: [
-        { label: 'Day 1', value: '30h' },
-        { label: 'Day 2', value: '35h' },
-        { label: 'Day 3', value: '28h' },
-        { label: 'Day 4', value: '27h' },
-      ]
+        { label: "Day 1", value: "6:26:56" },
+        { label: "Day 2", value: "7:47:32" },
+        { label: "Day 3", value: "8:30:06" },
+        { label: "Day 4", value: "7:16:54" },
+      ],
     },
     {
       id: 5,
-      type: 'intro-lectures',
-      title: 'What did you watch?',
-      subtitle: 'Here are the lectures',
-      highlight: 'everyone loved',
-      bgColor: 'from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]',
+      type: "intro-lectures",
+      title: "What did you watch?",
+      subtitle: "Here are the lectures",
+      highlight: "everyone loved",
+      bgColor: "from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
       id: 6,
-      type: 'top-lectures',
-      title: 'Top Most Watched Lectures',
-      subtitle: 'your favorites of the event',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]',
+      type: "top-lectures",
+      title: "Top Most Watched Lectures",
+      subtitle: "your favorites of the event",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]",
       lectures: [
-        { rank: 1, title: 'Media Ethics & Responsibility', views: '1,200', speaker: 'Maria Santos', emoji: '🥇' },
-        { rank: 2, title: 'Digital Journalism in 2024', views: '1,050', speaker: 'John Cruz', emoji: '🥈' },
-        { rank: 3, title: 'Investigative Reporting', views: '980', speaker: 'Ana Reyes', emoji: '🥉' },
-      ]
+        {
+          rank: 1,
+          title: "Feature Writing",
+          views: "1,200",
+          speaker: "Ms. Gianela Zapata",
+          emoji: "🥇",
+        },
+        {
+          rank: 2,
+          title: "Copyreading and Headline Writing",
+          views: "1,050",
+          speaker: "Mr. Isaiah Matthew Hillario",
+          emoji: "🥈",
+        },
+        {
+          rank: 3,
+          title: "Column Writing",
+          views: "980",
+          speaker: "Ms. Jhewen Albis",
+          emoji: "🥉",
+        },
+      ],
     },
     {
       id: 7,
-      type: 'intro-stats',
-      title: 'But that’s not all...',
-      subtitle: 'Let’s talk about the amazing people',
-      highlight: 'who made it happen',
-      bgColor: 'from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]',
+      type: "intro-stats",
+      title: "But that’s not all...",
+      subtitle: "Let’s talk about the amazing people",
+      highlight: "who made it happen",
+      bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
       id: 8,
-      type: 'stat',
-      title: 'Meet the Community',
-      value: '1,500+',
-      unit: 'passionate attendees',
-      subtitle: 'joined us to learn and grow',
-      intro: 'These are the people',
-      icon: '👥',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]',
+      type: "stat",
+      title: "Meet the Community",
+      value: "3,500+",
+      unit: "passionate attendees",
+      subtitle: "joined us to learn and grow",
+      intro: "These are the people",
+      icon: "👥",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]",
     },
     {
       id: 9,
-      type: 'intro-ncsp',
-      title: 'But wait...',
-      subtitle: 'Among them were',
-      highlight: 'true champions',
-      bgColor: 'from-[#F9A826] via-[#FDB847] to-[#FFCB69]',
+      type: "intro-NCPS",
+      title: "But wait...",
+      subtitle: "Among them were",
+      highlight: "true champions",
+      bgColor: "from-[#F9A826] via-[#FDB847] to-[#FFCB69]",
     },
     {
       id: 10,
-      type: 'stat',
-      title: 'NCSP Contestants',
-      value: '300',
-      unit: 'champions ready to compete',
-      subtitle: 'showcased their talents',
-      intro: 'The champions were',
-      icon: '🏆',
-      bgColor: 'from-[#006B7D] via-[#0E8FA8] to-[#1AA8C8]',
+      type: "stat",
+      title: "NCPS Submissions",
+      value: "2373",
+      unit: "submitted competition output",
+      subtitle: "of NCPS participants",
+      intro: "The champions were",
+      icon: "🏆",
+      bgColor: "from-[#006B7D] via-[#0E8FA8] to-[#1AA8C8]",
     },
     {
       id: 11,
-      type: 'intro-medals',
-      title: 'And the best part?',
-      subtitle: 'We celebrated excellence',
-      highlight: 'with medals and awards',
-      bgColor: 'from-[#FDB847] via-[#F9A826] to-[#E89614]',
-    },
-    {
-      id: 12,
-      type: 'medals',
-      title: 'Medals Given',
-      value: '50',
-      unit: 'total awards',
-      icon: '🥇',
-      bgColor: 'from-[#FFCB69] via-[#FDB847] to-[#F9A826]',
-      breakdown: [
-        { label: 'Gold', value: '15', emoji: '🥇' },
-        { label: 'Silver', value: '18', emoji: '🥈' },
-        { label: 'Bronze', value: '17', emoji: '🥉' },
-        { label: 'Acrylic', value: '10', emoji: '💎' },
-      ]
-    },
-    {
-      id: 13,
-      type: 'intro-trophies',
-      title: 'But there\'s more...',
-      subtitle: 'We also honored the best',
-      highlight: 'with trophies',
-      bgColor: 'from-[#F9A826] via-[#E89614] to-[#D68310]',
-    },
-    {
-      id: 14,
-      type: 'trophies',
-      title: 'Trophies Awarded',
-      value: '25',
-      unit: 'trophies',
-      subtitle: 'for outstanding achievements',
-      icon: '🏆',
-      bgColor: 'from-[#FDB847] via-[#F9A826] to-[#E89614]',
-    },
-    {
-      id: 15,
-      type: 'intro-regions-participated',
-      title: 'From north to south,',
-      subtitle: 'campus journalists gathered',
-      highlight: 'from across the nation',
-      bgColor: 'from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]',
+      type: "intro-regions-participated",
+      title: "From north to south,",
+      subtitle: "campus journalists gathered",
+      highlight: "from across the nation",
+      bgColor: "from-[#0E8FA8] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
       id: 16,
-      type: 'regions-participated',
-      title: 'Regions Participated',
-      value: '18',
-      unit: 'regions across the Philippines',
-      subtitle: 'from all corners of the nation',
-      icon: '🗺️',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]',
+      type: "regions-participated",
+      title: "Regions Participated",
+      value: "18",
+      unit: "regions across the Philippines",
+      subtitle: "from all corners of the nation",
+      icon: "🗺️",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#80D4E5]",
       regionsList: [
-        'NCR', 'CAR', 'CALABARZON', 'MIMAROPA', 'BICOL',
-        'WESTERN VISAYAS', 'CENTRAL VISAYAS', 'EASTERN VISAYAS',
-        'ZAMBOANGA PENINSULA', 'NORTHERN MINDANAO', 'DAVAO REGION',
-        'SOCCSKSARGEN', 'CARAGA', 'ILOCOS', 'CAGAYAN VALLEY',
-        'CENTRAL LUZON', 'ARMM', 'BARMM'
-      ]
+        "NCR",
+        "CAR",
+        "CALABARZON",
+        "MIMAROPA",
+        "BICOL",
+        "WESTERN VISAYAS",
+        "CENTRAL VISAYAS",
+        "EASTERN VISAYAS",
+        "ZAMBOANGA PENINSULA",
+        "NORTHERN MINDANAO",
+        "DAVAO REGION",
+        "SOCCSKSARGEN",
+        "CARAGA",
+        "ILOCOS",
+        "CAGAYAN VALLEY",
+        "CENTRAL LUZON",
+        "ARMM",
+        "BARMM",
+      ],
     },
     {
       id: 17,
-      type: 'intro-regions',
-      title: 'And the standouts?',
-      subtitle: 'These regions showed',
-      highlight: 'exceptional participation',
-      bgColor: 'from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]',
+      type: "intro-regions",
+      title: "And the standouts?",
+      subtitle: "These regions showed",
+      highlight: "exceptional participation",
+      bgColor: "from-[#006B7D] via-[#1AA8C8] to-[#4DBDD2]",
     },
     {
       id: 18,
-      type: 'regions',
-      title: 'Top Regions in NCSP',
-      subtitle: 'Most active participants by region',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]',
+      type: "regions",
+      title: "Top Regions in NCPS",
+      subtitle: "Most active participants by region",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]",
       regions: [
-        { rank: 1, name: 'NCR', emoji: '🏆' },
-        { rank: 2, name: 'CAR', emoji: '🥈' },
-        { rank: 3, name: 'CALABARZON', emoji: '🥉' },
-      ]
+        { rank: 1, name: "Region III - Central Luzon", emoji: "🏆" },
+        { rank: 2, name: "Region IV-A CALABARZON", emoji: "🥈" },
+        { rank: 3, name: "National Capital Region", emoji: "🥉" },
+      ],
     },
     {
       id: 19,
-      type: 'intro-thankyou',
-      title: 'To every single one of you',
-      subtitle: 'who made this journey meaningful',
-      highlight: 'thank you from the bottom of our hearts',
-      bgColor: 'from-[#F9A826] via-[#FDB847] to-[#FFCB69]',
+      type: "intro-thankyou",
+      title: "To every single one of you",
+      subtitle: "who made this journey meaningful",
+      highlight: "thank you from the bottom of our hearts",
+      bgColor: "from-[#F9A826] via-[#FDB847] to-[#FFCB69]",
     },
     {
-      id: 20,
-      type: 'message',
-      title: 'Your presence made all the difference',
-      message: 'Every question you asked, every story you shared, every moment of curiosity—it all contributed to making JournCamp+ 2025 truly special.',
-      subtitle: 'This journey was possible because of you.',
-      bgColor: 'from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]',
+      id: 16,
+      type: "message",
+      title: "Your presence made all the difference",
+      message:
+        "Every question you asked, every story you shared, every moment of curiosity—it all contributed to making JournCamp+ 2025 truly special.",
+      subtitle: "This journey was possible because of you.",
+      bgColor: "from-[#1AA8C8] via-[#4DBDD2] to-[#F9A826]",
     },
     {
-      id: 21,
-      type: 'thankyou',
-      title: 'Thank You!',
-      subtitle: 'See you next year!',
-      message: 'You made this event unforgettable',
-      icon: '👋',
-      bgColor: 'from-[#006B7D] via-[#1AA8C8] to-[#F9A826]',
-    }
+      id: 17,
+      type: "thankyou",
+      title: "Thank You!",
+      subtitle: "See you next year!",
+      message: "You made this event unforgettable",
+      icon: "👋",
+      bgColor: "from-[#006B7D] via-[#1AA8C8] to-[#F9A826]",
+    },
   ];
 
   // Auto-advance to next slide after 5 seconds
   useEffect(() => {
     if (showIntro) return;
-    
+
     const timer = setTimeout(() => {
       if (currentSlide < slides.length - 1) {
         nextSlide();
       }
     }, 5000);
-    
+
     return () => {
       if (timer) clearTimeout(timer);
     };
@@ -330,31 +259,24 @@ const Wrapped = () => {
 
   const nextSlide = () => {
     if (!isAnimating && currentSlide < slides.length - 1) {
-      playSound('whoosh');
       setIsAnimating(true);
-      setCurrentSlide(prev => prev + 1);
+      setCurrentSlide((prev) => prev + 1);
       setTimeout(() => setIsAnimating(false), 600);
-      
-      // Play celebration sound on last slide
-      if (currentSlide === slides.length - 2) {
-        setTimeout(() => playSound('celebration'), 400);
-      }
     }
   };
 
   const prevSlide = () => {
     if (!isAnimating && currentSlide > 0) {
-      playSound('whoosh');
       setIsAnimating(true);
-      setCurrentSlide(prev => prev - 1);
+      setCurrentSlide((prev) => prev - 1);
       setTimeout(() => setIsAnimating(false), 600);
     }
   };
 
   const handleTapZone = (zone) => {
-    if (zone === 'left') {
+    if (zone === "left") {
       prevSlide();
-    } else if (zone === 'right') {
+    } else if (zone === "right") {
       nextSlide();
     }
   };
@@ -362,11 +284,11 @@ const Wrapped = () => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (showIntro) return;
-      if (e.key === 'ArrowRight') nextSlide();
-      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide, isAnimating, showIntro]);
 
   // Enhanced Background Graphics
@@ -382,10 +304,12 @@ const Wrapped = () => {
               style={{
                 width: `${200 + i * 80}px`,
                 height: `${200 + i * 80}px`,
-                background: `radial-gradient(circle, rgba(255, 255, 255, ${0.15 - i * 0.03}), transparent)`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${
+                  0.15 - i * 0.03
+                }), transparent)`,
                 left: `${10 + i * 20}%`,
                 top: `${20 + i * 15}%`,
-                filter: 'blur(40px)',
+                filter: "blur(40px)",
               }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -415,11 +339,16 @@ const Wrapped = () => {
               style={{
                 width: `${95 - i * 9}%`,
                 height: `${65 - i * 6}%`,
-                background: i % 2 === 0 
-                  ? `linear-gradient(135deg, rgba(255, 255, 255, ${0.18 - i * 0.015}), rgba(255, 255, 255, ${0.08 - i * 0.007}))` 
-                  : `rgba(255, 255, 255, ${0.12 - i * 0.01})`,
+                background:
+                  i % 2 === 0
+                    ? `linear-gradient(135deg, rgba(255, 255, 255, ${
+                        0.18 - i * 0.015
+                      }), rgba(255, 255, 255, ${0.08 - i * 0.007}))`
+                    : `rgba(255, 255, 255, ${0.12 - i * 0.01})`,
                 borderRadius: `${15 + i * 2}%`,
-                border: `${3 - i * 0.2}px solid rgba(255, 255, 255, ${0.15 - i * 0.012})`,
+                border: `${3 - i * 0.2}px solid rgba(255, 255, 255, ${
+                  0.15 - i * 0.012
+                })`,
               }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -435,14 +364,14 @@ const Wrapped = () => {
                 left: `${20 + (i % 3) * 30}%`,
                 top: `${20 + Math.floor(i / 3) * 60}%`,
               }}
-              animate={{ 
-                scale: [1, 1.5, 1], 
-                opacity: [0.4, 0.8, 0.4] 
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.4, 0.8, 0.4],
               }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                delay: i * 0.3 
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.3,
               }}
             />
           ))}
@@ -456,11 +385,13 @@ const Wrapped = () => {
               key={`wave-${i}`}
               className="absolute"
               style={{
-                width: '160%',
-                height: '250px',
-                background: `linear-gradient(180deg, transparent, rgba(255, 255, 255, ${0.12 - i * 0.02}))`,
-                borderRadius: '50%',
-                left: '-30%',
+                width: "160%",
+                height: "250px",
+                background: `linear-gradient(180deg, transparent, rgba(255, 255, 255, ${
+                  0.12 - i * 0.02
+                }))`,
+                borderRadius: "50%",
+                left: "-30%",
                 bottom: `${-120 + i * 60}px`,
                 transform: `rotate(${i * 4}deg)`,
               }}
@@ -507,19 +438,21 @@ const Wrapped = () => {
                 style={{
                   width: size,
                   height: size,
-                  background: `rgba(255, 255, 255, ${0.08 + Math.random() * 0.1})`,
+                  background: `rgba(255, 255, 255, ${
+                    0.08 + Math.random() * 0.1
+                  })`,
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
-                  borderRadius: '8px',
+                  borderRadius: "8px",
                 }}
                 initial={{ scale: 0, rotate: 0 }}
-                animate={{ 
+                animate={{
                   scale: [0, 1, 1],
                   rotate: [0, 180, 180],
                 }}
-                transition={{ 
-                  delay: i * 0.05, 
-                  duration: 0.5 
+                transition={{
+                  delay: i * 0.05,
+                  duration: 0.5,
                 }}
               />
             );
@@ -535,13 +468,15 @@ const Wrapped = () => {
               className="absolute w-full"
               style={{
                 height: `${30 + Math.random() * 40}px`,
-                background: `rgba(255, 255, 255, ${0.05 + Math.random() * 0.08})`,
+                background: `rgba(255, 255, 255, ${
+                  0.05 + Math.random() * 0.08
+                })`,
                 top: `${i * 16}%`,
-                backdropFilter: 'blur(1px)',
+                backdropFilter: "blur(1px)",
               }}
-              initial={{ x: '-100%', opacity: 0 }}
-              animate={{ 
-                x: ['100%', '-100%'],
+              initial={{ x: "-100%", opacity: 0 }}
+              animate={{
+                x: ["100%", "-100%"],
                 opacity: [0, 0.8, 0],
               }}
               transition={{
@@ -581,40 +516,14 @@ const Wrapped = () => {
       >
         <BackgroundGraphics type="waves" />
 
-        {/* Floating map pins */}
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={`pin-${i}`}
-            className="absolute text-3xl"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              opacity: 0.15,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: i * 0.2,
-            }}
-          >
-            📍
-          </motion.div>
-        ))}
-
         {/* Main content container */}
-        <motion.div
-          className="relative z-10 text-center w-full max-w-4xl"
-        >
+        <motion.div className="relative z-10 text-center w-full max-w-4xl">
           {/* Title appears first - fade up */}
           <motion.h2
             className="text-3xl sm:text-4xl font-black text-white mb-8 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {slide.title}
           </motion.h2>
@@ -624,7 +533,12 @@ const Wrapped = () => {
             className="text-7xl mb-6"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.3, type: 'spring', stiffness: 200, damping: 12 }}
+            transition={{
+              delay: 0.3,
+              type: "spring",
+              stiffness: 200,
+              damping: 12,
+            }}
           >
             {slide.icon}
           </motion.div>
@@ -634,7 +548,12 @@ const Wrapped = () => {
             className="inline-block bg-white rounded-2xl px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] border-[4px] border-black"
             initial={{ x: 100, opacity: 0, rotate: 10 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
-            transition={{ delay: 0.5, type: 'spring', stiffness: 150, damping: 15 }}
+            transition={{
+              delay: 0.5,
+              type: "spring",
+              stiffness: 150,
+              damping: 15,
+            }}
             whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
           >
             <div className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#006B7D] to-[#F9A826]">
@@ -661,1565 +580,1577 @@ const Wrapped = () => {
 
   const WelcomeSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-6"
-    >
-      <BackgroundGraphics type="ribbons" />
-
-      {/* Neobrutalism corner brackets */}
       <motion.div
-        className="absolute top-4 left-4 w-10 h-10 border-l-[3px] border-t-[3px] border-black/60"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, type: 'spring' }}
-      />
-      <motion.div
-        className="absolute top-4 right-4 w-10 h-10 border-r-[3px] border-t-[3px] border-black/60"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.3, type: 'spring' }}
-      />
-      <motion.div
-        className="absolute bottom-4 left-4 w-10 h-10 border-l-[3px] border-b-[3px] border-black/60"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.4, type: 'spring' }}
-      />
-      <motion.div
-        className="absolute bottom-4 right-4 w-10 h-10 border-r-[3px] border-b-[3px] border-black/60"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.5, type: 'spring' }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative h-full flex flex-col items-center justify-center text-center px-6"
       >
-        {/* Subtitle appears first - fade from top */}
-        <motion.h2
-          className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          {slide.subtitle}
-        </motion.h2>
-        
-        {/* "Wrapped" text slides in from left with bounce */}
+        <BackgroundGraphics type="ribbons" />
+
+        {/* Neobrutalism corner brackets */}
         <motion.div
-          className="relative inline-block mt-4"
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3, type: 'spring', stiffness: 100, damping: 15 }}
-        >
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-white relative z-10 px-2 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]">
-            {slide.highlight}
-          </h1>
-          {/* Background slides in slightly delayed */}
+          className="absolute top-4 left-4 w-10 h-10 border-l-[3px] border-t-[3px] border-black/60"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, type: "spring" }}
+        />
+        <motion.div
+          className="absolute top-4 right-4 w-10 h-10 border-r-[3px] border-t-[3px] border-black/60"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.3, type: "spring" }}
+        />
+        <motion.div
+          className="absolute bottom-4 left-4 w-10 h-10 border-l-[3px] border-b-[3px] border-black/60"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.4, type: "spring" }}
+        />
+        <motion.div
+          className="absolute bottom-4 right-4 w-10 h-10 border-r-[3px] border-b-[3px] border-black/60"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.5, type: "spring" }}
+        />
+
+        <motion.div className="relative z-10 max-w-full">
+          {/* Subtitle appears first - fade from top */}
+          <motion.h2
+            className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {slide.subtitle}
+          </motion.h2>
+
+          {/* "Wrapped" text slides in from left with bounce */}
           <motion.div
-            className="absolute -inset-3 bg-black/30 rounded-2xl -z-10 border-[3px] border-black/40 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.3)]"
-            initial={{ scale: 0, rotate: -5 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-          />
+            className="relative inline-block mt-4"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.3,
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            }}
+          >
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-white relative z-10 px-2 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]">
+              {slide.highlight}
+            </h1>
+            {/* Background slides in slightly delayed */}
+            <motion.div
+              className="absolute -inset-3 bg-black/30 rounded-2xl -z-10 border-[3px] border-black/40 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.3)]"
+              initial={{ scale: 0, rotate: -5 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-
-      {/* Simple geometric accent - corner */}
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        {/* Paragraph text - left aligned */}
-        <div className="space-y-1">
-          {[
-            "Here's a look back at",
-            'the amazing journey',
-            'of our event'
-          ].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 
-                  ? 'text-4xl sm:text-5xl mt-2 relative' 
-                  : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ 
-                delay: 0.6 + i * 0.15,
-                duration: 0.6,
-                ease: 'easeOut'
-              }}
-              style={i === 2 ? {
-                WebkitTextStroke: '2px rgba(0,0,0,0.2)',
-                paintOrder: 'stroke fill',
-              } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  {/* Highlighter background with swipe animation */}
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
 
-        {/* Simple accent line under text */}
+        {/* Simple geometric accent - corner */}
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {/* Paragraph text - left aligned */}
+          <div className="space-y-1">
+            {[
+              "Here's a look back at",
+              "the amazing journey",
+              "of our event",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 2
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 2
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 2 ? (
+                  <span className="relative inline-block">
+                    {/* Highlighter background with swipe animation */}
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.0,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+
+          {/* Simple accent line under text */}
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const LearningSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-6 overflow-hidden"
-    >
-      {/* Unique animated grid background */}
-      <div className="absolute inset-0">
-        {[...Array(6)].map((_, row) => (
-          [...Array(4)].map((_, col) => (
-            <motion.div
-              key={`grid-${row}-${col}`}
-              className="absolute border border-white/10"
-              style={{
-                width: '25%',
-                height: '16.66%',
-                left: `${col * 25}%`,
-                top: `${row * 16.66}%`,
-              }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: (row + col) * 0.05,
-                duration: 0.4,
-              }}
-            />
-          ))
-        ))}
-      </div>
-
-      {/* Orbiting circles */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={`orbit-${i}`}
-          className="absolute rounded-full border-2 border-white/20"
-          style={{
-            width: `${200 + i * 80}px`,
-            height: `${200 + i * 80}px`,
-            left: '50%',
-            top: '50%',
-            marginLeft: `${-(100 + i * 40)}px`,
-            marginTop: `${-(100 + i * 40)}px`,
-          }}
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 20 + i * 5,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      ))}
-
       <motion.div
-        className="relative z-10 max-w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-center justify-center text-center px-6 overflow-hidden"
       >
-        {/* Title appears FIRST - fade and slide up */}
-        <motion.h2
-          className="text-4xl sm:text-5xl font-black text-white mb-3 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)]"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          {slide.title}
-        </motion.h2>
-        
-        {/* Subtitle appears second - slide from right */}
-        <motion.h3
-          className="text-2xl sm:text-3xl font-bold text-white/90 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)] mb-8"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
-        >
-          {slide.subtitle}
-        </motion.h3>
-
-        {/* Duration cards appear last - staggered from different angles */}
-        <div className="flex justify-center items-center gap-6">
-          {slide.duration.map((item, i) => (
-            <motion.div
-              key={item.label}
-              className="relative"
-              initial={{ 
-                x: i === 0 ? -100 : 100,
-                y: 50,
-                opacity: 0,
-                rotate: i === 0 ? -15 : 15
-              }}
-              animate={{ 
-                x: 0,
-                y: 0,
-                opacity: 1,
-                rotate: 0
-              }}
-              transition={{
-                delay: 0.5 + i * 0.15,
-                duration: 0.7,
-                type: 'spring',
-                stiffness: 100,
-                damping: 15
-              }}
-              style={{ perspective: 1000 }}
-            >
-              {/* Card with 3D effect */}
+        {/* Unique animated grid background */}
+        <div className="absolute inset-0">
+          {[...Array(6)].map((_, row) =>
+            [...Array(4)].map((_, col) => (
               <motion.div
-                className="relative bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-md rounded-2xl p-6 border-[4px] border-black/30 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] min-w-[120px]"
-                whileHover={{
-                  scale: 1.05,
-                  rotate: [0, -2, 2, 0],
-                  transition: { duration: 0.3 },
+                key={`grid-${row}-${col}`}
+                className="absolute border border-white/10"
+                style={{
+                  width: "25%",
+                  height: "16.66%",
+                  left: `${col * 25}%`,
+                  top: `${row * 16.66}%`,
                 }}
-              >
-                {/* Icon with bounce animation */}
-                <motion.div
-                  className="text-4xl mb-2 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.2)]"
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: i * 0.3,
-                  }}
-                >
-                  {item.icon}
-                </motion.div>
-                
-                {/* Value with counting animation effect */}
-                <motion.div
-                  className="text-5xl sm:text-6xl font-black text-gray-900 mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.15)]"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1.2, 1] }}
-                  transition={{ delay: 1.1 + i * 0.2, duration: 0.5 }}
-                  style={{
-                    WebkitTextStroke: '2px rgba(0,0,0,0.1)',
-                    paintOrder: 'stroke fill',
-                  }}
-                >
-                  {item.value}
-                </motion.div>
-                
-                <div className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-                  {item.label}
-                </div>
-
-                {/* Animated corner accents */}
-                <motion.div
-                  className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-400 rounded-full"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.4,
-                  }}
-                />
-                <motion.div
-                  className="absolute -bottom-1 -left-1 w-4 h-4 bg-blue-400 rounded-full"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: 0.5 + i * 0.4,
-                  }}
-                />
-
-                {/* Shimmer effect overlay */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/40 to-transparent"
-                  initial={{ x: '-100%', opacity: 0 }}
-                  animate={{ x: '200%', opacity: [0, 1, 0] }}
-                  transition={{
-                    delay: 1.5 + i * 0.3,
-                    duration: 1.2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-          ))}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: (row + col) * 0.05,
+                  duration: 0.4,
+                }}
+              />
+            ))
+          )}
         </div>
 
-        {/* Floating text particles */}
-        {['Learn', 'Grow', 'Excel', 'Inspire'].map((word, i) => (
+        {/* Orbiting circles */}
+        {[...Array(3)].map((_, i) => (
           <motion.div
-            key={`word-${i}`}
-            className="absolute text-white/20 font-bold text-lg"
+            key={`orbit-${i}`}
+            className="absolute rounded-full border-2 border-white/20"
             style={{
-              left: `${20 + i * 20}%`,
-              top: `${30 + (i % 2) * 40}%`,
+              width: `${200 + i * 80}px`,
+              height: `${200 + i * 80}px`,
+              left: "50%",
+              top: "50%",
+              marginLeft: `${-(100 + i * 40)}px`,
+              marginTop: `${-(100 + i * 40)}px`,
             }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.1, 0.3, 0.1],
-              rotate: [0, 5, -5, 0],
-            }}
+            animate={{ rotate: 360 }}
             transition={{
-              duration: 3 + i * 0.5,
+              duration: 20 + i * 5,
               repeat: Infinity,
-              delay: i * 0.5,
+              ease: "linear",
             }}
-          >
-            {word}
-          </motion.div>
+          />
         ))}
-      </motion.div>
 
-      {/* Bottom wave accent */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/30 to-transparent"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      />
-    </motion.div>
+        <motion.div className="relative z-10 max-w-full">
+          {/* Title appears FIRST - fade and slide up */}
+          <motion.h2
+            className="text-4xl sm:text-5xl font-black text-white mb-3 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)]"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            {slide.title}
+          </motion.h2>
+
+          {/* Subtitle appears second - slide from right */}
+          <motion.h3
+            className="text-2xl sm:text-3xl font-bold text-white/90 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)] mb-8"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+          >
+            {slide.subtitle}
+          </motion.h3>
+
+          {/* Duration cards appear last - staggered from different angles */}
+          <div className="flex justify-center items-center gap-6">
+            {slide.duration.map((item, i) => (
+              <motion.div
+                key={item.label}
+                className="relative"
+                initial={{
+                  x: i === 0 ? -100 : 100,
+                  y: 50,
+                  opacity: 0,
+                  rotate: i === 0 ? -15 : 15,
+                }}
+                animate={{
+                  x: 0,
+                  y: 0,
+                  opacity: 1,
+                  rotate: 0,
+                }}
+                transition={{
+                  delay: 0.5 + i * 0.15,
+                  duration: 0.7,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                }}
+                style={{ perspective: 1000 }}
+              >
+                {/* Card with 3D effect */}
+                <motion.div
+                  className="relative bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-md rounded-2xl p-6 border-[4px] border-black/30 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] min-w-[120px]"
+                  whileHover={{
+                    scale: 1.05,
+                    rotate: [0, -2, 2, 0],
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  {/* Icon with bounce animation */}
+                  <motion.div
+                    className="text-4xl mb-2 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.2)]"
+                    animate={{
+                      y: [0, -10, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.3,
+                    }}
+                  >
+                    {item.icon}
+                  </motion.div>
+
+                  {/* Value with counting animation effect */}
+                  <motion.div
+                    className="text-5xl sm:text-6xl font-black text-gray-900 mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.15)]"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: [0, 1.2, 1] }}
+                    transition={{ delay: 1.1 + i * 0.2, duration: 0.5 }}
+                    style={{
+                      WebkitTextStroke: "2px rgba(0,0,0,0.1)",
+                      paintOrder: "stroke fill",
+                    }}
+                  >
+                    {item.value}
+                  </motion.div>
+
+                  <div className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                    {item.label}
+                  </div>
+
+                  {/* Animated corner accents */}
+                  <motion.div
+                    className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-400 rounded-full"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.7, 1, 0.7],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: i * 0.4,
+                    }}
+                  />
+                  <motion.div
+                    className="absolute -bottom-1 -left-1 w-4 h-4 bg-blue-400 rounded-full"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.7, 1, 0.7],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 0.5 + i * 0.4,
+                    }}
+                  />
+
+                  {/* Shimmer effect overlay */}
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/40 to-transparent"
+                    initial={{ x: "-100%", opacity: 0 }}
+                    animate={{ x: "200%", opacity: [0, 1, 0] }}
+                    transition={{
+                      delay: 1.5 + i * 0.3,
+                      duration: 1.2,
+                      repeat: Infinity,
+                      repeatDelay: 3,
+                    }}
+                  />
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Floating text particles */}
+          {["Learn", "Grow", "Excel", "Inspire"].map((word, i) => (
+            <motion.div
+              key={`word-${i}`}
+              className="absolute text-white/20 font-bold text-lg"
+              style={{
+                left: `${20 + i * 20}%`,
+                top: `${30 + (i % 2) * 40}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.1, 0.3, 0.1],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 3 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.5,
+              }}
+            >
+              {word}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom wave accent */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/30 to-transparent"
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        />
+      </motion.div>
     );
   };
 
   const RuntimeSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-6"
-    >
-      <BackgroundGraphics type="waves" />
-
-      {/* Decorative lines with neobrutalism */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-1 bg-white/80 shadow-[0_2px_0px_0px_rgba(0,0,0,0.3)]"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      />
-
-      <motion.div
-        className="relative z-10 w-full max-w-sm px-4"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-center justify-center text-center px-6"
       >
-        <motion.div
-          className="text-4xl sm:text-5xl mb-3 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
-        >
-          {slide.icon}
-        </motion.div>
+        <BackgroundGraphics type="waves" />
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">{slide.title}</h2>
+        {/* Decorative lines with neobrutalism */}
+        <motion.div
+          className="absolute top-0 left-0 right-0 h-1 bg-white/80 shadow-[0_2px_0px_0px_rgba(0,0,0,0.3)]"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        />
 
         <motion.div
-          className="relative inline-block mb-4"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.3, type: 'spring', stiffness: 150 }}
-        >
-          <div className="text-5xl sm:text-6xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)]" style={{
-            WebkitTextStroke: '2px rgba(0,0,0,0.3)',
-            paintOrder: 'stroke fill',
-          }}>{slide.value}</div>
-          <div className="text-lg sm:text-xl font-semibold text-white/90 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">{slide.unit}</div>
-          
-          {/* Glowing effect with neobrutalism box */}
-          <motion.div
-            className="absolute -inset-3 bg-black/30 blur-lg -z-10 rounded-2xl border-[3px] border-black/40"
-            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
-        </motion.div>
-
-        {/* Daily Breakdown */}
-        <motion.div
-          className="grid grid-cols-2 gap-2.5 max-w-xs mx-auto mt-4"
-          initial={{ y: 30, opacity: 0 }}
+          className="relative z-10 w-full max-w-sm px-4"
+          initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.2 }}
         >
-          {slide.breakdown.map((day, i) => (
-            <motion.div
-              key={i}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
+          <motion.div
+            className="text-4xl sm:text-5xl mb-3 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+          >
+            {slide.icon}
+          </motion.div>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+            {slide.title}
+          </h2>
+
+          <motion.div
+            className="relative inline-block mb-4"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
+          >
+            <div
+              className="text-5xl sm:text-6xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)]"
+              style={{
+                WebkitTextStroke: "2px rgba(0,0,0,0.3)",
+                paintOrder: "stroke fill",
+              }}
             >
-              {/* Card shine effect */}
+              {slide.value}
+            </div>
+            <div className="text-lg sm:text-xl font-semibold text-white/90 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+              {slide.unit}
+            </div>
+
+            {/* Glowing effect with neobrutalism box */}
+            <motion.div
+              className="absolute -inset-3 bg-black/30 blur-lg -z-10 rounded-2xl border-[3px] border-black/40"
+              animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+          </motion.div>
+
+          {/* Daily Breakdown */}
+          <motion.div
+            className="grid grid-cols-2 gap-2.5 max-w-xs mx-auto mt-4"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            {slide.breakdown.map((day, i) => (
               <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent"
-                initial={{ x: '-100%', y: '-100%' }}
-                animate={{ x: '100%', y: '100%' }}
-                transition={{ delay: 1 + i * 0.1, duration: 1 }}
-              />
-              <div className="text-xs font-bold text-gray-700 mb-0.5">{day.label}</div>
-              <div className="text-2xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">{day.value}</div>
-            </motion.div>
-          ))}
+                key={i}
+                className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.6 + i * 0.1 }}
+              >
+                {/* Card shine effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent"
+                  initial={{ x: "-100%", y: "-100%" }}
+                  animate={{ x: "100%", y: "100%" }}
+                  transition={{ delay: 1 + i * 0.1, duration: 1 }}
+                />
+                <div className="text-xs font-bold text-gray-700 mb-0.5">
+                  {day.label}
+                </div>
+                <div className="text-2xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                  {day.value}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const TopLecturesSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center px-8 overflow-hidden"
-    >
-      <BackgroundGraphics type="waves" />
-
-      {/* Title appears FIRST - clean fade up */}
       <motion.div
-        className="text-center mb-8 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-center justify-center px-8 overflow-hidden"
       >
-        <motion.h2 
-          className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          {slide.title}
-        </motion.h2>
-        <motion.p
-          className="text-base sm:text-lg text-white/90 font-semibold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
-        >
-          {slide.subtitle}
-        </motion.p>
-      </motion.div>
+        <BackgroundGraphics type="waves" />
 
-      {/* Lecture cards slide in from alternating sides */}
-      <div className="relative z-10 w-full max-w-[380px] space-y-4">
-        {slide.lectures.map((lecture, index) => (
-          <motion.div
-            key={index}
-            className="bg-white rounded-xl p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-[3px] border-black"
-            initial={{ 
-              x: index === 0 ? -120 : index === 1 ? 120 : -120,
-              y: 30,
-              opacity: 0,
-              rotate: index === 0 ? -10 : index === 1 ? 10 : -10
-            }}
-            animate={{ 
-              x: 0,
-              y: 0,
-              opacity: 1,
-              rotate: 0
-            }}
-            transition={{ 
-              delay: 0.4 + index * 0.2,
-              duration: 0.7,
-              type: 'spring',
-              stiffness: 100,
-              damping: 15
-            }}
-            whileHover={{ scale: 1.03, y: -5, transition: { duration: 0.2 } }}
+        {/* Title appears FIRST - clean fade up */}
+        <motion.div className="text-center mb-8 z-10">
+          <motion.h2
+            className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="flex items-start gap-3">
-              {/* Rank badge */}
-              <div className="flex-shrink-0 flex items-center justify-center">
-                <div 
-                  className="text-4xl sm:text-5xl font-black"
-                  style={{
-                    background: index === 0 
-                      ? 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)'
-                      : index === 1
-                      ? 'linear-gradient(135deg, #C0C0C0 0%, #808080 100%)'
-                      : 'linear-gradient(135deg, #CD7F32 0%, #8B4513 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    WebkitTextStroke: '1px rgba(0,0,0,0.2)',
-                    filter: 'drop-shadow(2px 2px 0px rgba(0,0,0,0.2))'
-                  }}
-                >
-                  #{lecture.rank}
-                </div>
-              </div>
+            {slide.title}
+          </motion.h2>
+          <motion.p
+            className="text-base sm:text-lg text-white/90 font-semibold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          >
+            {slide.subtitle}
+          </motion.p>
+        </motion.div>
 
-              {/* Lecture info */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm sm:text-base font-black text-gray-900 leading-tight mb-1 line-clamp-2">
-                  {lecture.title}
-                </h3>
-                <p className="text-xs font-bold text-gray-600 mb-1">
-                  by {lecture.speaker}
-                </p>
-                <div className="flex items-center gap-1">
-                  <span className="text-xs font-bold text-purple-600">
-                    👁️ {lecture.views} views
-                  </span>
+        {/* Lecture cards slide in from alternating sides */}
+        <div className="relative z-10 w-full max-w-[380px] space-y-4">
+          {slide.lectures.map((lecture, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-xl p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-[3px] border-black"
+              initial={{
+                x: index === 0 ? -120 : index === 1 ? 120 : -120,
+                y: 30,
+                opacity: 0,
+                rotate: index === 0 ? -10 : index === 1 ? 10 : -10,
+              }}
+              animate={{
+                x: 0,
+                y: 0,
+                opacity: 1,
+                rotate: 0,
+              }}
+              transition={{
+                delay: 0.4 + index * 0.2,
+                duration: 0.7,
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+              }}
+              whileHover={{ scale: 1.03, y: -5, transition: { duration: 0.2 } }}
+            >
+              <div className="flex items-start gap-3">
+                {/* Rank badge */}
+                <div className="flex-shrink-0 flex items-center justify-center">
+                  <div
+                    className="text-4xl sm:text-5xl font-black"
+                    style={{
+                      background:
+                        index === 0
+                          ? "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)"
+                          : index === 1
+                          ? "linear-gradient(135deg, #C0C0C0 0%, #808080 100%)"
+                          : "linear-gradient(135deg, #CD7F32 0%, #8B4513 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      WebkitTextStroke: "1px rgba(0,0,0,0.2)",
+                      filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.2))",
+                    }}
+                  >
+                    #{lecture.rank}
+                  </div>
+                </div>
+
+                {/* Lecture info */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm sm:text-base font-black text-gray-900 leading-tight mb-1 line-clamp-2">
+                    {lecture.title}
+                  </h3>
+                  <p className="text-xs font-bold text-gray-600 mb-1">
+                    by {lecture.speaker}
+                  </p>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     );
   };
 
   const IntroToStatsSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-
-      {/* Simple geometric accent - corner */}
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        {/* Paragraph text - left aligned */}
-        <div className="space-y-1">
-          {[
-            "But that's not all...",
-            "Let's talk about",
-            'the amazing people',
-            'who made it happen'
-          ].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 3 
-                  ? 'text-4xl sm:text-5xl mt-2 relative' 
-                  : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ 
-                delay: 0.6 + i * 0.15,
-                duration: 0.6,
-                ease: 'easeOut'
-              }}
-              style={i === 3 ? {
-                WebkitTextStroke: '2px rgba(0,0,0,0.2)',
-                paintOrder: 'stroke fill',
-              } : {}}
-            >
-              {i === 3 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.15, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
 
-        {/* Simple accent line under text */}
+        {/* Simple geometric accent - corner */}
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.3, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {/* Paragraph text - left aligned */}
+          <div className="space-y-1">
+            {[
+              "But that's not all...",
+              "Let's talk about",
+              "the amazing people",
+              "who made it happen",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 3
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 3
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 3 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.15,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+
+          {/* Simple accent line under text */}
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
-  const IntroToNCSPSlide = ({ slide }) => {
+  const IntroToNCPSSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-
-      {/* Simple geometric accent - corner */}
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        {/* Paragraph text - left aligned */}
-        <div className="space-y-1">
-          {[
-            'Among these participants',
-            'are courageous campus journalists',
-            'that tried to prove that they are',
-            'true champions'
-          ].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 3 
-                  ? 'text-4xl sm:text-5xl mt-2 relative' 
-                  : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ 
-                delay: 0.6 + i * 0.15,
-                duration: 0.6,
-                ease: 'easeOut'
-              }}
-              style={i === 3 ? {
-                WebkitTextStroke: '2px rgba(0,0,0,0.2)',
-                paintOrder: 'stroke fill',
-              } : {}}
-            >
-              {i === 3 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.15, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
 
-        {/* Simple accent line under text */}
+        {/* Simple geometric accent - corner */}
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.3, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
-      </motion.div>
-    </motion.div>
-    );
-  };
 
-  const IntroToMedalsSlide = ({ slide }) => {
-    const highlightColor = getHighlightColor(slide.bgColor);
-    
-    return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-
-      {/* Simple geometric accent - corner */}
-      <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-      >
-        {/* Paragraph text - left aligned */}
-        <div className="space-y-1">
-          {[
-            'And the best part?',
-            'We celebrated excellence',
-            'with medals and awards'
-          ].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 
-                  ? 'text-4xl sm:text-5xl mt-2 relative' 
-                  : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ 
-                delay: 0.6 + i * 0.15,
-                duration: 0.6,
-                ease: 'easeOut'
-              }}
-              style={i === 2 ? {
-                WebkitTextStroke: '2px rgba(0,0,0,0.2)',
-                paintOrder: 'stroke fill',
-              } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
-
-        {/* Simple accent line under text */}
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
-        />
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {/* Paragraph text - left aligned */}
+          <div className="space-y-1">
+            {[
+              "Among these participants",
+              "are courageous campus journalists",
+              "that tried to prove that they are",
+              "true champions",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 3
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 3
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 3 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.15,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+
+          {/* Simple accent line under text */}
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroToRuntimeSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        <div className="space-y-1">
-          {["Let's break down", 'the time we spent', 'learning together'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-4xl sm:text-5xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="space-y-1">
+            {["Let's break down", "the time we spent", "learning together"].map(
+              (line, i) => (
+                <motion.p
+                  key={i}
+                  className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                    i === 2
+                      ? "text-4xl sm:text-5xl mt-2 relative"
+                      : "text-2xl sm:text-3xl text-white"
+                  }`}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.6 + i * 0.15,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  style={
+                    i === 2
+                      ? {
+                          WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                          paintOrder: "stroke fill",
+                        }
+                      : {}
+                  }
+                >
+                  {i === 2 ? (
+                    <span className="relative inline-block">
+                      <motion.span
+                        className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{
+                          delay: 1.0,
+                          duration: 0.6,
+                          ease: "easeOut",
+                        }}
+                        style={{ transformOrigin: "left" }}
+                      />
+                      <span className={`relative z-10 ${highlightColor.text}`}>
+                        {line}
+                      </span>
+                    </span>
+                  ) : (
+                    line
+                  )}
+                </motion.p>
+              )
+            )}
+          </div>
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroToLecturesSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
-    return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-      <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-      >
-        <div className="space-y-1">
-          {['What did you watch?', 'Here are the lectures', 'everyone loved'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-4xl sm:text-5xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
-        <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
-        />
-      </motion.div>
-    </motion.div>
-    );
-  };
 
-  const IntroToTrophiesSlide = ({ slide }) => {
-    const highlightColor = getHighlightColor(slide.bgColor);
-    
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        <div className="space-y-1">
-          {["But there's more...", 'We also honored the best', 'with championship trophies'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-4xl sm:text-5xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="space-y-1">
+            {[
+              "What did you watch?",
+              "Here are the lectures",
+              "everyone loved",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 2
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 2
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 2 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.0,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroToRegionsParticipatedSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        <div className="space-y-1">
-          {['From north to south', 'campus journalists gathered', 'from across the nation'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-4xl sm:text-5xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="space-y-1">
+            {[
+              "From north to south",
+              "campus journalists gathered",
+              "from across the nation",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 2
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 2
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 2 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.0,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroToRegionsSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        <div className="space-y-1">
-          {['And the standouts?', 'These regions showed', 'exceptional participation'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-4xl sm:text-5xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="space-y-1">
+            {[
+              "And the standouts?",
+              "These regions showed",
+              "exceptional participation",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 2
+                    ? "text-4xl sm:text-5xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 2
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 2 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.0,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const IntroToThankYouSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-      <motion.div
-        className="relative z-10 max-w-md"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        <div className="space-y-1">
-          {['To every single one of you', 'who made this journey meaningful', 'thank you from the bottom of our hearts'].map((line, i) => (
-            <motion.p
-              key={i}
-              className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
-                i === 2 ? 'text-3xl sm:text-4xl mt-2 relative' : 'text-2xl sm:text-3xl text-white'
-              }`}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6 + i * 0.15, duration: 0.6, ease: 'easeOut' }}
-              style={i === 2 ? { WebkitTextStroke: '2px rgba(0,0,0,0.2)', paintOrder: 'stroke fill' } : {}}
-            >
-              {i === 2 ? (
-                <span className="relative inline-block">
-                  <motion.span
-                    className={`absolute inset-0 ${highlightColor.bg} -z-10`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
-                    style={{ transformOrigin: 'left' }}
-                  />
-                  <span className={`relative z-10 ${highlightColor.text}`}>{line}</span>
-                </span>
-              ) : (
-                line
-              )}
-            </motion.p>
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
         <motion.div
-          className="mt-6 w-24 h-1 bg-white/40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         />
+        <motion.div
+          className="relative z-10 max-w-md"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="space-y-1">
+            {[
+              "To every single one of you",
+              "who made this journey meaningful",
+              "thank you from the bottom of our hearts",
+            ].map((line, i) => (
+              <motion.p
+                key={i}
+                className={`text-left font-bold drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] ${
+                  i === 2
+                    ? "text-3xl sm:text-4xl mt-2 relative"
+                    : "text-2xl sm:text-3xl text-white"
+                }`}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6 + i * 0.15,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                style={
+                  i === 2
+                    ? {
+                        WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                        paintOrder: "stroke fill",
+                      }
+                    : {}
+                }
+              >
+                {i === 2 ? (
+                  <span className="relative inline-block">
+                    <motion.span
+                      className={`absolute inset-0 ${highlightColor.bg} -z-10`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        delay: 1.0,
+                        duration: 0.6,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                    <span className={`relative z-10 ${highlightColor.text}`}>
+                      {line}
+                    </span>
+                  </span>
+                ) : (
+                  line
+                )}
+              </motion.p>
+            ))}
+          </div>
+          <motion.div
+            className="mt-6 w-24 h-1 bg-white/40"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const StatSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-6"
-    >
-      <BackgroundGraphics type="ribbons" />
-      
-      {/* Animated border pulse with neobrutalism */}
       <motion.div
-        className="absolute inset-6 border-[3px] border-white/30 rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.2)]"
-        animate={{ 
-          scale: [1, 1.01, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-full"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-center justify-center text-center px-6"
       >
-        {/* Intro text if present */}
-        {slide.intro && (
-          <motion.p
-            className="text-lg sm:text-xl font-semibold text-white/80 mb-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-          >
-            {slide.intro}
-          </motion.p>
-        )}
+        <BackgroundGraphics type="ribbons" />
+
+        {/* Animated border pulse with neobrutalism */}
+        <motion.div
+          className="absolute inset-6 border-[3px] border-white/30 rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.2)]"
+          animate={{
+            scale: [1, 1.01, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
 
         <motion.div
-          className="text-5xl sm:text-6xl mb-4 relative filter drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)]"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
+          className="relative z-10 max-w-full"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          {slide.icon}
-          {/* Icon glow */}
+          {/* Intro text if present */}
+          {slide.intro && (
+            <motion.p
+              className="text-lg sm:text-xl font-semibold text-white/80 mb-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+            >
+              {slide.intro}
+            </motion.p>
+          )}
+
           <motion.div
-            className="absolute inset-0 blur-xl opacity-40"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className="text-5xl sm:text-6xl mb-4 relative filter drop-shadow-[3px_3px_0px_rgba(0,0,0,0.3)]"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
           >
             {slide.icon}
-          </motion.div>
-        </motion.div>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">{slide.title}</h2>
-
-        <motion.div
-          className="relative inline-block"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.4, type: 'spring', stiffness: 150 }}
-        >
-          <motion.div
-            className="text-6xl sm:text-7xl font-black text-white mb-1 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]"
-            style={{
-              WebkitTextStroke: '2px rgba(0,0,0,0.3)',
-              paintOrder: 'stroke fill',
-            }}
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            {slide.value}
-          </motion.div>
-          {/* Background box with neobrutalism */}
-          <motion.div
-            className="absolute -inset-4 bg-black/30 rounded-2xl -z-10 border-[3px] border-black/40 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]"
-            initial={{ scale: 0, rotate: -3 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.5 }}
-          />
-        </motion.div>
-
-        <p className="text-lg sm:text-xl font-semibold text-white/90 mt-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">{slide.unit}</p>
-        <p className="text-sm sm:text-base font-medium text-white/70 mt-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]">{slide.subtitle}</p>
-      </motion.div>
-    </motion.div>
-    );
-  };
-
-  const MedalsSlide = ({ slide }) => {
-    return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-8"
-    >
-      <BackgroundGraphics type="pixelated" />
-
-      {/* Top accent line */}
-      <motion.div
-        className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      />
-
-      <motion.div
-        className="relative z-10 w-full"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        <motion.div
-          className="text-4xl sm:text-5xl mb-3 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
-        >
-          {slide.icon}
-        </motion.div>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">{slide.title}</h2>
-
-        <motion.div
-          className="relative inline-block mb-4"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.3, type: 'spring', stiffness: 150 }}
-        >
-          <div className="text-6xl sm:text-7xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.5)]" style={{
-            WebkitTextStroke: '2px rgba(0,0,0,0.3)',
-            paintOrder: 'stroke fill',
-          }}>{slide.value}</div>
-          <div className="text-lg sm:text-xl font-semibold text-white/90 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">{slide.unit}</div>
-        </motion.div>
-
-        {/* Medal Breakdown */}
-        <motion.div
-          className="flex justify-center gap-2.5 max-w-sm mx-auto mt-4 px-2"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          {slide.breakdown.map((medal, i) => (
+            {/* Icon glow */}
             <motion.div
-              key={i}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] flex-1 relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
-              initial={{ scale: 0, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.1, type: 'spring' }}
-              whileHover={{ scale: 1.03 }}
+              className="absolute inset-0 blur-xl opacity-40"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
-              {/* Ranking badge with neobrutalism */}
-              <motion.div
-                className="absolute -top-1 -right-1 w-5 h-5 bg-black/80 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8 + i * 0.1 }}
-              >
-                {i + 1}
-              </motion.div>
-              <div className="text-2xl sm:text-3xl mb-1">{medal.emoji}</div>
-              <div className="text-2xl sm:text-3xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">{medal.value}</div>
-              <div className="text-xs font-bold text-gray-700 mt-0.5">{medal.label}</div>
+              {slide.icon}
             </motion.div>
-          ))}
+          </motion.div>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+            {slide.title}
+          </h2>
+
+          <motion.div
+            className="relative inline-block"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.4, type: "spring", stiffness: 150 }}
+          >
+            <motion.div
+              className="text-6xl sm:text-7xl font-black text-white mb-1 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]"
+              style={{
+                WebkitTextStroke: "2px rgba(0,0,0,0.3)",
+                paintOrder: "stroke fill",
+              }}
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              {slide.value}
+            </motion.div>
+            {/* Background box with neobrutalism */}
+            <motion.div
+              className="absolute -inset-4 bg-black/30 rounded-2xl -z-10 border-[3px] border-black/40 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]"
+              initial={{ scale: 0, rotate: -3 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.5 }}
+            />
+          </motion.div>
+
+          <p className="text-lg sm:text-xl font-semibold text-white/90 mt-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+            {slide.unit}
+          </p>
+          <p className="text-sm sm:text-base font-medium text-white/70 mt-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]">
+            {slide.subtitle}
+          </p>
         </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const RegionsSlide = ({ slide }) => {
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-center justify-center text-center px-6 py-6"
-    >
-      <BackgroundGraphics type="glitch" />
-
-      {/* Decorative top bar with neobrutalism */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/50 to-transparent border-b-[3px] border-black/30"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.1 }}
-      />
-
-      <motion.div
-        className="relative z-10 w-full max-w-sm"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-center justify-center text-center px-6 py-6"
       >
+        <BackgroundGraphics type="glitch" />
+
+        {/* Decorative top bar with neobrutalism */}
         <motion.div
-          className="mb-3"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', delay: 0.1 }}
+          className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/50 to-transparent border-b-[3px] border-black/30"
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.1 }}
+        />
+
+        <motion.div
+          className="relative z-10 w-full max-w-sm"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          <div className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full border-2 border-white/40 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
-            <span className="text-xs font-bold text-white uppercase tracking-wider drop-shadow-[1px_1px_0px_rgba(0,0,0,0.3)]">Regional Insights</span>
+          <motion.div
+            className="mb-3"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", delay: 0.1 }}
+          >
+            <div className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full border-2 border-white/40 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+              <span className="text-xs font-bold text-white uppercase tracking-wider drop-shadow-[1px_1px_0px_rgba(0,0,0,0.3)]">
+                Regional Insights
+              </span>
+            </div>
+          </motion.div>
+
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]">
+            {slide.title}
+          </h2>
+          <p className="text-sm sm:text-base font-medium text-white/80 mb-6 drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]">
+            {slide.subtitle}
+          </p>
+
+          <div className="space-y-3 max-w-sm mx-auto px-2">
+            {slide.regions.map((region, i) => (
+              <motion.div
+                key={i}
+                className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] flex items-center justify-between relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.3 + i * 0.15,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{ scale: 1.01 }}
+              >
+                {/* Gradient overlay on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "200%" }}
+                  transition={{ delay: 1 + i * 0.2, duration: 1.5 }}
+                />
+
+                <div className="flex items-center gap-3 z-10">
+                  <motion.div
+                    className="text-3xl sm:text-4xl filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.2)]"
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ delay: 0.5 + i * 0.15, duration: 0.5 }}
+                  >
+                    {region.emoji}
+                  </motion.div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-gray-700">
+                      Rank {region.rank}
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">
+                      {region.name}
+                    </div>
+                  </div>
+                </div>
+                <motion.div
+                  className="text-4xl sm:text-5xl font-black text-black/20 z-10"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.5 + i * 0.15 }}
+                >
+                  {region.rank}
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
-
-        <h2 className="text-3xl sm:text-4xl font-black text-white mb-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]">{slide.title}</h2>
-        <p className="text-sm sm:text-base font-medium text-white/80 mb-6 drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]">{slide.subtitle}</p>
-
-        <div className="space-y-3 max-w-sm mx-auto px-2">
-          {slide.regions.map((region, i) => (
-            <motion.div
-              key={i}
-              className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border-[3px] border-black/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.25)] flex items-center justify-between relative overflow-hidden hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all"
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3 + i * 0.15, type: 'spring', stiffness: 100 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              {/* Gradient overlay on hover */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
-                initial={{ x: '-100%' }}
-                animate={{ x: '200%' }}
-                transition={{ delay: 1 + i * 0.2, duration: 1.5 }}
-              />
-
-              <div className="flex items-center gap-3 z-10">
-                <motion.div
-                  className="text-3xl sm:text-4xl filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.2)]"
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ delay: 0.5 + i * 0.15, duration: 0.5 }}
-                >
-                  {region.emoji}
-                </motion.div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-gray-700">Rank {region.rank}</div>
-                  <div className="text-xl sm:text-2xl font-black text-gray-900 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.1)]">{region.name}</div>
-                </div>
-              </div>
-              <motion.div
-                className="text-4xl sm:text-5xl font-black text-black/20 z-10"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.15 }}
-              >
-                {region.rank}
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const MessageSlide = ({ slide }) => {
     const highlightColor = getHighlightColor(slide.bgColor);
-    
+
     return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
-    >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
-
-      {/* Simple geometric accent - corner */}
       <motion.div
-        className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      />
-
-      <motion.div
-        className="relative z-10 max-w-2xl"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative h-full flex flex-col items-start justify-center px-8 overflow-hidden"
       >
-        {/* Paragraph text - left aligned */}
-        <div className="space-y-4">
-          <motion.h1
-            className="text-3xl sm:text-4xl font-black text-white text-left drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
-            style={{
-              WebkitTextStroke: '2px rgba(0,0,0,0.2)',
-              paintOrder: 'stroke fill',
-            }}
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            {slide.title}
-          </motion.h1>
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
 
-          <motion.p
-            className="text-lg sm:text-xl font-medium text-white/95 text-left leading-relaxed drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-          >
-            {slide.message}
-          </motion.p>
+        {/* Simple geometric accent - corner */}
+        <motion.div
+          className="absolute top-0 left-0 w-32 h-32 border-l-[3px] border-t-[3px] border-white/20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        />
 
-          <motion.p
-            className="text-2xl sm:text-3xl font-bold text-left drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)] pt-2 relative inline-block"
-            style={{
-              WebkitTextStroke: '1px rgba(0,0,0,0.2)',
-              paintOrder: 'stroke fill',
-            }}
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-          >
-            <motion.span
-              className={`absolute inset-0 ${highlightColor.bg} -z-10 rounded`}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1.1, duration: 0.5 }}
-              style={{ transformOrigin: 'left' }}
-            />
-            <span className={`relative z-10 ${highlightColor.text}`}>{slide.subtitle}</span>
-          </motion.p>
-        </div>
+        <motion.div
+          className="relative z-10 max-w-2xl"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {/* Paragraph text - left aligned */}
+          <div className="space-y-4">
+            <motion.h1
+              className="text-3xl sm:text-4xl font-black text-white text-left drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]"
+              style={{
+                WebkitTextStroke: "2px rgba(0,0,0,0.2)",
+                paintOrder: "stroke fill",
+              }}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              {slide.title}
+            </motion.h1>
+
+            <motion.p
+              className="text-lg sm:text-xl font-medium text-white/95 text-left leading-relaxed drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+            >
+              {slide.message}
+            </motion.p>
+
+            <motion.p
+              className="text-2xl sm:text-3xl font-bold text-left drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)] pt-2 relative inline-block"
+              style={{
+                WebkitTextStroke: "1px rgba(0,0,0,0.2)",
+                paintOrder: "stroke fill",
+              }}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+            >
+              <motion.span
+                className={`absolute inset-0 ${highlightColor.bg} -z-10 rounded`}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 1.1, duration: 0.5 }}
+                style={{ transformOrigin: "left" }}
+              />
+              <span className={`relative z-10 ${highlightColor.text}`}>
+                {slide.subtitle}
+              </span>
+            </motion.p>
+          </div>
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const ThankYouSlide = ({ slide }) => {
+    const [isGenerating, setIsGenerating] = useState(false);
+
+    // Journalism Classes/Houses with rarity
+    const journalismClasses = [
+      {
+        name: "The Scribes",
+        icon: "🖋️",
+        rarity: "Legendary",
+        rarityColor: "#FFD700",
+        description:
+          "Elite wordsmiths who craft stories that write tomorrow's headlines",
+        weight: 5, // 5% chance
+      },
+      {
+        name: "The Watchdogs",
+        icon: "🔍",
+        rarity: "Epic",
+        rarityColor: "#A855F7",
+        description: "Truth-seekers who demand transparency and justice",
+        weight: 15, // 15% chance
+      },
+      {
+        name: "The Storytellers",
+
+        icon: "📖",
+        rarity: "Rare",
+        rarityColor: "#3B82F6",
+        description: "Master narrators who capture the human experience",
+        weight: 20, // 20% chance
+      },
+      {
+        name: "The Visionaries",
+        icon: "📸",
+        rarity: "Uncommon",
+        rarityColor: "#22C55E",
+        description: "Creative minds who see stories others miss",
+        weight: 25, // 25% chance
+      },
+      {
+        name: "The Broadcasters",
+        icon: "🎙️",
+        rarity: "Common",
+        rarityColor: "#64748B",
+        description: "Bold voices that amplify what matters",
+        weight: 35, // 35% chance
+      },
+    ];
+
+    // Function to get random class based on weighted probability
+    const getRandomClass = () => {
+      const totalWeight = journalismClasses.reduce(
+        (sum, c) => sum + c.weight,
+        0
+      );
+      let random = Math.random() * totalWeight;
+
+      for (const journClass of journalismClasses) {
+        random -= journClass.weight;
+        if (random <= 0) {
+          return journClass;
+        }
+      }
+      return journalismClasses[journalismClasses.length - 1];
+    };
+
     const generateShareImage = async () => {
+      setIsGenerating(true);
+
+      // Get random class for this user
+      const userClass = getRandomClass();
+
       try {
         // Create a hidden container for the share image
-        const shareContainer = document.createElement('div');
-        shareContainer.style.position = 'fixed';
-        shareContainer.style.left = '-9999px';
-        shareContainer.style.width = '1080px';
-        shareContainer.style.height = '1920px';
-        shareContainer.style.background = 'linear-gradient(135deg, #006B7D 0%, #1AA8C8 50%, #F9A826 100%)';
+        const shareContainer = document.createElement("div");
+        shareContainer.style.position = "fixed";
+        shareContainer.style.left = "-9999px";
+        shareContainer.style.width = "1080px";
+        shareContainer.style.height = "1920px";
+        shareContainer.style.background =
+          "linear-gradient(135deg, #006B7D 0%, #1AA8C8 50%, #F9A826 100%)";
         shareContainer.style.fontFamily = "'Montserrat', sans-serif";
-        shareContainer.style.padding = '80px 60px';
-        shareContainer.style.display = 'flex';
-        shareContainer.style.flexDirection = 'column';
-        shareContainer.style.justifyContent = 'space-between';
-        shareContainer.style.position = 'relative';
-        shareContainer.style.overflow = 'hidden';
+        shareContainer.style.padding = "80px 60px";
+        shareContainer.style.display = "flex";
+        shareContainer.style.flexDirection = "column";
+        shareContainer.style.justifyContent = "space-between";
+        shareContainer.style.position = "relative";
+        shareContainer.style.overflow = "hidden";
 
         shareContainer.innerHTML = `
           <!-- Colorful gradient blobs in background (Brand colors) -->
@@ -2243,7 +2174,7 @@ const Wrapped = () => {
 
             <!-- Personal message -->
             <div style="background: rgba(0,0,0,0.18); backdrop-filter: blur(10px); padding: 28px 32px; border-radius: 12px; margin-bottom: 40px; text-align: center;">
-              <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0; line-height: 1.5; opacity: 0.9;">I am one of the <span style="font-weight: 900; font-size: 28px;">1,500+</span> attendees who joined this year's JournCamp+</p>
+              <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0; line-height: 1.5; opacity: 0.9;">I am one of the <span style="font-weight: 900; font-size: 28px;">3,500+</span> attendees who joined this year's JournCamp+</p>
             </div>
 
             <!-- Stats in Spotify-style layout -->
@@ -2251,60 +2182,75 @@ const Wrapped = () => {
               <!-- Top Stats -->
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
                 <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 28px; border-radius: 12px;">
-                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">Total Hours</p>
-                  <h2 style="font-size: 80px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">120</h2>
+                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">Total Runtime</p>
+                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">30 hours</h2>
                 </div>
                 <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 28px; border-radius: 12px;">
-                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">NCPS Participants</p>
-                  <h2 style="font-size: 80px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">300</h2>
+                  <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.9;">NCPS Submissions</p>
+                  <h2 style="font-size: 50px; font-weight: 900; color: #000; margin: 0; line-height: 0.9;">2,373</h2>
                 </div>
               </div>
 
               <!-- Middle Stats Grid -->
               <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 18px;">
-                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 30px 16px; border-radius: 10px; text-align: center;">
-                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.85;">Medals</p>
-                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">50</h3>
+                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 38px 16px; border-radius: 10px; text-align: center;">
+                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Categories</p>
+                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">14</h3>
                 </div>
-                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 30px 16px; border-radius: 10px; text-align: center;">
-                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.85;">Trophies</p>
-                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">25</h3>
+                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 38px 16px; border-radius: 10px; text-align: center;">
+                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Lectures</p>
+                  <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">20</h3>
                 </div>
-                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 30px 16px; border-radius: 10px; text-align: center;">
-                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.85;">Regions</p>
+                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 38px 16px; border-radius: 10px; text-align: center;">
+                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Regions</p>
                   <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">18</h3>
                 </div>
-                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 30px 16px; border-radius: 10px; text-align: center;">
-                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 6px 0; opacity: 0.85;">Days</p>
+                <div style="background: rgba(0,0,0,0.12); backdrop-filter: blur(8px); padding: 26px 16px 38px 16px; border-radius: 10px; text-align: center;">
+                  <p style="font-size: 17px; font-weight: 700; color: #000; margin: 0 0 8px 0; opacity: 0.85;">Lecture Days</p>
                   <h3 style="font-size: 56px; font-weight: 900; color: #000; margin: 0; line-height: 1;">4</h3>
                 </div>
               </div>
 
-              <!-- Top Lectures -->
-              <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 32px 34px 32px; border-radius: 12px; margin-bottom: 18px;">
-                <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 18px 0; opacity: 0.9;">Top Watched Lectures</p>
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 28px; font-weight: 900; color: #000; opacity: 0.6; min-width: 30px;">1</div>
-                    <div style="flex: 1;">
-                      <div style="font-size: 20px; font-weight: 900; color: #000; line-height: 1.3;">Media Ethics & Responsibility</div>
-                      <div style="font-size: 15px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 3px;">Maria Santos</div>
+              <!-- Top Lectures and Your Class Grid -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+                <!-- Top Lectures -->
+                <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 26px 24px 28px 24px; border-radius: 12px;">
+                  <p style="font-size: 20px; font-weight: 700; color: #000; margin: 0 0 14px 0; opacity: 0.9;">Top Lectures</p>
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="font-size: 22px; font-weight: 900; color: #000; opacity: 0.6; min-width: 24px;">1</div>
+                      <div style="flex: 1;">
+                        <div style="font-size: 16px; font-weight: 900; color: #000; line-height: 1.3;">Feature Writing</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 2px;">Ms. Gianela Zapata</div>
+                      </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="font-size: 22px; font-weight: 900; color: #000; opacity: 0.6; min-width: 24px;">2</div>
+                      <div style="flex: 1;">
+                        <div style="font-size: 16px; font-weight: 900; color: #000; line-height: 1.3;">Copyreading & Headline Writing</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 2px;">Mr. Isaiah Hillario</div>
+                      </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="font-size: 22px; font-weight: 900; color: #000; opacity: 0.6; min-width: 24px;">3</div>
+                      <div style="flex: 1;">
+                        <div style="font-size: 16px; font-weight: 900; color: #000; line-height: 1.3;">Column Writing</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 2px;">Ms. Jhewen Albis</div>
+                      </div>
                     </div>
                   </div>
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 28px; font-weight: 900; color: #000; opacity: 0.6; min-width: 30px;">2</div>
-                    <div style="flex: 1;">
-                      <div style="font-size: 20px; font-weight: 900; color: #000; line-height: 1.3;">Digital Journalism in 2024</div>
-                      <div style="font-size: 15px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 3px;">John Cruz</div>
-                    </div>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 28px; font-weight: 900; color: #000; opacity: 0.6; min-width: 30px;">3</div>
-                    <div style="flex: 1;">
-                      <div style="font-size: 20px; font-weight: 900; color: #000; line-height: 1.3;">Investigative Reporting</div>
-                      <div style="font-size: 15px; font-weight: 600; color: #000; opacity: 0.7; margin-top: 3px;">Ana Reyes</div>
-                    </div>
-                  </div>
+                </div>
+
+                <!-- Your Class -->
+                <div style="background: rgba(0,0,0,0.18); backdrop-filter: blur(10px); padding: 26px 24px 28px 24px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                  <p style="font-size: 18px; font-weight: 700; color: #000; margin: 0 0 12px 0; opacity: 0.8;">Your Personal Class</p>
+                  
+                  <!-- Large icon without circle -->
+                  <div style="font-size: 92px; margin-bottom: 12px;">${userClass.icon}</div>
+                  
+                  <div style="font-size: 22px; font-weight: 900; color: #000; margin-bottom: 6px; text-shadow: 1px 1px 0 rgba(255,255,255,0.5);">${userClass.name}</div>
+                  <div style="font-size: 14px; font-weight: 800; color: ${userClass.rarityColor}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">✦ ${userClass.rarity} ✦</div>
+                  <div style="font-size: 12px; font-weight: 600; color: #000; opacity: 0.85; line-height: 1.4;">${userClass.description}</div>
                 </div>
               </div>
 
@@ -2312,17 +2258,26 @@ const Wrapped = () => {
               <div style="background: rgba(0,0,0,0.15); backdrop-filter: blur(10px); padding: 30px 32px 34px 32px; border-radius: 12px;">
                 <p style="font-size: 24px; font-weight: 700; color: #000; margin: 0 0 18px 0; opacity: 0.9;">Top Regions</p>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-                  <div style="text-align: center;">
-                    <div style="font-size: 30px; font-weight: 900; color: #000; margin-bottom: 6px; opacity: 0.6;">1</div>
-                    <div style="font-size: 24px; font-weight: 900; color: #000; line-height: 1.3;">NCR</div>
+                  <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; border: 5px solid #FFD700; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                      <img src="/regions/region-iii.png" alt="Region III" style="width: 65px; height: 65px; object-fit: contain;" />
+                    </div>
+                    <div style="font-size: 28px; font-weight: 900; color: #FFD700; margin-bottom: 4px; text-shadow: 1px 1px 0 rgba(0,0,0,0.2);">1</div>
+                    <div style="font-size: 16px; font-weight: 800; color: #000; line-height: 1.3;">Region III<br/>Central Luzon</div>
                   </div>
-                  <div style="text-align: center;">
-                    <div style="font-size: 30px; font-weight: 900; color: #000; margin-bottom: 6px; opacity: 0.6;">2</div>
-                    <div style="font-size: 24px; font-weight: 900; color: #000; line-height: 1.3;">CAR</div>
+                  <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; border: 5px solid #C0C0C0; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                      <img src="/regions/calabarzon.png" alt="CALABARZON" style="width: 65px; height: 65px; object-fit: contain;" />
+                    </div>
+                    <div style="font-size: 28px; font-weight: 900; color: #C0C0C0; margin-bottom: 4px; text-shadow: 1px 1px 0 rgba(0,0,0,0.2);">2</div>
+                    <div style="font-size: 16px; font-weight: 800; color: #000; line-height: 1.3;">Region IV-A<br/>CALABARZON</div>
                   </div>
-                  <div style="text-align: center;">
-                    <div style="font-size: 30px; font-weight: 900; color: #000; margin-bottom: 6px; opacity: 0.6;">3</div>
-                    <div style="font-size: 24px; font-weight: 900; color: #000; line-height: 1.3;">CALABARZON</div>
+                  <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; border: 5px solid #CD7F32; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                      <img src="/regions/ncr.png" alt="NCR" style="width: 65px; height: 65px; object-fit: contain;" />
+                    </div>
+                    <div style="font-size: 28px; font-weight: 900; color: #CD7F32; margin-bottom: 4px; text-shadow: 1px 1px 0 rgba(0,0,0,0.2);">3</div>
+                    <div style="font-size: 16px; font-weight: 800; color: #000; line-height: 1.3;">National Capital Region</div>
                   </div>
                 </div>
               </div>
@@ -2343,10 +2298,10 @@ const Wrapped = () => {
         document.body.appendChild(shareContainer);
 
         // Wait a bit for fonts and rendering
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise((resolve) => setTimeout(resolve, 100));
 
         // Use html2canvas to capture the share container
-        const html2canvas = (await import('html2canvas')).default;
+        const html2canvas = (await import("html2canvas")).default;
         const canvas = await html2canvas(shareContainer, {
           backgroundColor: null,
           scale: 2,
@@ -2364,15 +2319,17 @@ const Wrapped = () => {
         // Convert to blob and download
         canvas.toBlob((blob) => {
           const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
+          const link = document.createElement("a");
           link.href = url;
-          link.download = 'journcamp-wrapped-2024.png';
+          link.download = "journcamp-wrapped-2025.png";
           link.click();
           URL.revokeObjectURL(url);
+          setIsGenerating(false);
         });
       } catch (error) {
-        console.error('Error generating share image:', error);
-        alert('Unable to generate image. Please try again.');
+        console.error("Error generating share image:", error);
+        alert("Unable to generate image. Please try again.");
+        setIsGenerating(false);
       }
     };
 
@@ -2383,151 +2340,142 @@ const Wrapped = () => {
         exit={{ opacity: 0 }}
         className="relative h-full flex flex-col items-center justify-center text-center px-6"
       >
-      <BackgroundGraphics type="ribbons" />
+        <BackgroundGraphics type="ribbons" />
 
-      {/* Sparkle particles */}
-      {[...Array(20)].map((_, i) => (
         <motion.div
-          key={`sparkle-${i}`}
-          className="absolute"
-          style={{
-            left: `${10 + Math.random() * 80}%`,
-            top: `${10 + Math.random() * 80}%`,
-            fontSize: `${12 + Math.random() * 12}px`,
-          }}
-          animate={{
-            scale: [0, 1, 0],
-            rotate: [0, 180, 360],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 2 + Math.random() * 2,
-            repeat: Infinity,
-            delay: i * 0.15,
-          }}
+          className="relative z-10 max-w-md flex flex-col items-center"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          ✨
-        </motion.div>
-      ))}
+          {/* Large emoji */}
+          <motion.div
+            className="text-8xl mb-8 filter drop-shadow-[4px_4px_0px_rgba(0,0,0,0.3)]"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+          >
+            {slide.icon}
+          </motion.div>
 
-      <motion.div
-        className="relative z-10 max-w-md flex flex-col items-center"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        {/* Large emoji */}
-        <motion.div
-          className="text-8xl mb-8 filter drop-shadow-[4px_4px_0px_rgba(0,0,0,0.3)]"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
-        >
-          {slide.icon}
-        </motion.div>
-
-        {/* Thank You text with beautiful glow */}
-        <motion.h1
-          className="text-6xl sm:text-7xl md:text-8xl font-black text-white mb-8 relative"
-          style={{
-            WebkitTextStroke: '3px rgba(0,0,0,0.3)',
-            paintOrder: 'stroke fill',
-            filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.5))'
-          }}
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.3, type: 'spring', stiffness: 150 }}
-        >
-          Thank You!
-          {/* Animated glow */}
-          <motion.span
-            className="absolute inset-0 blur-2xl opacity-40"
-            animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3]
+          {/* Thank You text with beautiful glow */}
+          <motion.h1
+            className="text-6xl sm:text-7xl md:text-8xl font-black text-white mb-8 relative"
+            style={{
+              WebkitTextStroke: "3px rgba(0,0,0,0.3)",
+              paintOrder: "stroke fill",
+              filter: "drop-shadow(0 0 40px rgba(255,255,255,0.5))",
             }}
-            transition={{ duration: 3, repeat: Infinity }}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 150 }}
           >
             Thank You!
-          </motion.span>
-        </motion.h1>
+            {/* Animated glow */}
+            <motion.span
+              className="absolute inset-0 blur-2xl opacity-40"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Thank You!
+            </motion.span>
+          </motion.h1>
 
-        {/* Share Button */}
-        <motion.button
-          onClick={generateShareImage}
-          className="mb-6 px-10 py-5 bg-white text-gray-900 font-black text-xl rounded-2xl border-[5px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all active:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, type: 'spring' }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="flex items-center gap-3">
-            <span className="text-2xl">📸</span>
-            <span>Share Your Wrapped</span>
-          </span>
-        </motion.button>
+          {/* Share Button */}
+          <motion.button
+            onClick={generateShareImage}
+            disabled={isGenerating}
+            className={`mb-6 px-10 py-5 bg-white text-gray-900 font-black text-xl rounded-2xl border-[5px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all ${
+              isGenerating
+                ? "opacity-70 cursor-not-allowed"
+                : "hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 active:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1"
+            }`}
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, type: "spring" }}
+            whileHover={!isGenerating ? { scale: 1.05 } : {}}
+            whileTap={!isGenerating ? { scale: 0.95 } : {}}
+          >
+            <span className="flex items-center gap-3">
+              {isGenerating ? (
+                <>
+                  <motion.span
+                    className="text-2xl"
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    ⏳
+                  </motion.span>
+                  <span>Generating...</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-2xl">📸</span>
+                  <span>Share Your Wrapped</span>
+                </>
+              )}
+            </span>
+          </motion.button>
 
-        {/* Link below */}
-        <motion.a
-          href="https://journcamp.explained.ph/wrapped"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg font-bold text-white/90 hover:text-white underline decoration-2 underline-offset-4 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] transition-colors"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          journcamp.explained.ph/wrapped
-        </motion.a>
+          {/* Link below */}
+          <motion.a
+            href="https://journcamp.explained.ph/wrapped"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg font-bold text-white/90 hover:text-white underline decoration-2 underline-offset-4 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)] transition-colors"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+          >
+            journcamp.explained.ph/wrapped
+          </motion.a>
+        </motion.div>
       </motion.div>
-    </motion.div>
     );
   };
 
   const renderSlide = (slide) => {
     switch (slide.type) {
-      case 'welcome':
+      case "welcome":
         return <WelcomeSlide slide={slide} />;
-      case 'intro':
+      case "intro":
         return <IntroSlide slide={slide} />;
-      case 'learning':
+      case "learning":
         return <LearningSlide slide={slide} />;
-      case 'intro-runtime':
+      case "intro-runtime":
         return <IntroToRuntimeSlide slide={slide} />;
-      case 'runtime':
+      case "runtime":
         return <RuntimeSlide slide={slide} />;
-      case 'intro-lectures':
+      case "intro-lectures":
         return <IntroToLecturesSlide slide={slide} />;
-      case 'top-lectures':
+      case "top-lectures":
         return <TopLecturesSlide slide={slide} />;
-      case 'intro-stats':
+      case "intro-stats":
         return <IntroToStatsSlide slide={slide} />;
-      case 'intro-ncsp':
-        return <IntroToNCSPSlide slide={slide} />;
-      case 'intro-medals':
-        return <IntroToMedalsSlide slide={slide} />;
-      case 'stat':
+      case "intro-NCPS":
+        return <IntroToNCPSSlide slide={slide} />;
+      case "stat":
         return <StatSlide slide={slide} />;
-      case 'medals':
-        return <MedalsSlide slide={slide} />;
-      case 'intro-trophies':
-        return <IntroToTrophiesSlide slide={slide} />;
-      case 'trophies':
-        return <StatSlide slide={slide} />;
-      case 'intro-regions-participated':
+      case "intro-regions-participated":
         return <IntroToRegionsParticipatedSlide slide={slide} />;
-      case 'regions-participated':
+      case "regions-participated":
         return <RegionsParticipatedSlide slide={slide} />;
-      case 'intro-regions':
+      case "intro-regions":
         return <IntroToRegionsSlide slide={slide} />;
-      case 'regions':
+      case "regions":
         return <RegionsSlide slide={slide} />;
-      case 'intro-thankyou':
+      case "intro-thankyou":
         return <IntroToThankYouSlide slide={slide} />;
-      case 'message':
+      case "message":
         return <MessageSlide slide={slide} />;
-      case 'thankyou':
+      case "thankyou":
         return <ThankYouSlide slide={slide} />;
       default:
         return null;
@@ -2537,7 +2485,10 @@ const Wrapped = () => {
   // Intro Page
   if (showIntro) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#006B7D] via-[#1AA8C8] to-[#F9A826] px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <div
+        className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#006B7D] via-[#1AA8C8] to-[#F9A826] px-4"
+        style={{ fontFamily: "Montserrat, sans-serif" }}
+      >
         <motion.div
           className="text-center max-w-md"
           initial={{ opacity: 0, y: 50 }}
@@ -2547,16 +2498,16 @@ const Wrapped = () => {
           <motion.h1
             className="text-5xl sm:text-6xl font-black text-white mb-6 drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)]"
             style={{
-              WebkitTextStroke: '2px rgba(0,0,0,0.3)',
-              paintOrder: 'stroke fill',
+              WebkitTextStroke: "2px rgba(0,0,0,0.3)",
+              paintOrder: "stroke fill",
             }}
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: 'spring' }}
+            transition={{ delay: 0.2, type: "spring" }}
           >
             JournCamp+ 2025
           </motion.h1>
-          
+
           <motion.p
             className="text-2xl sm:text-3xl font-bold text-white mb-8 drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
             initial={{ opacity: 0 }}
@@ -2565,10 +2516,9 @@ const Wrapped = () => {
           >
             Do you want to know what happened during the event?
           </motion.p>
-          
+
           <motion.button
             onClick={() => {
-              playSound('chime');
               setShowIntro(false);
             }}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-xl font-black uppercase tracking-wider border-[4px] border-black/30 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.4)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all"
@@ -2580,7 +2530,7 @@ const Wrapped = () => {
           >
             See Your Wrapped
           </motion.button>
-          
+
           {/* Floating particles */}
           {[...Array(12)].map((_, i) => (
             <motion.div
@@ -2607,84 +2557,64 @@ const Wrapped = () => {
   }
 
   return (
-    <div 
-      className="fixed inset-0 flex items-center justify-center bg-black overflow-hidden" 
-      style={{ fontFamily: 'Montserrat, sans-serif' }}
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black overflow-hidden"
+      style={{ fontFamily: "Montserrat, sans-serif" }}
     >
-      {/* Audio Control */}
-      <div className="absolute top-4 right-4 z-30">
-        <motion.button
-          onClick={() => {
-            toggleMusic();
-            playSound('pop');
-          }}
-          className="p-3 sm:p-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full border-2 border-white/30 shadow-lg transition-all"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          title={isMuted ? 'Play Music' : 'Pause Music'}
-        >
-          {isMuted ? (
-            <VolumeX className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-          ) : (
-            <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-          )}
-        </motion.button>
-      </div>
-
       {/* Fullscreen responsive container */}
       <div className="relative w-full h-full max-w-[600px] mx-auto flex items-center justify-center">
         <div className="relative w-full h-full sm:h-[90vh] sm:max-h-[900px] sm:aspect-[9/16] overflow-hidden sm:rounded-3xl sm:border-4 sm:border-gray-800 shadow-2xl">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgColor}`}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            {renderSlide(slides[currentSlide])}
-          </motion.div>
-        </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgColor}`}
+              initial={{ x: 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              {renderSlide(slides[currentSlide])}
+            </motion.div>
+          </AnimatePresence>
 
-        {/* Tap zones for navigation - invisible but clickable */}
-        {currentSlide > 0 && (
-          <div
-            onClick={() => handleTapZone('left')}
-            className="absolute left-0 top-0 bottom-0 w-1/3 cursor-pointer z-20"
-            style={{ touchAction: 'manipulation' }}
-          />
-        )}
-        
-        {currentSlide < slides.length - 1 && (
-          <div
-            onClick={() => handleTapZone('right')}
-            className="absolute right-0 top-0 bottom-0 w-1/3 cursor-pointer z-20"
-            style={{ touchAction: 'manipulation' }}
-          />
-        )}
-
-        {/* Slide indicators with neobrutalism */}
-        <div className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                if (!isAnimating) {
-                  playSound('pop');
-                  setIsAnimating(true);
-                  setCurrentSlide(index);
-                  setTimeout(() => setIsAnimating(false), 600);
-                }
-              }}
-              className={`h-2 rounded-full transition-all border-2 ${
-                index === currentSlide
-                  ? 'w-8 bg-white border-black/30 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]'
-                  : 'w-2 bg-white/60 border-white/40 hover:bg-white/80'
-              }`}
+          {/* Tap zones for navigation - invisible but clickable */}
+          {currentSlide > 0 && (
+            <div
+              onClick={() => handleTapZone("left")}
+              className="absolute left-0 top-0 bottom-0 w-1/3 cursor-pointer z-20"
+              style={{ touchAction: "manipulation" }}
             />
-          ))}
-        </div>
+          )}
+
+          {currentSlide < slides.length - 1 && (
+            <div
+              onClick={() => handleTapZone("right")}
+              className="absolute right-0 top-0 bottom-0 w-1/3 cursor-pointer z-20"
+              style={{ touchAction: "manipulation" }}
+            />
+          )}
+
+          {/* Slide indicators with neobrutalism */}
+          <div className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  if (!isAnimating) {
+                    playSound("pop");
+                    setIsAnimating(true);
+                    setCurrentSlide(index);
+                    setTimeout(() => setIsAnimating(false), 600);
+                  }
+                }}
+                className={`h-2 rounded-full transition-all border-2 ${
+                  index === currentSlide
+                    ? "w-8 bg-white border-black/30 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]"
+                    : "w-2 bg-white/60 border-white/40 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
